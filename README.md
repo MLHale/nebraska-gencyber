@@ -10,7 +10,7 @@ Students will get to talk to real security professionals, investigate cybersecur
 ### Teachers
 Teacher participants will not only experience the fun, hands-on, IoT and cybersecurity activities that students will do, but will also get a chance to make IoT and cybersecurity curricula of their own. We will have professional expert teachers on hand to help you translate what you learn at camp into your own classrooms.
 
-### License  
+# License  
 Nebraska GenCyber 
 All content is covered under creative commons or GNUv3 licensing.
 
