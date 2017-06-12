@@ -2,10 +2,12 @@
 This repo includes all open source content for the Nebraska GenCyber camp. The 2017 camp theme is IoT Security.
 
 ### License  
-Nebraska GenCyber   
-Overall content: Copyright (C) 2017  Dr. Matthew L. Hale, Dr. Robin Gandhi, and Doug Rausch
-Individual content: Copyright (C) 2017 as listed in each lesson. 
+Nebraska GenCyber 
 All content is covered under creative commons or GNUv3 licensing.
+
+Overall content: Copyright (C) 2017  Dr. Matthew L. Hale, Dr. Robin Gandhi, and Doug Rausch. 
+
+Individual content: Copyright (C) 2017 as listed in each lesson. 
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
