@@ -1,4 +1,4 @@
-# Virtualization
+# Containers
 
 ### Cybersecurity First Principles
 * __Domain Separation__: Good fences make good neighbors. When trying to secure a home or computer, separating the areas where resources are and people work prevents accidents and loss of data or private information. We are preventing the information worlds from colliding. In this lesson, we apply this principle to managing distinct sets of resources by seperating them with a virtual fence in a 'virtual machine.'
