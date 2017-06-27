@@ -18,15 +18,15 @@
 * None
 
 ### Table of Contents
-[Step 1: Installing Docker and Docker Compose](#step-1:-installing-docker-and-docker-compose)
+[Step 1: Installing Docker and Docker Compose](#step-1:-installing-docker-and-docker-compose)  
 [Step 2: Creating a Docker Hub Account](#creating-a-docker-hub-account)  
 [Step 3: Creating your first container](#)  
 [Step 4: Publishing your container](#)  
 [Step 5: Container management commands](#)  
 [Step 6: Composing multiple containers](#)    
 [Additional Resources](#additional-resources)  
-[Acknowledgements](#acknowledgements)
-[License](#license)
+[Acknowledgements](#acknowledgements)  
+[License](#license)  
 
 ### Step 1: Installing Docker and Docker Compose
 
