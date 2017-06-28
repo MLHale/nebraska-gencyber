@@ -75,17 +75,18 @@ To ensure that only we can program our cloudbit, Littlebits provides something c
 
 Go to http://control.littlebitscloud.cc/
 
-Login using the account you made in the [previous lesson](../hands-on-iot/ifttt.md)
+Login using the account you used in the [previous lesson](../hands-on-iot/ifttt.md)
 
 Once logged in, click on your cloudbit:
-![insert photo](/imgs/click-cloudbit.png).
 
-Now go to the ```settings menu```. You should see your access token _API Key_, you will need this string in next steps - so keep it handy. In practice, you wouldn't want to share this with anyone.
+Now go to the ```settings``` menu. You should see your access token _API Key_, you will need this string in next steps - so keep it handy. In practice, you wouldn't want to share this with anyone.
 
 ### Step 4: Making your first REST request
 Now that we have our API Key, lets use it to make a request.
 
-POSTMAN is a REST client, that allows end users to make requests to test their APIs. Lets use it to test the cloudbit API. Launch POSTMAN by typing ```chrome://apps``` into chrome and then clicking the POSTMAN icon.
+POSTMAN is a REST client, that allows end users to make requests to test their APIs. Lets use it to test the cloudbit API. Launch POSTMAN by typing ```chrome://apps``` into the chrome address bar, hit enter, and then click the POSTMAN icon.
+
+![Loading Postman](img/postman1.png)
 
 In POSTMAN, lets build a new GET request targetted at the URL https://api-http.littlebitscloud.cc/v2/devices
 
@@ -95,11 +96,15 @@ In POSTMAN, lets build a new GET request targetted at the URL https://api-http.l
 Authorization: Bearer <your access token>
 ```
 
+You can add the header as a key value pair, where the key is ```Authorization``` and the value is ```Bearer <insert your access token here>```. Make sure to use your access token.
+
 * Hit the ```send``` button to issue the _GET request_ to the URL.
 
-* you should receive a response back with the name and meta information for each of your cloudbits currently connected
+If all goes well you should see something like:
 
-looks kind of like:
+![GET request](img/postman2.png)
+
+* The _response_ you got back, when you sent the GET request contains the name and meta information for each of the cloudbits currently connected to your account. In the screenshot above, the JSON data returned for me was:
 
 ```
 [
@@ -114,6 +119,91 @@ looks kind of like:
     }
 ]
 ```
+This tells me the label of my cloudbit is ```mlhale-cloudbit``` and that it currently doesn't have any subscribers or subscriptions.
+
+### Step 5: GET device info
+Now that we know our device id, we can use it to make a specific request for our device.
+
+* make a new GET request in POSTMAN to
+
+```
+https://api-http.littlebitscloud.cc/v2/devices/<your-device-id>
+```
+
+* e.g. ```https://api-http.littlebitscloud.cc/v2/devices/00e04c036f15``` in my example
+
+You should get the same device info back, but notice that it is now not in square brackets - this means it is a singleton instead of a list.
+
+![GET request](img/postman3.png).
+
+### Step 6: First POST request to turn the device on
+Now that we have the basics of GET requests to access device info, lets try issuing a POST request to actually make our device do something.
+
+* Make sure you arrange your littlebits as shown in the following picture:
+
+![Littlebits Setup](img/littlebits-setup.png)
+
+* make a POST request using POSTMAN to set the voltage output on the cloudbit for a few seconds
+
+```
+https://api-http.littlebitscloud.cc/v2/devices/<your-device-id>/output
+```
+* e.g. ```https://api-http.littlebitscloud.cc/v2/devices/00e04c036f15/output``` in my example
+
+Before you issue the request make sure the headers are set as follows:
+
+Headers:
+```
+Authorization: Bearer <your access token>
+Content-type: application/json
+```
+
+![POST request](img/postman4.png)
+
+Now set the body to tell cloudbit to turn the LED on at 100% brightness and to stay on for 5 seconds.
+
+Body:
+```
+{
+	"percent": 100,
+	"duration_ms": 5000
+}
+```
+
+![POST request](img/postman5.png)
+
+Now send the request
+You should get back:
+
+```
+{
+    "success": true
+}
+```
+
+and you should see your led light up. You just used REST!
+
+![Littlebits Working!](img/littlebits-working.png)
+
+### Checkpoint
+Lets review what we've learned.
+
+https://www.qzzr.com/c/quiz/429280/8f69a8f7-0a69-4efa-9c3e-2aa38944ed1d
+
+### Step 7: Adding a subscriber to handle incoming evnets.
+Lets add a subscriber to catch input events going to the cloudbit:
+* make a POST request to: https://api-http.littlebitscloud.cc/v2/subscriptions
+* in our case we want to make a server listen for the cloudbit, so lets use a URI endpoint as the subscriber
+
+same headers as before
+body:
+```
+{
+	"publisher_id": "<your device id>",
+	"subscriber_id": "http://ourserver.com/endpoint"
+}
+```
+### Need to fix this step to work by proxying through the gencyber site!!!
 
 ### Additional Resources
 For more information, investigate the following.
@@ -128,85 +218,5 @@ For more information, investigate the following.
 
 Overall content: Copyright (C) 2017  [Dr. Matthew L. Hale](http://faculty.ist.unomaha.edu/mhale/), [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/), and [Doug Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas).
 
-Lesson content: Copyright (C) [Your name here](your site here) 2017.  
+Lesson content: Copyright (C) [Dr. Matthew Hale](http://faculty.ist.unomaha.edu/mhale/) 2017.  
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This lesson</span> is licensed by the author under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-
-
-# Connecting to cloudbit api from a rest client notes
-
-* Go to http://control.littlebitscloud.cc/
-* Create an account or login
-* click on your cloudbit
-* go to the settings menu
-* find your access token and device id, you will need them in next steps
-* Launch postman
-* build a new GET request to: https://api-http.littlebitscloud.cc/v2/devices
-* select headers and add the following
-
-```
-Authorization: Bearer <your access token>
-```
-
-* you should receive a response back with the name and meta information for each of your cloudbits currently connected
-
-looks kind of like:
-
-```
-[
-    {
-        "label": "mlhale-cloudbit",
-        "id": "00e04c036f15",
-        "subscriptions": [],
-        "subscribers": [],
-        "user_id": 175306,
-        "is_connected": true,
-        "input_interval_ms": 200
-    }
-]
-```
-
-* use the device id to get the same info about the device
-* make a GET request to https://api-http.littlebitscloud.cc/v2/devices/<your-device-id>
-* e.g. https://api-http.littlebitscloud.cc/v2/devices/00e04c036f15
-
-* make a POST request to set the voltage output on the cloudbit for a few seconds https://api-http.littlebitscloud.cc/v2/devices/<your-device-id>/output - make sure to include a content type and send the variables you want to set
-* e.g. https://api-http.littlebitscloud.cc/v2/devices/00e04c036f15/output
-
-Headers:
-```
-Authorization: Bearer <your access token>
-Content-type: application/json
-```
-
-Body:
-```
-{
-	"percent": 100,
-	"duration_ms": 5000
-}
-```
-
-You should get back:
-
-```
-{
-    "success": true
-}
-```
-
-and you should see your led light up.
-
-Lets add a subscriber to catch input events going to the cloudbit:
-* make a POST request to: https://api-http.littlebitscloud.cc/v2/subscriptions
-* in our case we want to make a server listen for the cloudbit, so lets use a URI endpoint as the subscriber
-
-same headers as before
-body:
-```
-{
-	"publisher_id": "<your device id>",
-	"subscriber_id": "http://ourserver.com/endpoint"
-}
-```
-
-## Large NOTE TO SELF: Need to figure out a way around the VPN issue that the servers will be behind if we want to do this - maybe proxy the request through the Gencyber server =)) Mike grove will love me for that.
