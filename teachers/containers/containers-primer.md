@@ -56,9 +56,10 @@
 
 # Table of contents
 
-[Deploy, run and publish a container](#deploy,-run-and-publish-a-container)  
+[Deploy, run and publish a container](#deploy--run-and-publish-a-container)  
 [Manage container interactions](#manage-container-interactions)   
 [Setting up a dev environment](#setting-up-a-dev-environment)   
+[Additional Resources](#additional-resources)
 [Acknowledgements](#acknowledgements)   
 [License](#license)  
 
@@ -479,7 +480,7 @@ For more information, investigate the following:
 - [Volume](https://docs.docker.com/engine/tutorials/dockervolumes/) - Manage Data in Containers
 - [Container Networking](https://docs.docker.com/engine/tutorials/networkingcontainers/#add-containers-to-a-network) - Connect Containers to a Network
 
-[Back to TOC](/doc/Containers-A-primer-UuOqrtvZWkvfqFmWhmdLQ#:uid=751585618020551678160734&h2=Table-of-contents)
+[Back to TOC](#table-of-contents)
 
 ----------
 # Acknowledgements
