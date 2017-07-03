@@ -13,43 +13,49 @@
 
 
 ----------
-# Cybersecurity and Containers
+# Cybersecurity Principles and Containers
 
 ## Domain Separation
+Good fences make good neighbors:
 
-- Separate application environment
-- Separate source code from runtime
+- We can separate an application's environment into 'fenced off neighbors'
+- It is good to separate source code from runtime environment
 
 ## Modularization
-- Separate services from each other
+Modular programming is a software design technique that emphasizes separating the functionality of a program into independent, interchangeable modules.
+
+- Containers separate services from each other
   (Web service, Database, Application Server, etc)
 
 ## Resource Encapsulation
-- Standard interface between the
-  container and host or other containers
-- Expose legitimate application interfaces only
+Encapsulation is an object oriented concept where all data and functions required to use the resource are packaged into a single self-contained component.
+
+- Containers provide a standard interface between the
+  host or other containers.
+- They also only expose legitimate application interfaces.
 
 ## Process Isolation
+Process Isolation keeps separate functions from accessing the same memory.
 - Limit damage/crashes to a single container
-- Processes in a container cannot access
-  resources in another container directly
+- Processes in a container cannot directly access
+  resources in another container
 
 
 ----------
 # Introduction
 
 ## Lesson goals
-- Deploy, run and publish a container
-- Manage container interactions
+- Deploy, run, and publish a container
+- Make and manage interactions between containers
 - Use containers to setup a development environment
-- Network containers
+- Network containers together
 
 ## Materials required
 - [Docker CE (Community Edition)](https://docs.docker.com/engine/installation/#supported-platforms)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Prerequisite lessons
-- Github Tutorial
+- [Github Tutorial](../github/index.md)
 - [Linux Commands](https://www.cheatography.com/davechild/cheat-sheets/linux-command-line/pdf/)
 
 ---
@@ -72,7 +78,7 @@ Let’s start with a container based on [Alpine Linux](https://alpinelinux.org)
 
 - Alpine Linux is a security-oriented, lightweight Linux distribution
 
-First we need to download a container blueprint called an Image
+First we need to download a container blueprint called an ```Image```
 
 - Open the Command Line Interface (CLI) i.e.   
   Terminal (Linux, macOS) or Command Prompt (Windows)
@@ -215,7 +221,7 @@ In the spawned container, we need to expose Port 80 to access the web server.
 We do this by mapping the container’s port to a port of the host
 
 ## Host - Container Network
-![Host-container network](../img/containers/host-container-network.png)
+![Host-container network](./img/host-container-network.png)
 
 ## Host-Container Port Mapping
 
