@@ -214,7 +214,7 @@ In the spawned container, we need to expose Port 80 to access the web server.
 We do this by mapping the container’s port to a port of the host
 
 ## Host - Container Network
-![Host-container network](../img/containers/host-container-network.svg)
+![Host-container network](../img/containers/host-container-network.png)
 
 ## Host-Container Port Mapping
 
