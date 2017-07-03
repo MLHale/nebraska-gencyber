@@ -71,7 +71,7 @@ Lets make a simple circuit.
 
 Press the button and the light turns on. That was Easy!
 
-This is ```GPIO``` in a nutshell. Each module has a general purpose input and output, with a standard interface, and **don't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of the ```modularity``` cybersecurity first principle.
+This is ```GPIO``` in a nutshell. Each module has a general purpose input and output, with a standard interface, and **doen't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of the ```modularity``` cybersecurity first principle.
 
 ### Step 3: Count all the things!
 Ok, we've made our first circuit - but it is pretty simple. Let's add some more modules:
@@ -228,7 +228,7 @@ For more information, investigate the following.
 * [https://shop.littlebits.cc/products/smart-home-kit](https://shop.littlebits.cc/products/smart-home-kit) - Information about the smart home kit
 
 ### Acknowledgements
-TBD
+Special thanks to [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/) for reviewing and editing this lesson.
 
 ### License
 [Nebraska GenCyber](https://github.com/MLHale/nebraska-gencyber) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
