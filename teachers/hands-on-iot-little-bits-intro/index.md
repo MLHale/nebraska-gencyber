@@ -44,9 +44,10 @@ None
 ### Step 1: Unbox it!
 First, open your littbit box. Take a second to look at the different components you have. Littlebits is organized around three colors:
 
-* ```pink``` modules are _inputs_
-* ```green``` modules are _outputs_
-* ```oranged``` modules are special and usually are _supportive_ - think spliters and logic handlers.
+* ```pink``` modules are _inputs_, like an On/Off button.
+* ```green``` modules are _outputs_, like LEDs and Fans.
+* ```orange``` modules are special and usually are _supportive_ - think spliters and logic handlers.
+* ```blue``` modules are power related.
 
 Look over each module, your box should include a helpful component diagram fold-out poster that shows off each of your modules. Read about some of them.
 
@@ -70,17 +71,17 @@ Lets make a simple circuit.
 
 Press the button and the light turns on. That was Easy!
 
-This is ```GPIO``` in a nutshell. Each module has a general purpose input and output and **don't need to understand or know anything about who they are connect to**. This is a great example of the ```modularity``` cybersecurity first principle.
+This is ```GPIO``` in a nutshell. Each module has a general purpose input and output, with a standard interface, and **don't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of the ```modularity``` cybersecurity first principle.
 
 ### Step 3: Count all the things!
 Ok, we've made our first circuit - but it is pretty simple. Let's add some more modules:
 
-* find the green ```o21 number``` output module
+* Find the green ```o21 number``` output module
 
 Time to extend your previous circuit to ![count](./img/count-all-the-things.jpg)
 
 * Connect the ```o21 number``` to the ```bright led```
-* Switch the switch to the up position on the ```o21 number``` module to put it into **count** mode instead of **voltage** mode.
+* Set the switch to the up position on the ```o21 number``` module. This puts it into **count** mode instead of **voltage** mode.
 
 Press the button!
 
@@ -88,8 +89,8 @@ Pretty simple. Notice we can **chain the output modules together** (bright led a
 
 Now, lets switch up our circuit a bit.
 
-* find the pink ```sound trigger``` input module
-* find the pink ```light sensor``` input module
+* Find the pink ```sound trigger``` input module
+* Find the pink ```light sensor``` input module
 
 Lets swap some components around.
 
@@ -170,7 +171,7 @@ Lets play a sound when a button is pressed:
 * Connect the ```mp3 player``` to the ```button```
 * Connect the ```synth speaker``` to the ```mp3 player```
 
-Press the button. This plays **all** of the tracks. If you switch the ```mp3 player``` switch to **next**, it will allow you to press the ```button``` to switch tracks. You can also use the buttons on the ```mp3 player``` board.
+Press the button. This plays **all** of the tracks. If you move the ```mp3 player``` switch to **next**, it will allow you to press the ```button``` to switch tracks. You can also use the buttons on the ```mp3 player``` board.
 
 ![mp3-player](./img/mp3player.jpg)
 
@@ -201,7 +202,7 @@ The last module we will explore is the ```servo``` which can bring actual moveme
 * Remove all components
 * Connect the ```button``` to the ```power```.
 * Connect the ```servo``` to the ```button```.
-* Open the packet of black attachements and pick one of the arms.
+* Open the packet of black attachments and pick one of the arms.
 * Attach the arm by pushing it down onto the ```white plastic gear``` on the ```servo```
 * Set the switch on the ```servo``` board to ```turn```.
 
