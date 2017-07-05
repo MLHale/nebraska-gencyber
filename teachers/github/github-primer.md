@@ -1,13 +1,46 @@
-## Github Primer
+# Github Primer
 
-### Cybersecurity First Principles
-* __Domain Separation__: Good fences make good neighbors. When trying to secure a home or computer, separating the areas where resources are and people work prevents accidents and loss of data or private information. We are preventing the information worlds from colliding. This lesson focuses on using development tools such as Github to manage different environments (such as development and production) effectively.
+# Git and Github
+* [Git](https://git-scm.com/) is a popular software development tool.
+* Used by developers to collaborate and version control code.   
+* A collaborative environment to develop written works including code!
+* [Github](www.github.com) is popular for online git repository hosting
+  - Free for open source  
+  - [BitBucket](https://bitbucket.org/), is another such a service.
 
-* __Modularization__: The concept of modularity is like building blocks. Each block (or module) can be put in or taken out from a bigger project. Each module has its own separate function that is interchangeable with other modules
+The following tutorials focus on how you can use Git and Github for collaboration and version control.
 
-* __Least Privilege__: One of the ways to protect information is by limiting what people can see and do with your information and resources.
+# Cybersecurity First Principles
 
-[Git](https://git-scm.com/) is a popular software development tool used by developers to collaborate and version control code. It is, however, not limited to just code. You can, and many others already do, use it as a collaborative enviroment to develop other written works. The most popular online platform to host public git repositories is a site called [Github](www.github.com). For our lessons here, we will use Github, but do note that there are several other services, such as [BitBucket](https://bitbucket.org/), that also provide git and other version control repository hosting capabilities. The following tutorials focus on how you can use Git and Github for collaboration and version control.
+## Domain Separation
+Good fences make good neighbors.
+- It is good to separate source code from runtime environment
+- Version control for source code prevents accidental or unauthorized changes
+
+
+## Modularization
+The concept of modularity is like building blocks.
+- Different code repositories can be maintained for project modules
+
+## Least Privilege
+Limit what people can see and do with your information and resources.
+- When collaboratively develop code, each collaborator should only have privileges to play their part.   
+For example, a code reviewer should only have the ability to read and comment on code, but not edit it.
+
+# Introduction
+
+## Lesson goals
+- Create, clone and manage online repositories
+- Create and manage local repositories
+- Synchronize repositories
+- Collaborate using Github
+
+## Materials required
+- [git](https://git-scm.com/download/) (Windows Version)
+- [Powershell](https://msdn.microsoft.com/powershell)
+
+## Prerequisite lessons
+- Lots of curiosity
 
 ### Table of Contents    
 [Step 1: Create Account](#step-1)  
@@ -44,24 +77,26 @@ To create a **Local** repository there are two basic options.
 [Top](#table-of-contents)
 
 ##### Clone a remote repository
-Let's start by looking at option #1. Git tools do not come pre-installed with all operating systems. To check if they exist on your operating system, open up a command line interface and type `git`. If Git is installed, this command will give you some help options. If the command is not recognized, then it means you need to install git on your OS. The information available at [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) can walk you through it for a variety of OSes.
+Let's start by looking at option #1.   
+* Check Git install
+  - Git tools do not come pre-installed with all operating systems. To check if they exist on your operating system, open up a command line interface and type `git --version`. If Git is installed, this command will show the verion installed. If the command is not recognized, then it means you need to install git on your OS. The information available at [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) can walk you through it for a variety of OSes. We will assume a Windows OS environment with Powershell as shown below:
 
-For an Ubuntu Desktop OS like the one you created in the `Virtualization` module, the instructions you need to type in a terminal are below. To open a new terminal in the Ubuntu VM you created earlier, press ctrl + alt + t.
+  > ![version](./img/gitVersioncheck.png)
+
+To clone a remote repository (what we set out to do), we first need a ```reference URL``` to find it.   
+On Github.com, navigate to your hello-world repository and click on the button that says ```Clone or download```.   
+Copy that URL.
+
+
+
+Now we are ready to clone this remote repository, and create a local repository.
 
 ```bash
-sudo apt-get update
-sudo apt-get -y install git
+git clone <replace this, including angled brackets with the clone URL that you copied above>
 ```
-The `-y` option automates the installation by responding YES to any prompts. After the installation succeeds, type `git` to see various command options. To clone a remote repository (what we set out to do), we first need a reference URL to find it. On Github.com, navigate to your hello-world repository and click on the button that says `Clone`. Copy that URL.
+You will start to see some download messages and upon success, your local repository will be ready for use. You may be asked to authenticate with Github credentials, if your repository is not public.
 
-![clone](./img/clonerepo.png)
-
-Now we are ready to clone this remote repository, and create a local repository. To do this we will use the `git clone <repository URL>` command. In the command below use the URL you copied above by pressing the `Clone` button.
-
-```bash
-git clone <replace this with the clone URL that you copied above>
-```
-You will start to see some download messages and upon success, your local repository will be ready for use. You will also be asked to authenticate.
+>![clone](./img/gitClone.png)
 
 Now switch to the hello-world directory that has all the files from the repository that you just cloned.
 
@@ -80,7 +115,7 @@ You should see a README.md and possibly some other files.
 
 > We do not need to use this option currently, so you may move to [Step 4](#step-4)
 
-If you need to create a new repository you would just navigate to the folder (using the `cd` command) containing the files you wish to version control and then use the init command: `git init`. That's it! This is useful if you are creating new files from scratch. Using github, you can also push newly tracked files such as these to a remote repository. The steps are the same as you will see for cloned respositories below.
+If you need to create a new repository you would just navigate to the folder (using the `cd` command) containing the files you wish to version control and then use the init command: `git init`. That's it! This is useful if you are creating new files from scratch. Using github, you can also push newly tracked files such as these to a remote repository. The steps are the same as you will see for cloned repositories below.
 
 [Top](#table-of-contents)
 
@@ -89,25 +124,23 @@ In this step we will make changes to files in our Local repository and then `pus
 
 Git is based on a "de-centralized" model of ownership - which means that there is no central authoritative repository. Every repository, Local or Remote, is fully autonomous and fully functional on its own. So changes made in any repository are tracked in that repository only. Two repositories do not communicate unless there is a explicit request to synchronize changes across them. This will make more sense as we work through a scenario.
 
-Let's open the hello-world folder in the Ubuntu Desktop OS VM and make changes to the `README.md` file in a text editor.  
+Let's open the hello-world folder in windows explorer and make changes to the `README.md` file in a text editor.  
 
 1. Navigate to the files
->![readme](./img/clonedrepo.png)
 
-2. Open README.md by double-clicking it
->![readme](./img/openreadme.png)
+2. Open README.md in Notepad
 
 3. Edit README.md to add a message. Like the one below.
->![readme](./img/editfile.png)
+>![readme](./img/editreadme.png)
 
-Once you save the edited README.md, check the status of the local repository using the following command. Make sure you navigate to a folder within your repository in the terminal first.
+Once you save the edited README.md, check the status of the local repository using the following command. Make sure you navigate to a folder within your repository in Powershell first.
 
 ```
 git status
 ```
 You should see something like this:
 
->![gitstatus](./img/gitstatus.png)
+>![gitstatus](./img/editedFileStatus.png)
 
 A few things to notice here about these status messages:  
 1. `On branch master`: You are on the master branch in your local repository.  
@@ -126,11 +159,11 @@ git status
 ```
 You should see something like this:
 
->![gitadd](./img/gitadd.png)
+>![gitadd](./img/gitadded.png)
 
 This time the modified files are staged for a commit and appear in green.
 
-Now before we **commit** these files into our repository, the git author details need to be set. This is for accountability of commits. Using the commands below, save your information to the git configuration files and set them for all of your local repositories. Make sure to use the same name and email you used to register with Github.
+Now before we **commit** these files into our local repository, the git author details need to be set. This is for accountability of commits. Using the commands below, save your information to the git configuration files and set them for all of your local repositories. Make sure to use the same name and email you used to register with Github.
 
 ```bash
 git config --global user.name "replace this with your name"
@@ -143,8 +176,6 @@ Check your configuration changes by using the following command:
 ```bash
 git config --list
 ```
-You should see something like this:
->![gitconfiglist](./img/gitconfiglist.png)
 
 You only have to set the config parameters once. Now that they are set, git will keep reusing them when making commits or merging your changes with other repositories.
 
@@ -153,46 +184,44 @@ Now let's commit the changes that we staged before. Here we use the `commit` opt
 ```bash
 git commit -m "added UNO description"
 ```
-You should see something like this:
->![gitcommit](./img/gitcommit.png)
 
 Use this command to see all your commits:
+
 ```bash
 git log
 ```
-This command shows a summary of commits in the repository, stating with the most recent. Observe the hash code, user details and commit message. These attributes provide attribution of all changes in the code repository, promoting code integrity.  
+
+This command shows a summary of commits in the repository, stating with the most recent. Observe the hash code, user details and commit message. These attributes provide attribution of all changes in the code repository, promoting code integrity.
+
 > Hit the key `q` to exit the log of commit messages.
 
 Issue this command to check your repository status once again:
 ```bash
 git status
 ```
+
 It should report **no** uncommitted changes. But it indicates that `Your branch is ahead of 'origin/master' by 1 commit`. Which means that our local repository master branch has more recent commits than the remote repository master branch.
 
-To push our local commits to the remote repository, we need the git `push` command. With this command we need to indicate the name of the remote repository followed by the name of the local repository branch that has updates to be pushed. Do you remember the name of our remote repository and the main branch?
+To push our local commits to the remote repository (Github in this case), we need the git `push` command. With this command we need to indicate the name of the remote repository followed by the name of the local repository branch that has updates to be pushed. Do you remember the name of our remote repository and the main branch?
 
-> #### Questions
-> What is the default name of the remote repository?  
-> What is the name of the main branch in our local repository?
+> **Questions**  
+> - What is the default name of the remote repository?  
+> - What is the name of the main branch in our local repository?
 
 To push local commits to the remote repository, use the following command:
 
 ```bash
  git push origin master
 ```
-You should see something like this:
->![gitpush](./img/gitpush.png)
 
 Issue this command to check your repository status once again:
 ```bash
 git status
 ```
-You should see something like this:
->![gitpush](./img/gitstatuspush.png)
 
-If you visit your remote repository on Github.com your changes will be reflected there. You should also see your commit message there. Clicking on the commit message will show the file differences in that commit.
+Visit your remote repository on Github.com. Your changes should appear there. You should also see your commit message there. Clicking on the commit message will show the file differences in that commit.
 
-![updateremote](./img/remoteupdate.png)
+> ![updateremote](./img/remoteupdate.png)
 
 As mentioned before in the introduction, git version control is very efficient for text files. It does not store entire files for old versions but only the differences. So it is prudent to make frequent commits and then push these changes to the remote repository - so that you have as many checkpoints as possible should you need to roll back.
 
@@ -217,16 +246,8 @@ Now the remote repository is one commit ahead of the local repository. To bring 
 ```bash
 git pull
 ```
-You should see something like this:
->![gitpull](./img/gitpull.png)
-
 Now if we look at our local README.MD file, it should have the updated link.
-
-1. Locate README.md on your computer
->![readme](./img/openreadme.png)
-
-2. View README.md contents
->![localpullupdate](./img/localpullupdate.png)
+>![localpullupdate](./img/openreadme.png)
 
 At this point you know enough to keep both the local and remote repositories synchronized.    
 
