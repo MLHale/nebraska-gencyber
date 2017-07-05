@@ -89,7 +89,7 @@ Below the `wikipedia` node, the Wikipedia organization has full autonomy and aut
 
 This is depicted in the figure below.
 
-![domainnames](../img/phishing/domainnames.png)
+![domainnames](./img/domainnames.png)
 
 
 So if wikipedia wants to name a computer `apple` in its domain, then it has full freedom to do so. The name of the computer on the Internet would be `apple.wikipedia.org.` This URL has nothing to do with the `apple.com.` top-level domain.
@@ -149,13 +149,13 @@ Open this link in a Chrome browser: http://faculty.ist.unomaha.edu/rgandhi/phish
 
 On the first link, you will notice that it appears to be a legitimate wellsfargo.com URL. But if you hover over the link, your status bar should show `www.google.com`. How did that happen?
 
-![trickyurls](../img/phishing/1-tricky-urls.png)
+![trickyurls](./img/1-tricky-urls.png)
 
 Examine the page HTML source by right clicking on a blank area of the webpage and selecting `View Page Source` option.
 
-![trickyurls](../img/phishing/2-tricky-urls.png)
+![trickyurls](./img/2-tricky-urls.png)
 
-![trickyurls](../img/phishing/3-tricky-urls.png)
+![trickyurls](./img/3-tricky-urls.png)
 
 In the source code you will see that the `href` attribute, which controls the link target is set to `google.com`. This explains the strange behavior. Hovering over links without clicking them will reveal their real destination in the status bar of the browser.
 
@@ -163,9 +163,9 @@ In the source code you will see that the `href` attribute, which controls the li
 
 For link #2, we explore a peculiarity of browsers. Many browsers will not display, named rightly so, the "shy" character, which is expressed as follows: `&shy`. The page source shows that this character is present in the `href` attribute and the link text. But the character is not displayed in the page!
 
-![trickyurls](../img/phishing/6-tricky-urls.png)
+![trickyurls](./img/6-tricky-urls.png)
 
-![trickyurls](../img/phishing/5-tricky-urls.png)
+![trickyurls](./img/5-tricky-urls.png)
 
 Chrome shows the `&shy` character in the status bar. Some other programs/browsers may not display it at all. Spammers can register domains with `&shy` characters to manipulate users into clicking the links.
 
@@ -177,11 +177,11 @@ Link #3 is straight-forward, but a bad practice. Legitimate emails often use thi
 
 Link #4 is very strange looking. You may examine the page source and still have no additional clues. Naively following the two rules of reading a URL from above, you may end up thinking that this is a `wellfargo.com` URL. But it is not!
 
-![trickyurls](../img/phishing/7-tricky-urls.png)
+![trickyurls](./img/7-tricky-urls.png)
 
 If you hover over the link in Chrome, much to our surprise it turns out to be `google.com`!!!!
 
-![trickyurls](../img/phishing/8-tricky-urls.png)
+![trickyurls](./img/8-tricky-urls.png)
 
 This URL uses two methods to trick users.
 * Hex encode the URL letters. The full conversion table is available here: http://www.asciitable.com/index/asciifull.gif Using this table we can decode the letters as follows:
@@ -226,7 +226,7 @@ To overcome this issue, we will use a service that expands the short URL and pro
 
 Upon using the URL expander service, it is apparent that this short URL redirects to `google.com`.
 
-![trickyurls](../img/phishing/9-tricky-urls.png)
+![trickyurls](./img/9-tricky-urls.png)
 
 ##### Link #6
 
@@ -234,7 +234,7 @@ At first glance, Link #6 is a short URL too. Let's just copy this link from the 
 
 But, now hover over the link or view the page source to examine the real link in the `href` attribute. It appears to be a slightly different short URL!
 
-![trickyurls](../img/phishing/10-tricky-urls.png)
+![trickyurls](./img/10-tricky-urls.png)
 
 If you expand this different short URL, it leads you to `duckduckgo.com`.
 
@@ -256,7 +256,7 @@ http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/obfuscated.html
 It is identical to the previous page in form and function, but examine its page source. It has been obfuscated using an external javascript file. Examine that file as well: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/myscr150731.js Spammers use such obfuscation to avoid detection and analysis. Navigate away from such pages or delete emails that have gone to such lengths to conceal their "trickeries".
 
 Just viewing the source files for obfuscated pages provides no useful information. But if we put our minds to it, we can defeat the bad guys. Navigate back to the obfuscated page. Then right click on a blank area and select `Inspect` or `Inspect Element`. In the `Elements` tab unravel the HTML code that is computed by the browser to render a human readable page. Now it should look similar to the phishing page from before:
-> ![trickyurls](../img/phishing/inspectelement.png)
+> ![trickyurls](./img/inspectelement.png)
 
 The developer tools built into the browser also help us see right through the obfuscated data.
 
@@ -344,13 +344,13 @@ At first, there is nothing unusual about this page. There is just a single link 
 As you should know very well by now, nothing is as it seems. To reveal the true nature of this page click on a modified version of this page below.
 http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/clickjacking-reveal.html
 
-![trickyurls](../img/phishing/clickjacking-reveal.png)
+![trickyurls](./img/clickjacking-reveal.png)
 
 Now you can see, that the page is crafted to steal your _clicks_ and pass them on to an invisible page in front of it. Spammers do this to generate advertisement revenue from unsuspecting users by _stealing_ their clicks. This exploit is called **click jacking**. You may explore the page source on these pages to notice that such behavior is possible using html `iframe` technology. With an invisible `iframe` the entire page becomes a minefield for your mouse clicks!
 
 In the demo page, `Like the kitten` is strategically placed on a link that tweets great things about Dr. Gandhi. You would be "liking" me without really intending to do so!
 
-![trickyurls](../img/phishing/clickjacking-tweet.png)
+![trickyurls](./img/clickjacking-tweet.png)
 
 When playing "free" online games, you may be clicking invisible advertisements! Don't worry the game in the next section is safe :-)
 
@@ -406,21 +406,21 @@ http://app.teachingprivacy.com
 
 This web-application takes a twitter handle and aggregates all publicly available geotagged information on a map. For example, here are the travel patterns of Steve Wozniak, co-founder of Apple.
 
-![geotagging](../img/phishing/stevewoz.png)
+![geotagging](./img/stevewoz.png)
 
 It is often prudent for celebrities and politicians to turn off geotagging in their posts. Here is Donald Trump's twitter account. He (or someone on his behalf) has taken appropriate steps to avoid leaking information about his whereabouts through social media, even while leaking hot air.
 
-![geotagging](../img/phishing/trump.png)
+![geotagging](./img/trump.png)
 
 Hillary Clinton is also very cautious about her privacy, unlike her handling of classified emails.
 
- ![geotagging](../img/phishing/clinton.png)
+ ![geotagging](./img/clinton.png)
 
 To prevent inadvertent sharing of geolocation data, turn off **location services** for social media applications. Also, remove geotags from photos before sharing them on social media.  Here is some more guidance: http://teachingprivacy.org/prevention/#location
 
 For instance, if you have a twitter account, there is a setting (Settings --> Security and Privacy) to delete any previously tagged locations.
 
-![geotagging](../img/phishing/deletelocation.png)
+![geotagging](./img/deletelocation.png)
 
 Protecting privacy requires __Information Hiding__. Deleting or hiding metadata prevents sensitive patterns from being learned over time. This is true even for encrypted `https` Internet traffic. While `https` encryption protects message contents, it still reveals the communication endpoints. Over time an accurate communication graph can be built by examining many such communications. To conceal  browsing patterns over the Internet, Virtual Private Networks (VPN) are very effective. VPNs work by forming a tunnel between your current connection and a known network (such as the unomaha network). Once a tunnel is formed, all requests you make appear as if they originate from within the known network, since they emanate from the location you have tunneled to.
 
@@ -448,5 +448,10 @@ Protecting privacy requires __Information Hiding__. Deleting or hiding metadata 
 [Top](#table-of-contents)
 
 
-#### License
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Cybersecurity Modules</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://faculty.ist.unomaha.edu/rgandhi/" property="cc:attributionName" rel="cc:attributionURL">Robin Gandhi</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+## License
+[Nebraska GenCyber](https://github.com/MLHale/nebraska-gencyber) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+Overall content: Copyright (C) 2017  [Dr. Matthew L. Hale](http://faculty.ist.unomaha.edu/mhale/), [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/), and [Doug Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas).
+
+Lesson content: Copyright (C) [Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/) 2017.  
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This lesson</span> is licensed by the author under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.

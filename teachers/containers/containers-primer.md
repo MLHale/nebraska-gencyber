@@ -11,8 +11,6 @@
 - Stackable onto a Linux, macOS or Windows Machine.
 - Can run anything that would run on a server.
 
-
-----------
 # Cybersecurity Principles and Containers
 
 ## Domain Separation
@@ -40,8 +38,6 @@ Process Isolation keeps separate functions from accessing the same memory.
 - Processes in a container cannot directly access
   resources in another container
 
-
-----------
 # Introduction
 
 ## Lesson goals
@@ -58,8 +54,6 @@ Process Isolation keeps separate functions from accessing the same memory.
 - [Github Tutorial](../github/index.md)
 - [Linux Commands](https://www.cheatography.com/davechild/cheat-sheets/linux-command-line/pdf/)
 
----
-
 # Table of contents
 
 [Deploy, run and publish a container](#deploy--run-and-publish-a-container)  
@@ -69,8 +63,6 @@ Process Isolation keeps separate functions from accessing the same memory.
 [Acknowledgements](#acknowledgements)   
 [License](#license)  
 
-
-----------
 # Deploy, run and publish a container
 ## Your first container
 
@@ -136,9 +128,8 @@ exit # Stop the shell to exit container
 
 # This is so cool… 😎
 
-[Back to TOC](#table-of-contents)
+[Top](#table-of-contents)
 
-----------
 # Manage container interactions
 
 ## Container volumes
@@ -267,9 +258,7 @@ Revisit http://localhost:8888
 - Host file updates are instantly reflected in the container application
 
 # 😎 Cool!
-[Back to TOC](#table-of-contents)
-
-----------
+[Top](#table-of-contents)
 
 # Setting up a dev environment
 
@@ -350,8 +339,6 @@ docker images
 > If the command is successful,  `django` is removed from your local image listing
 
 **Tip**: To delete a container, use the command `docker rm <container-ID>`
-
----
 
 ## Automating Multi-Container Application Build
 
@@ -464,17 +451,12 @@ docker ps
 cd /src/webapp/nebraska-gencyber-dev-env
 docker-compose down
 ```
-[Back to TOC](#table-of-contents)
-
-----------
-
+[Top](#table-of-contents)
 
 # May the force of containers be with you! 😎
 as you take this quiz…
 https://www.qzzr.com/c/quiz/430097/the-container-quiz
 
-
-----------
 # Additional Resources
 
 For more information, investigate the following:
@@ -486,15 +468,13 @@ For more information, investigate the following:
 - [Volume](https://docs.docker.com/engine/tutorials/dockervolumes/) - Manage Data in Containers
 - [Container Networking](https://docs.docker.com/engine/tutorials/networkingcontainers/#add-containers-to-a-network) - Connect Containers to a Network
 
-[Back to TOC](#table-of-contents)
+[Top](#table-of-contents)
 
-----------
 # Acknowledgements
 
 This tutorial was initially inspired by [this blog post](https://www.codementor.io/jquacinella/docker-and-docker-compose-for-local-development-and-small-deployments-ph4p434gb) by James. Thanks to thoughtful comments and reviews by [Dr. Matthew L. Hale](http://faculty.ist.unomaha.edu/mhale/)
 
-[Back to TOC](#table-of-contents)
-
+[Top](#table-of-contents)
 
 # License
 [Nebraska GenCyber](https://github.com/MLHale/nebraska-gencyber) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.

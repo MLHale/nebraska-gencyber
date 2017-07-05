@@ -31,7 +31,7 @@ When reading emails, the first item that grabs our attention is the sender's nam
 Here is an interesting one:
 
 > How long does an attacker have to wait to get that foot in the door? We aggregated the results of over 150,000 e-mails sent as part of sanctioned tests by two of our security awareness partners and measured how much time had passed from when the message was sent to when the recipient opened it, and if they were influenced to click or provide data (where the real damage is done). The data showed that nearly 50% of users open e-mails and click on phishing links within the first hour. [Verizon DBIR 2014]
-> ![verzon dbir stats](../img/email/dbirstats.png)
+> ![verzon dbir stats](./img/dbirstats.png)
 >
 >> It did not get any better in 2016: _**13%** of people tested click on a phishing attachment; median time to click is very short._
 
@@ -45,7 +45,7 @@ Email Headers hold a lot of information. Much of this information is never displ
 
 Before we get started, consider this email from President Barack Obama to a Researcher at the University of Nebraska at Omaha. They have a a great Cyber security program. You may read about the available degree programs in Cybersecurity here: http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php
 
-![email](../img/email/emailpresident.png)
+![email](./img/emailpresident.png)
 
 
 Anyways...we see emails like this all the time using desktop or web-based email clients. The section pointed to by the big red arrow in the figure above, is the part of the email header that most people are familiar with.
@@ -54,19 +54,19 @@ There is more to this header. To reveal the full message header, different deskt
 
 -----
 #### Apple Mail
-![applemail](../img/email/applemail.png)
+![applemail](./img/applemail.png)
 
 -----
 #### Outlook Desktop Client
-![outlook](../img/email/outlook.png)
+![outlook](./img/outlook.png)
 
 -----
 #### Outlook Web Client
-![outlookweb](../img/email/outlookweb.png)
+![outlookweb](./img/outlookweb.png)
 
 -----
 #### Gmail
-![gmail](../img/email/gmail.png)
+![gmail](./img/gmail.png)
 
 -----
 
@@ -214,7 +214,7 @@ There are few other fields that you should investigate in the email header.
 
 Google has a [online tool](https://toolbox.googleapps.com/apps/messageheader/) that helps to examine the "hops" and the time delay between them. Large delays in accepting email by the first server may be a sign of overloaded and resource constrained spam servers. Here's what the tool shows about [email-header1.txt](./email-headers/email-header1.txt). There is a suspicious 12 minute delay right at the beginning, which may indicate a overloaded spam sending email server. Sometimes, time difference between servers may cause false positives.
 
-![google header analysis](../img/email/googleheaderanalyzer.png)
+![google header analysis](./img/googleheaderanalyzer.png)
 
 [Top](#table-of-contents)
 
@@ -320,5 +320,10 @@ Stay Vigilant!
 [Top](#table-of-contents)
 
 
-#### License:
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Cybersecurity Modules</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://faculty.ist.unomaha.edu/rgandhi/" property="cc:attributionName" rel="cc:attributionURL">Robin Gandhi</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+# License
+[Nebraska GenCyber](https://github.com/MLHale/nebraska-gencyber) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+Overall content: Copyright (C) 2017  [Dr. Matthew L. Hale](http://faculty.ist.unomaha.edu/mhale/), [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/), and [Doug Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas).
+
+Lesson content: Copyright (C) [Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/) 2017.  
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This lesson</span> is licensed by the author under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
