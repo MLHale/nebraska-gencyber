@@ -336,7 +336,7 @@ Finally, Github repositories separate source code from other resources. This sep
 ## Additional Resources
 
 * Creating a local repository first and then adding a remote repository, [Github](https://try.github.io/)
-* [Github cheatsheet](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf)
+* [Github cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
 * Collection of [Github tutorials](https://help.github.com/articles/good-resources-for-learning-git-and-github/)
 * Ignore files during a check in to Github. https://help.github.com/articles/ignoring-files/
 
