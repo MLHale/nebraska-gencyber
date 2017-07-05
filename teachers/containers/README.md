@@ -5,7 +5,9 @@
 - Stackable onto on a ship, train, plane or truck. ⛴️ 🚇 ✈️ 🚚
 - Compatible worldwide.
 
-## Enter application containers
+Application containers follow a similar phillosophy.
+
+## Application containers
 - Standard unit of an application’s runtime.
   (files, libraries, dependencies, sockets, etc)
 - Stackable onto a Linux, macOS or Windows Machine.
