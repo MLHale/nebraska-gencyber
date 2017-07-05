@@ -81,7 +81,7 @@ Let's start by looking at option #1.
 * Check Git install
   - Git tools do not come pre-installed with all operating systems. To check if they exist on your operating system, open up a command line interface and type `git --version`. If Git is installed, this command will show the verion installed. If the command is not recognized, then it means you need to install git on your OS. The information available at [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) can walk you through it for a variety of OSes. We will assume a Windows OS environment with Powershell as shown below:
 
-  > ![version](./img/gitVersioncheck.png)
+  > ![version](./img/gitVersionCheck.png)
 
 To clone a remote repository (what we set out to do), we first need a ```reference URL``` to find it.   
 On Github.com, navigate to your hello-world repository and click on the button that says ```Clone or download```.   
