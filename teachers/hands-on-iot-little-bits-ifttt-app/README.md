@@ -229,6 +229,8 @@ Want to turn the lights on? Reply with  <a href="mailto:trigger@applet.ifttt.com
 
 Cover the light sensor up with your finger to turn it on (simulating it being **dark**).
 
+ ![light email](img/lights-on-email.png)
+
 * Now make another applet by selecting the dropdown caret next to your name, and then clicking **New Applet**.
 * As the **IF** condition, select the `email` service.
 * Of the two options, select the `Send IFTTT an email tagged` option.
