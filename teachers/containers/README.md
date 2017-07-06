@@ -49,8 +49,7 @@ Process Isolation keeps separate functions from accessing the same memory.
 - Network containers together
 
 ## Materials required
-- [Docker CE (Community Edition)](https://docs.docker.com/engine/installation/#supported-platforms)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 
 ## Prerequisite lessons
 - [Github Tutorial](../github/index.md)

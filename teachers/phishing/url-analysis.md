@@ -27,6 +27,20 @@ Spammers send out millions of messages, only a few need to succeed...
 Phishing victims often fear ridicule and do not report crimes...
 > ![dibert3](http://assets.amuniversal.com/b1cbb110abaf01314782005056a9545d)
 
+# Introduction
+
+## Lesson goals
+- Read URLs
+- Spot common techniques for URL manipulation
+- Awareness of location privacy issues
+
+## Materials required
+- Internet connected Machine
+
+## Prerequisite lessons
+- Lots of curiosity
+
+
 ## Table of Contents
 [Introduction](#introduction-to-urls)  
 [Reading a URL](#reading-a-url)  
@@ -117,8 +131,7 @@ http://www.cnn.com/tiger-woods/story.html
 http://www.buy.com.money.ru
 ```
 
-Check your answers with your peers. Do they match?  
-[Answer key](./misc.md)
+Check your answers with your peers. Do they match?
 
 ##### Which link will you click on? #1 or #2  
 
@@ -132,7 +145,7 @@ Check your answers with your peers. Do they match?
 
 
 ##### Misconception 2
-`www` is a standard part of a URL and cannot be changed. [WRONG!]
+`www` is a standard part of a URL and cannot be changed. ```WRONG!```
 
 Beyond the top-level domains, a organization or individual that has registered the domain has much control over the names of the computers in their networks. The name `www` is commonly give to computers that serve pages to the _World Wide Web_. But it is not necessary to name a web-server as `www`. For example, it is OK to have names such as `http://www2.nationalgeographic.com` or even `http://web.nationalgeographic.com`. So there is nothing special about the `www` part of a URL.
 
@@ -247,6 +260,33 @@ Hover over link #7 to examine its real destination. What happens?
 Using JavaScript, the page automatically redirects you to `google.com` when your mouse hovers over the link! The script is triggered by a `onMouseOver` event.
 
 When visiting questionable websites, it is prudent to turn off JavaScript or use JavaScript blocking extensions such as [No-Script](https://noscript.net) or [ScriptSafe](https://chrome.google.com/webstore/detail/scriptsafe/oiigbmnaadbkfbmpbfijlflahbdbdgdf?hl=en)
+
+##### Link #8
+
+Hover over [link #8](http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/phishing.html) to examine its real destination. What do you see?
+
+Turns out you can register DNS names in any language using Unicode. Punycode is used to encode internationalized domain names (IDN). As a result, similar looking foreign alphabets can be used to register domains that are extremely close in appearance to english letters.
+
+- Copy this URL http://гауthеоn.соm and use this site to check if it is internationalized or not.
+https://www.punycoder.com/
+	- You should see equivalent punycode
+
+
+- Now try it with this URL: http://raytheon.com
+	- This one is in english.
+
+The previous one uses [Russian Cyrillic Characters](http://symbolcodes.tlt.psu.edu/bylanguage/cyrchart.html). This attack also fools browser inspection tool in Chrome.
+
+Such attacks are similar to domain-squatting but also referred to as [homophone](http://blog.trendmicro.com/trendlabs-security-intelligence/soundsquatting-unraveled-homophone-based-domain-squatting/) (similar looking, sounding, spelling) attacks.
+
+>![trickyurls](./img/punycode.png)
+
+##### Link #9
+
+This is a [Data URL](https://en.wikipedia.org/wiki/Data_URI_scheme) that allows specifying small files inline within HTML documents. Typically this is used to includes images in HTML document. Turns out that browsers will render this URL as an HTML page.
+
+In this link we have embedded enough spaces between the place holder text and the real content such that a user can be fooled into believing the visited domain name. Then we also took all the data from the real wellsfargo page and encoded it as an HTML file within the Data URL. We could have just as easily included some malicious javascript in here to steal any username and password entered.
+
 
 #### Obfuscated Source
 
@@ -402,7 +442,7 @@ Source code: https://github.com/ilektrojohn/creepy
 
 To spread awareness of this issue, an educational web application has been developed.
 
-http://app.teachingprivacy.com
+http://app.teachingprivacy.org  (Beware of the ".com" version of this site. This is called [`domain-squatting`](https://en.wikipedia.org/wiki/Cybersquatting))
 
 This web-application takes a twitter handle and aggregates all publicly available geotagged information on a map. For example, here are the travel patterns of Steve Wozniak, co-founder of Apple.
 

@@ -37,7 +37,9 @@ For example, a code reviewer should only have the ability to read and comment on
 
 ## Materials required
 - [git](https://git-scm.com/download/) (Windows Version)
-- [Powershell](https://msdn.microsoft.com/powershell)
+
+- ```Optionally:``` You could install Docker Toolbox which also includes Git for Windows
+  - [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 
 ## Prerequisite lessons
 - Lots of curiosity
