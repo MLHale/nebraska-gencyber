@@ -11,6 +11,12 @@
 ### Introduction
 In this lesson we will explore a cool hands-on technology called [Littlebits](http://littlebits.cc/). Littlebits, follows a _component-based design_ paradigm using _GPIO_ (or general purpose input/output) to let you easily make apps. We will learn how to plug and play bits together to make some simple inventions. Littlebits will be the central platform for the rest of camp and you will be using them in other lessons.
 
+### Goals
+By the end of this tutorial, you will be able to:
+* Use Littlebits and GPIO to make your first (or another) IoT app
+* Understand IoT `modularity`
+* Come up with some of your own app ideas
+
 ### Materials Required
 
 * Littlebits kit
