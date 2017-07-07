@@ -54,10 +54,11 @@ The following tutorials focus on how you can use Git and Github for collaboratio
     - [Step 6: Fork Repository](#step-6-fork-repository)
     - [Step 7: Make a Pull Request](#step-7-make-a-pull-request)
     - [Step 8: Markdown](#step-8-markdown)
+    - [Fork Our whole camp](#fork-our-whole-camp)
     - [Cyber security First Principle Reflections](#cyber-security-first-principle-reflections)
   - [Additional Resources](#additional-resources)
   - [Acknowledgements](#acknowledgements)
-- [License](#license)
+  - [License](#license)
 
 <!-- TOC END -->
 
@@ -225,18 +226,18 @@ To push our local commits to the remote repository (Github in this case), we nee
 > - What is the default name of the remote repository?  
 > - What is the name of the main branch in our local repository?
 
-To push local commits to the remote repository, use the following command:
+To `push` local commits to the remote repository, use the following command:
 
 ```bash
  git push origin master
 ```
 
-Issue this command to check your repository status once again:
+Issue the `status` command to check your repository status once again:
 ```bash
 git status
 ```
 
-Visit your remote repository on Github.com. Your changes should appear there. You should also see your commit message there. Clicking on the commit message will show the file differences in that commit.
+Visit your remote repository on `Github.com`. Your changes should appear there. You should also see your commit message there. Clicking on the commit message will show the file differences in that commit.
 
 > ![updateremote](./img/remoteupdate.png)
 
@@ -245,7 +246,7 @@ As mentioned before in the introduction, git version control is very efficient f
 [Top](#table-of-contents)
 
 ### Step 5: Pull Remote Changes
-What happens if we make some changes to README.md on Github.com? How do we get these changes back into our local repository. We will learn just that in this step.
+What happens if we make some changes to README.md on `Github.com`? How do we get these changes back into our local repository. We will learn just that in this step.
 
 So, I realized that I forgot to add a link to UNO's Cybersecurity programs in the README.md file. So I will make these changes and commit those changes on Github.com itself.
 
@@ -258,7 +259,7 @@ So, I realized that I forgot to add a link to UNO's Cybersecurity programs in th
 3. See changes in your README.md file
 >![githubupdated](./img/githubupdated.png)
 
-Now the remote repository is one commit ahead of the local repository. To bring the _local_ repository up to speed, we use the following command in a terminal.
+Now the remote repository is one `commit` ahead of the local repository. To bring the _local_ repository up to speed, we use the following command in a terminal.
 
 ```bash
 git pull
@@ -268,9 +269,9 @@ Now if we look at our local README.MD file, it should have the updated link.
 
 At this point you know enough to keep both the local and remote repositories synchronized.    
 
-As long as you always pull before making changes and keep pushing any new changes - you will avoid most merge conflicts that can occur.  
+As long as you always `pull` before making changes and keep pushing any new changes - you will avoid most merge conflicts that can occur.  
 
-If you are interested in learning more about complex team interaction scenarios - you may want to explore a concept called merge conflicts; for more information see: [https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/).
+If you are interested in learning more about complex team interaction scenarios - you may want to explore a concept called `branching` that avoids most `merge conflicts`; for more information about merge conflicts see: [https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/).
 
 [Top](#table-of-contents)
 
@@ -284,21 +285,21 @@ Here is what Github [says](https://help.github.com/articles/fork-a-repo/):
 
 > Every public repository can be forked
 
-So head-on over to a hello-world repository developed by one of your peers. You can do this by browsing to the git URL of their hello-world repository in your browser.  
+So head-on over to a hello-world repository developed by one of your peers. You can do this by browsing to the `git URL` of their hello-world repository in your browser.  
 
 You should see something like this on your peer's repository:
 >![githubfork](./img/githubfork.png)
 
-Click the "Fork" button.
+Click the `Fork` button.
 
-After forking, you will have your own copy of your peer's repository to work on. Using [Step 3](#step-3) you can clone this repository to your local computer. Make changes to files and push it back to this forked remote repository.   
+After forking, you will have your own copy of your peer's repository to work on. Using [Step 3](#step-3) you can `clone` this repository to your local computer. Make changes to files and `push` it back to this forked remote repository.   
 
-You may also choose to make direct changes to it on Github itself. Let's do this in the next step.
+You may also choose to make direct changes to it on `Github` itself. Let's do this in the next step.
 
 [Top](#table-of-contents)
 
 ### Step 7: Make a Pull Request
-In this step we make changes to the fork of your peers' repository on Github.com and create a pull request.
+In this step we make changes to the fork of your peers' repository on `Github.com` and create a `pull request`.
 
 Let's assume that a `gencyber` (insert your ID here) user forks `robinagandhi/hello-world` repository (this will be your peer's repository).
 
@@ -308,27 +309,27 @@ The forked repository for the `gencyber` user will look like this:
 The `gencyber` user now makes changes to the README.md file in this forked repository. She is also the owner of this forked repository.
 >![forkupdate](./img/forkupdate.png)
 
-Now to suggest these changes to `robinagandhi` user; the `gencyber` user needs to create a `pull` request. So the `gencyber` user switches over to the 'Pull Request' tab on forked repository and clicks the 'new pull request' button. It will look something like this:
+Now to suggest these changes to the `robinagandhi` user; the `gencyber` user needs to create a `pull request`. So the `gencyber` user switches over to the `Pull Request` tab on forked repository and clicks the **new pull request** button. It will look something like this:
 >![forkpulltab](./img/forkpulltab.png)
 
 Here is an open pull request that compares the master branches across the two repositories.
 >![forkpullopen](./img/forkpullopen.png)
 
-The `robinagandhi` user is now notified of a pull request on his hello-world repository.He examines the suggested changes, and in this case the files can be automatically merged.
+The `robinagandhi` user is now notified of a `pull request` on his hello-world repository. He examines the suggested changes, and in this case the files can be automatically merged.
 >![forkmerge](./img/forkmerge.png)
 
-In cases where files cannot be merged automatically, discussions around the pull request can help to resolve the conflicts manually. In this case that won't be necessary. With a few more simple clicks the changes are merged. Your peer will see something like this to confirm the merge:
+In cases where files cannot be merged automatically, discussions around the pull request can help to resolve the conflicts manually. In this case that won't be necessary. With a few more simple clicks the changes are `merged`. Your peer will see something like this to confirm the merge:
 >![mergeconfirm](./img/mergeconfirm.png)
 
-Here is a confirmation message after a successful merge:
+Here is a confirmation message after a successful `merge`:
 >![mergemsg](./img/mergemsg.png)
 
 The updated content is now reflected in the peer's repository. It will be something like this:
 >![finalupdate](./img/forkupdatefinal.png)
 
-Now return the favor to your peer. Help them fork your hello-world repository and make a pull request to you.
+Now return the favor to your peer. Help them `fork` your hello-world repository and make a `pull request` to you.
 
-And that is one way you can collaborate using Github.
+And that is one way you can collaborate using `Github`.
 
 [Top](#table-of-contents)
 
@@ -340,13 +341,18 @@ You are now ready to explore the wonderful world of open source on Github. Enjoy
 
 [Top](#table-of-contents)
 
+### Fork Our whole camp
+We practice what we preach. Our whole camp has been developed on github using markdown, for your viewing pleasure and for you to take home with you. Now that you are a you are a git guru, you may as well fork all of the camp content to take it home with you.
+
+Go to the top of this page and click fork. Boom, you have our whole camp, use responsibly.
+
 ### Cyber security First Principle Reflections
 
-On Github, only the `owner` of a remote repository can push commits to it. All other `Github users` have the limited privilege to make a pull request. The repository owner reviews pull requests and initiates a merge action. The owner may reject pull requests if the do not seen appropriate. A `collaborator` can push commits, but cannot delete a repository or add other collaborators. These constraints show the concept of _least privilege_ with github user roles. Users should have no more privilege than what is required for their job.
+On Github, only the `owner` of a remote repository can push commits to it. All other `Github users` have the limited privilege to make a pull request. The repository owner reviews pull requests and initiates a merge action. The owner may reject pull requests if the do not seen appropriate. A `collaborator` can push commits, but cannot delete a repository or add other collaborators. These constraints show the concept of __least privilege__ with github user roles. Users should have no more privilege than what is required for their job.
 
 Developers often design Github repositories, to be self contained _modules_. These modules are then put in or taken out of a bigger project. During build time these components are composed to create an integrated system. This strategy facilitates __Modularization__. Following this principle allows globally distributed teams to collaborate and locate faulty components.
 
-Finally, Github repositories separate source code from other resources. This separation allows longterm archival and maintenance of a codebase, separate from its dependencies. _Domain Separation_ enables the management of source code versions that target different products and operating environments.
+Finally, Github repositories separate source code from other resources. This separation allows longterm archival and maintenance of a codebase, separate from its dependencies. __Domain Separation__ enables the management of source code versions that target different products and operating environments.
 
 [Top](#table-of-contents)
 
@@ -365,7 +371,7 @@ Finally, Github repositories separate source code from other resources. This sep
 
 [Top](#table-of-contents)
 
-# License
+## License
 [Nebraska GenCyber](https://github.com/MLHale/nebraska-gencyber) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 Overall content: Copyright (C) 2017  [Dr. Matthew L. Hale](http://faculty.ist.unomaha.edu/mhale/), [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/), and [Doug Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas).
