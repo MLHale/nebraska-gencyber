@@ -14,8 +14,14 @@ observed or accessed. Data and information hiding keeps the programmer from havi
 
 * __Minimization__: Minimization refers to having the least functionality necessary in a program or device. The goal of minimization is to simplify and decrease the number of ways that software can be exploited. This can include **turning off ports that are not needed**, reducing the amount of code running on a machine, and/or turning off unneeded features in an application. This lesson focuses specifically on turning off ports that aren't in use.
 
-### Introduction
+### Introduction and goals
 In this lesson we will explore a cool hands-on technology called [Littlebits](http://littlebits.cc/). Littlebits, follows a _component-based design_ paradigm using _GPIO_ (or general purpose input/output) to let you easily make apps. We will learn how to plug and play bits together to make some simple inventions. Littlebits will be the central platform for the rest of camp and you will be using them in other lessons.
+
+### Goals
+By the end of this tutorial, you will be able to:
+* Interact with `web services`
+* `Mashup` web services with Littlebits
+* Make some apps that help automate your home
 
 ### Materials Required
 
@@ -100,7 +106,7 @@ It works! With that you just made your first `IoT app`.
 You should see your gauge go up! Now you have input and outputs routed through the cloud controller!
 
 ### Step 4: Using web services - connecting to IFTTT
-`Web services` are, as the name implies, services that live on the web. You use these all the time - mostly without knowing it. The internet is built on top of them. Google, Dropbox, Youtube, Twitter, and Facebook are just a few juggernauts that provide and use many different web services. In this lesson, we are going to use a `mashup service` called [IFTTT](https://ifttt.com) (which stands for **I**f **T**his, **T**hen **T**hat ). **IFTTT** is a great platform that _talks to_ all kinds of other web services. One service it connects with is, conveniently, `Littlebits`.
+`Web services` are, as the name implies, services that live on the web. You use these all the time - mostly without knowing it. The internet is built on top of them. Google, Dropbox, Youtube, Twitter, and Facebook are just a few juggernauts that provide and use many different web services. In this lesson, we are going to use a `mashup service` called [IFTTT](https://ifttt.com) (which stands for **I**f **T**his, **T**hen **T**hat ). **IFTTT** is a great platform that _talks to_ all kinds of other web services. One service it connects with is, conveniently, `Littlebits`. This is an example of __modularity__ because `IFTTT` can swap out components for others easily.
 
 * Connect your `cloudbit` to `IFTTT` by pressing the `automate` button in the `Littlebits` cloud controller user interface.
 * Visit https://ifttt.com
@@ -139,7 +145,7 @@ Check your email!
 ![email worked](img/email-worked.png)
 > It worked!
 
-This is a simple, but powerful tool.
+This is a simple, but powerful tool. It also shows off __resource encapsulation__ and __abstraction__. In terms of encapsulation, each of the services connected to `IFTTT` have many functions. These functions are encapsulated in a service (e.g. `email` in this example). The functions are also __abstrct__ because `IFTTT` doesn't need to know _how_ they work, just that they achieve a certain purpose (e.g. send an email). This helps _model_ or _abstract_ the implementation away from the design.
 
 ### Step 6: Email / SMS trigger
 Lets make an `applet` that allows us to turn the `cloudbit` output on with an email or text.
@@ -254,11 +260,20 @@ Try some different designs yourself. You can combine any services with any littl
 ### Test you Bits, err... Wits!
 [Quiz](https://www.qzzr.com/c/quiz/431837/littlebits-ifttt)
 
+### Cyber security First Principle Reflections
+In this lesson, we saw web services, such as `IFTTT`, can __Abstract__ away details about devices and instead focus on recipes or `design patterns` to describe how things work. We also saw that by keeping functionality __modular__, `IFTTT` can combine `Littlebits` with many other services.
+
+Web services use __resource encapsulation__ to ensure that all functions related to the execution of an app or service are neatly within the scope of the service itself. `IFTTT` relies on services to be encapsulated so that they can provide external services with the ability to use them without worrying about connecting to multiple other related services.
+
+__Data hiding__ is also important to prevent internal data in the service from being released outside of the `service invocation`. Local data remains hidden, while `interfaces` expose only what the service wants to release (for instance to `IFTTT`). This also relates to __minimization__ because services can turn ports and other access off except for the specific interfaces it wants to leave open for other services to use.
+
+
 ### Additional Resources
 For more information, investigate the following.
 
 * [Littlebits](http://littlebits.cc/how-it-works) - Overview of concepts and available bits
 * [https://shop.littlebits.cc/products/smart-home-kit](https://shop.littlebits.cc/products/smart-home-kit) - Information about the smart home kit
+
 
 ### Acknowledgements
 Special thanks to [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/) for reviewing and editing this lesson.
