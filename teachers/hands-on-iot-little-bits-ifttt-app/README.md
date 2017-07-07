@@ -51,35 +51,36 @@ In this lesson we will explore a cool hands-on technology called [Littlebits](ht
 
 <!-- TOC END -->
 ### Before we START
-In the last lesson, you saw how versatile, modular, and cool Littlebits was to work with. It was easy to plug and play different modules together following simple `design patterns` to make cool, simple, apps. Now, imagine everything you saw before can be hooked up to the internet and **controlled using a smartphone or online app**. We are going to do _THAT_ now!
+In the [last lesson](../hands-on-iot-little-bits-intro/README.md), you saw how versatile, modular, and cool Littlebits was to work with. It was easy to plug and play different modules together following simple `design patterns` to make cool, simple, apps. Now, imagine everything you saw before can be hooked up to the internet and **controlled using a smartphone or online app**. We are going to do _THAT_ now!
 
 ### Step 1: Create an Account / Login to Littlebits portal!
 To start we need to create an account:
 
-* visit https://littlebits.cc/login and click `register`
-* walk through the online instructions to create your account
+* Visit https://littlebits.cc/login and click `register`
+* Walk through the online instructions to create your account
 
 ### Step 2: Pair your Cloudbit with the portal
-Now that we have an account, we need to pair our `Cloudbit` with the `Littlebits cloud platform`. To do that:
+
+Now that we have an account, we need to pair our `cloudbit` (an orange module with `cloud` written on it) with the `Littlebits cloud platform`. To do that:
 
 * Login at http://control.littlebitscloud.cc/ using your account info.
-* Give your new `Cloudbit` a name: I decided to call mine "Tim" `Tim`.
+* Give your new `cloudbit` a name: I decided to call mine "Tim" `Tim`.
 
  ![tim](img/tim.jpg)
 
-* Follow the on-screen instructions to setup your `Cloudbit`.
+* Follow the on-screen instructions to setup your `cloudbit`.
 
  ![setup](img/setup.png)
 
-* First connect the blue `power` module to the pink `button` module and then connect the `button` to the orange `cloudbit` module.
-* ensure your bits are connected as shown:
+* First, connect the blue `power` module to the pink `button` module.
+* Next, connect the `button` module to the orange `cloudbit` module.
+* It should all be connected as shown:
+![setup](img/configuration.jpg)
 
- ![setup](img/configuration.jpg)
-
-* Hold down the setup button on the cloudBit until the light blinks blue.
+* Hold down the setup button on the `CloudBit` until the light blinks blue.  
 * When the light blinks, let go and wait for the light to turn a steady blue.
 * Using Wi-Fi, connect to the local Wi-Fi network the device broadcasts (it will be something like litte_bits_cloud_somenumber).
-* Once connected to the device's Wi-Fi adapter, pick the Wi-Fi network the cloudbit will live on. (At UNO that will be: `UNOGuest`).
+* Once connected to the device's Wi-Fi adapter, pick the Wi-Fi network the `cloudbit` will live on. (At UNO that will be: `UNOGuest`).
 * It should auto-connect and the light should turn a solid green color.
 * You should see as message saying **'Awesome'**
 
@@ -87,24 +88,24 @@ Now that we have an account, we need to pair our `Cloudbit` with the `Littlebits
 ### Step 3: ~~Don't Push~~ Push the ~~red~~ Purple button
 ![red button](img/red-button-meme.jpg)
 
-The purple button on your screen is linked to your `Cloudbit` `output`.
+The purple button on your screen is linked to your `cloudbit` `output`.
 
-* Add a green `LED` output module to the `Cloudbit`.
+* Add a green `LED` output module to the `cloudbit`.
 * Now definitely press the giant purple `button` on your screen.
 
 It works! With that you just made your first `IoT app`.
 
 * The control portal will also now have you press the `button` on the `button` module.
 
-You should see your guage go up! Now you have input and outputs routed through the cloud controller!
+You should see your gauge go up! Now you have input and outputs routed through the cloud controller!
 
 ### Step 4: Using web services - connecting to IFTTT
 `Web services` are, as the name implies, services that live on the web. You use these all the time - mostly without knowing it. The internet is built on top of them. Google, Dropbox, Youtube, Twitter, and Facebook are just a few juggernauts that provide and use many different web services. In this lesson, we are going to use a `mashup service` called [IFTTT](https://ifttt.com) (which stands for **I**f **T**his, **T**hen **T**hat ). **IFTTT** is a great platform that _talks to_ all kinds of other web services. One service it connects with is, conveniently, `Littlebits`.
 
-* Connect your `cloud bit` to `IFTTT` by pressing the `automate` button in the `Littlebits` cloud controller user interface.
-* Visit https://ifttt.com by following the link.
+* Connect your `cloudbit` to `IFTTT` by pressing the `automate` button in the `Littlebits` cloud controller user interface.
+* Visit https://ifttt.com
 * You will need to create an account with `IFTTT` if you don't already have one.
-* Once you sign in, you will see some `recipes` that have already been made for you by the Littlebits team. A `recipe` is a `design pattern` that combines input and output behavior to do something cool. `IFTTT` refers to recipes as an `applets`.
+* Once you sign in, you will see some `recipes` that have already been made for you by the Littlebits team. A `recipe` is a `design pattern` that combines input and output behavior to do something cool. `IFTTT` refers to recipes as `applets`.
 
 ### Step 5: Web Service Wizardry - Make an Easy Button
 Lets create a new `applet` that sends an email when you press the `button` module. For flair, lets make it an _easy button_™ (Staples).
@@ -141,7 +142,7 @@ Check your email!
 This is a simple, but powerful tool.
 
 ### Step 6: Email / SMS trigger
-Lets make an `applet` that allows us to turn the cloudbit output on with an email or text.
+Lets make an `applet` that allows us to turn the `cloudbit` output on with an email or text.
 
 * Go to https://ifttt.com, select the dropdown caret next to your name, and then click **New Applet**.
 * As the **IF** condition, select the `email` service.
@@ -248,10 +249,10 @@ You should see the power outlet light turn on - and you should hear a short audi
 ![light config](img/outlet.jpg)
 
 ### Self Exploration
-Try some different designs yourself. You can combine any services with any littlebits sensors. You could make an app that opens the curtains when you text it #opencurtains. You could make an app that listens for sounds and sends you an alert if sounds are detected. You could make an email or tweet counter. The possibilities are real!
+Try some different designs yourself. You can combine any services with any littlebits sensors. You could make an app that opens the curtains when you text it #opencurtains. You could make an app that listens for sounds and sends you an alert if sounds are detected. You could make an email or tweet counter. The possibilities are real and endless!
 
 ### Test you Bits, err... Wits!
-TBD
+[Quiz](https://www.qzzr.com/c/quiz/431837/littlebits-ifttt)
 
 ### Additional Resources
 For more information, investigate the following.
