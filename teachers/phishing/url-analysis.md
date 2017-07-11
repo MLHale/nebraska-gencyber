@@ -155,10 +155,10 @@ Beyond the top-level domains, a organization or individual that has registered t
 
 The knowledge in the previous section should serve you well in reading URLs. But spammers often conceal the real URL in HTML formatted emails or fake websites. Let's explore a few such tricks. Some URL behaviors are browser specific. So for our discussion let's open the links below in a `Chrome` browser.
 
-#### Tricky Links  
+## Tricky Links  
 Open this link in a Chrome browser: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/phishing.html
 
-##### Link #1  
+### Link #1  
 
 On the first link, you will notice that it appears to be a legitimate wellsfargo.com URL. But if you hover over the link, your status bar should show `www.google.com`. How did that happen?
 
@@ -172,7 +172,7 @@ Examine the page HTML source by right clicking on a blank area of the webpage an
 
 In the source code you will see that the `href` attribute, which controls the link target is set to `google.com`. This explains the strange behavior. Hovering over links without clicking them will reveal their real destination in the status bar of the browser.
 
-##### Link #2  
+### Link #2  
 
 For link #2, we explore a peculiarity of browsers. Many browsers will not display, named rightly so, the "shy" character, which is expressed as follows: `&shy`. The page source shows that this character is present in the `href` attribute and the link text. But the character is not displayed in the page!
 
@@ -182,11 +182,11 @@ For link #2, we explore a peculiarity of browsers. Many browsers will not displa
 
 Chrome shows the `&shy` character in the status bar. Some other programs/browsers may not display it at all. Spammers can register domains with `&shy` characters to manipulate users into clicking the links.
 
-##### Link #3  
+### Link #3  
 
 Link #3 is straight-forward, but a bad practice. Legitimate emails often use this technique, but it conceals the true link and conditions users to click on such links. When sending out emails, avoid such practices.
 
-##### Link #4
+### Link #4
 
 Link #4 is very strange looking. You may examine the page source and still have no additional clues. Naively following the two rules of reading a URL from above, you may end up thinking that this is a `wellfargo.com` URL. But it is not!
 
@@ -229,7 +229,7 @@ So the last part of Link #4 is `google.com`
 
 With these tricks uncovered, the previous two URL reading rules will suffice now to know what the true top-level domains are. Certainly not `wellsfargo.com`.
 
-##### Link #5
+### Link #5
 
 The next link is very mysterious as well. By hovering over it or examining the page source, you will notice that it is a **short URL**. A short URL is notoriously deceptive as you cannot tell where it will take you once clicked on.
 
@@ -241,7 +241,7 @@ Upon using the URL expander service, it is apparent that this short URL redirect
 
 ![trickyurls](./img/9-tricky-urls.png)
 
-##### Link #6
+### Link #6
 
 At first glance, Link #6 is a short URL too. Let's just copy this link from the browser and check it using the URL expander service. You will determine that it is `google.com`.
 
@@ -253,7 +253,7 @@ If you expand this different short URL, it leads you to `duckduckgo.com`.
 
 Spammers may trick you by making such subtle modifications in the HTML page.
 
-##### Link #7
+### Link #7
 
 Hover over link #7 to examine its real destination. What happens?
 
@@ -261,7 +261,7 @@ Using JavaScript, the page automatically redirects you to `google.com` when your
 
 When visiting questionable websites, it is prudent to turn off JavaScript or use JavaScript blocking extensions such as [No-Script](https://noscript.net) or [ScriptSafe](https://chrome.google.com/webstore/detail/scriptsafe/oiigbmnaadbkfbmpbfijlflahbdbdgdf?hl=en)
 
-##### Link #8
+### Link #8
 
 Hover over [link #8](http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/phishing.html) to examine its real destination. What do you see?
 
@@ -281,14 +281,17 @@ Such attacks are similar to domain-squatting but also referred to as [homophone]
 
 >![trickyurls](./img/punycode.png)
 
-##### Link #9
+### Link #9
 
-This is a [Data URL](https://en.wikipedia.org/wiki/Data_URI_scheme) that allows specifying small files inline within HTML documents. Typically this is used to includes images in HTML document. Turns out that browsers will render this URL as an HTML page.
+Click on Link #9. The destination appears to be wellsfargo.com. Even the URL appears to be wellsfargo.com. But a few things are off. The protocol is different and there are additional characters (`<`, `...` and `,`) that you would not normally see. Now click in the URL bar and navigate to the right of the URL using arrow keys. You will notice a bunch of text. Copy the entire URL (`crtl+a` and then `crtl+c`) and paste it in Notepad.
 
-In this link we have embedded enough spaces between the place holder text and the real content such that a user can be fooled into believing the visited domain name. Then we also took all the data from the real wellsfargo page and encoded it as an HTML file within the Data URL. We could have just as easily included some malicious javascript in here to steal any username and password entered.
+> ![trickyurls](./img/dataURL.png)
 
+This is a [Data URL](https://en.wikipedia.org/wiki/Data_URI_scheme) that allows specifying small files inline within HTML documents. Typically this is used to includes images in HTML document. Turns out that browsers will also render this URL as an HTML page!
 
-#### Obfuscated Source
+In this link we have embedded enough spaces between the place holder text and the real content such that a user can be fooled into believing the website is being loaded from the displayed domain name. This URL was generated by scraping all the HTML from wellsfargo.com, including embedded images, and encoding it within the Data URL. We could have just as easily included some malicious javascript in here to steal any username and password entered.
+
+## Obfuscated Source
 
 Examine this new link now:
 http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/obfuscated.html
@@ -300,7 +303,7 @@ Just viewing the source files for obfuscated pages provides no useful informatio
 
 The developer tools built into the browser also help us see right through the obfuscated data.
 
-#### Encoded IP Addresses
+### Encoded IP Addresses
 
 Examine links on this page: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/encoding.html  
 Have you seen links like this before? Examine the page source (right click blank area and click `view source`).   
@@ -311,7 +314,7 @@ Most humanly readable domain names map to IPv4 addresses. IPv4 addresses are 32 
 
 It just so happens that 32-bit IP addresses can be expressed in Octal, Decimal and Hex formats. Browsers know how to interpret IP addresses in these formats.
 
-##### Link #1-3
+### Link #1-3
 
 Links #1-3 are explained below for an IP address that maps to `google.com`
 
@@ -346,7 +349,7 @@ Octal Encoding (Base 8)
 
 > **Security Tip**: Never visit links that have IP addresses or numbers as their web address. These are most likely machines connected to the Internet with no legitimate Domain Name mapping. Anybody can set them up.
 
-##### Link #4
+### Link #4
 
 URLs embedded in HTML pages can be encoded in Hex or Decimal encodings. Link #4 `href` generation is explained below.
 
@@ -370,11 +373,11 @@ ASCII Encoding for www.wellsfargo.com
 
 ```
 
-##### Link #5
+### Link #5
 
 Link #5 is a image map. Different regions of the image are mapped to different URLs. Try hovering your mouse over the image starting from the far right, slowly moving towards the left. Notice the change in links in the status bar. Spammers trick victims by embedding images with a mix of malicious and legitimate links using this technique. For example, by chance you may hover over a image area with legitimate links when checking the status bar, but then click a different (malicious link) area to visit the linked website.
 
-#### Highjacking Clicks
+## Highjacking Clicks
 
 Visit this link:
 http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/clickjacking.html
@@ -410,7 +413,6 @@ http://wombatsecurity.com/antiphishingphil
 
 A free training course is available at OIT. This is free to play:  
 https://oit.byuh.edu/help/anti-phishing
-
 
 [Top](#table-of-contents)
 
