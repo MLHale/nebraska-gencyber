@@ -33,17 +33,20 @@ Here is an interesting one:
 > How long does an attacker have to wait to get that foot in the door? We aggregated the results of over 150,000 e-mails sent as part of sanctioned tests by two of our security awareness partners and measured how much time had passed from when the message was sent to when the recipient opened it, and if they were influenced to click or provide data (where the real damage is done). The data showed that nearly 50% of users open e-mails and click on phishing links within the first hour. [Verizon DBIR 2014]
 > ![verzon dbir stats](./img/dbirstats.png)
 >
->> It did not get any better in 2016: _**13%** of people tested click on a phishing attachment; median time to click is very short._
+>> It did not get any better in 2016: _**13%** of people tested click on a phishing attachment; median time to click is very
+ short._  
 
-If you are a bad guy planning a heist, that is the easiest way for getting malware into an organization. So it is prudent to understand exactly where an email is “really” coming from. Do not rush to open attachments or click links in emails.
+>> Update from 2017: _"**Phishing via email** was the most prevalent variety of social attacks"_ Social attacks were utilized in 43% of all breaches in the 2017 dataset. Almost all phishing attacks that led to a breach were followed with some form of malware, and 28% of phishing breaches were targeted. Phishing is the most common social tactic in the 2017 dataset (93% of social incidents).
+
+If you are a bad guy planning a heist, Phishing emails are the easiest way for getting malware into an organization. So it is prudent to understand exactly where an email is “really” coming from. Do not rush to open attachments or click links in emails. Verizon DBIR states: _over 99% of malware is sent by either email or web server_
 
 [Top](#table-of-contents)
 
 ## Email Headers
 
-Email Headers hold a lot of information. Much of this information is never displayed to the user! The email reader only sees a select few pieces of information like From, Name, Subject, Date, and Sender's email.
+Email Headers hold a lot of information. Much of this information is never displayed to the user! The email reader only sees a select few pieces of information like From, Name, Subject, Date, and Sender's email. The surprising part is that the information that is actually displayed to a user can be easily forged!
 
-Before we get started, consider this email from President Barack Obama to a Researcher at the University of Nebraska at Omaha. They have a a great Cyber security program. You may read about the available degree programs in Cybersecurity here: http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php
+Before we get started, consider this email from President Barack Obama to a Researcher at the University of Nebraska at Omaha. They have a a great Cyber security program. You may read about the available degree programs in Cybersecurity here: https://www.unomaha.edu/college-of-information-science-and-technology/academics/cybersecurity.php 
 
 ![email](./img/emailpresident.png)
 
