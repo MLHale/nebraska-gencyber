@@ -46,9 +46,9 @@ If you are a bad guy planning a heist, Phishing emails are the easiest way for g
 
 Email Headers hold a lot of information. Much of this information is never displayed to the user! The email reader only sees a select few pieces of information like From, Name, Subject, Date, and Sender's email. The surprising part is that the information that is actually displayed to a user can be easily forged!
 
-Before we get started, consider this email from President Barack Obama to a Researcher at the University of Nebraska at Omaha. They have a a great Cyber security program. You may read about the available degree programs in Cybersecurity here: https://www.unomaha.edu/college-of-information-science-and-technology/academics/cybersecurity.php 
+Before we get started, consider this email from President Donald Trump to a Researcher at the University of Nebraska at Omaha. They have a a great Cyber security program. You may read about the available degree programs in Cybersecurity here: https://www.unomaha.edu/college-of-information-science-and-technology/academics/cybersecurity.php
 
-![email](./img/emailpresident.png)
+![email](./img/emailnewpresident.png)
 
 
 Anyways...we see emails like this all the time using desktop or web-based email clients. The section pointed to by the big red arrow in the figure above, is the part of the email header that most people are familiar with.
