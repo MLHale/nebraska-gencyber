@@ -2,7 +2,7 @@
 ### Cybersecurity First Principles in this lesson
 
 * __Abstraction__: An abstraction is a representation of an object or concept. It could be something
-such as a door, a speedometer, or a data structure in computer science. Abstraction decouples the design from the implementation. The gauges in an automobile are an abstraction of the performance of a car. A map is an abstraction of the earth.
+such as a door, a speedometer, or a data structure in computer science. Abstraction decouples the design from the implementation. The gauges in an automobile are an abstraction of the performance of the car. A map is an abstraction of the earth.
 
 * __Modularization__: The concept of modularity is like building blocks. Each block (or module) can be put in or taken out from a bigger project. Each module has its own separate function that is interchangeable with other modules.
 
@@ -19,8 +19,8 @@ In this lesson we will explore a cool hands-on technology called [Littlebits](ht
 
 ### Goals
 By the end of this tutorial, you will be able to:
-* Interact with `web services`
-* `Mashup` web services with Littlebits
+* Interact with web services
+* Mashup web services with Littlebits
 * Make some apps that help automate your home
 
 ### Materials Required
@@ -40,10 +40,10 @@ By the end of this tutorial, you will be able to:
     - [Materials Required](#materials-required)
     - [Prerequisite lessons](#prerequisite-lessons)
     - [Table of Contents](#table-of-contents)
-    - [Before we START](#before-we-start)
+    - [Before We Start](#before-we-start)
     - [Step 1: Create an Account / Login to Littlebits portal!](#step-1-create-an-account--login-to-littlebits-portal)
     - [Step 2: Pair your Cloudbit with the portal](#step-2-pair-your-cloudbit-with-the-portal)
-    - [Step 3: ~~Don't Push~~ Push the ~~red~~ Purple button](#step-3-dont-push-push-the-red-purple-button)
+    - [Step 3: ~~Don't Push~~ Push the ~~Red~~ Purple Button](#step-3-dont-push-push-the-red-purple-button)
     - [Step 4: Using web services - connecting to IFTTT](#step-4-using-web-services---connecting-to-ifttt)
     - [Step 5: Web Service Wizardry - Make an Easy Button](#step-5-web-service-wizardry---make-an-easy-button)
     - [Step 6: Email / SMS trigger](#step-6-email--sms-trigger)
@@ -56,7 +56,7 @@ By the end of this tutorial, you will be able to:
     - [License](#license)
 
 <!-- TOC END -->
-### Before we START
+### Before We Start
 In the [last lesson](../hands-on-iot-little-bits-intro/README.md), you saw how versatile, modular, and cool Littlebits was to work with. It was easy to plug and play different modules together following simple `design patterns` to make cool, simple, apps. Now, imagine everything you saw before can be hooked up to the internet and **controlled using a smartphone or online app**. We are going to do _THAT_ now!
 
 ### Step 1: Create an Account / Login to Littlebits portal!
@@ -70,7 +70,7 @@ To start we need to create an account:
 Now that we have an account, we need to pair our `cloudbit` (an orange module with `cloud` written on it) with the `Littlebits cloud platform`. To do that:
 
 * Login at http://control.littlebitscloud.cc/ using your account info.
-* Give your new `cloudbit` a name: I decided to call mine "Tim" `Tim`.
+* Give your new `cloudbit` a name: I decided to call mine "Tim".
 
  ![tim](img/tim.jpg)
 
@@ -80,18 +80,21 @@ Now that we have an account, we need to pair our `cloudbit` (an orange module wi
 
 * First, connect the blue `power` module to the pink `button` module.
 * Next, connect the `button` module to the orange `cloudbit` module.
+* Then, connect the `bright led` module to the `cloudbit` module.
 * It should all be connected as shown:
+
 ![setup](img/configuration.jpg)
+
 
 * Hold down the setup button on the `CloudBit` until the light blinks blue.  
 * When the light blinks, let go and wait for the light to turn a steady blue.
-* Using Wi-Fi, connect to the local Wi-Fi network the device broadcasts (it will be something like litte_bits_cloud_somenumber).
+* Using Wi-Fi, connect to the local Wi-Fi network the device broadcasts (it will be something like `litteBits_Cloud_somenumber`).
 * Once connected to the device's Wi-Fi adapter, pick the Wi-Fi network the `cloudbit` will live on. (At UNO that will be: `UNOGuest`).
 * It should auto-connect and the light should turn a solid green color.
 * You should see as message saying **'Awesome'**
 
 
-### Step 3: ~~Don't Push~~ Push the ~~red~~ Purple button
+### Step 3: ~~Don't Push~~ Push the ~~Red~~ Purple Button
 ![red button](img/red-button-meme.jpg)
 
 The purple button on your screen is linked to your `cloudbit` `output`.
