@@ -14,7 +14,7 @@ In this lesson we will explore a cool hands-on technology called [Littlebits](ht
 ### Goals
 By the end of this tutorial, you will be able to:
 * Use Littlebits and GPIO to make your first (or another) IoT app
-* Understand IoT modularity
+* Understand IoT `modularity`
 * Come up with some of your own app ideas
 
 ### Materials Required
@@ -60,7 +60,7 @@ Look over each module. Your box should include a helpful component diagram fold-
 ![unbox](./img/unbox.jpg)
 
 ### Step 2: Gotta start somewhere
-No time like the present. Let's make a simple invention:
+No time like the present. Lets make a simple invention:
 
 * find the blue ```power``` module.
 * find the pink ```button``` input module
@@ -77,7 +77,7 @@ Lets make a simple circuit:
 
 Press the button and the light turns on. That was easy!
 
-This is GPIO in a nutshell. Each module has a general purpose input and output, with a standard interface, and **doen't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of **modularity**, the first cybersecurity principle.
+This is `GPIO` in a nutshell. Each module has a general purpose input and output, with a standard interface, and **doen't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of of the `modularity` cybersecurity first principle.
 
 ### Step 3: Count all the things!
 Ok, we've made our first circuit - but it's pretty simple. Let's add some more modules:
@@ -108,7 +108,7 @@ Press the button. Everything still works!
 
 Press the button. Does it work? How about if you cover up the light sensor?
 
-This, shows you that you can also **chain multiple input modules together** and their **total behavior is a combination of their input designs**. In this case our counter only worked if the light was detected *and* the button was pressed.
+This, shows you that you can also **chain multiple input modules together** and their **total behavior is a combination of their input designs**. In this case our counter only worked if the light was detected `AND` the button was pressed.
 
 Lets try one more combo:
 
