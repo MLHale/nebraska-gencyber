@@ -27,6 +27,7 @@ The available teacher modules include:
 * [Penetrating Testing](./pentesting/README.md)
 * [Hardening: Application Level](./hardening-app/README.md)
 * [Hardening: OS Level](./firewall/README.md)
+* [Phishing](./phishing/README.md)
 * [Teaching Best Practice Workshop Outcomes](./workshops/README.md)
 
 ## Other Resources
