@@ -21,12 +21,12 @@
 
 ## Table of Contents
 
-[Obfuscation of Web Content](#obfuscation-of-web-content)
-[Obfuscation of URLs using Encoding](#obfuscation-of-urls-using-encoding)
-[Clickjacking](#clickjacking)  
-[Open Source INTelligence (OSINT) gathering](#open-source-intelligence-OSINT-gathering)  
+[Obfuscation of Web Content](#obfuscation-of-web-content)  
+[Obfuscation of URLs using Encoding](#obfuscation-of-urls-using-encoding)    
+[Clickjacking](#clickjacking)     
+[Open Source INTelligence Gathering](#open-source-intelligence-gathering)    
 [Additional Readings](#additional-readings)  
-[Acknowledgements](#special-thanks)
+[Acknowledgements](#special-thanks)  
 
 ## Obfuscation of Web Content
 
@@ -136,7 +136,7 @@ When playing "free" online games, you may be clicking invisible advertisements! 
 
 [Top](#table-of-contents)
 
-## Open Source INTelligence (OSINT) gathering
+## Open Source INTelligence Gathering
 
 ### Spear-Phishing
 Crafting URLs is just one part of the deception used by Spammers. *Spear-Phishing* is a social engineering technique where a spammer uses intimate details about your life, your contacts, and/or recent activities to tailor a very specific phishing attack.
@@ -151,7 +151,7 @@ Visit these sites and see how much information is available about yourself:
 
 You may have to pick out yourself from other people who share your name. But that should be easy with additional information about your age and location.
 
-Sites like Facebook, Linkedin, Company websites, Organizational Charts and Employee directories, make it easy to craft emails from colleagues, friends and family. There are commercial tools available to collect what is called Open Source Intelligence or (OSINT). Here is a tool that does just that: https://www.paterva.com/web7/buy/maltego-clients/maltego.php
+Sites like Facebook, Linkedin, Company websites, Organizational Charts and Employee directories, make it easy to craft emails from colleagues, friends and family. There are commercial tools available to collect what is called Open Source INTelligence or OSINT. Here is a tool that does just that: https://www.paterva.com/web7/buy/maltego-clients/maltego.php
 
 > Maltego is an interactive data mining tool that renders directed graphs for link analysis. The tool is used in online investigations for finding relationships between pieces of information from various sources located on the Internet.
 
