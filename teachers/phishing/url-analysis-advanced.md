@@ -132,7 +132,7 @@ In the demo page, `Like the kitten` is strategically placed on a link that tweet
 
 ![trickyurls](./img/clickjacking-tweet.png)
 
-When playing "free" online games, you may be clicking invisible advertisements! Don't worry the game in the next section is safe :-)
+When playing "free" online games, you may be clicking invisible advertisements!
 
 [Top](#table-of-contents)
 
