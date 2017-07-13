@@ -67,7 +67,7 @@ To start we need to create an account:
 
 ### Step 2: Pair your Cloudbit with the portal
 
-Now that we have an account, we need to pair our `cloudbit` (an orange module with `cloud` written on it) with the `Littlebits cloud platform`. To do that:
+Now that we have an account, we need to pair our `cloudbit` (an orange module with `cloud` written on it) with the Littlebits Cloud Platform. To do that:
 
 * Login at http://control.littlebitscloud.cc/ using your account info.
 * Give your new `cloudbit` a name: I decided to call mine "Tim".
@@ -99,33 +99,34 @@ Now that we have an account, we need to pair our `cloudbit` (an orange module wi
 
 The purple button on your screen is linked to your `cloudbit` `output`.
 
-* Add a green `LED` output module to the `cloudbit`.
+* Add a green `bright LED` output module to the `cloudbit`.
 * Now definitely press the giant purple `button` on your screen.
 
-It works! With that you just made your first `IoT app`.
+It works! With that you just made your first IoT app.
 
 * The control portal will also now have you press the `button` on the `button` module.
 
 You should see your gauge go up! Now you have input and outputs routed through the cloud controller!
 
 ### Step 4: Using web services - connecting to IFTTT
-`Web services` are, as the name implies, services that live on the web. You use these all the time - mostly without knowing it. The internet is built on top of them. Google, Dropbox, Youtube, Twitter, and Facebook are just a few juggernauts that provide and use many different web services. In this lesson, we are going to use a `mashup service` called [IFTTT](https://ifttt.com) (which stands for **I**f **T**his, **T**hen **T**hat ). **IFTTT** is a great platform that _talks to_ all kinds of other web services. One service it connects with is, conveniently, `Littlebits`. This is an example of __modularity__ because `IFTTT` can swap out components for others easily.
+Web services are, as the name implies, services that live on the web. You use these all the time - mostly without knowing it. The internet is built on top of them. Google, Dropbox, Youtube, Twitter, and Facebook are just a few juggernauts that provide and use many different web services. In this lesson, we are going to use a mashup service called [IFTTT](https://ifttt.com) (which stands for **I**f **T**his, **T**hen **T**hat ). **IFTTT** is a great platform that _talks to_ all kinds of other web services. One service it connects with is, conveniently, Littlebits. This is an example of __modularity__ because IFTTT can swap out components for others easily.
 
-* Connect your `cloudbit` to `IFTTT` by pressing the `automate` button in the `Littlebits` cloud controller user interface.
+* Connect your `cloudbit` to IFTTT by pressing the `automate` button in the Littlebits cloud controller user interface.
 * Visit https://ifttt.com
-* You will need to create an account with `IFTTT` if you don't already have one.
-* Once you sign in, you will see some `recipes` that have already been made for you by the Littlebits team. A `recipe` is a `design pattern` that combines input and output behavior to do something cool. `IFTTT` refers to recipes as `applets`.
+* You will need to create an account with IFTTT if you don't already have one.
+* Once you sign in, you will see some `recipes` that have already been made for you by the Littlebits team. A `recipe` is a `design pattern` that combines input and output behavior to do something cool. IFTTT refers to recipes as `applets`.
 
 ### Step 5: Web Service Wizardry - Make an Easy Button
 Lets create a new `applet` that sends an email when you press the `button` module. For flair, lets make it an _easy button_™ (Staples).
 
-* In your browser, open `IFTTT` and click the **down caret** next to your name.
+* In your browser, open IFTTT and click the **down caret** next to your name.
 * Now click **new applet** in the menu that pops up:
 
  ![applet](img/ifttt-applet.png)
 
+
 * Click the `plus` icon to specify the _if_ condition our applet will fire up on.
-* You will see all of the service options available to be used as _IF_ conditions. Find `Littlebits` by typing it in the search/filter bar.
+* You will see all of the service options available to be used as _IF_ conditions. Find Littlebits by typing it in the search/filter bar.
 * There are two options: **turned on** and **turned off**, pick **turned on**
 * Select your `cloudbit` from the dropdown and click **create trigger** to set this as the _IF_ condition. Once selected you should see:
 
@@ -133,7 +134,7 @@ Lets create a new `applet` that sends an email when you press the `button` modul
  > If (littlebits) then that
 
 * Click the `plus` icon to specify the _THAT_ condition.
-* You will again see all of the service options, select ``email`` and then **send me an email**. You will be asked to link your email to your `IFTTT` account (if you haven't already). Go ahead and confirm your email.
+* You will again see all of the service options, select ``email`` and then **send me an email**. You will be asked to link your email to your IFTTT account (if you haven't already). Go ahead and confirm your email.
 * Once selected, you will see an email template available. Click `add ingredient` to see available input information. You should have, `DeviceName`, `TurnedOnAt`, and `PowerPercent` options. You can customize the email message here if you want. I made mine an easy button by embedding an image (`img` tag).
 
  ![applet](img/easy-button.png)
@@ -148,7 +149,7 @@ Check your email!
 ![email worked](img/email-worked.png)
 > It worked!
 
-This is a simple, but powerful tool. It also shows off __resource encapsulation__ and __abstraction__. In terms of encapsulation, each of the services connected to `IFTTT` have many functions. These functions are encapsulated in a service (e.g. `email` in this example). The functions are also __abstrct__ because `IFTTT` doesn't need to know _how_ they work, just that they achieve a certain purpose (e.g. send an email). This helps _model_ or _abstract_ the implementation away from the design.
+This is a simple, but powerful tool. It also shows off __resource encapsulation__ and __abstraction__. In terms of encapsulation, each of the services connected to IFTTT have many functions. These functions are encapsulated in a service (e.g. `email` in this example). The functions are also __abstract__ because IFTTT doesn't need to know _how_ they work, just that they achieve a certain purpose (e.g. send an email). This helps _model_ or _abstract_ the implementation away from the design.
 
 ### Step 6: Email / SMS trigger
 Lets make an `applet` that allows us to turn the `cloudbit` output on with an email or text.
@@ -191,10 +192,10 @@ Lets make a second applet to do the same thing, but via `SMS`.
 * Give it a minute to process
 
 ### Step 7: Twitter watcher
-Lets make an app that lights up every time a new tweet on a certain topic happens. This requires a `Twitter` account, if you don't have and don't want to create a Twitter account, feel free to skip this. But its fun!
+Lets make an app that lights up every time a new tweet on a certain topic happens. This requires a Twitter account, if you don't have and don't want to create a Twitter account, feel free to skip this, but it's fun!
 
 * Go to https://ifttt.com, select the dropdown caret next to your name, and then click **New Applet**.
-* As the **IF** condition, select the `Twitter` service. You will be asked to link your Twitter account first.
+* As the **IF** condition, select the Twitter service. You will be asked to link your Twitter account first.
 * Select the `New tweet from search` option.
 * Specify the search string `#nebraskagencyber` to only fulfill the IF condition if someone tweets the hashtag.
 * For the **THAT** condition, select the `littlebits` service
@@ -264,18 +265,18 @@ Try some different designs yourself. You can combine any services with any littl
 [Quiz](https://www.qzzr.com/c/quiz/431837/littlebits-ifttt)
 
 ### Cyber security First Principle Reflections
-In this lesson, we saw web services, such as `IFTTT`, can __Abstract__ away details about devices and instead focus on recipes or `design patterns` to describe how things work. We also saw that by keeping functionality __modular__, `IFTTT` can combine `Littlebits` with many other services.
+In this lesson, we saw web services, such as IFTTT, can __abstract__ away details about devices and instead focus on recipes or `design patterns` to describe how things work. We also saw that by keeping functionality __modular__, IFTTT can combine Littlebits with many other services.
 
-Web services use __resource encapsulation__ to ensure that all functions related to the execution of an app or service are neatly within the scope of the service itself. `IFTTT` relies on services to be encapsulated so that they can provide external services with the ability to use them without worrying about connecting to multiple other related services.
+Web services use __resource encapsulation__ to ensure that all functions related to the execution of an app or service are neatly within the scope of the service itself. IFTTT relies on services to be encapsulated so that they can provide external services with the ability to use them without worrying about connecting to multiple other related services.
 
-__Data hiding__ is also important to prevent internal data in the service from being released outside of the `service invocation`. Local data remains hidden, while `interfaces` expose only what the service wants to release (for instance to `IFTTT`). This also relates to __minimization__ because services can turn ports and other access off except for the specific interfaces it wants to leave open for other services to use.
+__Data hiding__ is also important to prevent internal data in the service from being released outside of the `service invocation`. Local data remains hidden, while `interfaces` expose only what the service wants to release (for instance to IFTTT). This also relates to __minimization__ because services can turn ports and other access off except for the specific interfaces it wants to leave open for other services to use.
 
 
 ### Additional Resources
 For more information, investigate the following.
 
 * [Littlebits](http://littlebits.cc/how-it-works) - Overview of concepts and available bits
-* [https://shop.littlebits.cc/products/smart-home-kit](https://shop.littlebits.cc/products/smart-home-kit) - Information about the smart home kit
+* [https://shop.littlebits.cc/products/smart-home-kit](https://shop.littlebits.cc/products/smart-home-kit) - Information about the Smart Home Kit
 
 
 ### Acknowledgements
