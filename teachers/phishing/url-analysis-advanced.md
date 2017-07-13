@@ -1,4 +1,4 @@
-# Phishing - Advanced
+# Obfuscation, Clickjacking and OSINT Gathering
 
 ### Cybersecurity First Principles
 * __Layering__: Cyber security uses multiple layers of defense or protecting information. If one layer is defeated the next layer should catch it.
@@ -8,9 +8,9 @@
 # Introduction
 
 ## Lesson goals
-- Obfuscation of URLs
-- Open Source Intelligence gathering
-- Awareness of location privacy issues
+- Obfuscation of URLs and Pages
+- Clickjacking
+- Open Source INTelligence (OSINT) gathering
 
 ## Materials required
 - Internet connected Machine
@@ -21,15 +21,14 @@
 
 ## Table of Contents
 
-[Obfuscation](#Obfuscation)
-[Encoded IP addresses](#encoded-ip-addresses)
-[Hijacking Clicks](#highjacking-clicks)  
-[Spear Phishing](#spear-phishing)  
-[Geolocation](#geolocation)  
+[Obfuscation of Web Content](#obfuscation-of-web-content)
+[Obfuscation of URLs using Encoding](#obfuscation-of-urls-using-encoding)
+[Clickjacking](#clickjacking)  
+[Open Source INTelligence (OSINT) gathering](#open-source-intelligence-OSINT-gathering)  
 [Additional Readings](#additional-readings)  
 [Acknowledgements](#special-thanks)
 
-## Obfuscation
+## Obfuscation of Web Content
 
 Examine this link:
 http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/obfuscated.html
@@ -41,7 +40,7 @@ Just viewing the source files for obfuscated pages provides no useful informatio
 
 The developer tools built into the browser also help us see right through the obfuscated data.
 
-## Encoded IP Addresses
+## Obfuscation of URLs using Encoding
 
 Examine links on this page: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/encoding.html  
 Have you seen links like this before? Examine the page source (right click blank area and click `view source`).   
@@ -115,7 +114,7 @@ ASCII Encoding for www.wellsfargo.com
 
 Link #5 is a image map. Different regions of the image are mapped to different URLs. Try hovering your mouse over the image starting from the far right, slowly moving towards the left. Notice the change in links in the status bar. Spammers trick victims by embedding images with a mix of malicious and legitimate links using this technique. For example, by chance you may hover over a image area with legitimate links when checking the status bar, but then click a different (malicious link) area to visit the linked website.
 
-## Highjacking Clicks
+## Clickjacking
 
 Visit this link:
 http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/clickjacking.html
@@ -137,9 +136,10 @@ When playing "free" online games, you may be clicking invisible advertisements! 
 
 [Top](#table-of-contents)
 
-## Spear-Phishing
+## Open Source INTelligence (OSINT) gathering
 
-Crafting URLs is just one part of the deception used by Spammers. *Spear-Phishing* is a social engineering technique where a spammer uses intimate details about your life, your contacts, and/or recent activities to tailor a very specific attack.
+### Spear-Phishing
+Crafting URLs is just one part of the deception used by Spammers. *Spear-Phishing* is a social engineering technique where a spammer uses intimate details about your life, your contacts, and/or recent activities to tailor a very specific phishing attack.
 
 Watch this 3 min video (if you do not have audio, it is OK):   
 https://www.youtube.com/watch?v=F7pYHN9iC9I
@@ -157,11 +157,11 @@ Sites like Facebook, Linkedin, Company websites, Organizational Charts and Emplo
 
 > **Security Tip**: Even when clicking on links in emails or websites shared by close colleagues, friends and family; trust but verify. This advise will seem even more reasonable after going through the Email analysis module.
 
-## Geolocation
+### Geolocation
 
 GPS-enabled smartphones allow photos, videos, messages and social media posts to be **Geotagged**. Location information is embedded in the metadata for media alongside file name, date, camera information, etc. When geotagged media is shared publicly, location information is often inadvertently shared along with it. Such information aggregated over time starts to reveal private information such as: work and home locations, daily routines, frequented places, vacation destinations, shopping places, and much more.
 
-Tools are freely available for conducting Geolocation Open Source INTelligence (OSINT). For example, this tool is aptly named geoCreepy!  
+Tools are freely available for conducting Geolocation OSINT. For example, this tool is aptly named geoCreepy!  
 Downloads: http://www.geocreepy.com/  
 Source code: https://github.com/ilektrojohn/creepy  
 
