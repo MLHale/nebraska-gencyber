@@ -112,7 +112,7 @@ You have a couple options for mounting your camera for use:
 
 * Another option is to use poster putty as shown below to mount and point the camera.
 
-![Case Putty Mount](img/case_putty_mount.jpg)
+![Cover Putty Mount](img/cover_putty_mount.jpg)
 
 * If you are not using the GPIO pins or the camera, place the camera flat on the Pi and place the cover on the collar
 
