@@ -112,7 +112,7 @@ You have a couple options for mounting your camera for use:
 
 * Another option is to use poster putty as shown below to mount and point the camera.
 
-![Cover Putty Mount](img/cover_putty_mount.jpg)
+![Case Putty Mount](img/case_putty_mount.jpg)
 
 * If you are not using the GPIO pins or the camera, place the camera flat on the Pi and place the cover on the collar
 
@@ -120,7 +120,7 @@ You have a couple options for mounting your camera for use:
 
 * You also have the option to pass the camera ribbon cable between the cover and the ring of the case and mount the camera on top of the case with poster putty.
 
-![Case Cover Mount](img/case_cover_mount.jpg)
+![Cover Putty Mount](img/cover_putty_mount.jpg)
 
 ### Step 7: Install the keyboard and mouse
 * Plug the keyboard into a free USB port
