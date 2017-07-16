@@ -136,15 +136,29 @@ You have a couple options for mounting your camera for use:
 * Plug the small end of the power cable into the Raspberry Pi
 *	Plug the other end of the power cable into a power strip or wall socket
 
-### Step 10: Updating the Raspberry Pi software
-Even though you just assembled a brand new Raspberry Pi it’s a good idea to update the software on the system.  It's very common that security updates or new application capabilities may have been recently developed that are not yet installed.
-*	The default Raspberry Pi user is _pi_ and default password is _raspberry_
-*	In its default configuration the Raspberry Pi logs in the user automatically, for now we will leave this configuration in place
-*	Open a terminal window by clicking the terminal icon at the top of the screen as show below
+### Step 10: Configuring the camera and updating the Raspberry Pi software
+Now we need to tell the Raspberry Pi that you have installed a camera.  
+
+* Start by opening a terminal window by clicking the terminal icon at the top of the screen as shown below.
 
 ![Terminal](img/terminal.png)
 
-*	Enter the following command
+* Enter the following command to update the system configuration
+
+```bash
+raspi-config
+```
+
+* Use the Menu dropdown to select _preferences_
+* Select _Raspberry Pi Configuration_
+* Select _Enable Camera_, click OK, and confirm reboot
+
+Even though you just assembled a brand new Raspberry Pi it’s a good idea to update the software on the system.  It's very common that security updates or new application capabilities may have been recently developed that are not yet installed.
+*	The default Raspberry Pi user is _pi_ and default password is _raspberry_
+*	In its default configuration the Raspberry Pi logs in the user automatically, for now we will leave this configuration in place
+
+
+*	Open a terminal window and enter the following command
 ```bash
 apt-get update
 ```
