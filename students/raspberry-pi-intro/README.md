@@ -83,7 +83,7 @@ Remove the backing paper from the heat sinks and stick to the chips as shown in 
 ### Step 4: Install the mini SD card into the Raspberry Pi
 The mini SD card holds both the operating system for the Raspberry Pi (which is a version of Linux) as well as any installed applications and user data.  Due to its small size and accessibility it is possible to have multiple SD cards with different operating systems and applications loaded.  Simply removing the SD card and replacing with a different one can give the user a completely new computer environment.  This is another example of the __modularity__ principle.
 
-* Insert the SD card as shown in the diagram below, _Note, the printing on the card should downward facing_
+* Insert the SD card as shown in the diagram below, _Note the direction of the prining on the card_
 
 ![SD Card](img/pi_sd.jpg)
 
