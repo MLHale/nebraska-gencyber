@@ -164,7 +164,7 @@ Your flow is now built but we still need to link it to your account on IFTTT.
 ### Step 6: Link flow to IFTTT
 Remember the Cybersecurity First Principles of __Abstraction__ and __Resource Encapsulation__?  Now we get to take a closer look at how those principles are implemented.
 
-* Double click on the IFTTT node, you will see a dialog box displayed which allows us to give the node some of the information it needs to do it's job.  Notice, you are not setting variables directly but entering them through a dialog.  This allows error checking and security checks to be done behind the scenes.
+* Double click on the IFTTT node, you will see a dialog box displayed which allows us to give the node some of the information it needs to do it's job.  Notice, you are not setting variables directly but entering them through a dialog.  This is __Resource Encapsulation__ and allows error checking and security checks to be done behind the scenes.
 
 ![IFTTT Config](img/IFTTT_config1.png)
 
@@ -174,9 +174,15 @@ Now we need to fill in the first field named key.  This is a unique identifier w
 
 ![IFTTT key](img/IFTTT_key.png)
 
-* Go back to the Node-Red tab in your browser and click field behind key.  Click __Add new ifttt-key...__ and then click the pencil behind the field.  Paste the key you just copied from IFTTT into the field.  Leave the Event Name field with the default event1.  You can change this to something more descriptive but remember what it is because we will need it later.  Click __Add__.
+* Go back to the Node-Red tab in your browser and click the key field.  Click __Add new ifttt-key...__ and then click the pencil next to the field.  
 
-![IFTTT Key Entry](IFTTT_key2.png)
+![Node Red Key Entry 1](img/enter_key.png)
+
+Paste the key you just copied from IFTTT into the field.  Click __Add__.
+
+![Node Red Key Entry 2](img/enter_key2.png)
+
+Leave the Event Name field with the default event1.  You can change this to something more descriptive but remember what it is because we will need it later.
 
 * Click __Done__.
 
