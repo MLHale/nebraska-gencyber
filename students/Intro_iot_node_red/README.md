@@ -32,7 +32,7 @@ We will continue our work towards our GenCyber camp purpose with the below goals
 ### Materials Required
 
 * Raspberry Pi
-* Internet connections
+* Internet connection
 
 ### Prerequisite lessons
 [Raspberry Pi Intro](../raspberry-pi-intro/README.md)
