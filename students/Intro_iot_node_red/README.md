@@ -19,7 +19,7 @@ to use the resource are packaged into a single self-contained component. The goa
 ### Introduction
 Let’s build an IoT device – wait, just what is the IoT – should I care?  I’m afraid to ask – Is it secure?
 
-![IoT Security](img/no_s_in_iot.png)
+![IoT Security](img/no_s_in_iot.jpg)
 
 In this lesson we will take a close look at IoT and the associated security implications by building a simple IoT application on a Raspberry Pi using a program called Node-Red.
 
@@ -69,7 +69,7 @@ We will continue our work towards our GenCyber camp purpose with the below goals
 
  The IoT is the term applied to the many internet connected devices now occupying space in our lives.  Take a look through your house, you may have phones, tablets, laptops, fitbits, televisions, thermostats, smoke detectors, bathroom scales, refrigerators, light bulbs, and who knows what else all connected to the internet.
 
- ![Internet of Things](img/internet_of_things.png)
+ ![Internet of Things](img/Internet_of_Things.png)
 
  These devices communicate with you, perhaps a cloud server, maybe even each other.  Although some devices such as phones or tables have very powerful operating systems and security features many IoT devices such as thermostats or fitbits don’t have security features due to the added cost and drain on batteries.  Is that a problem?  The general consensus amongst security experts is this is like running with scissors.  It may help you get a task done but at some point you may find the results painful.  Where do we start with addressing the issue?  Let’s start by taking a very generalized look at an IoT device.
 
