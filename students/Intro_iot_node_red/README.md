@@ -73,11 +73,11 @@ We will continue our work towards our GenCyber camp purpose with the below goals
 
  These devices communicate with you, perhaps a cloud server, maybe even each other.  Although some devices such as phones or tables have very powerful operating systems and security features many IoT devices such as thermostats or fitbits don’t have security features due to the added cost and drain on batteries.  Is that a problem?  The general consensus amongst security experts is this is like running with scissors.  It may help you get a task done but at some point you may find the results painful.  Where do we start with addressing the issue?  Let’s start by taking a very generalized look at an IoT device.
 
- ![IoT Block Diagram](img/iot_block.png)
+ ![IoT Block Diagram](img/IoT_block.png)
 
  In a very general sense an IoT device is a device that may have sensors (_Inputs_) such as thermometers or light detectors, actuators (_outputs_) such as switches or alarms, a processor (like your _Raspberry Pi_ running _Node-Red_) to make sense of the data and direct actions, and a gateway (_network connection_) to interact with users and other systems.  An IoT device can make our lives much easier, or if someone who wants to do harm gets access to the device they could steal data or take control of objects in your house or business.
 
-![IoT Ransomware](img/iot-ransom.png)
+![IoT Ransomware](img/iot_ransom.png)
 
 * Discuss with students some of the ways compromise of IoT devices could lead to harm, perhaps through information leakage or loss of control of devices.
 
