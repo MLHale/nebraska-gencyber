@@ -74,7 +74,7 @@ Let’s start with a container based on [Alpine Linux](https://alpinelinux.org)
 First we need to download a container blueprint called an ```Image```
 
 - Open the Command Line Interface (CLI) i.e.   
-  Terminal (Linux, macOS) or Command Prompt (Windows)
+  Terminal app for Linux/macOS or `Docker Quickstart` on Windows
 
 ```bash
 # Download alpine container image from Docker Hub
@@ -88,7 +88,7 @@ docker pull alpine
 - By default the `latest` image is downloaded. This label is called a Tag
 - Other tags allows downloading specific versions or those shared by other users
 
-Let’s check locally available images  
+Let’s check locally available images and note their sizes.   
 
 ```bash
 # Check images available locally on your machine
@@ -109,6 +109,7 @@ docker
 # `alpine:latest` is the image name and its tag
 docker run -it --name myAlpine alpine:latest
 ```
+if the previous command was successful, the container is created and you are returned an interactive shell into the container.
 
 ## Explore the container
 
@@ -144,14 +145,14 @@ exit # Stop the shell to exit container
 Volumes have to be initialized at container creation time
 - The `-v` option mounts a volume
 
-In a **host** shell:
+In a new **host** shell (open another Docker Quickstart terminal):
 ```bash
-# Make sure the host directory exits, otherwise create it
-mkdir /src/webapp
-# Host /src/webapp folder mapped to container /webapp folder
+# Create a new host directory called app
+mkdir app
+# Host /app folder mapped to container /webapp folder
 # `\` allows you to continue a long command on a new line
 docker run -it --name myAlpineWithVol \
--v /src/webapp:/webapp alpine:latest
+-v /c/Users/student/app:/webapp alpine:latest
 ```
 
 ## Volume configuration
@@ -161,9 +162,9 @@ By default a mounted volume allows full read/write by the container
 This allows exceptions to the `Process Isolation`  principle
 
 - May set it to read-only (Least privilege principle)
-  - `-v /src/webapp:/webapp:ro`
+  - `-v /c/Users/student/app:/webapp:ro`
 - Caching option improves performance
-  - `-v /src/webapp:/webapp:cached`
+  - `-v /c/Users/student/app:/webapp:cached`
 
 ## Test the mounted volume
 
@@ -175,14 +176,14 @@ cd /webapp
 echo "#NebraskaGencyberRocks" > test.txt
 ```
 
-In a **host** shell (open another host terminal):
+In a new **host** shell (open another Docker Quickstart terminal):
 ```bash
-# Change directory to the `/src/webapp` directory on the host
-cd /src/webapp
+# Change directory to the `/app` directory on the host
+cd Documents/app
 # List contents of the test.txt file
 cat test.txt
 # Overwrite the file and add exclamation marks
-echo "#NebraskaGencyberRocks!!!" > test.txt
+echo "#NebraskaGencyber" > test.txt
 ```
 
 Back in the **container** shell:
@@ -205,11 +206,12 @@ We need to expose container ports to the network to access these services remote
 Let’s create a container that runs an HTTP server in two commands!
 First, download an image for Lighttpd from Docker Hub
 
+In a new **host** shell (open another Docker Quickstart terminal):
 ```bash
 # download a container for lighttpd, a lightweight HTTP server
 docker pull gists/lighttpd
 ```
-In the spawned container, we need to expose Port 80 to access the web server.  
+In a container spawned from this image, we need to expose Port 80 to access the web server.  
 We do this by mapping the container’s port to a port of the host
 
 ## Host - Container Network
@@ -220,28 +222,35 @@ We do this by mapping the container’s port to a port of the host
 Port mappings have to be initialized at container creation time
 - The `-p` option maps a host port to the container port
 
-In a `host` shell (open another host terminal)
+In a `host` shell:
 
 ```bash
 # -d option runs the container in daemon mode (background)
 # -p 8888:80 maps host port 8888 to container port 80
 docker run -d --name lighttpd \
            -p 8888:80 \
-           -v /src/webapp:/var/www \
+           -v /c/Users/student/app:/var/www \
            gists/lighttpd
+# Check the mapped port in container listing
+docker ps -a
+
+# Check the IP address of our container
+docker-machine ip
 ```
+Note the IP address reported above to access the container network.
 
 ## Test the mapped port
 
-In the previous `host` shell:
+In a **host** shell (open another Docker Quickstart terminal):
 
 ```bash
-# Change directory to the `/src/webapp` directory on the host
-cd /src/webapp
+# Change directory to the `/app` directory on the host
+cd Documents/app
 # Add a simple HTML file exclamation marks
 echo "<html>My first Container App</html>" > index.html
 ```
-Browse to http://localhost:8888
+if 192.168.99.100 was the IP returned by docker-machine then   
+browse to http://192.168.99.100:8888 or change it accordingly.
 
 ## Testing continued…
 
@@ -250,7 +259,8 @@ Return to the `host` shell
 # Update the HTML file
 echo "<html><h1>Cool</h1></html>" > index.html
 ```
-Revisit http://localhost:8888
+if 192.168.99.100 was the IP returned by docker-machine then   
+browse to http://192.168.99.100:8888 or change it accordingly.
 
 ## Reflect on what just happened 🤔
 
@@ -297,10 +307,10 @@ RUN pip install psycopg2
 Let us clone a repository that includes the above DockerFile.  
 The DockerFile is typically in the top level project directory
 
-Open a `host` terminal:
+Open a `host` terminal (Docker Quickstart):
 ```bash
 # Switch to the webapp directory
-cd /src/webapp
+cd app
 # Clone the dev repository
 git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
 ```
@@ -398,7 +408,7 @@ The `docker-compose` tool can build containers with a single command.
 In a `host` terminal:
 ```bash
 # Switch to project directory
-cd /src/webapp/nebraska-gencyber-dev-env
+cd Documents/app/nebraska-gencyber-dev-env
 # build images
 docker-compose build
 # List local images
@@ -449,9 +459,11 @@ In another `host` terminal:
 # Examine running containers
 docker ps
 # Gracefully shutdown the containers
-cd /src/webapp/nebraska-gencyber-dev-env
-docker-compose down
+cd Documents/app/nebraska-gencyber-dev-env
+docker-compose stop
 ```
+> `docker-compose down` command will shutdown and delete the containers. So be careful when using the down command.
+
 [Top](#table-of-contents)
 
 # May the force of containers be with you! 😎
