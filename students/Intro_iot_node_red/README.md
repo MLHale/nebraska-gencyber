@@ -159,6 +159,10 @@ You will notice on the right hand side of the screen a description of the node i
 
 ![IFTTT](img/IFTTT.png)
 
+* Now we need to connect the two nodes.  Click the dot on the right side of the inject node and drag a connection line to the dot on the left side of the IFTTT node.
+
+![Connection](img/connection.png)
+
 Your flow is now built but we still need to link it to your account on IFTTT.
 
 ### Step 6: Link flow to IFTTT
