@@ -198,6 +198,8 @@ Your flow is now built and configured but we need to tell the IFTTT service what
 
 ![Start Recipe](img/start_recipe.png)
 
+* Click on the _+ this_ to set the trigger
+
 ![This portion](img/this.png)
 
 * In the _Choose a Service_ search field enter webhooks and select the webhooks service displayed
