@@ -22,6 +22,13 @@
 ### Introduction
 In this module, you will learn what a RESTful API is, how Littlebits uses APIs to monitor and issue commands to the cloudbit, and how you can use the littlebits API yourself.
 
+### Goals
+By the end of this tutorial, you will be able to:
+* Define `REST`, `an endpoint`, `API Integration`, and `API Invocation`
+* Use a REST Client to make `POST` and `GET` requests to an `API`
+* Using manual requests to `mashup` web services
+
+
 ### Materials Required
 For this lesson, you will need:
 
@@ -31,7 +38,7 @@ For this lesson, you will need:
 * Little bits sensor and actuator
 
 ### Prerequisite lessons
-You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot/intro.md) and [Hands on IoT: Build an IFTTT IoT app w/ Little Bits](../hands-on-iot/ifttt.md) lessons before this lesson.
+You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot-little-bits-intro/README.md) and [Hands on IoT: Build an IFTTT IoT app w/ Little Bits](../hands-on-iot-little-bits-ifttt-app/README.md) lessons before attempting this lesson.
 
 ### Table of Contents
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
@@ -58,28 +65,28 @@ You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot/intro.
 Before we get started, lets talk about what an API is.
 
 ### Step 2: Ok, lets take a look at a real API
-In the previous [lesson](../hands-on-iot/ifttt.md), we wired our cloudbit up to the web and explored how we could send it signals using [IFTTT](www.ifttt.com). We saw that if our cloud bit detected an input signal (a _request_), we could have IFTTT do something (send a _response_). These concepts, i.e. a _request_ and _response_, are central to the concept of RESTful APIs. REST, or REpresentational State Transfer, APIs, or Application Programming Interfaces, are tools that developers use to provide _abstraction_ and _resource encapsulation_ to people who want to interact with their data.
+In the previous [lesson](../hands-on-iot-little-bits-ifttt-app/README.md), we wired our `cloudbit` up to the web and explored how we could send it signals using [IFTTT](www.ifttt.com). We saw that if our cloud bit detected an input signal (a `request`), we could have `IFTTT` do something (send a `response`). These concepts, i.e. _request_ and _response_, are central to the concept of `RESTful APIs`. REST, or REpresentational State Transfer, APIs, or Application Programming Interfaces, are tools that developers use to provide __abstraction__ and __resource encapsulation__ to people who want to interact with their data.
 
-APIs allow you to get and save data back to the application, without needing to tightly integrate with that application. This improves _simplicity_ and helps your code to be more _modular_. APIs include _endpoints_, such as /api/events, that allow you to access certain specific data (e.g. events in this example). API endpoints help provide _minimization_, since users can only interact with the application through those interfaces provided by the developer.
+APIs allow you to get and save data back to the application, without needing to tightly integrate with that application. This improves __simplicity__ and helps your code to be more __modular__. APIs include `endpoints`, such as /api/events, that allow you to access certain specific data (e.g. events in this example). API endpoints help provide __minimization__, since users can only interact with the application through those interfaces provided by the developer.
 
 ...Enough talk! Lets look at an API!
 
-Open chrome and go to http://developers.littlebitscloud.cc/. You are looking at the cloudbit API. This is what IFTTT uses to handle requests and responses.
+Open chrome and go to http://developers.littlebitscloud.cc/. You are looking at the `cloudbit` API. This is what `IFTTT` uses to handle requests and responses.
 
-You can see that Littlebits tells us all about how to interact with our cloudbit using the API. Lets try it out.
+You can see that Littlebits tells us all about how to interact with our `cloudbit` using the API. Lets try it out.
 
 ### Step 3: Getting our API Key
-Secure APIs don't just accept requests and provide responses to anyone. APIs use a concept called _least privlege_ to allow endusers to only have access to the features they need. Since we own the cloudbit, we should have the ability to do anything we want with it, but we might want to prevent other people from abusing and misusing our cloudbit.
+Secure APIs don't just accept requests and provide responses to anyone. APIs use a concept called `least privlege` to allow endusers to only have access to the features they need. Since we own the cloudbit, we should have the ability to do anything we want with it, but we might want to prevent other people from abusing and misusing our cloudbit.
 
-To ensure that only we can program our cloudbit, Littlebits provides something called an _API Key_. This key is a really long alphanumerical string that would be hard to crack. Lets find our key, so we can issue commands to our cloudbit.
+To ensure that only we can program our cloudbit, Littlebits provides something called an `API Key`. This key is a really long alphanumerical string that would be hard to crack. Lets find our key, so we can issue commands to our cloudbit.
 
 Go to http://control.littlebitscloud.cc/
 
-Login using the account you used in the [previous lesson](../hands-on-iot/ifttt.md)
+Login using the account you used in the [previous lesson](../hands-on-iot-little-bits-ifttt-app/README.md)
 
-Once logged in, click on your cloudbit:
+Once logged in, click on your `cloudbit`:
 
-Now go to the ```settings``` menu. You should see your access token _API Key_, you will need this string in next steps - so keep it handy. In practice, you wouldn't want to share this with anyone.
+Now go to the `settings` menu. You should see your access token `API Key`, you will need this string in next steps - so keep it handy. In practice, you wouldn't want to share this with anyone.
 
 ### Step 4: Making your first REST request
 Now that we have our API Key, lets use it to make a request.
@@ -93,10 +100,10 @@ In POSTMAN, lets build a new GET request targetted at the URL https://api-http.l
 * Find and click the ```headers``` button and add the following
 
 ```
-Authorization: Bearer <your access token>
+Authorization: Bearer <your access token with no angled brackets>
 ```
 
-You can add the header as a key value pair, where the key is ```Authorization``` and the value is ```Bearer <insert your access token here>```. Make sure to use your access token.
+You can add the header as a key value pair, where the key is ```Authorization``` and the value is ```Bearer <insert your access token here, remove the angled brackets>```. Make sure to use your access token.
 
 * Hit the ```send``` button to issue the _GET request_ to the URL.
 
@@ -104,7 +111,7 @@ If all goes well you should see something like:
 
 ![GET request](img/postman2.png)
 
-* The _response_ you got back, when you sent the GET request contains the name and meta information for each of the cloudbits currently connected to your account. In the screenshot above, the JSON data returned for me was:
+* The `response` you got back, when you sent the GET request contains the name and meta information for each of the `cloudbits` currently connected to your account. In the screenshot above, the JSON data returned for me was:
 
 ```
 [
@@ -122,9 +129,9 @@ If all goes well you should see something like:
 This tells me the label of my cloudbit is ```mlhale-cloudbit``` and that it currently doesn't have any subscribers or subscriptions.
 
 ### Step 5: GET device info
-Now that we know our device id, we can use it to make a specific request for our device.
+Now that we know our device id, we can use it to make a specific `request` for our device.
 
-* make a new GET request in POSTMAN to
+* make a new `GET` request in POSTMAN to
 
 ```
 https://api-http.littlebitscloud.cc/v2/devices/<your-device-id>
@@ -190,7 +197,7 @@ Lets review what we've learned.
 
 https://www.qzzr.com/c/quiz/429280/8f69a8f7-0a69-4efa-9c3e-2aa38944ed1d
 
-### Step 7: Adding a subscriber to handle incoming evnets.
+### Step 7: Adding a subscriber to handle incoming events.
 Lets add a subscriber to catch input events going to the cloudbit:
 * make a POST request to: https://api-http.littlebitscloud.cc/v2/subscriptions
 * in our case we want to make a server listen for the cloudbit, so lets use a URI endpoint as the subscriber
@@ -203,15 +210,17 @@ body:
 	"subscriber_id": "http://ourserver.com/endpoint"
 }
 ```
-### Need to fix this step to work by proxying through the gencyber site!!!
+
+But where is our server? We don't have one yet. We will talk about deploying a server in the next lesson and then come back to this.
+
 
 ### Additional Resources
 For more information, investigate the following.
 
-* [resource url](resource url) - Description of resource
+* [http://developers.littlebitscloud.cc/](http://developers.littlebitscloud.cc/) - API reference for the Littlebits web service.
 
 ### Acknowledgements
-(add any contributors to this area)
+Special thanks to [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/), Andrew Li, and April Guerin for reviewing and editing this module.
 
 ### License
 [Nebraska GenCyber](https://github.com/MLHale/nebraska-gencyber) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
