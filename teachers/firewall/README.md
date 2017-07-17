@@ -9,8 +9,8 @@ Firewalls are often a first line of defense for an enterprise or home network. I
 [Overview](#overview)  
 [Firewalls as a Collection of Valves](#firewalls-as-a-collection-of-valves)  
 [Firewall Rules](#firewall-rules)  
-[Working with iptables](#working-with-iptables)  
-[Making Firewall Settings Persistent](#making-firewall-settings-persistent)
+[](#)  
+[](#)
 [Additional Readings](#additional-readings)  
 [Teacher Developed Modules](#teacher-developed-modules)  
 [Acknowledgements](#special-thanks)  
@@ -26,9 +26,9 @@ While these firewalls are "cool", we are interested in a different kind of firew
 
 ![network firewalls](./img/networkfirewall.png)
 
-All popular operating systems now come with a firewall installed. For server installations we will focus on the NETfilter packet filtering module built into the linux kernel itself. This module is configured using the `iptables` command issued in a terminal. The iptables provides a lot of flexibility and control over the configuration of the firewall.
+All popular operating systems now come with a firewall installed. For Windows Server and Desktop installations we will focus on the built-in ```Windows Firewall with Advanced Security``` module. This module can be configured with a graphical user interface or the command line interface using `netsh` or Powershell `NetSecurity` modules. These options provide a lot of flexibility and control over the configuration of the firewall.
 
-![iptables screenshot](./img/iptables.png)
+![Windows firewall](img/windowsfirewall.png)
 
 In order for two machines to communicate (such as a client talking to a server), there are many different __layers__ that are involved. Each of these layers is progressively lower level as you move downward. In general there are 7 layers:
 
@@ -40,7 +40,7 @@ In order for two machines to communicate (such as a client talking to a server),
 - Data Link - The biggest example of the data link layer is ethernet. It provides a protocol for exchanging data over a local network.
 - and Physical - This layer is nothing but raw bits that underly the higher level interpretation of those bits at higher levels.
 
-![network layers](http://electronicdesign.com/site-files/electronicdesign.com/files/uploads/2013/09/0913_WTD_osi_F1.gif)
+![network layers](https://javirodz.files.wordpress.com/2013/07/21acd-osi.gif)
 
 ### Question
 
@@ -86,11 +86,15 @@ Always start firewall configuration with a _whitelisting_ philosophy, where you 
 
 Lets look at an example.
 
-![valves](./img/examplerules.png)  
+| Rule#  | Direction     | Source        | Destination   | Service   | Action   |
+| ------ |:-------------:|:-------------:| :------------:|:---------:|:--------:|
+| 1      | inbound       | any           | web server    | http      | accept   |
+| 2      | outbound      | localnet      |   any         | any       | accept   |
+| 3      | any           | any           |   any         | any       | reject   |
 
-**Rule 1** permits externally initiated requests to a webserver behind the firewall. So the source is “any”, since we cannot anticipate a specific IP address at the time of writing the rule. The destination is the IP address of the webserver and the service specifies the port number where the service is typically hosted. That would be port 80 for a web server. If these three match an incoming packet then the action is “ACCEPT”
+**Rule 1** permits externally initiated requests (Direction: inbound) to a webserver behind the firewall. So the source is “any”, since we cannot anticipate a specific IP address at the time of writing the rule. The destination is the IP address of the webserver and the service specifies the port number where the service is typically hosted. That would be port 80 for a web server. If these three match an incoming packet then the action is “ACCEPT”
 
-**Rule 2** permits internally initiated requests out to the Internet. So the source is any ip address in the local network, which we specify as a range of IP addresses but stated here as "localnet". The destination and the service cannot be anticipated at the time of writing the rule so both are specified as “any”. If a packet matches these conditions then the action is "ACCEPT".
+**Rule 2** permits internally initiated requests (Direction: outbound) out to the Internet. So the source is any ip address in the local network, which we specify as a range of IP addresses but stated here as "localnet". The destination and the service cannot be anticipated at the time of writing the rule so both are specified as “any”. If a packet matches these conditions then the action is "ACCEPT".
 
 **Rule 3** is to deny all other traffic that does not match the previous rules. So all three match conditions are specified as “any” and the action is "REJECT".
 
@@ -99,17 +103,16 @@ Lets look at an example.
 What would happen if we re-ordered these rules? Specifically if Rule 3 was exchanged with Rule 1.
 
 Discussion:
-Rule 3 is often implemented as a "Default Policy", instead of an explicit rule in the table. This policy applies ONLY if a packet matches NONE of the rules specified for the firewall. More on this shortly.
+* Rule 3 is often implemented as a "Default Policy", instead of an explicit rule in the table. This policy applies ONLY if a packet matches NONE of the rules specified for the firewall. More on this shortly.
+
+* Inbound and outbound rules are typically maintained in separate lists.
 
 [Top](#table-of-contents)
 
-## Working with iptables
+## Working with Windows Firewall
 
-As mentioned before Linux has a firewall built right into the kernel and it is configured using the `iptables` command. Since it is a utility for privileged users, you will need to first elevate your privilege level using `sudo` prepended to the `iptables` command. Do this everytime an `iptables` command is issued. See code block below.
+As mentioned before Windows has a built-in firewall. By default, all rules apply to both IPv4 and IPv6 traffic. 
 
-This firewall can be set up in several modes like packet filtering, which is the default mode, network address translation, and many others such as mangle, where you can modify the packets as they pass through the firewall. We will focus on the IPv4 packet filtering function here.
-
-To view your current firewall rules, fire off this command in your Linux Server VM. Enter your password if prompted.
 
 ```bash
 sudo iptables -nL
@@ -118,15 +121,7 @@ You should see something like this:
 
 ![iptables screenshot](./img/iptables.png)
 
-What are those `-nL` commandline parameters for?  
 
-`-n` This option tells iptables to not resolve domain names for the ip addresses in the matching rules. This results in faster display of the rules.
-
-`-L` Lists all the rules in a specified chain. If no chain is specified then all chains are listed.
-
-But wait! what is a **Chain**? A chain is a list of rules that can match a set of packets. It is similar to the example table that we discussed before. There are several built-in chains: INPUT, FORWARD and OUTPUT. For packet filtering, INPUT and OUTPUT chains are sufficient. As their names suggest, INPUT chain is a set of rules that match the "incoming" packets to your computer. Similarly, OUTPUT chain is a set of rules that match the "outgoing" packets. In the screenshot you can observe that currently both of these chains are empty! Also `(policy ACCEPT)` suggests that the default policy for both chains is set to ACCEPT all packets. So essentially, your firewall is WIDE OPEN at this point. We better start to close it!
-
-> A note before we move forward: When in doubt, consult the iptables manual pages using the following command: `man iptables`. Alternatively, here is a [web version](http://ipset.netfilter.org/iptables.man.html).
 
 Based on a whitelisting philosopy, let's begin by denying all traffic by default.
 
