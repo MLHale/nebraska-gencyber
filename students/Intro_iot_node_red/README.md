@@ -2,8 +2,7 @@
 
 ### Cybersecurity First Principles in this lesson
 
-* __Abstraction__: An abstraction is a representation of an object or concept. It could be something
-such as a door, a speedometer, or a data structure in computer science. Abstraction decouples the design from the implementation. The gauges in an automobile are an abstraction of the performance of a car. A map is an abstraction of the earth.
+* __Abstraction__: An abstraction is a representation of an object or concept. It could be something such as a door, a speedometer, or a data structure in computer science. Abstraction decouples the design from the implementation. The gauges in an automobile are an abstraction of the performance of a car. A map is an abstraction of the earth.
 
 * __Least Privilege__: One of the ways to protect information is by limiting what people can see and do with your information and resources. The principle of least privilege says to allow the minimum number of privileges necessary to accomplish the task.
 
@@ -17,17 +16,17 @@ to use the resource are packaged into a single self-contained component. The goa
 * __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping software as simple and as focused as possible, the reliability and security is greatly increased.
 
 ### Introduction
-Let’s build an IoT device – wait, just what is the IoT – should I care?  I’m afraid to ask – Is it secure?
+Lets build an IoT device – wait, just what is the IoT – and why should I care?  I’m afraid to ask – is it secure?
 
 ![IoT Security](img/no_s_in_iot.jpg)
 
 In this lesson we will take a close look at IoT and the associated security implications by building a simple IoT application on a Raspberry Pi using a program called Node-Red.
 
 ### Goals
-We will continue our work towards our GenCyber camp purpose with the below goals for this lesson
+We will continue our work towards our GenCyber camp purpose with the below goals for this lesson:
 * Use Node-Red to develop a simple IoT application on a Raspberry Pi
 *	Integrate the If This Then That (IFTTT) service as a IoT cloud service
-* Recall how the cybersecurity first principles of abstraction, least privilege, minimization, modularization, resource encapsulation, and simplicity apply to IoT applications.
+* Recall how the Cybersecurity First Principles of abstraction, least privilege, minimization, modularization, resource encapsulation, and simplicity apply to IoT applications
 
 ### Materials Required
 
@@ -67,27 +66,27 @@ We will continue our work towards our GenCyber camp purpose with the below goals
 
 ### What is the IoT
 
- The IoT is the term applied to the many internet connected devices now occupying space in our lives.  Take a look through your house, you may have phones, tablets, laptops, fitbits, televisions, thermostats, smoke detectors, bathroom scales, refrigerators, light bulbs, and who knows what else all connected to the internet.
+ The IoT is the term applied to the many internet connected devices now occupying space in our lives.  Take a look through your house. You may have phones, tablets, laptops, fitbits, televisions, thermostats, smoke detectors, bathroom scales, refrigerators, light bulbs, and who knows what else all connected to the internet.
 
  ![Internet of Things](img/Internet_of_Things.png)
 
- These devices communicate with you, perhaps a cloud server, maybe even each other.  Although some devices such as phones or tables have very powerful operating systems and security features many IoT devices such as thermostats or fitbits don’t have security features due to the added cost and drain on batteries.  Is that a problem?  The general consensus amongst security experts is this is like running with scissors.  It may help you get a task done but at some point you may find the results painful.  Where do we start with addressing the issue?  Let’s start by taking a very generalized look at an IoT device.
+ These devices communicate with you, perhaps a cloud server, maybe even each other.  Although some devices such as phones or tablets have very powerful operating systems and security features, many IoT devices such as thermostats or fitbits don’t have security features due to the added cost and drain on batteries.  Is that a problem?  The general consensus amongst security experts is this is like running with scissors.  It may help you get a task done but at some point you may find the results painful.  Where do we start with addressing the issue?  Let’s start by taking a very generalized look at an IoT device.
 
  ![IoT Block Diagram](img/IoT_block.png)
 
- In a very general sense an IoT device is a device that may have sensors (_Inputs_) such as thermometers or light detectors, actuators (_outputs_) such as switches or alarms, a processor (like your _Raspberry Pi_ running _Node-Red_) to make sense of the data and direct actions, and a gateway (_network connection_) to interact with users and other systems.  An IoT device can make our lives much easier, or if someone who wants to do harm gets access to the device they could steal data or take control of objects in your house or business.
+ In a very general sense an IoT device is a device that may have sensors (_inputs_) such as thermometers or light detectors, actuators (_outputs_) such as switches or alarms, a processor (like your _Raspberry Pi_ running _Node-Red_) to make sense of the data and direct actions, and a gateway (_network connection_) to interact with users and other systems.  An IoT device can make our lives much easier, or if someone who wants to do harm gets access to the device they could steal data or take control of objects in your house or business.
 
 ![IoT Ransomware](img/iot_ransom.png)
 
 * Discuss with students some of the ways compromise of IoT devices could lead to harm, perhaps through information leakage or loss of control of devices.
 
-By properly applying the Cybersecurity First Principles we can reduce the risk that someone can take over our IoT device and cause us harm.  The platform we will use to explore the IoT is our Raspberry Pi running a program called Node-Red.  Let's jump right into it.
+By properly applying the Cybersecurity First Principles we can reduce the risk that someone can take over our IoT device and cause us harm.  The platform we will use to explore the IoT is our Raspberry Pi running a program called Node-Red.  Lets jump right into it.
 
 ### A Simple IoT Example
 ### Step 1: Install and update needed programs
 The first thing we need to do is install and update a few needed programs.  Respond yes to any prompts you receive during the following operations.
 
-* Install the Firefox Browser - Node Red works best with Firefox.  Remember we need to use the command _sudo_ to preface the install command due to the Raspberry Pi implementing the cybersecurity first principle of __Least Privilege__
+* Install the Firefox Browser - Node-Red works best with Firefox.  Remember we need to use the command `sudo` to preface the install command due to the Raspberry Pi implementing the Cybersecurity First Principle of __Least Privilege__
 
 ```bash
 sudo apt-get install firefox-esr
@@ -118,15 +117,15 @@ npm install node-red-contrib-camerapi
 ```
 
 ### Step 2: Start Node-Red
-On the Raspberry Pi desktop select _menu_, _Programming_, _Node-RED_
+On the Raspberry Pi desktop select _Menu_, _Programming_, _Node-RED_
 
 ### Step 3: Start Firefox
-On the Raspberry Pi desktop select _menu_, _Internet_, _Firefox ESR_
+On the Raspberry Pi desktop select _Menu_, _Internet_, _Firefox ESR_
 
 ### Step 4: Create an IFTTT account
 IFTTT (If This Then That) is a cloud service that allows us to automate actions, if the service receives a certain input, then it will execute a pre-selected action.  We will use the IFTTT service with Node-Red to interface with some common cloud services.
 
-* In Firefox navigate to https://littlebits.cc/login and click _Sign up_
+* In Firefox, navigate to https://littlebits.cc/login and click _Sign up_
 * Walk through the online instructions to create your account
 * Once registration is complete, click search and enter Webhooks
 
@@ -146,9 +145,9 @@ Programs in Node-Red are called flows and they can be very simple or very comple
 * __Modularization__: Each node is a building block in a flow.  Nodes can be swapped out to change the functionality of a flow without requiring changing the entire flow.
 * __Resource Encapsulation__: You are unable to directly access several of the interior functions which are necessary for a flow to work.  Due to this internalization, or encapsulation, critical functions are protected from external misuse.
 
-With those principles in mind let's start your first flow.
+With those principles in mind lets start your first flow.
 
-* Open a new tab in Firefox (keep the IFTTT tab open for now) and enter the address __http://127.0.0.1:1880__, this will bring up the web page for the node-red server running on _your_ Rasperry Pi.  127.0.0.1 is always the local address of the computer your are using.
+* Open a new tab in Firefox (keep the IFTTT tab open for now) and enter the address __http://127.0.0.1:1880__, this will bring up the web page for the Node-Red server running on _your_ Raspberry Pi.  `127.0.0.1` is always the local address of the computer your are using.
 * Drag a __timestamp__ node from the left pane, called the palette, into the flow
 
 ![Timestamp](img/timestamp.png)
@@ -168,7 +167,7 @@ Your flow is now built but we still need to link it to your account on IFTTT.
 ### Step 6: Link flow to IFTTT
 Remember the Cybersecurity First Principles of __Abstraction__ and __Resource Encapsulation__?  Now we get to take a closer look at how those principles are implemented.
 
-* Double click on the IFTTT node, you will see a dialog box displayed which allows us to give the node some of the information it needs to do it's job.  Notice, you are not setting variables directly but entering them through a dialog.  This is __Resource Encapsulation__ and allows error checking and security checks to be done behind the scenes.
+* Double click on the IFTTT node, you will see a dialog box displayed which allows us to give the node some of the information it needs to do its job.  Notice, you are not setting variables directly but entering them through a dialog.  This is __Resource Encapsulation__ and allows error checking and security checks to be done behind the scenes.
 
 ![IFTTT Config](img/IFTTT_config1.png)
 
@@ -182,11 +181,11 @@ Now we need to fill in the first field named key.  This is a unique identifier w
 
 ![Node Red Key Entry 1](img/enter_key.png)
 
-Paste the key you just copied from IFTTT into the field.  Click __Add__.
+* Paste the key you just copied from IFTTT into the field.  Click __Add__.
 
 ![Node Red Key Entry 2](img/enter_key2.png)
 
-Leave the Event Name field with the default event1.  You can change this to something more descriptive but remember what it is because we will need it later.
+* Leave the Event Name field with the default `event1`.  You can change this to something more descriptive but remember what it is because we will need it later.
 
 * Click __Done__.
 
@@ -198,19 +197,19 @@ Your flow is now built and configured but we need to tell the IFTTT service what
 
 ![Start Recipe](img/start_recipe.png)
 
-* Click on the _+ this_ to set the trigger
+* Click on the __+ this__ to set the trigger
 
 ![This portion](img/this.png)
 
-* In the _Choose a Service_ search field enter webhooks and select the webhooks service displayed
+* In the __Choose a Service__ search field enter Webhooks and select the Webhooks service displayed
 
 ![Choose Service](img/choose_service.png)
 
-* On the choose a trigger screen select _Receive a web request_
+* On the choose a trigger screen select __Receive a web request__
 
 ![Choose trigger](img/choose_trigger.png)
 
-* In the Event Name field enter __event1__.  If you named your event something else in Node-Red you should enter that here.
+* In the Event Name field enter `event1`.  If you named your event something else in Node-Red you should enter that here
 
 ![Trigger event name](img/trigger_event_name.png)
 
@@ -231,7 +230,7 @@ Your flow is now built and configured but we need to tell the IFTTT service what
 ### Step 8: Test it!
 We have now built our flow and the supporting recipe.  To test the flow we must first deploy it and then activate the timestamp node.
 
-* Click the _Deploy_ button at the top right of the screen
+* Click the __Deploy__ button at the top right of the screen
 * Click the button on the left side of the timestamp node
 
 ![Test It](img/test.png)
@@ -240,7 +239,7 @@ We have now built our flow and the supporting recipe.  To test the flow we must 
 
 ### A Second Example
 
-Let's try a second example that doesn't use the IFTTT service.  In this example we will build a new flow that swaps out the IFTTT node for a Camera node - remember that principle of __Modularization__?  Here it is in action.
+Let's try a second example that doesn't use the IFTTT service.  In this example we will build a new flow that swaps out the IFTTT node for a camera node - remember that principle of __Modularization__?  Here it is in action.
 
 ### Step 1: Add a new flow
 We will begin by adding a new flow, that way the one you created will still be active.
@@ -259,7 +258,7 @@ We are going to use the default settings for the nodes for this flow.  The camer
 
 * Deploy your new flow
 * Click the timestamp inject button
-* You can view the picture you just took by going to the Pi desktop, clicking _menu_, _accessories_, _file manager_.  Click the _pictures_ folder and double click your photo to view.
+* You can view the picture you just took by going to the Pi desktop, clicking __Menu__, __Accessories__, __File Manager__.  Click the __Pictures__ folder and double click your photo to view.
 
 Discuss with the class how these features could be used in an IoT device.  Maybe the inject is triggered with a sound, takes a photo, and emails it to you - your own burglar alarm!
 
@@ -267,13 +266,13 @@ Spend some time exploring the Node-Red nodes.  What else could you build?
 
 ### Evaluation
 Use Kahoot to assess comprehension
-* Which cybersecurity first principle addresses how nodes can be replaced with other nodes in a flow to modify features? _Modularization_
-* Which cybersecurity first principle addresses how you are unable to directly access the inner workings of a node but must set parameters through dialogs? _Resource Encapsulation_.
+* Which Cybersecurity First Principle addresses how nodes can be replaced with other nodes in a flow to modify features? _Modularization_
+* Which Cybersecurity First Principle addresses how you are unable to directly access the inner workings of a node but must set parameters through dialogs? _Resource Encapsulation_.
 * Each node represents a single action however there may be several steps hidden in the background is an example of? _Abstraction_.
 * An IFTTT program is called a what? _Recipe_.
 
 ### Additional Resources
-For more information, investigate the following.
+For more information, investigate the following:
 
 * [Node Red website](https://nodered.org/)
 
