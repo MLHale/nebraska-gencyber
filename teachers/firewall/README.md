@@ -1,6 +1,6 @@
 # Firewalls
 
-Firewalls are often a first line of defense for an enterprise or home network. In this unit we will understand the fundamentals of firewalls, write firewall rules that configure its behavior and then test if the firewall performs as expected.
+Firewalls are often the first line of defense for an enterprise or home network. In this unit, we will understand the fundamentals of firewalls, write firewall rules that configure its behavior and then test if the firewall performs as expected.
 
 ### Cybersecurity First Principles
 * __Minimization__: Minimization refers to having the least functionality necessary in a program or device. The goal of minimization is to simplify and decrease the number of ways that software can be exploited. This can include **turning off ports that are not needed**, reducing the amount of code running on a machine, and/or turning off unneeded features in an application. This lesson focuses specifically on turning off ports that aren't in use.
@@ -26,14 +26,14 @@ While these firewalls are "cool", we are interested in a different kind of firew
 
 ![network firewalls](./img/networkfirewall.png)
 
-All popular operating systems now come with a firewall installed. For Windows Server and Desktop installations we will focus on the built-in ```Windows Firewall with Advanced Security``` module. This module can be configured with a graphical user interface or the command line interface using `netsh` or Powershell `NetSecurity` modules. These options provide a lot of flexibility and control over the configuration of the firewall.
+All popular operating systems now come with a firewall installed. For Windows Server and Desktop installations, we will focus on the built-in ```Windows Firewall with Advanced Security``` module. This module can be configured with a graphical user interface or the command line interface using `netsh` or Powershell `NetSecurity` modules. These options provide a lot of flexibility and control over the configuration of the firewall.
 
 ![Windows firewall](img/windowsfirewall.png)
 
-In order for two machines to communicate (such as a client talking to a server), there are many different __layers__ that are involved. Each of these layers is progressively lower level as you move downward. In general there are 7 layers:
+In order for two machines to communicate (such as a client talking to a server), there are many different __layers__ that are involved. Each of these layers is progressively lower level as you move downward. In general, there are 7 layers:
 
-- Application - The highest level layer where application data is handled (http/ftp/DHCP/SSH/SSL, etc)
-- Presentation - often the same as the application level, sometimes acts as a translate between application and session
+- Application - The highest level layer where application data is handled (HTTP/FTP/DHCP/SSH/SSL, etc)
+- Presentation - often the same as the application level, sometimes acts as a translator between application and session
 - Session - The layer that is used to form sessions between applications (often issues remote procedure calls (RPCs))
 - Transport - One of the two layers that are foundational to the modern internet (TCP / UDP), this layer serves to transport packets from one host to another.
 - Network - The second of the foundation layers for the modern internet (IP, IPv4, IPv6, IPSec, etc). This layer serves to transport packets between routers (often referred to as __packet forwarding__).
@@ -51,7 +51,7 @@ At what [network layer] (https://support.microsoft.com/en-us/kb/103884) does it 
 - [ ] Network layer and above  
 
 Discussion:  
-The headers on ethernet frames at the Data link layer and below are not useful for routing across networks. Firewalls rules are authored using routing information starting at the Network (also called the IP layer in the TCP/IP implemenation) layer and above, all the way to the application layer. As a result IP layer firewalls are the simplest and most widely used.
+The headers on ethernet frames at the Data link layer and below are not useful for routing across networks. Firewalls rules are authored using routing information starting at the Network (also called the IP layer in the TCP/IP implementation) layer and above, all the way to the application layer. As a result, IP layer firewalls are the simplest and most widely used.
 
 [Top](#table-of-contents)
 
@@ -59,7 +59,7 @@ The headers on ethernet frames at the Data link layer and below are not useful f
 
 A Firewall can be understood as a collection of valves  
 
-* Each valve/port corresponds to single service at the application level (e.g. http, ssh, https, smtp)
+* Each valve/port corresponds to single service at the application level (e.g. HTTP, SSH, HTTPS, SMTP)
 * Each valve can  
   - Permit traffic in one or both directions  
   - Deny traffic  
@@ -68,11 +68,11 @@ A Firewall can be understood as a collection of valves
 
 Here are three basic scenarios to keep in mind.  
 
-First lets consider, **Ports 1 and 4**. These ports are open. Which means they permit packets from internal and external sources. So in the case of the TCP protocol, which forms explicit connections or circuits before transmitting data via a handshake mechanism, such connections can be externally or internally initiated.
+First lets consider **Ports 1 and 4**. These ports are open. Which means they permit packets from internal and external sources. So in the case of the TCP protocol, which forms explicit connections or circuits before transmitting data via a handshake mechanism, such connections can be externally or internally initiated.
 
 In the case of **Port 2**, it allows unrestricted flow of information if the connection is initiated internally. However, it blocks all external requests to initiate an information flow. That is, it permits packets from external sources only if they correspond to a “connection” initiated by an internal source. The firewall will not permit connection requests from external sources. This restriction is useful when an internal web client initiates a web browsing request, then the firewall will allow the corresponding incoming response from an external webserver to pass through the firewall. Any connection initiated externally will not be allowed.
 
-Finally, **Port 3** is closed. Which means that it denies all traffic. A closed port may just drop the packets or send back a RST or "Reset" packet. From a security and resource consumption standpoint, it is always better to just drop the packet. Upon denial of access, no additional or useful information should be communicated back.
+Finally, **Port 3** is closed. Which means that it denies all traffic. A closed port may just drop the packets or send back an RST or "Reset" packet. From a security and resource consumption standpoint, it is always better to just drop the packet. Upon denial of access, no additional or useful information should be communicated back.
 
 [Top](#table-of-contents)
 
@@ -92,15 +92,15 @@ Lets look at an example.
 | 2      | outbound      | localnet      |   any         | any       | accept   |
 | 3      | any           | any           |   any         | any       | reject   |
 
-**Rule 1** permits externally initiated requests (Direction: inbound) to a webserver behind the firewall. So the source is “any”, since we cannot anticipate a specific IP address at the time of writing the rule. The destination is the IP address of the webserver and the service specifies the port number where the service is typically hosted. That would be port 80 for a web server. If these three match an incoming packet then the action is “ACCEPT”
+**Rule 1** permits externally initiated requests (Direction: inbound) to a webserver behind the firewall. So the source is “any” since we cannot anticipate a specific IP address at the time of writing the rule. The destination is the IP address of the webserver and the service specifies the port number where the service is typically hosted. That would be port 80 for a web server. If these three match an incoming packet then the action is “ACCEPT”
 
-**Rule 2** permits internally initiated requests (Direction: outbound) out to the Internet. So the source is any ip address in the local network, which we specify as a range of IP addresses but stated here as "localnet". The destination and the service cannot be anticipated at the time of writing the rule so both are specified as “any”. If a packet matches these conditions then the action is "ACCEPT".
+**Rule 2** permits internally initiated requests (Direction: outbound) out to the Internet. So the source is any IP address in the local network, which we specify as a range of IP addresses but stated here as "localnet". The destination and the service cannot be anticipated at the time of writing the rule so both are specified as “any”. If a packet matches these conditions then the action is "ACCEPT".
 
 **Rule 3** is to deny all other traffic that does not match the previous rules. So all three match conditions are specified as “any” and the action is "REJECT".
 
 ### Question
 
-What would happen if we re-ordered these rules? Specifically if Rule 3 was exchanged with Rule 1.
+What would happen if we re-ordered these rules? Specifically, if Rule 3 was exchanged with Rule 1.
 
 Discussion:
 * Rule 3 is often implemented as a "Default Policy", instead of an explicit rule in the table. This policy applies ONLY if a packet matches NONE of the rules specified for the firewall. More on this shortly.
@@ -111,7 +111,7 @@ Discussion:
 
 ## Working with Windows Firewall
 
-As mentioned before Windows has a built-in firewall. By default, all rules apply to both IPv4 and IPv6 traffic. 
+As mentioned before Windows has a built-in firewall. By default, all rules apply to both IPv4 and IPv6 traffic.
 
 
 ```bash
@@ -123,7 +123,7 @@ You should see something like this:
 
 
 
-Based on a whitelisting philosopy, let's begin by denying all traffic by default.
+Based on a whitelisting philosophy, let's begin by denying all traffic by default.
 
 ```bash
 sudo iptables -P INPUT DROP
@@ -139,7 +139,7 @@ You should see something like this.
 
 Notice `(policy DROP)`. You should NOT be able to access your server now from your client web-app. Go ahead and try it!
 
-A firewall that does not allow any traffic, while secure, is not very user friendly or useful. So let's add some rules to the INPUT chain to allow incoming packets on the default web port, i.e. port 80.
+A firewall that does not allow any traffic, while secure, is not very user-friendly or useful. So let's add some rules to the INPUT chain to allow incoming packets on the default web port, i.e. port 80.
 
 ```bash
 sudo iptables -I INPUT 1 -p tcp --dport 80 -j ACCEPT
@@ -158,14 +158,14 @@ So this option `-I INPUT 1` says: Insert this Rule at position 1 in the INPUT ch
 
 ---
 `<matching criteria>`  
-Next comes the **match criteria** component. This components specifies the conditions that will be used to match specific types of incoming network packets.
+Next, comes the **match criteria** component. This component specifies the conditions that will be used to match specific types of incoming network packets.
 
-So this matching critiera  `-p tcp --dport 80` says: Match all packets with the TCP protocol with a destination port 80. Again, port 80 on the server is your default webserver port. We did not specify any source or destination IP addresses so it will match all IP addresses. For incoming packets, the "destination" is the server where you are authoring the iptables rules, and the "source" is the client computer. For outgoing packets, the "source" is the server and the "destination" is the client computer.
+So this matching criteria  `-p tcp --dport 80` says: Match all packets with the TCP protocol with a destination port 80. Again, port 80 on the server is your default webserver port. We did not specify any source or destination IP addresses so it will match all IP addresses. For incoming packets, the "destination" is the server where you are authoring the iptables rules, and the "source" is the client computer. For outgoing packets, the "source" is the server and the "destination" is the client computer.
 
 ---
 `<target>`  
 
-Finally the **target** component specifies what to do if the matching criteria is met. This component is specified with a `-j` switch. It siginifies a "jump" to the target chain that follows after it. So if an incoming packet passes the matching criteria, then the next rule is specified by the value of the target chain, which can be the name of a user-defined chain or one of the special values that terminate the rule processing. The special terminating values are ACCEPT, DROP, or RETURN.
+Finally the **target** component specifies what to do if the matching criteria are met. This component is specified with a `-j` switch. It signifies a "jump" to the target chain that follows after it. So if an incoming packet passes the matching criteria, then the next rule is specified by the value of the target chain, which can be the name of a user-defined chain or one of the special values that terminate the rule processing. The special terminating values are ACCEPT, DROP, or RETURN.
 
 ACCEPT allows the packet in. So this target `-j ACCEPT` says: Jump to ACCEPT this packet and terminate the rule processing.
 
@@ -183,7 +183,7 @@ sudo iptables -nL INPUT
 ```
 ![iptables screenshot](./img/inputwebrule.png)
 
-This output looks very similar to the example table that we discussed earlier. Here source and desination ip addresses of `0.0.0.0\0` is equivalent to "any". So the rule is equivalent to saying, match all TCP packets from **any** source to **any** desitination with a destination port 80.
+This output looks very similar to the example table that we discussed earlier. Here source and destination IP addresses of `0.0.0.0\0` is equivalent to "any". So the rule is equivalent to saying, match all TCP packets from **any** source to **any** destination with a destination port 80.
 
 If you did it right, your webserver should be accessible again. Go ahead and confirm.
 
@@ -211,7 +211,7 @@ sudo apt-get update
 ```
 This command will most likely timeout due to firewall restrictions. The error messages are not likely to be useful either. So let's add a few additional firewall rules will make server administration and updates much easier.
 
-First you want the server to be able to communicate with itself. This is often called sending traffic to "loopback" interface. Also, a special network adapter is dedicated to the loopback interface. You may check its name by using the `ifconfig` command. This command shows all the network adapters and associated network addresses. Below we see that the name for the loopback adapter is `lo`.
+First, you want the server to be able to communicate with itself. This is often called sending traffic to "loopback" interface. Also, a special network adapter is dedicated to the loopback interface. You may check its name by using the `ifconfig` command. This command shows all the network adapters and associated network addresses. Below we see that the name for the loopback adapter is `lo`.
 
 ![ifconfig](./img/ifconfig.png)
 
@@ -220,12 +220,12 @@ To author a permissive firewall rule on the INPUT chain we use the `-i lo` match
 ```bash
 sudo iptables -A INPUT -i lo -j ACCEPT
 ```
-Next we want to be able to "ping" the server from any other machine to determine reachability. "Pings" are based on the ICMP protocol and the specific type of message is `echo-request`. Hence the matching criteria becomes `-p icmp --icmp-type echo-request`.
+Next, we want to be able to "ping" the server from any other machine to determine reachability. "Pings" are based on the ICMP protocol and the specific type of message is `echo-request`. Hence the matching criteria become `-p icmp --icmp-type echo-request`.
 
 ```bash
 sudo iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
 ```
-Finally, we want to allow all "incoming" packets that are in response to a internal server request. Such response network packets are said to be in a `ESTABLISHED` or `RELATED` state. Such a firewall rule requires tracking the state of various network connections. Hence, we invoke the `conntrack` module using the `-m` switch. The entire matching criteria is specified as `-m conntrack --ctstate ESTABLISHED,RELATED`. The `--ctstate` switch is an abbreviation for "connection state".
+Finally, we want to allow all "incoming" packets that are in response to an internal server request. Such response network packets are said to be in an `ESTABLISHED` or `RELATED` state. Such a firewall rule requires tracking the state of various network connections. Hence, we invoke the `conntrack` module using the `-m` switch. The entire matching criteria are specified as `-m conntrack --ctstate ESTABLISHED,RELATED`. The `--ctstate` switch is an abbreviation for "connection state".
 
 ```bash
 sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
@@ -247,7 +247,7 @@ For more details on `iptables`, consult these web resources:
 Discussion:
 Now step back and ponder this question: Have I taken care of all network openings into the server?
 
-Let's check something. `ss` is a great linux network utility. Among other things it shows a summary of network statistics.
+Let's check something. `ss` is a great Linux network utility. Among other things, it shows a summary of network statistics.
 
 ```bash
 ss -s
@@ -261,7 +261,7 @@ How about now?
 
 ![iptables screenshot](./img/ssoutput2.png)
 
-Turns out we controlled the IPv4 network interface, but completely forgot about **IPv6**. This happens a lot in real systems too. In particular, while port 22 for ssh access may be blocked in IPv4, but it is often left accessible using a IPv6 address. Check if that is the case with your server.
+Turns out we controlled the IPv4 network interface, but completely forgot about **IPv6**. This happens a lot in real systems too. In particular, while port 22 for ssh access may be blocked in IPv4, but it is often left accessible using an IPv6 address. Check if that is the case with your server.
 
 Run the following command to check the state of IPv6 interface on our server. Notice the `6` in the `ip6tables` command.
 
@@ -270,7 +270,7 @@ sudo ip6tables -nL
 ```
 ![iptables screenshot](./img/ip6tablesoutput.png)
 
-The IPv6 network interface is WIDE OPEN!!! So if a ssh service was running, it would be easily accessible using the IPv6 address.
+The IPv6 network interface is WIDE OPEN!!! So if an SSH service was running, it would be easily accessible using the IPv6 address.
 
 Let's fix this by setting the default policy on all IPv6 chains to DROP.
 
@@ -301,7 +301,7 @@ sudo cp rules.v6 /etc/iptables/rules.v6
 ```
 That's it for Firewalls in this Unit. Happy Surfing.
 
-> Firewalls are an essential component of "Defense-in-Depth" strategy. It can certainly slowdown an attacker. However, firewalls cannot keep a determined adversary out. There are many ways in which firewalls can be abused and easily bypassed. Such attacks need to be constantly monitored using Intrusion Detection Systems (IDS) and Network Monitoring solutions. The final line of defense is applications built using secure coding practices and proper encryption implementations.  
+> Firewalls are an essential component of "Defense-in-Depth" strategy. It can certainly slow down an attacker. However, firewalls cannot keep a determined adversary out. There are many ways in which firewalls can be abused and easily bypassed. Such attacks need to be constantly monitored using Intrusion Detection Systems (IDS) and Network Monitoring solutions. The final line of defense is applications built using secure coding practices and proper encryption implementations.  
 
 [Top](#table-of-contents)
 

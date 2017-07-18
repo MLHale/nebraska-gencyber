@@ -12,21 +12,21 @@ This lesson will introduce students to the Raspberry Pi platform, discuss its co
 
 ### Goals
 By the end of this lesson students will be able to:
-*	Assemble a Raspberry Pi
-*	Identify key components of the Raspberry Pi
-*	Apply the Cybersecurity First Principles of modularity, abstraction, and least privilege to the Raspberry Pi platform
+*    Assemble a Raspberry Pi
+*    Identify key components of the Raspberry Pi
+*    Apply the Cybersecurity First Principles of modularity, abstraction, and least privilege to the Raspberry Pi platform
 
 ### Materials Required
-*	Raspberry Pi kit (Pi, case, SD card, heat sinks, power cable, HDMI cable)
-*	DVI to HDMI converter
-*	Keyboard
-*	Mouse
-*	Quick Start Guide
-*	Optional: Internet connection to complete updates
-*	Optional: Raspberry Pi camera and poster putty
+*    Raspberry Pi kit (Pi, case, SD card, heat sinks, power cable, HDMI cable)
+*    DVI to HDMI converter
+*    Keyboard
+*    Mouse
+*    Quick Start Guide
+*    Optional: Internet connection to complete updates
+*    Optional: Raspberry Pi camera and poster putty
 
 ### Prerequisite Lessons
-*	None
+*    None
 
 ### Table of Contents
 <!-- TOC START min:1 max:3 link:true update:true -->
@@ -56,18 +56,18 @@ By the end of this lesson students will be able to:
 The Raspberry Pi kit goes together very quickly, the main thing to remember is to ensure each student has ample room to spread out their parts and work.  Some of the parts are small and once the students get started it often looks like Christmas morning with boxes and packing paper being flung everywhere.  What tends to work well is to only unbox what is needed, as it’s needed, explain the part, and install it. Lockstep for the whole class making sure everyone is caught up before moving on.
 
 ### Step 2: Unbox the Raspberry Pi
-Have the students unbox the Raspberry Pi and identify/discuss with them the various components shown on the diagram below:
+Have the students unbox the Raspberry Pi and identify/discuss with them the various components shown in the diagram below:
 
 ![components](img/pi_comp.png)
 
 * GPIO: General Purpose Input/Output, this is where you can interface various projects to the Pi
-* USB Ports: Pretty much any USB device can go here, we will use for a keyboard and mouse
+* USB Ports: Pretty much any USB device can go here, we will use it for a keyboard and mouse
 * Ethernet Port: Connection for a network
 * Audio and composite video: Audio output for speakers or headphones and composite video
 * Camera Connector: Add a camera here to take pictures
 * HDMI port: High Definition Multimedia Interface for video output
 * 5V Micro USB: Your power cable will go here
-* Micro SD card slot: The Pi uses micro SD cards store the operating system, applications and user data
+* Micro SD card slot: The Pi uses micro SD cards store the operating system, applications, and user data
 * Display Connector: An optional display port, we won't use it
 * WiFi Antenna: For communicating with a WiFi access point
 * Broadcom CPU: This is the brains of the Pi, it makes everything work together
@@ -80,7 +80,7 @@ Remove the backing paper from the heat sinks and stick to the chips as shown in 
 ![heat sinks](img/heat_sink.jpg)
 
 ### Step 4: Install the micro SD card into the Raspberry Pi
-The micro SD card holds both the operating system for the Raspberry Pi (which is a version of Linux) as well as any installed applications and user data.  Due to its small size and accessibility it is possible to have multiple SD cards with different operating systems and applications loaded.  Simply removing the SD card and replacing with a different one can give the user a completely new computer environment.  This is another example of the __modularity__ principle.
+The micro SD card holds both the operating system for the Raspberry Pi (which is a version of Linux) as well as any installed applications and user data.  Due to its small size and accessibility, it is possible to have multiple SD cards with different operating systems and applications loaded.  Simply removing the SD card and replacing with a different one can give the user a completely new computer environment.  This is another example of the __modularity__ principle.
 
 * Insert the SD card as shown in the diagram below. _Note the direction of the printing on the card_
 
@@ -126,30 +126,30 @@ You have a couple options for mounting your camera for use:
 * Plug the mouse into a free USB port
 
 ### Step 8: Install the HDMI cable
-*	Plug one end of the HDMI cable into the HDMI port on the Pi (refer to [Step 2](#step-2-unbox-the-raspberry-pi) if you forget where that is)
-*	If your monitor has a HDMI port then plug the free end of the HDMI cable into your monitor
-*	If your monitor doesn’t have a HDMI port but has a DVI port then plug the free end of the HDMI cable into the DVI to HDMI converter and attach the DVI converter to your computer monitor
+*    Plug one end of the HDMI cable into the HDMI port on the Pi (refer to [Step 2](#step-2-unbox-the-raspberry-pi) if you forget where that is)
+*    If your monitor has an HDMI port then plug the free end of the HDMI cable into your monitor
+*    If your monitor doesn’t have an HDMI port but has a DVI port then plug the free end of the HDMI cable into the DVI to HDMI converter and attach the DVI converter to your computer monitor
 
 ### Step 9: The moment you have been waiting for - turn on the Raspberry Pi!
-*	Turn on your computer monitor
+*    Turn on your computer monitor
 * Plug the small end of the power cable into the Raspberry Pi
-*	Plug the other end of the power cable into a power strip or wall socket
+*    Plug the other end of the power cable into a power strip or wall socket
 
 ### Step 10: Configuring the camera and updating the Raspberry Pi software
 Now we need to tell the Raspberry Pi that you have installed a camera.  
 
-* Use the _Menu_ dropdown to select _Preferences_, and _Raspberry Pi Configuration_
+* Use the _Menu_ dropdown to select _Preferences_ and _Raspberry Pi Configuration_
 * Select the _Interfaces_ tab
 * Select _Camera Enable_, click OK, and reboot
 
 Even though you just assembled a brand new Raspberry Pi, it’s a good idea to update the software on the system.  It's very common that security updates or new application capabilities may have been recently developed but are not yet installed.
-*	The default Raspberry Pi user is _pi_ and default password is _raspberry_
-*	In its default configuration the Raspberry Pi logs in the user automatically. For now we will leave this configuration in place
+*    The default Raspberry Pi user is _pi_ and default password is _raspberry_
+*    In its default configuration the Raspberry Pi logs in the user automatically. For now, we will leave this configuration in place
 * Start by opening a terminal window by clicking the terminal icon at the top of the screen as shown below.
 
 ![Terminal](img/terminal.png)
 
-*	Enter the following command
+*    Enter the following command
 ```bash
 apt-get update
 ```
@@ -167,7 +167,7 @@ sudo apt-get upgrade
 
 * Hit enter to answer yes to the question do you want to continue
 
-The upgrade options to apt-get tells the operating system to compare the current software against the new catalog you just downloaded with the update command.  Any software that has a newer version is now downloaded and installed
+The upgrade options to apt-get tell the operating system to compare the current software against the new catalog you just downloaded with the update command.  Any software that has a newer version is now downloaded and installed
 
 ### Step 11: Shutdown the Raspberry Pi
 Now that the software has been updated we are done with the Raspberry Pi for now and can turn it off.  We could do this through the GUI with the mouse but since we already have a terminal window open, here’s a command to turn off the Raspberry Pi off from the command line:
@@ -178,7 +178,7 @@ shutdown now
 
 ### Evaluation
 Use Kahoot to assess comprehension:
-* A Raspberry Pi uses modularity because: _It uses separate components for many of its functions.  Something like the camera can be installed and removed as needed being replaced with any other similar camera module_
+* A Raspberry Pi uses modularity because: _It uses separate components for many of its functions.  Something like the camera can be installed and removed as needed, being replaced with any other similar camera module_
 * The Linux command `sudo` demonstrates the Cybersecurity First Principle: _Least Privilege_
 * The component of the Raspberry Pi stores the operating system: _SD card_
 

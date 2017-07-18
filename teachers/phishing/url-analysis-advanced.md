@@ -33,7 +33,7 @@
 Examine this link:
 http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/obfuscated.html
 
-It is identical to the previous page in form and function, but now examine its page source. It has been obfuscated using an external javascript file. Examine that file as well: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/myscr150731.js Spammers use such obfuscation to avoid detection and analysis. Navigate away from such pages or delete emails that have gone to such lengths to conceal their "trickeries".
+It is identical to the previous page in form and function but now examine its page source. It has been obfuscated using an external javascript file. Examine that file as well: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/myscr150731.js Spammers use such obfuscation to avoid detection and analysis. Navigate away from such pages or delete emails that have gone to such lengths to conceal their "trickeries".
 
 Just viewing the source files for obfuscated pages provides no useful information. But if we put our minds to it, we can defeat the bad guys. Navigate back to the obfuscated page. Then right click on a blank area and select `Inspect` or `Inspect Element`. In the `Elements` tab unravel the HTML code that is computed by the browser to render a human readable page. Now it should look similar to the phishing page from before:
 > ![trickyurls](./img/inspectelement.png)
@@ -43,11 +43,11 @@ The developer tools built into the browser also help us see right through the ob
 ## Obfuscation of URLs using Encoding
 
 Examine links on this page: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/encoding.html  
-Have you seen links like this before? Examine the page source (right click blank area and click `view source`).   
+Have you seen links like this before? Examine the page source (right click the blank area and click `view source`).   
 
 Now click on the URLs to reveal their true destinations. How is this working?
 
-Most humanly readable domain names map to IPv4 addresses. IPv4 addresses are 32 bit binary numbers. Typically, they are expressed as 4 sets of decimal numbers from 0-255. For example, `unomaha.edu` maps to 137.48.1.231 IP address.
+Most humanly readable domain names map to IPv4 addresses. IPv4 addresses are 32-bit binary numbers. Typically, they are expressed as 4 sets of decimal numbers from 0-255. For example, `unomaha.edu` maps to 137.48.1.231 IP address.
 
 It just so happens that 32-bit IP addresses can be expressed in Octal, Decimal and Hex formats. Browsers know how to interpret IP addresses in these formats.
 
@@ -60,14 +60,14 @@ Links #1-3 are explained below for an IP address that maps to `google.com`
 
 Decimal (Base 10) and Hex (Base 16) Encoding
 
-    First convert to Binary (Base 2)
+    First, convert to Binary (Base 2)
 
     216 = 11011000
     58  = 00111010
     194 = 11000010
     36  = 00100100
 
-    Combined Binary   : 11011000001110101100001000100100
+    Combined Binary: 11011000001110101100001000100100
 
     Decimal equivalent: 3627729444     -->    http://3627729444/
     Hex equivalent    : 0xD83AC224     -->    http://0xD83AC224/
@@ -101,18 +101,18 @@ ASCII Encoding for www.wellsfargo.com
 
     Final URL: http://%77%77%77.&#119&#101&#108&#108&#115&#102&#97&#114&#103&#111&#46&#99&#111&#109
 
-		This forms the href attribute of Link #5.
+        This forms the href attribute of Link #5.
 
     ASCII Table: http://www.asciitable.com/index/asciifull.gif
-		# This is a useful resource for ASCII to hex, decimal conversions
+        # This is a useful resource for ASCII to hex, decimal conversions
 
-		The `HTML` column in the ASCII table explains how obfuscation on this page works. For example, `&#119;` maps to the letter `w`. A browser does this automatically and renders a human readable webpage. Dev tools (Inspect Element) should also help.
+        The `HTML` column in the ASCII table explains how obfuscation on this page works. For example, `&#119;` maps to the letter `w`. A browser does this automatically and renders a humanly readable webpage. Dev tools (Inspect Element) should also help.
 
 ```
 
 ### Link #5
 
-Link #5 is a image map. Different regions of the image are mapped to different URLs. Try hovering your mouse over the image starting from the far right, slowly moving towards the left. Notice the change in links in the status bar. Spammers trick victims by embedding images with a mix of malicious and legitimate links using this technique. For example, by chance you may hover over a image area with legitimate links when checking the status bar, but then click a different (malicious link) area to visit the linked website.
+Link #5 is an image map. Different regions of the image are mapped to different URLs. Try hovering your mouse over the image starting from the far right, slowly moving towards the left. Notice the change in links in the status bar. Spammers trick victims by embedding images with a mix of malicious and legitimate links using this technique. For example, by chance, you may hover over an image area with legitimate links when checking the status bar, but then click a different (malicious link) area to visit the linked website.
 
 ## Clickjacking
 
@@ -126,7 +126,7 @@ http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/clickjacking-reveal.html
 
 ![trickyurls](./img/clickjacking-reveal.png)
 
-Now you can see, that the page is crafted to steal your _clicks_ and pass them on to an invisible page in front of it. Spammers do this to generate advertisement revenue from unsuspecting users by _stealing_ their clicks. This exploit is called **click jacking**. You may explore the page source on these pages to notice that such behavior is possible using html `iframe` technology. With an invisible `iframe` the entire page becomes a minefield for your mouse clicks!
+Now you can see, that the page is crafted to steal your _clicks_ and pass them on to an invisible page in front of it. Spammers do this to generate advertisement revenue from unsuspecting users by _stealing_ their clicks. This exploit is called **click jacking**. You may explore the page source on these pages to notice that such behavior is possible using HTML `iframe` technology. With an invisible `iframe` the entire page becomes a minefield for your mouse clicks!
 
 In the demo page, `Like the kitten` is strategically placed on a link that tweets great things about Dr. Gandhi. You would be "liking" me without really intending to do so!
 
@@ -151,11 +151,11 @@ Visit these sites and see how much information is available about yourself:
 
 You may have to pick out yourself from other people who share your name. But that should be easy with additional information about your age and location.
 
-Sites like Facebook, Linkedin, Company websites, Organizational Charts and Employee directories, make it easy to craft emails from colleagues, friends and family. There are commercial tools available to collect what is called Open Source INTelligence or OSINT. Here is a tool that does just that: https://www.paterva.com/web7/buy/maltego-clients/maltego.php
+Sites like Facebook, Linkedin, Company websites, Organizational Charts and Employee directories, make it easy to craft emails from colleagues, friends, and family. There are commercial tools available to collect what is called Open Source INTelligence or OSINT. Here is a tool that does just that: https://www.paterva.com/web7/buy/maltego-clients/maltego.php
 
 > Maltego is an interactive data mining tool that renders directed graphs for link analysis. The tool is used in online investigations for finding relationships between pieces of information from various sources located on the Internet.
 
-> **Security Tip**: Even when clicking on links in emails or websites shared by close colleagues, friends and family; trust but verify. This advise will seem even more reasonable after going through the Email analysis module.
+> **Security Tip**: Even when clicking on links in emails or websites shared by close colleagues, friends, and family; trust but verify. This advice will seem even more reasonable after going through the Email analysis module.
 
 ### Geolocation
 
@@ -187,7 +187,7 @@ For instance, if you have a twitter account, there is a setting (Settings --> Se
 
 ![geotagging](./img/deletelocation.png)
 
-Protecting privacy requires __Information Hiding__. Deleting or hiding metadata prevents sensitive patterns from being learned over time. This is true even for encrypted `https` Internet traffic. While `https` encryption protects message contents, it still reveals the communication endpoints. Over time an accurate communication graph can be built by examining many such communications. To conceal  browsing patterns over the Internet, Virtual Private Networks (VPN) are very effective. VPNs work by forming a tunnel between your current connection and a known network (such as the unomaha network). Once a tunnel is formed, all requests you make appear as if they originate from within the known network, since they emanate from the location you have tunneled to.
+Protecting privacy requires __Information Hiding__. Deleting or hiding metadata prevents sensitive patterns from being learned over time. This is true even for encrypted `https` Internet traffic. While `https` encryption protects message contents, it still reveals the communication endpoints. Over time an accurate communication graph can be built by examining many such communications. To conceal browsing patterns over the Internet, Virtual Private Networks (VPN) are very effective. VPNs work by forming a tunnel between your current connection and a known network (such as the unomaha network). Once a tunnel is formed, all requests you make appear as if they originate from within the known network, since they emanate from the location you have tunneled to.
 
 [Top](#table-of-contents)
 

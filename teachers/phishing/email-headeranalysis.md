@@ -3,7 +3,7 @@
 ### Cybersecurity Commonsense
 [Source: DHS Stop. Think. Connect. [Campaign](https://www.stopthinkconnect.org/tips-advice/general-tips-and-advice)]
 
-* __When in doubt, throw it out:__ Links in emails, social media posts and online advertising are often how cybercriminals try to steal your personal information. Even if you know the source, if something looks suspicious, delete it.
+* __When in doubt, throw it out:__ Links in emails, social media posts, and online advertising are often how cybercriminals try to steal your personal information. Even if you know the source, if something looks suspicious, delete it.
 
 * __Think before you act:__ Be wary of communications that implore you to act immediately, offer something that sounds too good to be true or ask for personal information.
 
@@ -22,11 +22,11 @@
 
 ## Introduction
 
-Email is an indispensable communication tool. We use it everyday. Unfortunately many attacks also originate in emails. Wouldn't it be great if everyone had some mad email ninja skills! Don't worry, you will feel pretty good about your email analysis skills at the end of this session.
+Email is an indispensable communication tool. We use it every day. Unfortunately, many attacks also originate in emails. Wouldn't it be great if everyone had some mad email ninja skills! Don't worry, you will feel pretty good about your email analysis skills at the end of this session.
 
 A vigilant, trained and aware human user is a critical layer of defense against threats both internal and external. Even if malicious URLs and Emails get past spam filters and anti-virus software, a human user can catch it. Such a defensive strategy is common in secure system designs. It also demonstrates a *cyber security first principle* called `Layering.`
 
-When reading emails, the first item that grabs our attention is the sender's name, email and subject. But, it may come as a surprise that spoofing these in a email is a pretty easy thing! It is also effective at fooling unsuspecting email users. Take a look at some of the statistics in the [Verizon Data Breach Reports](http://www.verizonenterprise.com/verizon-insights-lab/dbir/).
+When reading emails, the first item that grabs our attention is the sender's name, email, and subject. But, it may come as a surprise that spoofing these in an email is a pretty easy thing! It is also effective at fooling unsuspecting email users. Take a look at some of the statistics in the [Verizon Data Breach Reports](http://www.verizonenterprise.com/verizon-insights-lab/dbir/).
 
 Here is an interesting one:
 
@@ -175,7 +175,7 @@ The `by` part indicates the first stop taken after email origin:
 The first encountered email server adds this header entry and every other entry below it. There is a high chance that a malicious sender has full control of this email-server. So do not trust this information.  
 Regardless, we now have some information to do further investigation. Let's try to figure out where the geographic location of the email-server.
 
-We can use a online utility like http://network-tools.com and enter the domain name or IP address as a query. Here we use `85-250-54-29.bb.netvision.net.il` and `mail.shako.com.tw` as queries.
+We can use an online utility like http://network-tools.com and enter the domain name or IP address as a query. Here we use `85-250-54-29.bb.netvision.net.il` and `mail.shako.com.tw` as queries.
 
 ```text
 
@@ -195,11 +195,11 @@ Registered Domain: shako.com.tw
 
 ```
 
-The searches reveal that a computer in `Israel` used a email server in `Taiwan` as the first stop on its way to the U.S., while the actual body of the email claims the sender is from `Guinea Bissau.` Something is not right!
+The searches reveal that a computer in `Israel` used an email server in `Taiwan` as the first stop on its way to the U.S., while the actual body of the email claims the sender is from `Guinea Bissau.` Something is not right!
 
 There are few other fields that you should investigate in the email header.  
 
-* `Return-Path:` See if the email address in this entry matches the email address in the `From:` entry. They typically will not match for mass emailers like advertisers or spammers. The `Return-Path:` email address is used when a email cannot be delivered to its recipients, and it "bounces back". Spammers don't want all the undelivered email to end up in their inboxes!
+* `Return-Path:` See if the email address in this entry matches the email address in the `From:` entry. They typically will not match for mass emailers like advertisers or spammers. The `Return-Path:` email address is used when an email cannot be delivered to its recipients, and it "bounces back". Spammers don't want all the undelivered email to end up in their inboxes!
 
 * `Reply-To:` See if the email address in this entry matches the email address in the `From:` entry. When you hit reply to an email, the `Reply-To` entry is used to populate the recipients' email. If it is different, you may accidentally send your reply to someone else.
 
@@ -209,9 +209,9 @@ There are few other fields that you should investigate in the email header.
 
 * `Bcc:` or `X-UIDL:` entries exist. This is a sign of poorly crafted header. They are never in normal emails!
 
-* `X-Spam score`, `X-Spam flag` and `X-Spam status` entries help determine “spaminess”. But the scores are not standardized across servers so these have to examined on a case by case basis.
+* `X-Spam score`, `X-Spam flag` and `X-Spam status` entries help determine “spamminess”. But the scores are not standardized across servers so these have to examine on a case by case basis.
 
-Google has a [online tool](https://toolbox.googleapps.com/apps/messageheader/) that helps to examine the "hops" and the time delay between them. Large delays in accepting email by the first server may be a sign of overloaded and resource constrained spam servers. Here's what the tool shows about [email-header1.txt](./email-headers/email-header1.txt). There is a suspicious 12 minute delay right at the beginning, which may indicate a overloaded spam sending email server. Sometimes, time difference between servers may cause false positives.
+Google has an [online tool](https://toolbox.googleapps.com/apps/messageheader/) that helps to examine the "hops" and the time delay between them. Large delays in accepting email by the first server may be a sign of overloaded and resource constrained spam servers. Here's what the tool shows about [email-header1.txt](./email-headers/email-header1.txt). There is a suspicious 12-minute delay right at the beginning, which may indicate an overloaded spam sending email server. Sometimes, the time difference between servers may cause false positives.
 
 ![google header analysis](./img/googleheaderanalyzer.png)
 
@@ -258,15 +258,15 @@ Received: from mx0b-00261b01.pphosted.com (148.163.152.157) by
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id
  15.1.1240.9 via Frontend Transport; Wed, 12 Jul 2017 22:49:15 +0000
 Received: from pps.filterd (m0104361.ppops.net [127.0.0.1])
-	by mx0b-00261b01.pphosted.com (8.16.0.21/8.16.0.21) with SMTP id v6CMlhnA032537
-	for <smartprof@unomaha.edu>; Wed, 12 Jul 2017 17:49:15 -0500
-Authentication-Results-Original: ppops.net;	spf=none
+    by mx0b-00261b01.pphosted.com (8.16.0.21/8.16.0.21) with SMTP id v6CMlhnA032537
+    for <smartprof@unomaha.edu>; Wed, 12 Jul 2017 17:49:15 -0500
+Authentication-Results-Original: ppops.net;    spf=none
  smtp.mailfrom=smartprof@loki.ist.unomaha.edu
 Received: from loki.ist.unomaha.edu (loki.ist.unomaha.edu [137.48.187.123])
-	by mx0b-00261b01.pphosted.com with ESMTP id 2bnsq8rykp-1
-	for <smartprof@unomaha.edu>; Wed, 12 Jul 2017 17:49:15 -0500
+    by mx0b-00261b01.pphosted.com with ESMTP id 2bnsq8rykp-1
+    for <smartprof@unomaha.edu>; Wed, 12 Jul 2017 17:49:15 -0500
 Received: by loki.ist.unomaha.edu (Postfix, from userid 13823)
-	id 958031E5EE0; Wed, 12 Jul 2017 17:49:14 -0500 (CDT)
+    id 958031E5EE0; Wed, 12 Jul 2017 17:49:14 -0500 (CDT)
 To: <smartprof@unomaha.edu>
 Subject: Make Cybersecurity Great Again!
 X-PHP-Originating-Script: 13823:spoof.php
@@ -303,9 +303,9 @@ Questions:
 
 ## Additional Tasks
 
-Pick a spam email in your inbox. Inspect discrepancies in its headers and investigate the source of the email. Spot traps that can misguide a email user. Share this knowledge with your friends and family.
+Pick a spam email in your inbox. Inspect discrepancies in its headers and investigate the source of the email. Spot traps that can misguide an email user. Share this knowledge with your friends and family.
 
-[Phishing](https://www.consumer.ftc.gov/articles/0003-phishing) emails often appear to be from someone you know. They  ask for urgent and critical actions like sending money, sharing bank information and passwords. Double-check the real source of the email. Follow-up with a call to confirm the emergency.
+[Phishing](https://www.consumer.ftc.gov/articles/0003-phishing) emails often appear to be from someone you know. They ask for urgent and critical actions like sending money, sharing bank information and passwords. Double-check the real source of the email. Follow-up with a call to confirm the emergency.
 
 Stay Vigilant!
 

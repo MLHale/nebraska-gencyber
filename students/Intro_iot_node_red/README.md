@@ -13,19 +13,19 @@
 * __Resource Encapsulation__: Encapsulation is an object oriented concept where all data and functions required
 to use the resource are packaged into a single self-contained component. The goal is to only allow access or manipulation of the resource in the way the designer intended. An example, assume a flag pole is the object. There are fixed methods on how the flag pole is to be used. Put the flag on, take the flag off, raise or lower the flag. Nothing else can be done to the flag pole.
 
-* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping software as simple and as focused as possible, the reliability and security is greatly increased.
+* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping the software as simple and as focused as possible, the reliability and security are greatly increased.
 
 ### Introduction
 Lets build an IoT device – wait, just what is the IoT – and why should I care?  I’m afraid to ask – is it secure?
 
 ![IoT Security](img/no_s_in_iot.jpg)
 
-In this lesson we will take a close look at IoT and the associated security implications by building a simple IoT application on a Raspberry Pi using a program called Node-Red.
+In this lesson, we will take a close look at IoT and the associated security implications by building a simple IoT application on a Raspberry Pi using a program called Node-Red.
 
 ### Goals
 We will continue our work towards our GenCyber camp purpose with the below goals for this lesson:
 * Use Node-Red to develop a simple IoT application on a Raspberry Pi
-*	Integrate the If This Then That (IFTTT) service as a IoT cloud service
+* Integrate the If This Then That (IFTTT) service as an IoT cloud service
 * Recall how the Cybersecurity First Principles of abstraction, least privilege, minimization, modularization, resource encapsulation, and simplicity apply to IoT applications
 
 ### Materials Required
@@ -70,7 +70,7 @@ We will continue our work towards our GenCyber camp purpose with the below goals
 
  ![Internet of Things](img/Internet_of_Things.png)
 
- These devices communicate with you, perhaps a cloud server, maybe even each other.  Although some devices such as phones or tablets have very powerful operating systems and security features, many IoT devices such as thermostats or fitbits don’t have security features due to the added cost and drain on batteries.  Is that a problem?  The general consensus amongst security experts is this is like running with scissors.  It may help you get a task done but at some point you may find the results painful.  Where do we start with addressing the issue?  Let’s start by taking a very generalized look at an IoT device.
+ These devices communicate with you, perhaps a cloud server, maybe even each other.  Although some devices such as phones or tablets have very powerful operating systems and security features, many IoT devices such as thermostats or fitbits don’t have security features due to the added cost and drain on batteries.  Is that a problem?  The general consensus amongst security experts is this is like running with scissors.  It may help you get a task done but at some point, you may find the results painful.  Where do we start with addressing the issue?  Let’s start by taking a very generalized look at an IoT device.
 
  ![IoT Block Diagram](img/IoT_block.png)
 
@@ -102,7 +102,7 @@ sudo apt-get install npm
 sudo npm i -g npm@2.x
 ```
 
-* Update Node-Red - this operations may take several minutes
+* Update Node-Red - this operation may take several minutes
 
 ```bash
 update-nodes-and-nodered
@@ -141,18 +141,18 @@ IFTTT (If This Then That) is a cloud service that allows us to automate actions,
 Programs in Node-Red are called flows and they can be very simple or very complex.  We will keep our first flows very simple but you will see you can do quite a bit with a simple flow.  Flows are made up of connected nodes.  Although each node is a single element in a flow there may be several actions which that flow generates.  This implementation of nodes and flows illustrate several examples of Cybersecurity First Principles:
 
 * __Simplicity__: A flow simplifies all the activity which is being conducted in the background.  By studying a flow you can quickly get an idea of what actions are being executed.  This aids security as you can quickly understand the overall actions taking place vice getting lost in all the details.
-* __Abstraction__: Each node presents a single action however there may be several steps occurring in the background.  The details are abstracted behind the node which represents the interior actions.
+* __Abstraction__: Each node presents a single action, however, there may be several steps occurring in the background.  The details are abstracted behind the node which represents the interior actions.
 * __Modularization__: Each node is a building block in a flow.  Nodes can be swapped out to change the functionality of a flow without requiring changing the entire flow.
 * __Resource Encapsulation__: You are unable to directly access several of the interior functions which are necessary for a flow to work.  Due to this internalization, or encapsulation, critical functions are protected from external misuse.
 
-With those principles in mind lets start your first flow.
+With those principles in mind, lets start your first flow.
 
-* Open a new tab in Firefox (keep the IFTTT tab open for now) and enter the address __http://127.0.0.1:1880__, this will bring up the web page for the Node-Red server running on _your_ Raspberry Pi.  `127.0.0.1` is always the local address of the computer your are using.
+* Open a new tab in Firefox (keep the IFTTT tab open for now) and enter the address __http://127.0.0.1:1880__, this will bring up the web page for the Node-Red server running on _your_ Raspberry Pi.  `127.0.0.1` is always the local address of the computer you are using.
 * Drag a __timestamp__ node from the left pane, called the palette, into the flow
 
 ![Timestamp](img/timestamp.png)
 
-You will notice on the right hand side of the screen a description of the node is given.  This particular node returns the current system time when you click the button on the left side of the node.  For this flow we don't care about the time on the timestamp, we will just use it to indicate the button was pressed.
+You will notice on the right-hand side of the screen a description of the node is given.  This particular node returns the current system time when you click the button on the left side of the node.  For this flow we don't care about the time on the timestamp, we will just use it to indicate the button was pressed.
 
 * Now scroll down through the palette and locate the IFTTT node under the output section and drag it into the flow.
 
@@ -192,7 +192,7 @@ Now we need to fill in the first field named key.  This is a unique identifier w
 ### Step 7: Build an IFTTT Recipe
 Your flow is now built and configured but we need to tell the IFTTT service what to do if it gets activated.  We do this through building an IFTTT recipe.
 
-* Go back to your IFTTT browser tab.  If it got closed use the address https://ifttt.com/my_applets
+* Go back to your IFTTT browser tab.  If it got closed, use the address https://ifttt.com/my_applets
 * Click on __New Applet__
 
 ![Start Recipe](img/start_recipe.png)
@@ -219,7 +219,7 @@ Your flow is now built and configured but we need to tell the IFTTT service what
 
 ![Email action](img/email_action.png)
 
-* You now have the opportunity to customize what the email will say when it is sent.  You can pass data between Node-red and IFTTT.  For now we will use the default values. This will send an email to the address you used to register when you created your IFTTT account. Click __Create Action__.
+* You now have the opportunity to customize what the email will say when it is sent.  You can pass data between Node-red and IFTTT.  For now, we will use the default values. This will send an email to the address you used to register when you created your IFTTT account. Click __Create Action__.
 
 ![Complete action](img/complete_action.png)
 
@@ -235,7 +235,7 @@ We have now built our flow and the supporting recipe.  To test the flow we must 
 
 ![Test It](img/test.png)
 
- If you did everything correctly you will receive an email telling you that the timestamp button was pressed.  Although this was very simple and perhaps not very useful think about what how this could be expanded.  Maybe instead of clicking the timestamp node the IFTTT is triggered by an external switch that activates whenever your pet goes out their pet door.  Now your pet will send you an email when it goes out into the yard!
+ If you did everything correctly you will receive an email telling you that the timestamp button was pressed.  Although this was very simple and perhaps not very useful think about what how this could be expanded.  Maybe instead of clicking the timestamp node, the IFTTT is triggered by an external switch that activates whenever your pet goes out their pet door.  Now your pet will send you an email when it goes out into the yard!
 
 ### A Second Example
 
@@ -254,7 +254,7 @@ You've already built one flow, this one will follow the same procedures.  Add an
 ![Camera flow](img/camera_flow.png)
 
 ### Step 3: Test it!
-We are going to use the default settings for the nodes for this flow.  The camera node, when activated, will take a photo with the Pi's camera, give the photo a unique (and very long) filename, and store it in the `/home/pi/pictures` directory.  You can configure the node to give custom file names, set picture formats and sizes and orientations.
+We are going to use the default settings for the nodes for this flow.  The camera node, when activated, will take a photo with the Pi's camera, give the photo a unique (and very long) filename, and store it in the `/home/pi/pictures` directory.  You can configure the node to give custom file names, set picture formats and sizes, and orientations.
 
 * Deploy your new flow
 * Click the timestamp inject button
@@ -268,7 +268,7 @@ Spend some time exploring the Node-Red nodes.  What else could you build?
 Use Kahoot to assess comprehension
 * Which Cybersecurity First Principle addresses how nodes can be replaced with other nodes in a flow to modify features? _Modularization_
 * Which Cybersecurity First Principle addresses how you are unable to directly access the inner workings of a node but must set parameters through dialogs? _Resource Encapsulation_.
-* Each node represents a single action however there may be several steps hidden in the background is an example of? _Abstraction_.
+* Each node represents a single action, however, there may be several steps hidden in the background is an example of? _Abstraction_.
 * An IFTTT program is called a what? _Recipe_.
 
 ### Additional Resources

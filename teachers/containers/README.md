@@ -5,7 +5,7 @@
 - Stackable onto on a ship, train, plane or truck. ⛴️ 🚇 ✈️ 🚚
 - Compatible worldwide.
 
-Application containers follow a similar phillosophy.
+Application containers follow a similar philosophy.
 
 ## Application containers
 - Standard unit of an application’s runtime.
@@ -71,7 +71,7 @@ Let’s start with a container based on [Alpine Linux](https://alpinelinux.org)
 
 - Alpine Linux is a security-oriented, lightweight Linux distribution
 
-First we need to download a container blueprint called an ```Image```
+First, we need to download a container blueprint called an ```Image```
 
 - Open the Command Line Interface (CLI) i.e.   
   Terminal app for Linux/macOS or `Docker Quickstart` on Windows
@@ -85,7 +85,7 @@ docker pull alpine
 
 [Docker hub](https://hub.docker.com) is a registry of images from authoritative sources and individual users
 
-- By default the `latest` image is downloaded. This label is called a Tag
+- By default, the `latest` image is downloaded. This label is called a Tag
 - Other tags allows downloading specific versions or those shared by other users
 
 Let’s check locally available images and note their sizes.   
@@ -158,7 +158,7 @@ docker run -it --name myAlpineWithVol \
 ## Volume configuration
 
 Caution 😡:   
-By default a mounted volume allows full read/write by the container  
+By default, a mounted volume allows full read/write by the container  
 This allows exceptions to the `Process Isolation`  principle
 
 - May set it to read-only (Least privilege principle)
@@ -202,7 +202,7 @@ cat test.txt
 Services are bound to container ports.
 We need to expose container ports to the network to access these services remotely.
 
-## A HTTP Server Container
+## An HTTP Server Container
 Let’s create a container that runs an HTTP server in two commands!
 First, download an image for Lighttpd from Docker Hub
 
@@ -287,7 +287,7 @@ Luckily, a `Dockerfile` automates the build process. This is Akin to a “recipe
 ```bash
 # Start with this base image
 FROM python:2.7.13
-# Set evironment variables
+# Set environment variables
 ENV PYTHONUNBUFFERED 1
 # Set the working directory in
 # which RUN and CMD options will run
@@ -342,7 +342,7 @@ docker images
 Here is how to delete the image we just created.  
 In the previous `host` terminal:
 ```bash
-# Use the `rmi` command and supply a image name
+# Use the `rmi` command and supply an image name
 docker rmi django:dev
 # List local images
 docker images

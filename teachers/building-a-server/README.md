@@ -1,7 +1,7 @@
 # RESTFul APIs and Little bits
 
 ### Cybersecurity First Principles in this lesson
- (delete this line and all bullets that do not apply )
+ (delete this line and all bullets that do not apply)
 
 * __Abstraction__: An abstraction is a representation of an object or concept. The gauges in an automobile are an abstraction of the performance of a car. A map is an abstraction of the earth. Abstraction allows us to model an object without considering all of the (possibly infinite) complexity that the object may contain. In this lesson, we use abstraction to model data structures similarly as we did in lesson one.
 
@@ -17,7 +17,7 @@
 
 * __Resource Encapsulation__: A resource can be hardware such as memory, disk drives, or a display screen. It can also be system objects such as semaphores, a linked list, or shared memory. Processes (or programs) need resources to run. Resources have to be separated and used in the way they were intended. Virtual machines encapsulate an operating system and all of the processes and applications it contains.
 
-* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping software as simple and as focused as possible, the reliability and security is greatly increased.
+* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping the software as simple and as focused as possible, the reliability and security are greatly increased.
 
 ### Introduction
 In this module, you will learn how to build a server of your own and connect it up to Littlebits.
@@ -34,8 +34,8 @@ For this lesson, you will need:
 
 * PC
 * Internet connection
-* Little bits cloud bit and API Key
-* Little bits sensor and actuator
+* Littlebits cloud bit and API Key
+* Littlebits sensor and actuator
 
 ### Prerequisite lessons
 You should complete the following lessons before attempting this lesson.
@@ -130,7 +130,7 @@ This docker command executes the container using the `docker-compose.yml` file l
 * There is also a second container that starts up and runs our `postgres` database server.
 * You can take a look at the `Dockerfile` in your `/nebraska-gencyber-dev-env/` folder to learn more about what happens behind the scenes.
 
-With the server running, you should be able to visit [http://localhost](http://localhost) to see your server. You should see a messages that says `Hello World` and has a giant button. We will come back to the button in a minute.
+With the server running, you should be able to visit [http://localhost](http://localhost) to see your server. You should see a message that says `Hello World` and has a giant button. We will come back to the button in a minute.
 
 ### Step 5: Explore the server
 
@@ -144,7 +144,7 @@ With the server running, you should be able to visit [http://localhost](http://l
 It works!
 
 ### Step 10: Get events from Littlebits
-Oops Littlebits can't talk to our server. Lets fix that by opening up some ports. We will explore that in the [Hardening: OS Level](../firewall/README.md) lesson.
+Oops, Littlebits can't talk to our server. Lets fix that by opening up some ports. We will explore that in the [Hardening: OS Level](../firewall/README.md) lesson.
 
 ### Checkpoint
 Lets review what we've learned.

@@ -6,10 +6,10 @@
 
 * __Modularization__: The concept of modularity is like building blocks. Each block (or module) can be put in or taken out from a bigger project. Each module has its own separate function that is interchangeable with other modules.
 
-* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping software as simple and as focused as possible, the reliability and security is greatly increased.
+* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping the software as simple and as focused as possible, the reliability and security are greatly increased.
 
 ### Introduction
-In this lesson we will explore a cool hands-on technology called [Littlebits](http://littlebits.cc/). Littlebits, follows a _component-based design_ paradigm using _GPIO_ (or general purpose input/output) to let you easily make apps. We will learn how to plug and play bits together to make some simple inventions. Littlebits will be the central platform for the rest of camp and you will be using them in other lessons.
+In this lesson, we will explore a cool hands-on technology called [Littlebits](http://littlebits.cc/). Littlebits follows a _component-based design_ paradigm using _GPIO_ (or general purpose input/output) to let you easily make apps. We will learn how to plug and play bits together to make some simple inventions. Littlebits will be the central platform for the rest of camp and you will be using them in other lessons.
 
 ### Goals
 By the end of this tutorial, you will be able to:
@@ -69,7 +69,7 @@ No time like the present. Lets make a simple invention:
 Lets make a simple circuit:
 
 * Connect the power to the wall
-* Connect microusb end to the ```power``` module
+* Connect micro USB end to the ```power``` module
 * Connect the ```button``` to the ```power``` module
 * Connect the ```bright led``` to the ```button```.
 
@@ -77,7 +77,7 @@ Lets make a simple circuit:
 
 Press the button and the light turns on. That was easy!
 
-This is `GPIO` in a nutshell. Each module has a general purpose input and output, with a standard interface, and **doen't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of of the `modularity` cybersecurity first principle.
+This is `GPIO` in a nutshell. Each module has a general purpose input and output, with a standard interface, and **doesn't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of the `modularity` cybersecurity first principle.
 
 ### Step 3: Count all the things!
 Ok, we've made our first circuit - but it's pretty simple. Let's add some more modules:
@@ -108,7 +108,7 @@ Press the button. Everything still works!
 
 Press the button. Does it work? How about if you cover up the light sensor?
 
-This, shows you that you can also **chain multiple input modules together** and their **total behavior is a combination of their input designs**. In this case our counter only worked if the light was detected `AND` the button was pressed.
+This shows you that you can also **chain multiple input modules together** and their **total behavior is a combination of their input designs**. In this case, our counter only worked if the light was detected `AND` the button was pressed.
 
 Lets try one more combo:
 
@@ -146,7 +146,7 @@ You should see the current temperature in the room near the device.
 
 You should see that the more light it gets, the more voltage it outputs.
 
-* Now connect the ```bright led``` to the right hand side of the ```o21 number``` module
+* Now connect the ```bright led``` to the right-hand side of the ```o21 number``` module
 * Move your finger closer to and further away from the light sensor
 
 You should notice the light dimming and brightening depending on the voltage it receives.
@@ -212,7 +212,7 @@ The last module we will explore is the ```servo``` which can bring actual moveme
 * Attach the arm by pushing it down onto the ```white plastic gear``` on the ```servo```
 * Set the switch on the ```servo``` board to ```turn```.
 
-> Note you dont need to use the screw, but hand onto it for later - it should be used in production to secure the turner down
+> Note you don't need to use the screw, but hand onto it for later - it should be used in production to secure the turner down
 
 When you press the button, it should rotate the arm 90 degrees.
 
