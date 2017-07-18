@@ -2,7 +2,7 @@
 ### Cybersecurity First Principles in this lesson
 
 * __Abstraction__: An abstraction is a representation of an object or concept. It could be something
-such as a door, a speedometer, or a data structure in computer science. Abstraction decouples the design from the implementation. The gauges in an automobile are an abstraction of the performance of a car. A map is an abstraction of the earth.
+such as a door, a speedometer, or a data structure in computer science. Abstraction decouples the design from the implementation. The gauges in an automobile are an abstraction of the performance of the car. A map is an abstraction of the earth.
 
 * __Modularization__: The concept of modularity is like building blocks. Each block (or module) can be put in or taken out from a bigger project. Each module has its own separate function that is interchangeable with other modules.
 
@@ -40,10 +40,10 @@ By the end of this tutorial, you will be able to:
     - [Materials Required](#materials-required)
     - [Prerequisite lessons](#prerequisite-lessons)
     - [Table of Contents](#table-of-contents)
-    - [Before we START](#before-we-start)
+    - [Before We Start](#before-we-start)
     - [Step 1: Create an Account / Login to Littlebits portal!](#step-1-create-an-account--login-to-littlebits-portal)
     - [Step 2: Pair your Cloudbit with the portal](#step-2-pair-your-cloudbit-with-the-portal)
-    - [Step 3: ~~Don't Push~~ Push the ~~red~~ Purple button](#step-3-dont-push-push-the-red-purple-button)
+    - [Step 3: ~~Don't Push~~ Push the ~~Red~~ Purple Button](#step-3-dont-push-push-the-red-purple-button)
     - [Step 4: Using web services - connecting to IFTTT](#step-4-using-web-services---connecting-to-ifttt)
     - [Step 5: Web Service Wizardry - Make an Easy Button](#step-5-web-service-wizardry---make-an-easy-button)
     - [Step 6: Email / SMS trigger](#step-6-email--sms-trigger)
@@ -56,7 +56,7 @@ By the end of this tutorial, you will be able to:
     - [License](#license)
 
 <!-- TOC END -->
-### Before we START
+### Before We Start
 In the [last lesson](../hands-on-iot-little-bits-intro/README.md), you saw how versatile, modular, and cool Littlebits was to work with. It was easy to plug and play different modules together following simple `design patterns` to make cool, simple, apps. Now, imagine everything you saw before can be hooked up to the internet and **controlled using a smartphone or online app**. We are going to do _THAT_ now!
 
 ### Step 1: Create an Account / Login to Littlebits portal!
@@ -67,10 +67,10 @@ To start we need to create an account:
 
 ### Step 2: Pair your Cloudbit with the portal
 
-Now that we have an account, we need to pair our `cloudbit` (an orange module with `cloud` written on it) with the `Littlebits cloud platform`. To do that:
+Now that we have an account, we need to pair our `cloudbit` (an orange module with `cloud` written on it) with the `Littlebits Cloud Platform`. To do that:
 
 * Login at http://control.littlebitscloud.cc/ using your account info.
-* Give your new `cloudbit` a name: I decided to call mine "Tim" `Tim`.
+* Give your new `cloudbit` a name: I decided to call mine "Tim".
 
  ![tim](img/tim.jpg)
 
@@ -80,23 +80,26 @@ Now that we have an account, we need to pair our `cloudbit` (an orange module wi
 
 * First, connect the blue `power` module to the pink `button` module.
 * Next, connect the `button` module to the orange `cloudbit` module.
+* Then, connect the `bright led` module to the `cloudbit` module.
 * It should all be connected as shown:
+
 ![setup](img/configuration.jpg)
+
 
 * Hold down the setup button on the `CloudBit` until the light blinks blue.  
 * When the light blinks, let go and wait for the light to turn a steady blue.
-* Using Wi-Fi, connect to the local Wi-Fi network the device broadcasts (it will be something like litte_bits_cloud_somenumber).
+* Using Wi-Fi, connect to the local Wi-Fi network the device broadcasts (it will be something like `litteBits_Cloud_somenumber`).
 * Once connected to the device's Wi-Fi adapter, pick the Wi-Fi network the `cloudbit` will live on. (At UNO that will be: `UNOGuest`).
 * It should auto-connect and the light should turn a solid green color.
 * You should see as message saying **'Awesome'**
 
 
-### Step 3: ~~Don't Push~~ Push the ~~red~~ Purple button
+### Step 3: ~~Don't Push~~ Push the ~~Red~~ Purple Button
 ![red button](img/red-button-meme.jpg)
 
 The purple button on your screen is linked to your `cloudbit` `output`.
 
-* Add a green `LED` output module to the `cloudbit`.
+* Add a green `bright LED` output module to the `cloudbit`.
 * Now definitely press the giant purple `button` on your screen.
 
 It works! With that you just made your first `IoT app`.
@@ -120,6 +123,7 @@ Lets create a new `applet` that sends an email when you press the `button` modul
 * Now click **new applet** in the menu that pops up:
 
  ![applet](img/ifttt-applet.png)
+
 
 * Click the `plus` icon to specify the _if_ condition our applet will fire up on.
 * You will see all of the service options available to be used as _IF_ conditions. Find `Littlebits` by typing it in the search/filter bar.
@@ -145,7 +149,7 @@ Check your email!
 ![email worked](img/email-worked.png)
 > It worked!
 
-This is a simple, but powerful tool. It also shows off __resource encapsulation__ and __abstraction__. In terms of encapsulation, each of the services connected to `IFTTT` have many functions. These functions are encapsulated in a service (e.g. `email` in this example). The functions are also __abstrct__ because `IFTTT` doesn't need to know _how_ they work, just that they achieve a certain purpose (e.g. send an email). This helps _model_ or _abstract_ the implementation away from the design.
+This is a simple, but powerful tool. It also shows off __resource encapsulation__ and __abstraction__. In terms of encapsulation, each of the services connected to `IFTTT` have many functions. These functions are encapsulated in a service (e.g. `email` in this example). The functions are also __abstract__ because `IFTTT` doesn't need to know _how_ they work, just that they achieve a certain purpose (e.g. send an email). This helps _model_ or _abstract_ the implementation away from the design.
 
 ### Step 6: Email / SMS trigger
 Lets make an `applet` that allows us to turn the `cloudbit` output on with an email or text.
@@ -188,7 +192,7 @@ Lets make a second applet to do the same thing, but via `SMS`.
 * Give it a minute to process
 
 ### Step 7: Twitter watcher
-Lets make an app that lights up every time a new tweet on a certain topic happens. This requires a `Twitter` account, if you don't have and don't want to create a Twitter account, feel free to skip this. But its fun!
+Lets make an app that lights up every time a new tweet on a certain topic happens. This requires a `Twitter` account, if you don't have and don't want to create a Twitter account, feel free to skip this, but it's fun!
 
 * Go to https://ifttt.com, select the dropdown caret next to your name, and then click **New Applet**.
 * As the **IF** condition, select the `Twitter` service. You will be asked to link your Twitter account first.
@@ -261,7 +265,7 @@ Try some different designs yourself. You can combine any services with any littl
 [Quiz](https://www.qzzr.com/c/quiz/431837/littlebits-ifttt)
 
 ### Cyber security First Principle Reflections
-In this lesson, we saw web services, such as `IFTTT`, can __Abstract__ away details about devices and instead focus on recipes or `design patterns` to describe how things work. We also saw that by keeping functionality __modular__, `IFTTT` can combine `Littlebits` with many other services.
+In this lesson, we saw web services, such as `IFTTT`, can __abstract__ away details about devices and instead focus on recipes or `design patterns` to describe how things work. We also saw that by keeping functionality __modular__, `IFTTT` can combine `Littlebits` with many other services.
 
 Web services use __resource encapsulation__ to ensure that all functions related to the execution of an app or service are neatly within the scope of the service itself. `IFTTT` relies on services to be encapsulated so that they can provide external services with the ability to use them without worrying about connecting to multiple other related services.
 
@@ -272,7 +276,7 @@ __Data hiding__ is also important to prevent internal data in the service from b
 For more information, investigate the following.
 
 * [Littlebits](http://littlebits.cc/how-it-works) - Overview of concepts and available bits
-* [https://shop.littlebits.cc/products/smart-home-kit](https://shop.littlebits.cc/products/smart-home-kit) - Information about the smart home kit
+* [https://shop.littlebits.cc/products/smart-home-kit](https://shop.littlebits.cc/products/smart-home-kit) - Information about the Smart Home Kit
 
 
 ### Acknowledgements

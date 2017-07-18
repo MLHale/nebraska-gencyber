@@ -2,7 +2,7 @@
 
 ### Cybersecurity First Principles in this lesson
 
-* __Abstraction__: An abstraction is a representation of an object or concept. The gauges in an automobile are an abstraction of the performance of a car. A map is an abstraction of the earth. Abstraction allows us to model an object without considering all of the (possibly infinite) complexity that the object may contain.
+* __Abstraction__: An abstraction is a representation of an object or concept. The gauges in an automobile are an abstraction of the performance of the car. A map is an abstraction of the earth. Abstraction allows us to model an object without considering all of the (possibly infinite) complexity that the object may contain.
 
 * __Modularization__: The concept of modularity is like building blocks. Each block (or module) can be put in or taken out from a bigger project. Each module has its own separate function that is interchangeable with other modules.
 
@@ -48,14 +48,14 @@ None
 <!-- TOC END -->
 
 ### Step 1: Unbox it!
-First, open your littbit box. Take a second to look at the different components you have. Littlebits is organized around three colors:
+First, open your Littlebits box. Take a second to look at the different components you have. Littlebits is organized around three colors:
 
-* ```pink``` modules are _inputs_, like an On/Off button.
-* ```green``` modules are _outputs_, like LEDs and Fans.
-* ```orange``` modules are special and usually are _supportive_ - think spliters and logic handlers.
-* ```blue``` modules are power related.
+* **<span style="color: pink">Pink</span>** modules are _inputs_, like an On/Off button.
+* **<span style="color: green">Green</span>** modules are _outputs_, like LEDs and Fans.
+* **<span style="color: orange">Orange</span>** modules are special and usually are _supportive_ - think spliters and logic handlers.
+* **<span style="color: blue">Blue</span>** modules are power related.
 
-Look over each module, your box should include a helpful component diagram fold-out poster that shows off each of your modules. Read about some of them.
+Look over each module. Your box should include a helpful component diagram fold-out poster that shows off each of your modules. Read about some of them.
 
 ![unbox](./img/unbox.jpg)
 
@@ -66,7 +66,7 @@ No time like the present. Lets make a simple invention:
 * find the pink ```button``` input module
 * find the green ```bright led``` output module
 
-Lets make a simple circuit.
+Lets make a simple circuit:
 
 * Connect the power to the wall
 * Connect microusb end to the ```power``` module
@@ -75,12 +75,12 @@ Lets make a simple circuit.
 
 ![unbox](./img/simple-circuit.jpg)
 
-Press the button and the light turns on. That was Easy!
+Press the button and the light turns on. That was easy!
 
-This is ```GPIO``` in a nutshell. Each module has a general purpose input and output, with a standard interface, and **doen't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of the ```modularity``` cybersecurity first principle.
+This is `GPIO` in a nutshell. Each module has a general purpose input and output, with a standard interface, and **doen't need to understand or know anything about what they are connected to**. These modules also need to protect themselves from invalid input. This is a great example of of the `modularity` cybersecurity first principle.
 
 ### Step 3: Count all the things!
-Ok, we've made our first circuit - but it is pretty simple. Let's add some more modules:
+Ok, we've made our first circuit - but it's pretty simple. Let's add some more modules:
 
 * Find the green ```o21 number``` output module
 
@@ -108,7 +108,7 @@ Press the button. Everything still works!
 
 Press the button. Does it work? How about if you cover up the light sensor?
 
-This, shows you that you can also **chain multiple input modules together** and their **total behavior is a combination of their input designs**. In this case our counter only worked if the light was detected ```AND``` the button was pressed.
+This, shows you that you can also **chain multiple input modules together** and their **total behavior is a combination of their input designs**. In this case our counter only worked if the light was detected `AND` the button was pressed.
 
 Lets try one more combo:
 
@@ -158,7 +158,7 @@ Ok, last part!
 * Keep turning until a voltage of roughly 3 or greater turns on the ```bright led```
 * You can put your finger over the light sensor to change the voltage
 
-So, what did we learn? The thresholder can **set a voltage tolerance and output a 1 (True) if its input is greater than the threshold***. This can be helpful if you want to do **sound**, **light**, or **temperature** detection, but you only want to output ```true``` if the value is greater than some value.
+So, what did we learn? The thresholder can **set a voltage tolerance and output a 1 (True) if its input is greater than the threshold***. This can be helpful if you want to do **sound**, **light**, or **temperature** detection, but you only want to output True if the value is greater than some value.
 
 ### Step 5: Hey, Listen - Audio
 ![navi](./img/hey-listen.jpg)
@@ -166,8 +166,8 @@ So, what did we learn? The thresholder can **set a voltage tolerance and output 
 
 Sometimes you want your inventions to have some sound. The next design we will explore involves using audio.
 
-* find the pink ```mp3 player``` input module
-* find the green ```synth speaker``` output module
+* Find the pink ```mp3 player``` input module
+* Find the green ```synth speaker``` output module
 * Get the pink ```button``` module again
 
 Lets play a sound when a button is pressed:
@@ -181,10 +181,10 @@ Press the button. This plays **all** of the tracks. If you move the ```mp3 playe
 
 ![mp3-player](./img/mp3player.jpg)
 
-By default, the mp3 player comes loaded with stock littlebits tutorial audio. You can replace it using the ```sdcard``` in the board to load it with your own audio.
+By default, the ```mp3 player``` comes loaded with stock Littlebits tutorial audio. You can replace it using the ```sdcard``` in the board to load it with your own audio.
 
 ### Step 6: Turning on an outlet with the IR transmitter
-The next module to explore is the IR transmitter and power outlet combo.
+The next module to explore is the ```ir transmitter``` and ```power outlet``` combo.
 
 * Find the green ```ir transmitter``` output module
 * Find the outlet with IR sensor (hard to miss)
@@ -219,19 +219,19 @@ When you press the button, it should rotate the arm 90 degrees.
 This can be used for all kinds of purposes!
 
 ### Self Exploration
-Try some different designs yourself
+Try some different designs yourself.
 
-### Test you Bits, err... Wits!
+### Test Your Bits, err... Wits!
 [Quiz](https://www.qzzr.com/c/quiz/430545/all-about-littlebits-introduction)
 
 <div class="quizz-container" data-width="100%" data-iframe-title="QUIZ: All About Littlebits - Introduction" data-height="auto" data-quiz="430545"></div>
 <script src="//dcc4iyjchzom0.cloudfront.net/widget/loader.js" async></script>
 
 ### Additional Resources
-For more information, investigate the following.
+For more information, investigate the following:
 
 * [Littlebits](http://littlebits.cc/how-it-works) - Overview of concepts and available bits
-* [https://shop.littlebits.cc/products/smart-home-kit](https://shop.littlebits.cc/products/smart-home-kit) - Information about the smart home kit
+* [https://shop.littlebits.cc/products/smart-home-kit](https://shop.littlebits.cc/products/smart-home-kit) - Information about the Smart Home Kit
 
 ### Acknowledgements
 Special thanks to [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/) for reviewing and editing this lesson.
