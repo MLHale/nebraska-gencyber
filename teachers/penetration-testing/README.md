@@ -64,6 +64,10 @@ When we left off, you had created an `endpoint` to make the button work to send 
 
 ### Step 7: Exploring Error Handling Behavior
 
+### Step 8: Crafting a cross-site scripting request
+
+### Step 9: Risk Assessment - Summarizing your test results
+
 ### Checkpoint
 Lets review what we've learned.
 
