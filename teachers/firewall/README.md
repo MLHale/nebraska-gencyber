@@ -91,24 +91,24 @@ Lets look at an example for exposing a web service over http.
 | 2      | outbound      | web server    |   any         | http (80)    | any           | ```accept```   |
 | 3      | any           | any           |   any         | any          | any           | ```reject```   |
 
-**Rule 1** permits externally initiated requests (Direction: inbound) to a webserver behind the firewall. So the source is “any”, since we cannot anticipate a specific IP address at the time of writing the rule. The destination is the IP address of the webserver and the Local Port specifies the port number where the service is typically hosted. That would be port 80 for a web server. The request may orginate from any Remote Port. If these conditions match an incoming packet then the action is ```accept```
+**Rule 1** permits externally initiated requests (Direction: inbound) to a webserver behind the firewall. So the source is ```any```, since we cannot anticipate a specific IP address at the time of writing the rule. The destination is the IP address of the webserver and the Local Port specifies the port number where the service is typically hosted. That would be port ```80``` for a web server. The request may orginate from any Remote Port. If these conditions match an incoming packet then the action is ```accept```(allow packet to come in).
 
-**Rule 2** permits internal requests (Direction: outbound) out to the Internet. So the source is any IP address of the ```web server``` and the Destination is  ```any```. The Local Port is ```80``` and Remote Port is ```any```. If a packet matches these conditions then the action is ```accept```.
+**Rule 2** permits internal requests (Direction: outbound) out to the Internet. So the source is any IP address of the ```web server``` and the Destination is  ```any```. The Local Port is ```80``` (originating port) and Remote Port is ```any```. If a packet matches these conditions then the action is ```accept``` (allow packet to go out).
 
-**Rule 3** is to deny all other traffic (in ```any``` direction) that does not match the previous rules. So all match conditions are specified as ```any``` and the action is ```reject```. This is ```Default Deny``` behavior
+**Rule 3** denies all traffic (in ```any``` direction). So all match conditions are specified as ```any``` and the action is ```reject```. This is ```Default Deny``` behavior.
 
 ### Question
 
 What would happen if we re-ordered these rules? Specifically if Rule 3 was exchanged with Rule 1.
 
 Discussion:
-* Inbound and outbound rules are typically maintained in separate lists. We will see this shortly. Rule 3 is typically implemented as a ```Default Policy```
+* Inbound and outbound rules are typically maintained in separate lists. We will see this shortly. Rule 3 is typically implemented as a ```Default Policy``` in Inbound and Outbound rule lists.
 
 [Top](#table-of-contents)
 
 ## Windows Firewall
 
-As mentioned before Windows has a built-in firewall. Depending on the profile (type) of Network your computer is connected to, the firewall can be configured to have a different behavior. Your home network should be assigned the ```Private``` profile, while coffee-shop and airport networks are best assigned to the ```Public``` profile. Enterprise computers are typically part of a ```Domain``` in a enterprise network. For this option, the ```Domain``` profile is used. When you bring up the firewall, you will see these profiles listed. You will also see the default policy for inbound and outbound network connections associated with each profile.
+As mentioned before, Windows has a built-in firewall. Depending on the profile (type) of Network your computer is connected to, the firewall can be configured to have a different behavior. Your home network should be assigned the ```Private``` profile, while coffee-shop and airport networks are best assigned to the ```Public``` profile. Enterprise computers are typically part of a ```Domain``` in a enterprise network. For this option, the ```Domain``` profile is used. When you bring up the firewall, you will see these profiles listed. You will also see the default policy for inbound and outbound network connections associated with each profile.
 
 > ![Windows firewall](./img/network-profiles.png)
 
@@ -163,7 +163,7 @@ The pull fails. Why?
 Docker for Windows uses ```vpnkit``` module to provide virtual networking. So we need to allow this program through our firewall in the Outbound direction.
 We want to be very specific to the Program, Ports and Protocol in our Rule (Cybersecurity First principle: Minimization).
 
-Let's start to author a new Outbound rule. We will with start a ```Custom``` rule:
+Let's start to author a new Outbound rule. Select ```Custom``` rule to provide the most flexibility:
 
 > ![Windows firewall](./img/outbound-rule.png)
 
@@ -242,7 +242,7 @@ and
 > 3. Local Port: ```any```
 > 4. Remote Port: ```any```
 
-If you only wanted to host a webserver container or a DNS server container, this rule allows unecessary exposure to all other ports. By applying the minimization principle we can reduce the attack surface. What we need is the following configuration if all we want to do is expose web services and perhaps allow incoming DNS requests:
+If you only wanted to host a webserver container or a DNS server container, this rule allows unecessary exposure to all other ports. By applying the minimization principle we can reduce the attack surface. What we need is the following configuration, if all we want to do is expose web services and perhaps allow incoming DNS requests:
 
 > 1. Program: `%ProgramFiles%\Docker\Docker\resources\vpnkit.exe`
 > 2. Protocol: ```TCP```
@@ -255,8 +255,6 @@ and (2nd rule is optional for the cloudbit container app, rule may be just disab
 > 2. Protocol: ```UDP```
 > 3. Local Port: ```53```
 > 4. Remote Port: ```any```
-
-Notice that for inbound rules we focus on filtering based on Local ports. For outbound rules, we focused on filtering based on Remote ports.
 
 Here is the change illustrated for the TCP rule.
 > ![Windows firewall](./img/inbound-updated.png)
