@@ -9,8 +9,7 @@ Firewalls are often a first line of defense for an enterprise or home network. I
 [Overview](#overview)  
 [Firewalls as a Collection of Valves](#firewalls-as-a-collection-of-valves)  
 [Firewall Rules](#firewall-rules)  
-[](#)  
-[](#)
+[Windows Firewall](#windows-firewall)   
 [Additional Readings](#additional-readings)  
 [Teacher Developed Modules](#teacher-developed-modules)  
 [Acknowledgements](#special-thanks)  
@@ -107,7 +106,7 @@ Discussion:
 
 [Top](#table-of-contents)
 
-## Working with Windows Firewall
+## Windows Firewall
 
 As mentioned before Windows has a built-in firewall. Depending on the profile (type) of Network your computer is connected to, the firewall can be configured to have different behavior. Your home network should be set to "Private" profile, while coffee-shop and airport networks are set to the "Public" profile. Enterprise computers are typically part of a "Domain". For this option, the "Domain" profile is used. When you bring up the firewall, you will see these profiles listed.
 
@@ -217,7 +216,7 @@ and
 > 2. Protocol: UDP
 > 3. Remote Port: 53
 
-## Inbound Connection Filtering
+### Inbound Connection Filtering
 
 The default policy for Inbound connections is ```Block```. So at installation time, programs insert very broad ranging rules to avoid later connection issues. Docker does the same. Locate inbound rules named ```vpnkit```. You should see two of them.
 
@@ -291,7 +290,7 @@ That's it for Firewalls in this Unit. Happy Surfing.
 
 ## Special Thanks
 
-* A special thanks to Matt Hale, Aaron Vigal and Cade Wollcot for reviews of this module and thoughtful discussions.
+* A special thanks to Matt Hale for reviews of this module and thoughtful discussions.
 
 [Top](#table-of-contents)
 
