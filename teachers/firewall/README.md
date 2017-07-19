@@ -3,7 +3,7 @@
 Firewalls are often a first line of defense for an enterprise or home network. In this unit we will understand the fundamentals of firewalls, write firewall rules that configure its behavior and then test if the firewall performs as expected.
 
 ### Cybersecurity First Principles
-* __Minimization__: Minimization refers to having the least functionality necessary in a program or device. The goal of minimization is to simplify and decrease the number of ways that software can be exploited. This can include **turning off ports that are not needed**, reducing the amount of code running on a machine, and/or turning off unneeded features in an application. This lesson focuses specifically on turning off ports that aren't in use.
+* __Minimization__: Minimization refers to having the least functionality necessary in a program or device. The goal of minimization is to simplify and decrease the number of ways that software can be exploited. This can include **turning off ports that are not needed**, reducing the amount of code running on a machine, and/or turning off unneeded features in an application. This lesson focuses specifically on turning off ports and limiting network connections that aren't required for correct operation.
 
 ### Table of Contents  
 [Overview](#overview)  
@@ -25,7 +25,7 @@ While these firewalls are "cool", we are interested in a different kind of firew
 
 > ![network firewalls](./img/networkfirewall.png)
 
-All popular operating systems now come with a firewall installed. For Windows Server and Desktop installations we will focus on the built-in ```Windows Firewall with Advanced Security``` application. This module can be configured with a graphical user interface or the command line interface using `netsh` or Powershell `NetSecurity` modules. These options provide a lot of flexibility and control over the configuration of the firewall.
+Firewalls aren't just for networks. Each computer in a network can have its own personal firewall. All popular operating systems now come with a firewall installed. For Windows Server and Desktop installations we will focus on the built-in ```Windows Firewall with Advanced Security``` application. This application can be configured with a graphical user interface or the command line interface using `netsh` or Powershell `NetSecurity` modules. These options provide a lot of flexibility and control over the configuration of the firewall for personal and enterprise use.
 
 > ![Windows firewall](./img/windowsfirewall.png)
 
@@ -50,13 +50,13 @@ At what [network layer] (https://support.microsoft.com/en-us/kb/103884) does it 
 - [ ] Network layer and above  
 
 Discussion:  
-The headers on ethernet frames at the Data link layer and below are not useful for routing across networks. Firewalls rules are authored using routing information starting at the Network (also called the IP layer in the TCP/IP implemenation) layer and above, all the way to the application layer. As a result IP layer firewalls are the simplest and most widely used.
+The headers on ethernet frames at the Data link layer and below are not useful for routing across networks. Packet filtering Firewalls rules are authored using routing information starting at the Network (also called the IP layer in the TCP/IP implemenation) layer and above, all the way to the application layer. As a result IP layer firewalls are the simplest and most widely used.
 
 [Top](#table-of-contents)
 
 ### Firewall as a Collection of Valves
 
-A Firewall can be understood as a collection of valves  
+A packet filtering Firewall can be understood as a collection of valves  
 
 * Each valve/port corresponds to single service at the application level (e.g. http, ssh, https, smtp)
 * Each valve can  
@@ -77,7 +77,7 @@ Finally, **Port 3** is closed. Which means that it denies all traffic. A closed 
 
 ## Firewall Rules
 
-Firewalls are configured using simple `if then` rules. In a packet filtering firewall, a rule says: `if source, destination, protocol, and service match a pattern THEN take this action`. Since there are many rules involved, the order of the rules matters. **A LOT!**
+Firewalls are configured using simple `if then` rules. In a packet filtering firewall, a rule says: `if source IP, destination IP, protocol, and local ports and remote ports match a pattern THEN take this action`. Since there are many rules involved, the order of the rules matters. **A LOT!**
 
 Rules are evaluated in order, starting with the first one at the top until a first match is discovered. If your top rule is very generic, i.e. matches almost every packet, then **none of the later specific rules will ever be evaluated**. So it best to start with rules that are the most restrictive (i.e rules that focus on to specific services and have a very small chance of interfering with other rules). After ordering by restrictiveness it is then best to order rules according to how well they match the majority of your network traffic. This minimizes the number of checks required to find a matching rule.
 
@@ -102,13 +102,13 @@ Lets look at an example for exposing a web service over http.
 What would happen if we re-ordered these rules? Specifically if Rule 3 was exchanged with Rule 1.
 
 Discussion:
-* Inbound and outbound rules are typically maintained in separate lists. We will see this shortly.
+* Inbound and outbound rules are typically maintained in separate lists. We will see this shortly. Rule 3 is typically implemented as a ```Default Policy```
 
 [Top](#table-of-contents)
 
 ## Windows Firewall
 
-As mentioned before Windows has a built-in firewall. Depending on the profile (type) of Network your computer is connected to, the firewall can be configured to have different behavior. Your home network should be set to "Private" profile, while coffee-shop and airport networks are set to the "Public" profile. Enterprise computers are typically part of a "Domain". For this option, the "Domain" profile is used. When you bring up the firewall, you will see these profiles listed.
+As mentioned before Windows has a built-in firewall. Depending on the profile (type) of Network your computer is connected to, the firewall can be configured to have a different behavior. Your home network should be assigned the ```Private``` profile, while coffee-shop and airport networks are best assigned to the ```Public``` profile. Enterprise computers are typically part of a ```Domain``` in a enterprise network. For this option, the ```Domain``` profile is used. When you bring up the firewall, you will see these profiles listed. You will also see the default policy for inbound and outbound network connections associated with each profile.
 
 > ![Windows firewall](./img/network-profiles.png)
 
@@ -119,22 +119,22 @@ As mentioned before Windows has a built-in firewall. Depending on the profile (t
 * Outbound connections are being allowed by default!!!    
 Which means that unless you block a connection, it is allowed. This is not a secure setting. Once malware is installed on your machine (quite plausible with phishing), it can easily call out to a remote server and exfiltrate data. This poor [design choice](https://docs.microsoft.com/en-us/windows/access-protection/windows-firewall/create-an-outbound-port-rule) is perhaps motivated by a trade-off between usability and security.
 
-The defaults for Outbound connections go against the fundamental security principle of ```Default Deny``` and then ```Whitelisting``` allowed connections. Let's go ahead and make it right.
+The defaults for Outbound connections go against the fundamental security principle of ```Default Deny``` and ```Whitelisting``` allowed connections. Let's go ahead and make it right.
 
-> Be ready for many internet connected programs to not work after this change!
+> Be ready for many internet connected programs to stop working after this change!
 
 Click on Firewall Properties to view the defaults for all profiles
 
 > ![Windows firewall](./img/firewall-defaults.png)
 
 
-Let's change the default behavior for Outbound connection to ```Block```.
+Let's change the default behavior for Outbound connections to ```Block```.
 
 > ![Windows firewall](./img/block-outbound.png)
 
 Repeat the same for Private and Public profiles (tabs). Then hit ```Apply``` to save these settings.
 
-By default, all rules apply to all network interfaces for IPv4 and IPv6. The network interfaces protected by Windows Firewall can be changed clicking on the ```Customize``` button next to ```Protected network connections```
+By default, all rules apply to all network interfaces for both IPv4 and IPv6 protocols. The network interfaces protected by Windows Firewall can be changed clicking on the ```Customize``` button next to ```Protected network connections```
 
 > ![Windows firewall](./img/network-connections.png)
 
@@ -150,16 +150,18 @@ Let's test with docker. Open a Powershell terminal:
 
 ```bash
 # Try to pull this docker image
+# If you already have a local copy
+# this command will attempt to update it
 docker pull gists/lighttpd
 ```
 > ![Windows firewall](./img/outbound-fail.png)
 
 The pull fails. Why?
 
-> The request can not pass through the firewall to reach docker servers
+> The request can not pass through the firewall (outgoing direction) to reach docker servers
 
 Docker for Windows uses ```vpnkit``` module to provide virtual networking. So we need to allow this program through our firewall in the Outbound direction.
-We want to be very specific to the Program, Ports and Protocol in our Rule (Cybersecurity First principle: Least Privilege).
+We want to be very specific to the Program, Ports and Protocol in our Rule (Cybersecurity First principle: Minimization).
 
 Let's start to author a new Outbound rule. We will with start a ```Custom``` rule:
 
@@ -170,7 +172,7 @@ Next we locate the program that we want to allow through the firewall in the out
 > ![Windows firewall](./img/outbound-program.png)
 
 Click ```Next```. That brings us to ```Protocols and Ports```.   
-We want docker to be able to contact docker hub webservers (```Remote```) with HTTP (Port ```80```) and HTTPS (Port ```443```) using the ```TCP``` protocol.    
+We want docker to be able to contact docker hub webservers (```Remote```) to access HTTP (Port ```80```) and HTTPS (Port ```443```) services using the ```TCP``` protocol.    
 So adjust the settings as shown:
 
 > ![Windows firewall](./img/outbound-ports.png)
@@ -191,14 +193,14 @@ Click ```Finish```. The rule is now active and should be listed in the Outbound 
 
 Now use simillar steps as above to add a rule for the same program (vpnkit), but allowing protocol ```UDP``` for remote port ```53```. This allows DNS requests to go through. DNS helps with domain name discovery.
 
-After the UDP rule is added, try the `pull` command again.
+Once the UDP rule is added, we are ready to try the `pull` command again.
 
 ```bash
 # Try to pull this docker image
 docker pull gists/lighttpd
 ```
 
-It should succeed now. Call the instructor to troubleshoot if the command fails.
+It should work this time. Call the instructor to troubleshoot if the command fails.
 
 > ![Windows firewall](./img/outbound-allowed.png)
 
@@ -240,14 +242,14 @@ and
 > 3. Local Port: ```any```
 > 4. Remote Port: ```any```
 
-If you only host a webserver with the docker container or a DNS server, you need is the following configuration:
+If you only wanted to host a webserver container or a DNS server container, this rule allows unecessary exposure to all other ports. By applying the minimization principle we can reduce the attack surface. What we need is the following configuration if all we want to do is expose web services and perhaps allow incoming DNS requests:
 
 > 1. Program: `%ProgramFiles%\Docker\Docker\resources\vpnkit.exe`
 > 2. Protocol: ```TCP```
 > 3. Local Port: ```80, 443```
 > 4. Remote Ports: ```any```
 
-and
+and (2nd rule is optional for the cloudbit container app, rule may be just disabled)
 
 > 1. Program: `%ProgramFiles%\Docker\Docker\resources\vpnkit.exe`
 > 2. Protocol: ```UDP```
@@ -263,7 +265,7 @@ This change minimizes the attack surface and enforces least privilege.
 
 Now check if your Cloudbit application still works after making these changes.
 
-Check other programs in the Inbound rules list that you think might be allowing more ports than necessary for operation.
+Check other programs in the Inbound rules list that you think might be allowing more exposure (Protocol and Ports) than necessary for operation.
 
 That's it for Firewalls in this Unit. Happy Surfing.
 
