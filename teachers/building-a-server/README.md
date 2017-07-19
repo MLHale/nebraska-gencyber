@@ -63,7 +63,7 @@ You should complete the following lessons before attempting this lesson.
     - [Step 8: Hook your server up to the Littlebits API](#step-8-hook-your-server-up-to-the-littlebits-api)
     - [Step 9: Profit!](#step-9-profit)
     - [Step 10: Get events from Littlebits](#step-10-get-events-from-littlebits)
-    - [Checkpoint](#checkpoint)
+    - [Checkpoint](#checkpoint-1)
     - [Additional Resources](#additional-resources)
     - [Acknowledgements](#acknowledgements)
     - [License](#license)
@@ -81,9 +81,11 @@ Now, in this lesson, we will examine how to create our own server and deploy it 
 ### Step 2: No, you won't be starting from scratch
 The process of creating a new application server from the ground up takes some time and attention. Instead of having you start from the ground up, we are providing you with some **starter** skeleton code. This code does the basics of accepting requests and storing data that comes in. Instead of building it, we will look at and examine how it operates before modifying it to make it more secure.
 
-Let's get started by using `git` to clone the skeleton code repository and get it in onto our local machine.
+Let's get started by changing into the Desktop directory and then using `git` to clone the skeleton code repository and get it in onto our local machine.
 
 ```bash
+C:
+cd /Users/student/Desktop/
 git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
 
 ```
@@ -133,6 +135,181 @@ This docker command executes the container using the `docker-compose.yml` file l
 With the server running, you should be able to visit [http://localhost](http://localhost) to see your server. You should see a messages that says `Hello World` and has a giant button. We will come back to the button in a minute.
 
 ### Step 5: Explore the server
+Lets take a look over our server environment. First. Lets explore the file tree.
+
+* Open `Atom` on your desktop,
+* go to the File -> "Add Project Folder..."
+
+![Add folder](./img/add-folder.png)
+
+* Find your `nebraska-gencyber-dev-env` folder (it should be located at `C:/Users/student/Desktop/`)
+* Upon opening it you should see:
+
+![File Tree](./img/file-tree1.png)
+
+* click `backend` to explore the actual files our server is using
+* Click `api` and `django_backend` to expand out the folders and see what we have.
+* This code is built using a `Model View Controller` framework called `Django`.
+  * `Models` (in `models.py`) are `abstraction` mechanisms that help you represent your data without worrying about the nitty gritty of database technologies.
+  * `Controllers` (in `controllers.py`) an `Views` are modularization mechanisms that separate user-facing code (like user interfaces) from backend code that handles number crunching and getting data to the views.
+* Look over these three files, first `models.py`, then `urls.py`, then `controllers.py`
+
+#### Models.py
+* In `models.py` you will see that we have defined two `models` `Device` and `DeviceEvent`. Both of these are `schema` that have fields in them for each of the types of data they hold.
+* In our `Device` model we have fields for the `owner` and the `deviceid`. This model will hold data about our cloudbit so that our backend server can make use of it.
+
+```python
+class Device(models.Model):
+    owner = models.CharField(max_length=1000, blank=False)
+    deviceid = models.CharField(max_length=1000, blank=False)
+
+    def __str__(self):
+        return str(self.deviceid)
+
+    class JSONAPIMeta:
+        resource_name = "devices"
+```
+
+* In the `DeviceEvent` model we have fields for:
+  * `device` (i.e. the cloudbit the device event was created for),
+  * the `eventtype` which describes what occurred,
+  * the `power` which identifies the power level on the device when the event occurred
+  * `timestamp` (when it happened)
+  * `userid` which is the Littlebits id of the user
+  * and `requestor` which logs the IP of the Littlebits server that sent the message
+
+```python
+class DeviceEvent(models.Model):
+    device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name='events')
+    eventtype = models.CharField(max_length=1000, blank=False)
+    power = models.IntegerField()
+    timestamp = models.DateTimeField()
+    userid = models.CharField(max_length=1000, blank=True, unique=True)
+    requestor = models.GenericIPAddressField(blank=False)
+
+    def __str__(self):
+        return str(self.eventtype) + str(self.device)
+```
+
+* Both of the models also include a `__str__` function which outputs a string if the model is converted to a string.
+
+#### Urls.py
+Next lets look at `urls.py`. This file tells Django which urls are accessible on the server. If a url entry isn't included in a urls.py file, then the method cannot be accessed.
+
+* The important part of this file, below, identifies all of the `url patterns` that are acceptable for `Django` to server up to any would-be requestors
+* Each is a regular expression.
+* Each maps to a function in the `controllers.py` file. Basically when someone attempts to visit a url, Django goes through its list of acceptable patterns. If it matches a pattern it executes the corresponding code in that method. If it doesn't maatch any acceptable pattern, it gives the user a `HTTP 404` error (not found).
+* in this case, `api/urls.py` is a sub set of patterns that are mapped behind `/api/` as given in the file `django_backend/urls.py`.
+
+**api/urls.py**
+```python
+urlpatterns = [
+    url(r'^session/', controllers.Session.as_view()),
+    url(r'^register', csrf_exempt(controllers.Register.as_view())),
+    url(r'^deviceevents', csrf_exempt(controllers.DeviceEvents.as_view())),
+    url(r'^', include(router.urls)),
+
+    #Django Rest Auth
+    url(r'^auth/', include('rest_framework.urls')),
+
+]
+
+```
+
+**django_backend/urls.py**
+```python
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/', include(api_urls)),
+    url(r'^', views.home),
+]
+```
+
+#### Controllers.py
+Next, lets look at the `controllers.py` file to see what the server does when a URL is visited.
+
+There is a lot of code in this file. Lets look at the function that handles requests to the `/api/deviceevents` url.
+
+* Find the code below.
+* Notice that this is a `class` that extends the django rest class `APIView`.
+* An `APIView` allows you to define functions that handle `GET` (single), `GET`(list), `POST`, `PUT`, and `DELETE` requests that might arrive at `/api/deviceevents`
+* The `GET` (single) request is used whenever a user wants to get a single item (typically by id), something like `/api/deviceevents/4` would return the event with id 4.
+* The `GET` (list) request is used whenever a user wants to get all of the events.
+* The `POST` request is used whenever a user wants to make a new event.
+* The `PUT` request is used whenever a user wants to modify an existing event.
+* Finally, the `DELETE` request is used whenever a user wants to delete an existing event.
+
+> These conventions are not specific to `Django` they are based on `RESTful API` design standards.
+
+* In our `APIView` we have created two `REST endpoints` for handling `POST` requests and `GET` (list) requests.
+
+* The `post` function looks at the incoming request,
+* extracts the data fields from it,
+* gets the stored `Device` record (if one exists) or creates a new `Device` record (if one does not exist),
+* and then creates and stores a new `DeviceEvent` record based on the incoming request data
+
+* The `get` function simply queries the database for all `DeviceEvent` objects and returns them to the requestor in `JSON` format
+
+```python
+class DeviceEvents(APIView):
+    permission_classes = (AllowAny,)
+    parser_classes = (parsers.JSONParser,parsers.FormParser)
+    renderer_classes = (renderers.JSONRenderer, )
+
+    def post(self, request, *args, **kwargs):
+        json_req = json.loads(request.POST.get('request'))
+
+        eventtype = json_req.get('payload').get('delta')
+        power = json_req.get('payload').get('percent')
+        timestamp = json_req.get('timestamp')
+        userid = json_req.get('user_id')
+        requestor = request.META['REMOTE_ADDR']
+
+        try:
+            device = Device.objects.get(deviceid=json_req.get('bit_id'))
+        except Device.DoesNotExist:
+            #device not created - Create it
+            device = Device(
+                deviceid=json_req.get('bit_id'),
+                owner=userid
+            )
+            device.save()
+
+        newEvent = DeviceEvent(
+            device=device,
+            eventtype=eventtype,
+            power=power,
+            timestamp=datetime.datetime.fromtimestamp(timestamp/1000, pytz.utc),
+            userid=userid,
+            requestor=requestor
+        )
+
+        try:
+            newEvent.clean_fields()
+        except ValidationError as e:
+            print e
+            return Response({'success':False, 'error':e}, status=status.HTTP_400_BAD_REQUEST)
+
+        newEvent.save()
+        print 'New Event Logged from: ' + json_req.get('bit_id')
+        print json_req.get('payload')
+        return Response({'success': True}, status=status.HTTP_200_OK)
+
+    def get(self, request, format=None):
+        events = DeviceEvent.objects.all()
+        json_data = serializers.serialize('json', events)
+        content = {'deviceevents': json_data}
+        return Response(content)
+```
+
+
+#### Checkpoint
+1. Is the URL `<myserver>/api/deviceevents` a valid URL?
+1. Is the URL `<myserver>/api/session` a valid URL?
+1. What function gets called when the user visits `<myserver>/api/register`?
+1. What would be the result of making a `DELETE` request to `<myserver>/api/deviceevents`?
+1. What would be the result of making a `POST` request to `<myserver>/api/deviceevents`?
 
 ### Step 6: Press the button
 
