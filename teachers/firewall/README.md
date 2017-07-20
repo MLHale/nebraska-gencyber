@@ -265,6 +265,10 @@ Now check if your Cloudbit application still works after making these changes.
 
 Check other programs in the Inbound rules list that you think might be allowing more exposure (Protocol and Ports) than necessary for operation.
 
+## Test your knowledge
+
+[Firewall Quiz](https://www.qzzr.com/c/quiz/435576/firewalls)
+
 That's it for Firewalls in this Unit. Happy Surfing.
 
 > Firewalls are an essential component of "Defense-in-Depth" strategy. It can certainly slowdown an attacker. However, firewalls cannot keep a determined adversary out. There are many ways in which firewalls can be abused and easily bypassed. Such attacks need to be constantly monitored using Intrusion Detection Systems (IDS) and Network Monitoring solutions. The final line of defense is applications built using secure coding practices and proper encryption implementations.  
@@ -273,6 +277,7 @@ That's it for Firewalls in this Unit. Happy Surfing.
 
 ## Additional Readings
 
+* [Order of Windows Firewall Rule Evaluation](https://technet.microsoft.com/en-us/library/cc755191%28v=ws.10%29.aspx)
 * [Microsoft Windows Firewall in Enterprise Environment Resources](https://docs.microsoft.com/en-us/windows/access-protection/windows-firewall/windows-firewall-with-advanced-security-design-guide)
 * [Microsoft The OSI Model's Seven Layers Defined and Functions Explained](https://support.microsoft.com/en-us/kb/103884)  
 * Linux firewalls
