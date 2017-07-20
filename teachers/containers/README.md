@@ -233,9 +233,10 @@ docker run -d --name lighttpd -p 8888:80 -v /c/Users/student/app:/var/www gists/
 docker ps -a
 
 ```
-Now browse to http://localhost:8888
 
 ## Test the mapped port
+
+Since we have a volume mapped, let's author a simple HTML index file and drop it in the web root of the container. We should be able to browse to this page if the port mapping works as expected.
 
 In a new ```Powershell```:
 
@@ -264,6 +265,20 @@ Now browse to http://localhost:8888
 - Host file updates are instantly reflected in the container application
 
 ### 😎 Cool!
+
+## Cleanup
+Let's stop the container service and delete the container before we move on. 
+```bash
+# Stop a running container named lighttpd
+docker stop lighttpd
+
+# Delete container named lighttpd
+docker rm lighttpd
+
+# List all containers (running or stopped)
+docker ps -a
+
+```
 
 [Top](#table-of-contents)
 
@@ -410,7 +425,7 @@ docker-compose build
 docker images
 ```
 
-> If the build is successful, `nebraskagencyberdevenv_django` and `postgres` appear in your local image listing.
+> If the build is successful, `nebraskagencyberdevenv_django` appears in your local image listing.
 Services are built once and then tagged, by default as `projectname_service`
 
 # Easy Peasy 😏
