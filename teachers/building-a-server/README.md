@@ -78,6 +78,10 @@ The last thing we left off with was hooking the Littlebits API up to our own ser
 
 Now, in this lesson, we will examine how to create our own server and deploy it in a container.
 
+For reference, this is the overall design we are looking at. On the left side, you have littlebits and the `Littlebits API`. We previously worked with the API using `IFTTT`. In the container lesson you saw how we can setup a new standalone server. In this lesson we will begin building the item marked `custom web API`. It will have features to support authentication, managing our `cloudbit`, and logging events.
+![Web App Architecture](./img/web-app-architecture.png)
+
+
 ### Step 2: No, you won't be starting from scratch
 The process of creating a new application server from the ground up takes some time and attention. Instead of having you start from the ground up, we are providing you with some **starter** skeleton code. This code does the basics of accepting requests and storing data that comes in. Instead of building it, we will look at and examine how it operates before modifying it to make it more secure.
 
@@ -141,6 +145,7 @@ Lets take a look over our server environment. First. Lets explore the file tree.
 * go to the File -> "Add Project Folder..."
 
 ![Add folder](./img/add-folder.png)
+> note that your interface may look slightly different on windows.
 
 * Find your `nebraska-gencyber-dev-env` folder (it should be located at `C:/Users/student/Desktop/`)
 * Upon opening it you should see:
