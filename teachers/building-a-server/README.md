@@ -77,7 +77,7 @@ The last thing we left off with was hooking the Littlebits API up to our own ser
 
 Now, in this lesson, we will examine how to create our own server and deploy it in a container.
 
-For reference, this is the overall design we are looking at. On the left side, you have littlebits and the `Littlebits API`. We previously worked with the API using `IFTTT`. In the container lesson you saw how we can setup a new standalone server. In this lesson we will begin building the item marked `custom web API`. It will have features to support authentication, managing our `cloudbit`, and logging events.
+For reference, this is the overall design we are looking at. On the left side, you have littlebits and the `Littlebits API`. We previously worked with the API using `IFTTT`. In the container lesson you saw how we can setup a new standalone server. In this lesson we will begin building the item marked `custom web API` in the figure below. It will have features to support authentication, managing our `cloudbit`, and logging events.
 ![Web App Architecture](./img/web-app-architecture.png)
 
 
@@ -86,9 +86,10 @@ The process of creating a new application server from the ground up takes some t
 
 Let's get started by changing into the Desktop directory and then using `git` to clone the skeleton code repository and get it in onto our local machine.
 
+Open a new ```Powershell``` instance:
+
 ```bash
-C:
-cd /Users/student/Desktop/
+cd Desktop
 git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
 
 ```
@@ -457,9 +458,9 @@ The next step, is to not only `send` events to Littlebits, but also to `subscrib
 Lets add a subscriber to catch input events going to the cloudbit:
 * make a POST request, using `POSTMAN` to: https://api-http.littlebitscloud.cc/v2/subscriptions
 * in our case we want to make a server listen for the `cloudbit`, so lets use a URI endpoint as the subscriber
-* Make sure you use the same headers that you used in the `REST` tutorial. If you don remember it should be:
+* Make sure you use the same headers that you used in the `REST` tutorial. If you don't remember it should be:
 
-headers:
+`headers`:
 ```json
 {
 	"Authorization": "Bearer <your api key here without the angled brackets>",
@@ -469,7 +470,7 @@ headers:
 
 This time, in the body, we are going to use:
 
-body:
+`body`:
 ```json
 {
 	"publisher_id": "<your device id without the angled brackets>",
@@ -478,7 +479,7 @@ body:
 }
 ```
 
-* to get your server ip, you need to open a `powershell` and type:
+* to get your server ip, you need to open a `Powershell` and type:
 ```bash
 ipconfig --all
 ```
@@ -508,9 +509,7 @@ Now, press the button on `button` module. Watch as your server get the events fr
 ### Checkpoint
 Lets review what we've learned.
 
-quiz-goes-here
-
-
+https://www.qzzr.com/c/quiz/435902/custom-server-development
 
 
 ### Additional Resources
