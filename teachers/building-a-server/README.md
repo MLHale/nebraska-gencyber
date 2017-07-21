@@ -341,18 +341,101 @@ Instead of me reinventing the wheel, head over to [https://developers.google.com
 When you've looked over the different features. Come back and click on the `network` tab to inspect what is happening with our button.
 You should see:
 
+[button](./img/button-request.png)
+
+If you click on `activatecloudbit` you will see the exact request that is getting sent.
+
 [button](./img/button-failing.png)
 
-### Step 7: Make a new REST endpoint to make the client button work with the backend
+If you click over to the `response` tab you will see the raw html that the server is returning when this button is clicked.
 
-### Step 8: Hook your server up to the Littlebits API
+### Step 8: Make a new REST endpoint to make the client button work with the backend
+Currently, the server doesn't know that it needs to do anything special with the url `/api/activatecloudbit` so it is just rendering the home page (what we have been looking at this whole time) in response. What we need is for our server to **recognize that a new event has occurred** from the client and then **do something to handle it**, in this case contact the `Littlebits API`.
 
-### Step 9: Profit!
-It works!
+For this to work, we need to create a new REST Endpoint controller to handle the request. Open up your `controllers.py` file and add a new entry called `ActivateCloudbit`. This entry will only expose a `POST` endpoint. The goal is to:
 
-### Step 10: Get events from Littlebits
-Oops Littlebits can't talk to our server. Lets fix that by opening up some ports. We will explore that in the [Hardening: OS Level](../firewall/README.md) lesson.
+* capture the info from the client
+* Talk to `Littlebits API` to retrieve the device info for the current user
+* Use the retrieved device info to craft a `request` to turn on the `Cloudbit`
+* Turn on the cloudbit and log the resulting event locally
 
+```python
+class ActivateCloudbit(APIView):
+    permission_classes = (AllowAny,)
+    parser_classes = (parsers.JSONParser,parsers.FormParser)
+    renderer_classes = (renderers.JSONRenderer, )
+
+    def post(self,request):
+        print 'REQUEST DATA'
+        print str(request.data)
+
+        eventtype = request.data.get('eventtype')
+        timestamp = int(request.data.get('timestamp'))
+        requestor = request.META['REMOTE_ADDR']
+        api_key = ApiKey.objects.all().first()
+
+        #get device info from Littlebits API
+        r = requests.get('https://api-http.littlebitscloud.cc/v2/devices/', headers= {
+            'Authorization' : 'Bearer ' + api_key.key
+        })
+        print 'Retrieving List of Devices from Littlebits:'
+        print r.json()
+        userid = r.json()[0].get('user_id')
+        deviceid= r.json()[0].get('id')
+
+        try:
+            device = Device.objects.get(deviceid=deviceid)
+        except Device.DoesNotExist:
+            #device not created - Create it
+            device = Device(
+                deviceid=deviceid,
+                owner=userid
+            )
+            device.save()
+
+        print "Creating New event"
+
+        newEvent = DeviceEvent(
+            device=device,
+            eventtype=eventtype,
+            power=-1,
+            timestamp=datetime.datetime.fromtimestamp(timestamp/1000, pytz.utc),
+            userid=userid,
+            requestor=requestor
+        )
+
+        print newEvent
+        print "Sending Device Event to: " + str(deviceid)
+
+        #send the new event (to turn on the device) to littlebits API
+        event_req = requests.post('https://api-http.littlebitscloud.cc/v2/devices/'+deviceid+'/output', headers= {
+            'Authorization' : 'Bearer ' + api_key.key
+        })
+        print event_req.json()
+
+        #check to ensure the device was on and received the event
+        if (event_req.json().get('success')!='true'):
+            return Response({'success':False, 'error':event_req.json().get('message')}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+
+        #check that the event is safe to store in the databse
+        try:
+            newEvent.clean_fields()
+        except ValidationError as e:
+            print e
+            return Response({'success':False, 'error':e}, status=status.HTTP_400_BAD_REQUEST)
+
+        #log the event in the DB
+        newEvent.save()
+        print 'New Event Logged'
+        return Response({'success': True}, status=status.HTTP_200_OK)
+```
+
+### Step 9: Get events from Littlebits
+The next step, is to not only `send` events to Littlebits, but also to `subscribe` to and `receive` events that are output from the `cloudbit.` To do that, we need to 
+
+ [Hardening: OS Level](../firewall/README.md) lesson.
+
+### Step 10: Profit!
 ### Checkpoint
 Lets review what we've learned.
 
