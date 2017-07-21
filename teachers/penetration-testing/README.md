@@ -170,16 +170,36 @@ The first issue on our server, is that it doesn't enforce `authentication`. This
 
 * Lets go back to our browser and go to http://localhost.
 * If you are logged in, click `logout`
+
+![data still there!](./img/logged-in.png)
+> Note your data items probably look slightly different than mine, since I am developing this lesson and haven't loaded much data in the app!
+
+* click `home` after logging out
 * What do you see?
 
-![data still there!](.img/data-still-there.png)
+![data still there!](./img/logged-out.png)
+> Note your data items probably look slightly different than mine, since I am developing this lesson and haven't loaded much data in the app!
 
 What gives? Our data is still visible when we are logged out.
-This is because our server is not enforcing authentication on its `API endpoints`
+This is because our server is not enforcing authentication on its `API endpoints`.
 
-### Step 6: Exploring the Device endpoint
+That means that anyone can get this data?
+> Yeah pretty much.
 
-### Step 7: Exploring the DeviceEvent endpoint
+Lets confirm this from `POSTMAN`:
+
+* open your `POSTMAN` window
+* Make a `GET` request to `https://localhost/api/deviceevents`
+
+![Unauthenticated GET Request](./img/unauthenticated-GET.png)
+> Note your data items probably look slightly different than mine, since I am developing this lesson and haven't loaded much data in the app!
+
+* Notice that we have no headers in the request and we are not sending username/password or any kind of key as part of the request. It just works!
+* This means that we can get all of the data on the server without even logging in!
+
+### Step 6: Exploring the DeviceEvent endpoint
+
+### Step 7: Explore the ActivateCloudbit endpoint
 
 ### Step 8: Exploring Error Handling Behavior
 
