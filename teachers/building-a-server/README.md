@@ -131,6 +131,7 @@ docker-compose up
 ```
 
 This docker command executes the container using the `docker-compose.yml` file located in your `/nebraska-gencyber-dev-env/` folder.
+* Leave this terminal running
 * It works by mapping `port 80` on the `host` to `port 8000` in the container.
 * Inside the container, Django executes its `runserver` utility - which works like a web server.
 * There is also a second container that starts up and runs our `postgres` database server.
@@ -518,6 +519,16 @@ For more information, investigate the following.
 
 * [http://developers.littlebitscloud.cc/](http://developers.littlebitscloud.cc/) - API reference for the Littlebits web service.
 * [https://developers.google.com/web/tools/chrome-devtools/](https://developers.google.com/web/tools/chrome-devtools/) - Chrome Dev Tools overview
+
+#### Checkpointed code
+If you want to fast forward between lessons, I have provided you with a complete solution through step 10 of this lesson. You can update to that version using the following command from the terminal where your `nebraska-gencyber-dev-env` is running:
+
+```bash
+git checkout tags/step10-server
+```
+
+This will update your local code copy to the tagged release version. You can merge it back into your master branch by making a `pull request` into your master branch using `Github`.
+
 
 ### Acknowledgements
 Special thanks to [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/), Andrew Li, and April Guerin for reviewing and editing this module.
