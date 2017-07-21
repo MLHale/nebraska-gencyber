@@ -325,6 +325,11 @@ Ok, so you now have a loose familiarity with the skeleton `backend` code that wa
 
 Earlier, you saw a green button that said **turn cloudbit on** when you visited `localhost`. Time to push it!
 
+
+* connect the `power module` to the pink `button` input module
+* connect the `button` module to the `cloudbit` module
+* connect the `cloudbit` module to the `LED` module
+
 * in your browser, go to http://localhost
 * press the button
 * what happened?
@@ -429,17 +434,81 @@ class ActivateCloudbit(APIView):
         print 'New Event Logged'
         return Response({'success': True}, status=status.HTTP_200_OK)
 ```
+Now that we have the endpoint defined we need to make it available on the web server. Modify `api/urls.py` to include a new line in the `urlpatterns`:
+
+```python
+urlpatterns = [
+  url(r'^activatecloudbit', csrf_exempt(controllers.ActivateCloudbit.as_view())),
+  ...other stuff...
+]
+```
+> Note: don't include the ...other stuff... portion.
+
+This will make the endpoint available on the webserver. Now go back to http://localhost and try to click the button. What happens?
+
+#### Stray observations
+* Our new endpoint is a `module` that exemplifies the `modularization` cybersecurity first principle. It doesn't rely on the other modules (endpoints).
+* We did not hardcode our `api key` in the code to protect it from static lookup - this is an example of the `information hiding` cybersecurity first principle.
+* We made use of `abstraction` and `resource encapsulation` as they relate to the API design for our server and for the `littlebits API`
 
 ### Step 9: Get events from Littlebits
-The next step, is to not only `send` events to Littlebits, but also to `subscribe` to and `receive` events that are output from the `cloudbit.` To do that, we need to 
+The next step, is to not only `send` events to Littlebits, but also to `subscribe` to and `receive` events that are output from the `cloudbit.` To do that, we need to use `POSTMAN` to add a subscriber. This was the last step where we left off in the [REST API](../restful-api/README.md) tutorial. Now we are ready!
 
- [Hardening: OS Level](../firewall/README.md) lesson.
+Lets add a subscriber to catch input events going to the cloudbit:
+* make a POST request, using `POSTMAN` to: https://api-http.littlebitscloud.cc/v2/subscriptions
+* in our case we want to make a server listen for the `cloudbit`, so lets use a URI endpoint as the subscriber
+* Make sure you use the same headers that you used in the `REST` tutorial. If you don remember it should be:
+
+headers:
+```json
+{
+	"Authorization": "Bearer <your api key here without the angled brackets>",
+  "Content-type": "application/json"
+}
+```
+
+This time, in the body, we are going to use:
+
+body:
+```json
+{
+	"publisher_id": "<your device id without the angled brackets>",
+	"subscriber_id": "http://gencyber2017.unomaha.edu/api/proxy/<your-server-ip without the angled brackets>/api/deviceevents",
+  "publisher_events": [“amplitude:delta:ignite”]
+}
+```
+
+* to get your server ip, you need to open a `powershell` and type:
+```bash
+ipconfig --all
+```
+* find your ipv4 address on the ethernet card attached to your machine
+* alternatively, you can go to http://google.com and search for 'my ip address'
+* put the ip in the body of the request above and send the message to the `Littlebits API`
+* If the request works, you should see your request echoed back to you
+
+#### Stray observations
+* We are using http://gencyber2017.unomaha.edu/api/proxy so the requests from littlebits can make it to your servers in this room.
+* UNO, like other universities and companies, uses a `defense in depth` strategy that includes `perimeter network firewalls`. This is an example of `layering`. In this case, we are filtering external requests through a proxy to check their conformity. If they are clean, they are forwarded through our network firewall to your individual servers.
+* The `publisher_events` field allows you to subscribe to several different types of events. You can find a full list here: http://developers.littlebitscloud.cc/#create-subscription
+* Please do not denial of service the proxy portal - your ip might get automatically banned if you do.
 
 ### Step 10: Profit!
+Pretty neat. Observe your handy work.
+
+* connect the `power module` to the pink `button` input module
+* connect the `button` module to the `cloudbit` module
+* connect the `cloudbit` module to the `LED` module
+
+Now, press the button on `button` module. Watch as your server get the events from the `Littlebits API`, logs them locally (creating a database record), stores them for later, and then loads them into the client app for you to see.
+
+> Note: the client is designed to check for updates every 3 seconds.
+
+
 ### Checkpoint
 Lets review what we've learned.
 
-
+quiz-goes-here
 
 
 
@@ -448,6 +517,7 @@ Lets review what we've learned.
 For more information, investigate the following.
 
 * [http://developers.littlebitscloud.cc/](http://developers.littlebitscloud.cc/) - API reference for the Littlebits web service.
+* [https://developers.google.com/web/tools/chrome-devtools/](https://developers.google.com/web/tools/chrome-devtools/) - Chrome Dev Tools overview
 
 ### Acknowledgements
 Special thanks to [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/), Andrew Li, and April Guerin for reviewing and editing this module.
