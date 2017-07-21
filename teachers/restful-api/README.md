@@ -41,25 +41,29 @@ For this lesson, you will need:
 You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot-little-bits-intro/README.md) and [Hands on IoT: Build an IFTTT IoT app w/ Little Bits](../hands-on-iot-little-bits-ifttt-app/README.md) lessons before attempting this lesson.
 
 ### Table of Contents
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
+<!-- TOC START min:1 max:3 link:true update:true -->
 - [RESTFul APIs and Little bits](#restful-apis-and-little-bits)
-		- [Cybersecurity First Principles in this lesson](#cybersecurity-first-principles-in-this-lesson)
-		- [Introduction](#introduction)
-		- [Materials Required](#materials-required)
-		- [Prerequisite lessons](#prerequisite-lessons)
-		- [Table of Contents](#table-of-contents)
-		- [Step 1: Hands-on Demo](#step-1-hands-on-demo)
-		- [Step 2: Ok, lets take a look at a real API](#step-2-ok-lets-take-a-look-at-a-real-api)
-		- [Step 3: Getting our API Key](#step-3-getting-our-api-key)
-		- [Step 4: Making your first REST request](#step-4-making-your-first-rest-request)
-		- [Additional Resources](#additional-resources)
-		- [Acknowledgements](#acknowledgements)
-		- [License](#license)
-- [Connecting to cloudbit api from a rest client notes](#connecting-to-cloudbit-api-from-a-rest-client-notes)
-	- [Large NOTE TO SELF: Need to figure out a way around the VPN issue that the servers will be behind if we want to do this - maybe proxy the request through the Gencyber server =)) Mike grove will love me for that.](#large-note-to-self-need-to-figure-out-a-way-around-the-vpn-issue-that-the-servers-will-be-behind-if-we-want-to-do-this-maybe-proxy-the-request-through-the-gencyber-server-mike-grove-will-love-me-for-that)
+    - [Cybersecurity First Principles in this lesson](#cybersecurity-first-principles-in-this-lesson)
+    - [Introduction](#introduction)
+    - [Goals](#goals)
+    - [Materials Required](#materials-required)
+    - [Prerequisite lessons](#prerequisite-lessons)
+    - [Table of Contents](#table-of-contents)
+    - [Step 1: Hands-on Demo](#step-1-hands-on-demo)
+    - [Step 2: Ok, lets take a look at a real API](#step-2-ok-lets-take-a-look-at-a-real-api)
+    - [Step 3: Getting our API Key](#step-3-getting-our-api-key)
+    - [Step 4: Making your first REST request](#step-4-making-your-first-rest-request)
+    - [Step 5: GET device info](#step-5-get-device-info)
+    - [Step 6: First POST request to turn the device on](#step-6-first-post-request-to-turn-the-device-on)
+    - [Checkpoint](#checkpoint)
+    - [Step 7: Adding a subscriber to handle incoming events.](#step-7-adding-a-subscriber-to-handle-incoming-events)
+    - [Additional Resources](#additional-resources)
+    - [Acknowledgements](#acknowledgements)
+    - [License](#license)
 
-<!-- /TOC -->
+<!-- TOC END -->
+
+
 
 ### Step 1: Hands-on Demo
 Before we get started, lets talk about what an API is.
@@ -93,7 +97,7 @@ Now that we have our API Key, lets use it to make a request.
 
 POSTMAN is a REST client, that allows end users to make requests to test their APIs. Lets use it to test the cloudbit API. Launch POSTMAN by typing ```chrome://apps``` into the chrome address bar, hit enter, and then click the POSTMAN icon.
 
-![Loading Postman](img/postman1.png)
+![Loading Postman](./img/postman1.png)
 
 In POSTMAN, lets build a new GET request targetted at the URL https://api-http.littlebitscloud.cc/v2/devices
 
@@ -109,7 +113,7 @@ You can add the header as a key value pair, where the key is ```Authorization```
 
 If all goes well you should see something like:
 
-![GET request](img/postman2.png)
+![GET request](./img/postman2.png)
 
 * The `response` you got back, when you sent the GET request contains the name and meta information for each of the `cloudbits` currently connected to your account. In the screenshot above, the JSON data returned for me was:
 
@@ -141,14 +145,14 @@ https://api-http.littlebitscloud.cc/v2/devices/<your-device-id>
 
 You should get the same device info back, but notice that it is now not in square brackets - this means it is a singleton instead of a list.
 
-![GET request](img/postman3.png).
+![GET request](./img/postman3.png).
 
 ### Step 6: First POST request to turn the device on
 Now that we have the basics of GET requests to access device info, lets try issuing a POST request to actually make our device do something.
 
 * Make sure you arrange your littlebits as shown in the following picture:
 
-![Littlebits Setup](img/littlebits-setup.png)
+![Littlebits Setup](./img/configuration.jpg)
 
 * make a POST request using POSTMAN to set the voltage output on the cloudbit for a few seconds
 
@@ -190,7 +194,6 @@ You should get back:
 
 and you should see your led light up. You just used REST!
 
-![Littlebits Working!](img/littlebits-working.png)
 
 ### Checkpoint
 Lets review what we've learned.
