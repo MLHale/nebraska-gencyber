@@ -1,7 +1,6 @@
 # RESTFul APIs and Little bits
 
 ### Cybersecurity First Principles in this lesson
- (delete this line and all bullets that do not apply )
 
 * __Abstraction__: An abstraction is a representation of an object or concept. The gauges in an automobile are an abstraction of the performance of a car. A map is an abstraction of the earth. Abstraction allows us to model an object without considering all of the (possibly infinite) complexity that the object may contain. In this lesson, we use abstraction to model data structures similarly as we did in lesson one.
 
