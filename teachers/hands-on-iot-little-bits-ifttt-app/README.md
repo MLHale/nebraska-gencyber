@@ -127,7 +127,8 @@ Lets create a new `applet` that sends an email when you press the `button` modul
 
 * Click the `plus` icon to specify the _if_ condition our applet will fire up on.
 * You will see all of the service options available to be used as _IF_ conditions. Find `Littlebits` by typing it in the search/filter bar.
-* There are two options: **turned on** and **turned off**, pick **turned on**
+* Authorize `IFTTT` to access your `Littlebits` API.
+* Now you should see two options: **turned on** and **turned off**, pick **turned on**
 * Select your `cloudbit` from the dropdown and click **create trigger** to set this as the _IF_ condition. Once selected you should see:
 
  ![applet](img/ifttt-bits.png)
@@ -149,7 +150,7 @@ Check your email!
 ![email worked](img/email-worked.png)
 > It worked!
 
-This is a simple, but powerful tool. It also shows off __resource encapsulation__ and __abstraction__. In terms of encapsulation, each of the services connected to `IFTTT` have many functions. These functions are encapsulated in a service (e.g. `email` in this example). The functions are also __abstract__ because `IFTTT` doesn't need to know _how_ they work, just that they achieve a certain purpose (e.g. send an email). This helps _model_ or _abstract_ the implementation away from the design.
+This is a simple, but powerful tool. It also shows off __resource encapsulation__ and __abstraction__. In terms of resource encapsulation, each of the services connected to `IFTTT` have many functions. These functions are encapsulated in a service (e.g. `email` in this example). The functions are also __abstract__ because `IFTTT` doesn't need to know _how_ they work, just that they achieve a certain purpose (e.g. send an email). This helps _model_ or _abstract_ the implementation away from the design.
 
 ### Step 6: Email / SMS trigger
 Lets make an `applet` that allows us to turn the `cloudbit` output on with an email or text.
@@ -177,6 +178,7 @@ Lets make a second applet to do the same thing, but via `SMS`.
 
 * Go to https://ifttt.com, select the dropdown caret next to your name, and then click **New Applet**.
 * As the **IF** condition, select the `SMS` service.
+* Register your phone with IFTTT SMS service
 * Of the two options, select the `SMS tagged` option.
 * Use the hashtag `#nebraskagencyber`
 * For the **THAT** condition, select the `littlebits` service
@@ -225,6 +227,7 @@ Lets go beyond simple triggers, and make something that you might use in your ho
 * Select the dropdown caret next to your name, and then click **New Applet**.
 * As the **IF** condition, select the `littlebits` service.
 * Select the **turned on** option.
+* Select create trigger.
 * For the **THAT** condition, select the `email` service.
 * Set the email content to the following:
 
@@ -245,13 +248,14 @@ Cover the light sensor up with your finger to turn it on (simulating it being **
 * Now make another applet by selecting the dropdown caret next to your name, and then clicking **New Applet**.
 * As the **IF** condition, select the `email` service.
 * Of the two options, select the `Send IFTTT an email tagged` option.
-* Use the hashtag `#lightson`
+* Use the hashtag `#lightson`. Create the trigger.
 * For the **THAT** condition, select the `littlebits` service.
 * Select `Activate Output` this time. This will just turn on the output for 3 seconds.
 * Select your `cloudbit`
 * Press **create action** and then **finish**
-
-* Test it out by sending `trigger@applet.ifttt.com` an email with the tag `#lightson` in the subject line. (You may need to send the signal twice to pair the `ir sensor` with the `ir power outlet`)
+* Connect your `ir power outlet` to an outlet. Make sure the red tag is in line of sight with the `ir sensor`
+* To pair the `ir sensor` with the `ir power outlet` send `trigger@applet.ifttt.com` an email with the tag `#lightson` in the subject line. Once the pairing is complete, `ir power outlet` should have a steady on or off state. If it is still blinking then it is attempting to get paired.
+* Once pairing is successful, toggle the `ir power outlet` by sending `trigger@applet.ifttt.com` an email with the tag `#lightson` in the subject line. 
 * If it doesn't happen instantly, give it a minute to process
 
 You should see the power outlet light turn on - and you should hear a short audio clip play.
