@@ -136,10 +136,14 @@ This docker command executes the container using the `docker-compose.yml` file l
 * There is also a second container that starts up and runs our `postgres` database server.
 * You can take a look at the `Dockerfile` in your `/nebraska-gencyber-dev-env/` folder to learn more about what happens behind the scenes.
 
-With the server running, you should be able to visit [http://localhost](http://localhost) to see your server. You should see a messages that says `Hello World` and has a giant button. We will come back to the button in a minute.
+With the server running, you should be able to visit [http://localhost](http://localhost) to see your server. You should an interface that looks something like the following.  
+
+![skeleton client app](./img/skeleton-client.png)
+
+This is a `web client` (also called a `frontend`) that we've built for demo purposes to work with our server. You will be making the server work better with the client.
 
 ### Step 5: Explore the server
-Lets take a look over our server environment. First. Lets explore the file tree.
+Since our focus is the `backend` - lets take a look over our server environment. First. Lets explore the file tree.
 
 * Open `Atom` on your desktop,
 * go to the File -> "Add Project Folder..."
@@ -317,6 +321,27 @@ class DeviceEvents(APIView):
 1. What would be the result of making a `POST` request to `<myserver>/api/deviceevents`?
 
 ### Step 6: Press the button
+Ok, so you now have a loose familiarity with the skeleton `backend` code that was provided to you. Lets build upon it.
+
+Earlier, you saw a green button that said **turn cloudbit on** when you visited `localhost`. Time to push it!
+
+* in your browser, go to http://localhost
+* press the button
+* what happened?
+* How can we tell?
+
+Lets use the `chrome development tools` to take a closer look.
+
+* Press F12 (windows) or Right Click on the page -> Select `Inspect`
+* This will bring up the `chrome development tools` which have a number of very helpful capabilities for debugging websites and inspecting the behind-the-scenes action that happens when you interact with web content
+
+### Step 7: Chrome Dev Tools - Your new best friend
+Instead of me reinventing the wheel, head over to [https://developers.google.com/web/tools/chrome-devtools/](https://developers.google.com/web/tools/chrome-devtools/) to learn the basics of what Chrome Development tools can do.
+
+When you've looked over the different features. Come back and click on the `network` tab to inspect what is happening with our button.
+You should see:
+
+[button](./img/button-failing.png)
 
 ### Step 7: Make a new REST endpoint to make the client button work with the backend
 
