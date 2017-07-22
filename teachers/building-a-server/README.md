@@ -130,7 +130,11 @@ With the database initialized, you should be able to easily run the app. All you
 docker-compose up
 ```
 
-This docker command executes the container using the `docker-compose.yml` file located in your `/nebraska-gencyber-dev-env/` folder.
+This server, diagrammatically looks like:
+
+![Django Architecture](./img/django-architecture-diagram.png)
+
+The docker command executes the container using the `docker-compose.yml` file located in your `/nebraska-gencyber-dev-env/` folder.
 * Leave this terminal running
 * It works by mapping `port 80` on the `host` to `port 8000` in the container.
 * Inside the container, Django executes its `runserver` utility - which works like a web server.
@@ -218,10 +222,6 @@ urlpatterns = [
     url(r'^register', csrf_exempt(controllers.Register.as_view())),
     url(r'^deviceevents', csrf_exempt(controllers.DeviceEvents.as_view())),
     url(r'^', include(router.urls)),
-
-    #Django Rest Auth
-    url(r'^auth/', include('rest_framework.urls')),
-
 ]
 
 ```
@@ -435,6 +435,7 @@ class ActivateCloudbit(APIView):
         print 'New Event Logged'
         return Response({'success': True}, status=status.HTTP_200_OK)
 ```
+
 Now that we have the endpoint defined we need to make it available on the web server. Modify `api/urls.py` to include a new line in the `urlpatterns`:
 
 ```python
@@ -446,6 +447,16 @@ urlpatterns = [
 > Note: don't include the ...other stuff... portion.
 
 This will make the endpoint available on the webserver. Now go back to http://localhost and try to click the button. What happens?
+
+Did you get an error?
+
+![error with key](./img/error-with-key.png)
+
+This is because we haven't added our `API Key` to our server, so the field `api_key = ApiKey.objects.all().first()` returns null (or `NoneType`). To fix this, open your browser and go to http://localhost/admin/api/apikey/. Click 'add api key'.
+
+![error with key](./img/add-api-key.png)
+
+Then enter your username (probably `admin`) in the `owner` field. In the `key` field add in your `Littlebits` API key used in the previous lesson (without the word `Bearer`). If you forgot it or don't have it handy, you can retrieve it here by visiting http://control.littlebitscloud.cc/ and clicking on `settings`. When added, save the key.
 
 #### Stray observations
 * Our new endpoint is a `module` that exemplifies the `modularization` cybersecurity first principle. It doesn't rely on the other modules (endpoints).
