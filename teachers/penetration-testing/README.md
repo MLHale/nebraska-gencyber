@@ -24,8 +24,9 @@ In this module you will probe the server you created before to see how insecure 
 ### Goals
 By the end of this tutorial, you will be able to:
 * Use a REST Client to make malicious `POST` and `GET` requests to an `API`
-* Identify `vulnerabilities` in API endpoints
-* Trace `vulnerabilities` back to the code `weaknesses`
+* Identify and understand basic `software testing` paradigms
+* Identify `software weaknesses` in API endpoints
+* Trace exploit `weaknesses` to identify `vulnerabilities`
 * Conduct a `risk assessment`
 
 
@@ -50,12 +51,12 @@ You should complete the following lessones before proceeding with this one.
 
 
 ### Step 1: Where we left off
-When we left off, you had created an `endpoint` to make the button work to send a message to your `cloudbit`. We had to store our API key on the server to make this work. Our endpoint accepted a POST request to turn on the device. We also integrated our server with `Littleibts API` to `subscribe` to events that occured on the cloudbit.
+When we left off, you had created an `endpoint` to make the button work to send a message to your `cloudbit`. We had to store our API key on the server to make this work. Our endpoint accepted a POST request to turn on the device. We also integrated our server with `Littlebits API` to `subscribe` to events that occured on the cloudbit.
 
 In this lesson we will take a look at the security implications of this service integration to see how our server isn't well protected against attacks.
 
 ### Step 2: Key Penetration Testing Concepts
-`Penetration testing` is a special kind of `software testing` that evaluates the `attack surface` of an application for potential exploitable `vulnerabilities`. At the end of a penetration test, testers have more information about their product and more `assurance` that it will operate correctly in the real world. This section overviews the basics of testing.
+`Penetration testing` is a special kind of `software testing` that evaluates the `attack surface` of an application for potential `software weaknesses` that if left unaddressed can lead to exploitable `vulnerabilities`. At the end of a penetration test, testers have more information about their product and more `assurance` that it will operate correctly in the real world. This section overviews the basics of testing.
 
 At its core, penetration testing, is about trying to **make an app do something it wasn't designed for** and **discover oversights or problems in the implementation and design**.
 
@@ -89,7 +90,7 @@ There can be many different scenarios that lead to errors.
 We can Test! The goal of testing is to discover `faults` before they lead to `errors`. Once we know what is wrong, we can `mitigate` it in some way to prevent it from becoming an issue.
 
 * Testing often means traversing the different ways in which your app operates.
-* This is especially true for `penetration` tests which identify `security faults` (commonly known as `vulnerabilities`).
+* This is especially true for `penetration` tests which identify `security faults` (commonly known as `software weaknesses`).
 
 ![error-slides](./img/error-slide5.png)
 > Image credit: Bruegge and Dutoit, _Object-oriented Software Engineering: Using UML, Patterns, and Java_, Prentice Hall, 2010
@@ -99,7 +100,7 @@ We can Test! The goal of testing is to discover `faults` before they lead to `er
 ![error-slides](./img/error-slide6.png)
 > Image credit: Bruegge and Dutoit, _Object-oriented Software Engineering: Using UML, Patterns, and Java_, Prentice Hall, 2010
 
-* Another option is to design our app from the beginning to handle faults by design. This is a concept called `redundancy`. Redundancy is vitally important for high-criticality systems like those that are operated by NASA, The Department of Defense, and others. `Redundancy` helps, in combination with patching, to ensure that if `errors` do occur they don't cause `failures` before they can be patched.
+* Another option is to design our app from the beginning to handle faults better by design. This is a concept called `redundancy`. Redundancy is vitally important for high-criticality systems like those that are operated by NASA, The Department of Defense, and others. `Redundancy` helps, in combination with patching, to ensure that if `errors` do occur they don't cause `failures` before they can be patched.
 
 ![error-slides](./img/error-slide7.png)
 > Image credit: Bruegge and Dutoit, _Object-oriented Software Engineering: Using UML, Patterns, and Java_, Prentice Hall, 2010
@@ -129,7 +130,7 @@ A short list of mis-use cases includes:
 * User data exfiltration
 * Hostile server takeover
 
-These goals, which can be written like `user stories` often involve some form of `web-based-attack`. We are going to look at our server, created in the previous [lesson](../building-a-server/README.md) to see where it may be vulnerable to attack.
+These goals, which can be written like `user stories` often involve some form of `web-based-attack`. We are going to look at our server, created in the previous [lesson](../building-a-server/README.md) to see where it may have `weakenesses` that leave it vulnerable to attack.
 
 In general, you can follow this flow chart for thinking about penetration testing (and testing in general):
 
@@ -145,14 +146,14 @@ I like to think of tests graphically:
 
 ![penetration testing](./img/testing-surface.png)
 
-* In this example, most of the tests that have been conducted are located on part of the app that doesn't have many vulnerabilities. These tests identify one vulnerability (upper right), but miss a highly vulnerable area of the app.
-* Maybe this is a `component` that is outdated or not well designed.
+* In this example, most of the tests that have been conducted are located on part of the app that (as it turns out) doesn't have many vulnerabilities. These tests identify one `weakness` (upper right) that leads to a `vulnerability`, but miss a highly vulnerable area of the app (lower left).
+* Maybe this vulnerable area is a `component` that is outdated or not well designed.
 
 Unfortunately, the surface is not the only place where vulnerabilities can occur.
 
 ![penetration testing](./img/internal-vulnerabilities.png)
 
-* `Attack vectors` (i.e. pathways that exploit vulnerabilities) can use one vulnerability to get access into other areas in your app. Those internal components might be less `hardened` against attack.
+* `Attack vectors` (i.e. pathways that exploit `weaknesses` to produce `vulnerabilities`) can sometimes use identified vulnerabilities to get access into other areas in your app. Those internal components might be less `hardened` against attack.
 * Takeaway: It is important to test **all** of your components and surfaces.
 
 ### Step 4: Getting started testing in POSTMAN
@@ -162,7 +163,7 @@ We've created this pretty cool API and nice client-side interface to use it. How
 * type `docker-compose up` to run the server
 * Now open `POSTMAN` and send a simple `GET` request to your local server at `https://localhost`.
 * What do you get?
-* Now try sending a `GET` to `https://localhost/api/deviceevents`
+* Now try sending a `GET` request to `https://localhost/api/deviceevents`
 * What do you see?
 
 ### Step 5: Exploring Authentication and permissions
@@ -195,7 +196,7 @@ Lets confirm this from `POSTMAN`:
 > Note your data items probably look slightly different than mine, since I am developing this lesson and haven't loaded much data in the app!
 
 * Notice that we have no headers in the request and we are not sending username/password or any kind of key as part of the request. It just works!
-* This means that we can get all of the data on the server without even logging in!
+* This means that we can get all of the device event data on the server without even logging in!
 
 ### Step 6: Examine the attack surface of our app
 Our web server exposes several endpoints for end-user consumption, look at the files `django_backend/urls.py` and `/api/urls.py` in our `nebraska-gencyber-dev-env` folder. From these we see that the urls accepted by our server are:
@@ -228,7 +229,7 @@ def home(request):
                {}, RequestContext(request))
 ```
 
-Where does `index.html` come from? We can answer that question by looking in your `django_backend/settings.py` file:
+Where does `index.html` come from? We can answer that question by looking in the `django_backend/settings.py` file:
 
 You will see:
 
@@ -249,11 +250,11 @@ TEMPLATES = [
     },
 ]
 ```
-This configuration setting joins the operating system's `BASE_DIR` (or base directory) to the `static/ember/` directory. This means, it looks for `/<path-where-django-exists>/static/ember/` for us that is `/nebraska-gencyber-dev-env/backend/static/ember/`. If we look in that folder we will see the index.html file that loads in the javascript and other files associated with the client you have been looking at all of this time when you visit https://localhost
+This configuration setting joins the operating system's `BASE_DIR` (or base directory) to the `static/ember/` directory. This means, it looks for `/<path-where-django-exists>/static/ember/`. For us that is `/nebraska-gencyber-dev-env/backend/static/ember/`. If we look in that folder we will see the index.html file that loads in the javascript and other files associated with the client you have been looking at all of this time when you visit https://localhost
 
 > In practice you would need to do a full assessment of the client. For now, we will assume it is 'safe' from the point of view of the server.
 
-Overall, our server should assume that clients can be comprimised and instead secure any `backend` functionality. This follows a `defense in depth` approach.
+Overall, our server should assume that clients can be compromised and, therefor, focus on securing any `backend` functionality. This follows a `defense in depth` approach.
 
 What cybersecurity principle might that be?
 
