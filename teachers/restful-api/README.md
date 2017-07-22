@@ -17,10 +17,10 @@
 
 * __Resource Encapsulation__: A resource can be hardware such as memory, disk drives, or a display screen. It can also be system objects such as semaphores, a linked list, or shared memory. Processes (or programs) need resources to run. Resources have to be separated and used in the way they were intended. Virtual machines encapsulate an operating system and all of the processes and applications it contains.
 
-* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping software as simple and as focused as possible, the reliability and security is greatly increased.
+* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping the software as simple and as focused as possible, the reliability and security are greatly increased.
 
 ### Introduction
-In this module, you will learn what a RESTful API is, how Littlebits uses APIs to monitor and issue commands to the cloudbit, and how you can use the littlebits API yourself.
+In this module, you will learn what a RESTful API is, how Littlebits uses APIs to monitor and issue commands to the cloudbit, and how you can use the Littlebits API yourself.
 
 ### Goals
 By the end of this tutorial, you will be able to:
@@ -63,24 +63,22 @@ You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot-little
 
 <!-- TOC END -->
 
-
-
 ### Step 1: Hands-on Demo
 Before we get started, lets talk about what an API is.
 
 ### Step 2: Ok, lets take a look at a real API
 In the previous [lesson](../hands-on-iot-little-bits-ifttt-app/README.md), we wired our `cloudbit` up to the web and explored how we could send it signals using [IFTTT](www.ifttt.com). We saw that if our cloud bit detected an input signal (a `request`), we could have `IFTTT` do something (send a `response`). These concepts, i.e. _request_ and _response_, are central to the concept of `RESTful APIs`. REST, or REpresentational State Transfer, APIs, or Application Programming Interfaces, are tools that developers use to provide __abstraction__ and __resource encapsulation__ to people who want to interact with their data.
 
-APIs allow you to get and save data back to the application, without needing to tightly integrate with that application. This improves __simplicity__ and helps your code to be more __modular__. APIs include `endpoints`, such as /api/events, that allow you to access certain specific data (e.g. events in this example). API endpoints help provide __minimization__, since users can only interact with the application through those interfaces provided by the developer.
+APIs allow you to get and save data back to the application, without needing to tightly integrate with that application. This improves __simplicity__ and helps your code to be more __modular__. APIs include `endpoints`, such as `/api/events`, that allow you to access certain specific data (e.g. events in this example). API endpoints help provide __minimization__ since users can only interact with the application through those interfaces provided by the developer.
 
 ...Enough talk! Lets look at an API!
 
-Open chrome and go to http://developers.littlebitscloud.cc/. You are looking at the `cloudbit` API. This is what `IFTTT` uses to handle requests and responses.
+Open Chrome and go to http://developers.littlebitscloud.cc/. You are looking at the `cloudbit` API. This is what `IFTTT` uses to handle requests and responses.
 
 You can see that Littlebits tells us all about how to interact with our `cloudbit` using the API. Lets try it out.
 
 ### Step 3: Getting our API Key
-Secure APIs don't just accept requests and provide responses to anyone. APIs use a concept called `least privlege` to allow endusers to only have access to the features they need. Since we own the cloudbit, we should have the ability to do anything we want with it, but we might want to prevent other people from abusing and misusing our cloudbit.
+Secure APIs don't just accept requests and provide responses to anyone. APIs use a concept called `least privilege` to allow end-users to only have access to the features they need. Since we own the cloudbit, we should have the ability to do anything we want with it, but we might want to prevent other people from abusing and misusing our cloudbit.
 
 To ensure that only we can program our cloudbit, Littlebits provides something called an `API Key`. This key is a really long alphanumerical string that would be hard to crack. Lets find our key, so we can issue commands to our cloudbit.
 
@@ -95,7 +93,7 @@ Now go to the `settings` menu. You should see your access token `API Key`, you w
 ### Step 4: Making your first REST request
 Now that we have our API Key, lets use it to make a request.
 
-POSTMAN is a REST client, that allows end users to make requests to test their APIs. Lets use it to test the cloudbit API. Launch POSTMAN by typing ```chrome://apps``` into the chrome address bar, hit enter, and then click the POSTMAN icon.
+POSTMAN is a REST client, that allows end users to make requests to test their APIs. Lets use it to test the cloudbit API. Launch POSTMAN by typing ```chrome://apps``` into the Chrome address bar, hit enter, and then click the POSTMAN icon.
 
 ![Loading Postman](./img/postman1.png)
 
@@ -150,7 +148,7 @@ You should get the same device info back, but notice that it is now not in squar
 ### Step 6: First POST request to turn the device on
 Now that we have the basics of GET requests to access device info, lets try issuing a POST request to actually make our device do something.
 
-* Make sure you arrange your littlebits as shown in the following picture:
+* Make sure you arrange your Littlebits as shown in the following picture:
 
 ![Littlebits Setup](./img/configuration.jpg)
 
@@ -176,8 +174,8 @@ Now set the body to tell cloudbit to turn the LED on at 100% brightness and to s
 Body:
 ```
 {
-	"percent": 100,
-	"duration_ms": 5000
+    "percent": 100,
+    "duration_ms": 5000
 }
 ```
 
@@ -202,15 +200,15 @@ https://www.qzzr.com/c/quiz/429280/8f69a8f7-0a69-4efa-9c3e-2aa38944ed1d
 
 ### Step 7: Adding a subscriber to handle incoming events.
 Lets add a subscriber to catch input events going to the cloudbit:
-* make a POST request to: https://api-http.littlebitscloud.cc/v2/subscriptions
-* in our case we want to make a server listen for the cloudbit, so lets use a URI endpoint as the subscriber
+* Make a POST request to https://api-http.littlebitscloud.cc/v2/subscriptions
+* In our case we want to make a server listen for the cloudbit, so lets use a URI endpoint as the subscriber
 
 same headers as before
 body:
 ```
 {
-	"publisher_id": "<your device id>",
-	"subscriber_id": "http://ourserver.com/endpoint"
+    "publisher_id": "<your device id>",
+    "subscriber_id": "http://ourserver.com/endpoint"
 }
 ```
 

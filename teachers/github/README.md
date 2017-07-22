@@ -66,7 +66,7 @@ The following tutorials focus on how you can use Git and Github for collaboratio
 
 ### Step 1: Create an Account
 First things first, create a free account on Github. https://github.com/join
-You will also need to verify your email address after registration in order to use your new github account.
+You will also need to verify your email address after registration in order to use your new GitHub account.
 
 [Top](#table-of-contents)
 
@@ -86,7 +86,7 @@ To create a `Local` repository there are two basic options.
 [Top](#table-of-contents)
 
 ##### Clone a remote repository
-Let's start by looking at option #1 and checking that git is installed.
+Let's start by looking at option #1 and checking that Git is installed.
 
 - Git tools do not come pre-installed with all operating systems.
 - To check if they exist on your operating system, open up a command line interface and type
@@ -109,7 +109,7 @@ To `clone` a remote repository (what we set out to do), we first need a ```refer
   git clone <replace this, including angled brackets with the clone URL that you copied above>
   ```
 
-You will start to see some download messages and upon success, your local repository will be ready for use. You may be asked to authenticate with Github credentials, if your repository is not public.
+You will start to see some download messages and upon success, your local repository will be ready for use. You may be asked to authenticate with Github credentials if your repository is not public.
 
 >![clone](./img/gitClone.png)
 
@@ -135,12 +135,12 @@ If you need to create a new repository you would just navigate to the folder (us
 git init
 ```
 
-That's it! This is useful if you are **creating new files from scratch**. Using github, you can also push newly tracked files such as these to a remote repository. The steps are the same as you will see for cloned repositories below.
+That's it! This is useful if you are **creating new files from scratch**. Using GitHub, you can also push newly tracked files such as these to a remote repository. The steps are the same as you will see for cloned repositories below.
 
 [Top](#table-of-contents)
 
 ### Step 4: Push Changes
-In this step we will make changes to files in our `Local` repository and then `push` changes back to the `remote` repository.
+In this step, we will make changes to files in our `Local` repository and then `push` changes back to the `remote` repository.
 
 Git is based on a **de-centralized** model of ownership - which means that there is no central authoritative repository. Every repository, Local or Remote, is fully autonomous and fully functional on its own. So changes made in any repository are tracked in that repository only. Two repositories do not communicate unless there is a explicit request to synchronize changes across them. This will make more sense as we work through a scenario.
 
@@ -162,8 +162,8 @@ You should see something like this:
 
 A few things to notice here about these status messages:  
 1. `On branch master`: You are on the master branch in your local repository.  
-2. `Your branch is up-to-date with 'origin/master'`: Your local repository master branch is in sync with your remote repository master brach on Github. The default name for the remote repository is **origin**.  
-3. `Changes not staged for commit`: git follows a two step process to save changes to a repository. First the user indicates which modified/deleted/new files need to be _staged_ for a save in the repository. Second these staged files are _committed_ to the repository. We will look at commands to do both of these shortly.  
+2. `Your branch is up-to-date with 'origin/master'`: Your local repository master branch is in sync with your remote repository master branch on GitHub. The default name for the remote repository is **origin**.  
+3. `Changes not staged for commit`: git follows a two step process to save changes to a repository. First, the user indicates which modified/deleted/new files need to be _staged_ for a save in the repository. Second these staged files are _committed_ to the repository. We will look at commands to do both of these shortly.  
 4. `modified:  README.md`: git knows that the README.md file has been modified  
 
 Now we `stage` our changes for a commit using this command:
@@ -209,7 +209,7 @@ Use this command to see all your commits:
 git log
 ```
 
-This command shows a summary of commits in the repository, stating with the most recent. Observe the hash code, user details and commit message. These attributes provide attribution of all changes in the code repository, promoting code integrity.
+This command shows a summary of commits in the repository, starting with the most recent. Observe the hash code, user details and commit message. These attributes provide attribution of all changes in the code repository, promoting code integrity.
 
 > Hit the key `q` to exit the log of commit messages.
 
@@ -220,7 +220,7 @@ git status
 
 It should report **no** uncommitted changes. But it indicates that `Your branch is ahead of 'origin/master' by 1 commit`. Which means that our local repository master branch has more recent commits than the remote repository master branch.
 
-To push our local commits to the remote repository (Github in this case), we need the git `push` command. With this command we need to indicate the name of the remote repository followed by the name of the local repository branch that has updates to be pushed. Do you remember the name of our remote repository and the main branch?
+To push our local commits to the remote repository (Github in this case), we need the git `push` command. With this command, we need to indicate the name of the remote repository followed by the name of the local repository branch that has updates to be pushed. Do you remember the name of our remote repository and the main branch?
 
 > **Questions**  
 > - What is the default name of the remote repository?  
@@ -246,11 +246,11 @@ As mentioned before in the introduction, git version control is very efficient f
 [Top](#table-of-contents)
 
 ### Step 5: Pull Remote Changes
-What happens if we make some changes to README.md on `Github.com`? How do we get these changes back into our local repository. We will learn just that in this step.
+What happens if we make some changes to README.md on `Github.com`? How do we get these changes back into our local repository? We will learn just that in this step.
 
 So, I realized that I forgot to add a link to UNO's Cybersecurity programs in the README.md file. So I will make these changes and commit those changes on Github.com itself.
 
-1. First click on README.md file on Github and then click the edit option as shown below:
+1. First, click on README.md file on Github and then click the edit option as shown below:
 >![githubedit](./img/githubedit.png)
 
 2. Make changes, add a commit message and click `Commit changes`
@@ -267,7 +267,7 @@ git pull
 Now if we look at our local README.MD file, it should have the updated link.
 >![localpullupdate](./img/openreadme.png)
 
-At this point you know enough to keep both the local and remote repositories synchronized.    
+At this point, you know enough to keep both the local and remote repositories synchronized.    
 
 As long as you always `pull` before making changes and keep pushing any new changes - you will avoid most merge conflicts that can occur.  
 
@@ -299,7 +299,7 @@ You may also choose to make direct changes to it on `Github` itself. Let's do th
 [Top](#table-of-contents)
 
 ### Step 7: Make a Pull Request
-In this step we make changes to the fork of your peers' repository on `Github.com` and create a `pull request`.
+In this step, we make changes to the fork of your peers' repository on `Github.com` and create a `pull request`.
 
 Let's assume that a `gencyber` (insert your ID here) user forks `robinagandhi/hello-world` repository (this will be your peer's repository).
 
@@ -309,13 +309,13 @@ The forked repository for the `gencyber` user will look like this:
 The `gencyber` user now makes changes to the README.md file in this forked repository. She is also the owner of this forked repository.
 >![forkupdate](./img/forkupdate.png)
 
-Now to suggest these changes to the `robinagandhi` user; the `gencyber` user needs to create a `pull request`. So the `gencyber` user switches over to the `Pull Request` tab on forked repository and clicks the **new pull request** button. It will look something like this:
+Now to suggest these changes to the `robinagandhi` user; the `gencyber` user needs to create a `pull request`. So the `gencyber` user switches over to the `Pull Request` tab on the forked repository and clicks the **new pull request** button. It will look something like this:
 >![forkpulltab](./img/forkpulltab.png)
 
 Here is an open pull request that compares the master branches across the two repositories.
 >![forkpullopen](./img/forkpullopen.png)
 
-The `robinagandhi` user is now notified of a `pull request` on his hello-world repository. He examines the suggested changes, and in this case the files can be automatically merged.
+The `robinagandhi` user is now notified of a `pull request` on his hello-world repository. He examines the suggested changes, and in this case, the files can be automatically merged.
 >![forkmerge](./img/forkmerge.png)
 
 In cases where files cannot be merged automatically, discussions around the pull request can help to resolve the conflicts manually. In this case that won't be necessary. With a few more simple clicks the changes are `merged`. Your peer will see something like this to confirm the merge:
@@ -342,17 +342,17 @@ You are now ready to explore the wonderful world of open source on Github. Enjoy
 [Top](#table-of-contents)
 
 ### Fork Our whole camp
-We practice what we preach. Our whole camp has been developed on github using markdown, for your viewing pleasure and for you to take home with you. Now that you are a you are a git guru, you may as well fork all of the camp content to take it home with you.
+We practice what we preach. Our whole camp has been developed on GitHub using markdown, for your viewing pleasure and for you to take home with you. Now that you are a git guru, you may as well fork all of the camp content to take it home with you.
 
 Go to the top of this page and click fork. Boom, you have our whole camp, use responsibly.
 
-### Cyber security First Principle Reflections
+### Cybersecurity First Principle Reflections
 
-On Github, only the `owner` of a remote repository can push commits to it. All other `Github users` have the limited privilege to make a pull request. The repository owner reviews pull requests and initiates a merge action. The owner may reject pull requests if the do not seen appropriate. A `collaborator` can push commits, but cannot delete a repository or add other collaborators. These constraints show the concept of __least privilege__ with github user roles. Users should have no more privilege than what is required for their job.
+On Github, only the `owner` of a remote repository can push commits to it. All other `Github users` have the limited privilege to make a pull request. The repository owner reviews pull requests and initiates a merge action. The owner may reject pull requests if they do not seem appropriate. A `collaborator` can push commits, but cannot delete a repository or add other collaborators. These constraints show the concept of __least privilege__ with GitHub user roles. Users should have no more privilege than what is required for their job.
 
-Developers often design Github repositories, to be self contained _modules_. These modules are then put in or taken out of a bigger project. During build time these components are composed to create an integrated system. This strategy facilitates __Modularization__. Following this principle allows globally distributed teams to collaborate and locate faulty components.
+Developers often design Github repositories, to be self-contained _modules_. These modules are then put in or taken out of a bigger project. During build time these components are composed to create an integrated system. This strategy facilitates __Modularization__. Following this principle allows globally distributed teams to collaborate and locate faulty components.
 
-Finally, Github repositories separate source code from other resources. This separation allows longterm archival and maintenance of a codebase, separate from its dependencies. __Domain Separation__ enables the management of source code versions that target different products and operating environments.
+Finally, Github repositories separate source code from other resources. This separation allows long term archival and maintenance of a codebase, separate from its dependencies. __Domain Separation__ enables the management of source code versions that target different products and operating environments.
 
 [Top](#table-of-contents)
 
@@ -361,7 +361,7 @@ Finally, Github repositories separate source code from other resources. This sep
 * Creating a local repository first and then adding a remote repository, [Github](https://try.github.io/)
 * [Github cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
 * Collection of [Github tutorials](https://help.github.com/articles/good-resources-for-learning-git-and-github/)
-* Ignore files during a check in to Github. https://help.github.com/articles/ignoring-files/
+* Ignore files during a check into Github. https://help.github.com/articles/ignoring-files/
 
 [Top](#table-of-contents)
 

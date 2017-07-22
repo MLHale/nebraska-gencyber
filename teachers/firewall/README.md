@@ -1,6 +1,6 @@
 # Firewalls
 
-Firewalls are often a first line of defense for an enterprise or home network. In this unit we will understand the fundamentals of firewalls, write firewall rules that configure its behavior and then test if the firewall performs as expected.
+Firewalls are often the first line of defense for an enterprise or home network. In this unit, we will understand the fundamentals of firewalls, write firewall rules that configure its behavior and then test if the firewall performs as expected.
 
 ### Cybersecurity First Principles
 * __Minimization__: Minimization refers to having the least functionality necessary in a program or device. The goal of minimization is to simplify and decrease the number of ways that software can be exploited. This can include **turning off ports that are not needed**, reducing the amount of code running on a machine, and/or turning off unneeded features in an application. This lesson focuses specifically on turning off ports and limiting network connections that aren't required for correct operation.
@@ -25,9 +25,10 @@ The name `firewall` is inspired from its physical manifestation in construction 
 
 > ![Firewall in a substation](https://upload.wikimedia.org/wikipedia/commons/3/3c/Firewall_Electrical_Substation.jpg)
 
-While these firewalls are "cool", we are interested in a different kind of firewall. Namely, the ones that protect internal networks from external networks. These kinds of firewalls allow us to control the flow of information between networks. Firewalls, __minimize__ the number of ways that internal networks and computers on them can be exploited. They also encourage __least functionality__ by turning off ports that are not needed. Firewalls can also drop network traffic that does not conform to expected patterns (such as malicious requests to an application server).
+While these firewalls are "cool", we are interested in a different kind of firewall. Namely, the ones that protect internal networks from external networks. These kinds of firewalls allow us to control the flow of information between networks. Firewalls __minimize__ the number of ways that internal networks and computers on them can be exploited. They also encourage __least functionality__ by turning off ports that are not needed. Firewalls can also drop network traffic that does not conform to expected patterns (such as malicious requests to an application server).
 
 > ![network firewalls](./img/networkfirewall.png)
+
 
 Firewalls aren't just for networks. Each computer in a network can have its own `personal firewall`. All popular operating systems now come with a firewall installed. For Windows Server and Desktop installations we will focus on the built-in `Windows Firewall with Advanced Security` application. This application can be configured with a graphical user interface or the command line interface using `netsh` or Powershell `NetSecurity` modules. These options provide a lot of flexibility and control over the configuration of the firewall for personal and enterprise use.
 
@@ -47,7 +48,7 @@ When two machines communicate (such as a client talking to a server), communicat
 
 ### Question
 
-At what [network layer] (https://support.microsoft.com/en-us/kb/103884) does it make the most sense to operate a firewall, considering that it is connecting two different networks?
+At what [network layer](https://support.microsoft.com/en-us/kb/103884) does it make the most sense to operate a firewall, considering that it is connecting two different networks?
 
 - [ ] Physical layer  
 - [ ] Data link layer  
@@ -56,13 +57,14 @@ At what [network layer] (https://support.microsoft.com/en-us/kb/103884) does it 
 Discussion:  
 The headers on ethernet frames at the `Data link` layer and below are not useful for routing across networks. Packet filtering Firewalls rules are authored using routing information starting at the `Network` (also called the IP layer in the TCP/IP implementation) layer and above, all the way to the `Application` layer. As a result IP layer firewalls are the simplest and most widely used.
 
+
 [Top](#table-of-contents)
 
 ### Firewall as a Collection of Valves
 
 A packet filtering Firewall can be understood as a collection of valves  
 
-* Each valve/port corresponds to single service at the application level (e.g. http, ssh, https, smtp)
+* Each valve/port corresponds to single service at the application level (e.g. HTTP, SSH, HTTPS, SMTP)
 * Each valve can  
   - Permit traffic in one or both directions  
   - Deny traffic  
@@ -71,23 +73,23 @@ A packet filtering Firewall can be understood as a collection of valves
 
 Here are three basic scenarios to keep in mind.  
 
-First lets consider, **Ports 1 and 4**. These ports are open. Which means they permit packets from internal and external sources. So in the case of the TCP protocol, which forms explicit connections or circuits before transmitting data via a handshake mechanism, such connections can be externally or internally initiated.
+First, lets consider **Ports 1 and 4**. These ports are open. Which means they permit packets from internal and external sources. So in the case of the TCP protocol, which forms explicit connections or circuits before transmitting data via a handshake mechanism, such connections can be externally or internally initiated.
 
 In the case of **Port 2**, it allows unrestricted flow of information if the connection is initiated internally. However, it blocks all external requests to initiate an information flow. That is, it permits packets from external sources only if they correspond to a `connection` initiated by an internal source. The firewall will not permit connection requests from external sources. This restriction is useful when an internal web client initiates a web browsing request, then the firewall will allow the corresponding incoming response from an external webserver to pass through the firewall. Any connection initiated externally will not be allowed.
 
-Finally, **Port 3** is closed. Which means that it denies all traffic. A closed port may just drop the packets or send back a RST or "Reset" packet. From a security and resource consumption standpoint, it is always better to just drop the packet. Upon denial of access, no additional or useful information should be communicated back.
+Finally, **Port 3** is closed. Which means that it denies all traffic. A closed port may just drop the packets or send back an RST or "Reset" packet. From a security and resource consumption standpoint, it is always better to just drop the packet. Upon denial of access, no additional or useful information should be communicated back.
 
 [Top](#table-of-contents)
 
 ## Firewall Rules
 
-Firewalls are configured using simple `if then` rules. In a packet filtering firewall, a rule says: `if source IP, destination IP, protocol, and local ports and remote ports match a pattern THEN take this action`. Since there are many rules involved, the order of the rules matters. **A LOT!**
+Firewalls are configured using simple `if then` rules. In a packet filtering firewall, a rule says: `IF source IP, destination IP, protocol, and local ports and remote ports match a pattern THEN take this action`. Since there are many rules involved, the order of the rules matters. **A LOT!**
 
 Rules are evaluated **in order**, starting with the first one at the top until a first match is discovered. If your top rule is very generic, i.e. matches almost every packet, then **none of the later specific rules will ever be evaluated**. So it is best to start with rules that are the `most restrictive` (i.e rules that focus on to specific services and have a very small chance of interfering with other rules). After ordering by restrictiveness it is then best to order rules according to `how well they match the majority of your network traffic`. This minimizes the number of checks required to find a matching rule.
 
 Always start firewall configuration with a `whitelisting` philosophy, where you **Deny by default** and then allow only specific information flows. This means, start the firewall configuration by dropping all packets. Then add rules to allow specific traffic patterns as required by application needs.
 
-Lets look at an example for exposing a web service over http.
+Lets look at an example for exposing a web service over HTTP.
 
 | Rule#  | Direction     | Source        | Destination   | Local Port   | Remote Port   | Action   |
 | ------ |:-------------:|:-------------:| :------------:|:------------:|:-------------:|:--------:|
@@ -103,7 +105,7 @@ Lets look at an example for exposing a web service over http.
 
 ### Question
 
-What would happen if we re-ordered these rules? Specifically if Rule 3 was exchanged with Rule 1.
+What would happen if we re-ordered these rules? Specifically, if Rule 3 was exchanged with Rule 1.
 
 Discussion:
 * Inbound and outbound rules are typically maintained in separate lists. We will see this shortly. Rule 3 is typically implemented as a ```Default Policy``` in Inbound and Outbound rule lists.
@@ -112,7 +114,7 @@ Discussion:
 
 ## Windows Firewall
 
-As mentioned before, Windows has a built-in firewall. Depending on the profile (type) of Network your computer is connected to, the firewall can be configured to have a different behavior. Your home network should be assigned the ```Private``` profile, while coffee-shop and airport networks are best assigned to the ```Public``` profile. Enterprise computers are typically part of a ```Domain``` in a enterprise network. For this option, the ```Domain``` profile is used. When you bring up the firewall, you will see these profiles listed. You will also see the default policy for inbound and outbound network connections associated with each profile.
+As mentioned before, Windows has a built-in firewall. Depending on the profile (type) of Network your computer is connected to, the firewall can be configured to have a different behavior. Your home network should be assigned the ```Private``` profile, while coffee-shop and airport networks are best assigned to the ```Public``` profile. Enterprise computers are typically part of a ```Domain``` in an enterprise network. For this option, the ```Domain``` profile is used. When you bring up the firewall, you will see these profiles listed. You will also see the default policy for inbound and outbound network connections associated with each profile.
 
 > ![Windows firewall](./img/network-profiles.png)
 
@@ -165,13 +167,13 @@ The pull fails. Why?
 > The request can not pass through the firewall (outgoing direction) to reach docker servers
 
 Docker for Windows uses ```vpnkit``` module to provide virtual networking. So we need to allow this program through our firewall in the Outbound direction.
-We want to be very specific to the Program, Ports and Protocol in our Rule (Cybersecurity First principle: Minimization).
+We want to be very specific to the Program, Ports, and Protocol in our Rule (Cybersecurity First principle: Minimization).
 
 Let's start to author a new Outbound rule. Select ```Custom``` rule to provide the most flexibility:
 
 > ![Windows firewall](./img/outbound-rule.png)
 
-Next we locate the program that we want to allow through the firewall in the outbound direction.
+Next, we locate the program that we want to allow through the firewall in the outbound direction.
 
 > ![Windows firewall](./img/outbound-program.png)
 
@@ -184,11 +186,11 @@ So adjust the settings as shown:
 Click ```Next```. We will not limit the connection to specific IP addresses, so we will leave ```Scope``` as is.   
 Click ```Next``` again.
 
-Now for ```Action```, select ```Allow the connection``` since we are whitelisting this application.
+Now for ```Action```. Select ```Allow the connection``` since we are whitelisting this application.
 
 > ![Windows firewall](./img/outbound-action.png)
 
-Next, for ```Profile``` select all profiles so that the rule applies in all network types.  
+Next, for ```Profile``` select all profiles so that the rule applies to all network types.  
 Finally, provide the rule a Name and Description as shown below:
 
 > ![Windows firewall](./img/outbound-name.png)
@@ -275,7 +277,7 @@ Check other programs in the Inbound rules list that you think might be allowing 
 
 That's it for Firewalls in this Unit. Happy Surfing.
 
-> Firewalls are an essential component of "Defense-in-Depth" strategy. It can certainly slowdown an attacker. However, firewalls cannot keep a determined adversary out. There are many ways in which firewalls can be abused and easily bypassed. Such attacks need to be constantly monitored using Intrusion Detection Systems (IDS) and Network Monitoring solutions. The final line of defense is applications built using secure coding practices and proper encryption implementations.  
+> Firewalls are an essential component of "Defense-in-Depth" strategy. It can certainly slow down an attacker. However, firewalls cannot keep a determined adversary out. There are many ways in which firewalls can be abused and easily bypassed. Such attacks need to be constantly monitored using Intrusion Detection Systems (IDS) and Network Monitoring solutions. The final line of defense is applications built using secure coding practices and proper encryption implementations.  
 
 [Top](#table-of-contents)
 

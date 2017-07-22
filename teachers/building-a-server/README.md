@@ -16,7 +16,7 @@
 
 * __Resource Encapsulation__: A resource can be hardware such as memory, disk drives, or a display screen. It can also be system objects such as semaphores, a linked list, or shared memory. Processes (or programs) need resources to run. Resources have to be separated and used in the way they were intended. Virtual machines encapsulate an operating system and all of the processes and applications it contains.
 
-* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping software as simple and as focused as possible, the reliability and security is greatly increased.
+* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping the software as simple and as focused as possible, the reliability and security are greatly increased.
 
 ### Introduction
 In this module, you will learn how to build a server of your own and connect it up to Littlebits.
@@ -33,8 +33,8 @@ For this lesson, you will need:
 
 * PC
 * Internet connection
-* Little bits cloud bit and API Key
-* Little bits sensor and actuator
+* Littlebits cloud bit and API Key
+* Littlebits sensor and actuator
 
 ### Prerequisite lessons
 You should complete the following lessons before attempting this lesson.
@@ -77,14 +77,14 @@ The last thing we left off with was hooking the Littlebits API up to our own ser
 
 Now, in this lesson, we will examine how to create our own server and deploy it in a container.
 
-For reference, this is the overall design we are looking at. On the left side, you have littlebits and the `Littlebits API`. We previously worked with the API using `IFTTT`. In the container lesson you saw how we can setup a new standalone server. In this lesson we will begin building the item marked `custom web API` in the figure below. It will have features to support authentication, managing our `cloudbit`, and logging events.
+For reference, this is the overall design we are looking at. On the left side, you have Littlebits and the `Littlebits API`. We previously worked with the API using `IFTTT`. In the container lesson, you saw how we can setup a new standalone server. In this lesson, we will begin building the item marked `custom web API` in the figure below. It will have features to support authentication, managing our `cloudbit`, and logging events.
 ![Web App Architecture](./img/web-app-architecture.png)
 
 
 ### Step 2: No, you won't be starting from scratch
 The process of creating a new application server from the ground up takes some time and attention. Instead of having you start from the ground up, we are providing you with some **starter** skeleton code. This code does the basics of accepting requests and storing data that comes in. Instead of building it, we will look at and examine how it operates before modifying it to make it more secure.
 
-First, `fork` our repo by visiting the https://github.com/MLHale/nebraska-gencyber-dev-env and clicking 'fork'. This will copy the code from our repository into your github account - so you can track your changes as you go.
+First, `fork` our repo by visiting the https://github.com/MLHale/nebraska-gencyber-dev-env and clicking 'fork'. This will copy the code from our repository into your GitHub account - so you can track your changes as you go.
 
 Let's get started by changing into the Desktop directory and then using `git` to clone the skeleton code repository and get it in onto our local machine.
 
@@ -150,7 +150,7 @@ With the server running, you should be able to visit [http://localhost](http://l
 This is a `web client` (also called a `frontend`) that we've built for demo purposes to work with our server. You will be making the server work better with the client.
 
 ### Step 5: Explore the server
-Since our focus is the `backend` - lets take a look over our server environment. First. Lets explore the file tree.
+Since our focus is the `backend` - lets take a look at our server environment. First. Lets explore the file tree.
 
 * Open `Atom` on your desktop,
 * go to the File -> "Add Project Folder..."
@@ -167,7 +167,7 @@ Since our focus is the `backend` - lets take a look over our server environment.
 * Click `api` and `django_backend` to expand out the folders and see what we have.
 * This code is built using a `Model View Controller` framework called `Django`.
   * `Models` (in `models.py`) are `abstraction` mechanisms that help you represent your data without worrying about the nitty gritty of database technologies.
-  * `Controllers` (in `controllers.py`) an `Views` are modularization mechanisms that separate user-facing code (like user interfaces) from backend code that handles number crunching and getting data to the views.
+  * `Controllers` (in `controllers.py`) and `Views` are modularization mechanisms that separate user-facing code (like user interfaces) from backend code that handles number crunching and getting data to the views.
 * Look over these three files, first `models.py`, then `urls.py`, then `controllers.py`
 
 #### Models.py
@@ -209,12 +209,12 @@ class DeviceEvent(models.Model):
 
 * Both of the models also include a `__str__` function which outputs a string if the model is converted to a string.
 
-#### Urls.py
-Next lets look at `urls.py`. This file tells Django which urls are accessible on the server. If a url entry isn't included in a urls.py file, then the method cannot be accessed.
+#### urls.py
+Next lets look at `urls.py`. This file tells Django which URLs are accessible on the server. If a URL entry isn't included in a `urls.py` file, then the method cannot be accessed.
 
 * The important part of this file, below, identifies all of the `url patterns` that are acceptable for `Django` to server up to any would-be requestors
 * Each is a regular expression.
-* Each maps to a function in the `controllers.py` file. Basically when someone attempts to visit a url, Django goes through its list of acceptable patterns. If it matches a pattern it executes the corresponding code in that method. If it doesn't maatch any acceptable pattern, it gives the user a `HTTP 404` error (not found).
+* Each maps to a function in the `controllers.py` file. Basically, when someone attempts to visit a URL, Django goes through its list of acceptable patterns. If it matches a pattern it executes the corresponding code in that method. If it doesn't match any acceptable pattern, it gives the user an `HTTP 404` error (not found).
 * in this case, `api/urls.py` is a sub set of patterns that are mapped behind `/api/` as given in the file `django_backend/urls.py`.
 
 **api/urls.py**
@@ -241,10 +241,10 @@ urlpatterns = [
 #### Controllers.py
 Next, lets look at the `controllers.py` file to see what the server does when a URL is visited.
 
-There is a lot of code in this file. Lets look at the function that handles requests to the `/api/deviceevents` url.
+There is a lot of code in this file. Lets look at the function that handles requests to the `/api/deviceevents` URL.
 
 * Find the code below.
-* Notice that this is a `class` that extends the django rest class `APIView`.
+* Notice that this is a `class` that extends the Django REST class `APIView`.
 * An `APIView` allows you to define functions that handle `GET` (single), `GET`(list), `POST`, `PUT`, and `DELETE` requests that might arrive at `/api/deviceevents`
 * The `GET` (single) request is used whenever a user wants to get a single item (typically by id), something like `/api/deviceevents/4` would return the event with id 4.
 * The `GET` (list) request is used whenever a user wants to get all of the events.
@@ -355,10 +355,10 @@ If you click on `activatecloudbit` you will see the exact request that is gettin
 
 [button](./img/button-failing.png)
 
-If you click over to the `response` tab you will see the raw html that the server is returning when this button is clicked.
+If you click over to the `response` tab you will see the raw HTML that the server is returning when this button is clicked.
 
 ### Step 8: Make a new REST endpoint to make the client button work with the backend
-Currently, the server doesn't know that it needs to do anything special with the url `/api/activatecloudbit` so it is just rendering the home page (what we have been looking at this whole time) in response. What we need is for our server to **recognize that a new event has occurred** from the client and then **do something to handle it**, in this case contact the `Littlebits API`.
+Currently, the server doesn't know that it needs to do anything special with the URL `/api/activatecloudbit` so it is just rendering the home page (what we have been looking at this whole time) in response. What we need is for our server to **recognize that a new event has occurred** from the client and then **do something to handle it**, in this case, contact the `Littlebits API`.
 
 For this to work, we need to create a new REST Endpoint controller to handle the request. Open up your `controllers.py` file and add a new entry called `ActivateCloudbit`. This entry will only expose a `POST` endpoint. The goal is to:
 
@@ -475,22 +475,22 @@ git push
 You just pushed your local changes to `remote` on `github`!
 
 #### Stray observations
-* Our new endpoint is a `module` that exemplifies the `modularization` cybersecurity first principle. It doesn't rely on the other modules (endpoints).
-* We did not hardcode our `api key` in the code to protect it from static lookup - this is an example of the `information hiding` cybersecurity first principle.
-* We made use of `abstraction` and `resource encapsulation` as they relate to the API design for our server and for the `littlebits API`
+* Our new endpoint is a `module` that exemplifies the `modularization` Cybersecurity First Principle. It doesn't rely on the other modules (endpoints).
+* We did not hardcode our `API key` in the code to protect it from static lookup - this is an example of the `information hiding` Cybersecurity First Principle.
+* We made use of `abstraction` and `resource encapsulation` as they relate to the API design for our server and for the `Littlebits API`
 
 ### Step 9: Get events from Littlebits
-The next step, is to not only `send` events to Littlebits, but also to `subscribe` to and `receive` events that are output from the `cloudbit.` To do that, we need to use `POSTMAN` to add a subscriber. This was the last step where we left off in the [REST API](../restful-api/README.md) tutorial. Now we are ready!
+The next step is to not only `send` events to Littlebits, but also to `subscribe` to and `receive` events that are output from the `cloudbit.` To do that, we need to use `POSTMAN` to add a subscriber. This was the last step where we left off in the [REST API](../restful-api/README.md) tutorial. Now we are ready!
 
 Lets add a subscriber to catch input events going to the cloudbit:
-* make a POST request, using `POSTMAN` to: https://api-http.littlebitscloud.cc/v2/subscriptions
-* in our case we want to make a server listen for the `cloudbit`, so lets use a URI endpoint as the subscriber
+* make a POST request, using `POSTMAN` to https://api-http.littlebitscloud.cc/v2/subscriptions
+* In our case we want to make a server listen for the `cloudbit`, so lets use a URI endpoint as the subscriber
 * Make sure you use the same headers that you used in the `REST` tutorial. If you don't remember it should be:
 
 `headers`:
 ```json
 {
-	"Authorization": "Bearer <your api key here without the angled brackets>",
+    "Authorization": "Bearer <your api key here without the angled brackets>",
   "Content-type": "application/json"
 }
 ```
@@ -500,9 +500,9 @@ This time, in the body, we are going to use:
 `body`:
 ```json
 {
-	"publisher_id": "<your device id without the angled brackets>",
-	"subscriber_id": "http://gencyber2017.unomaha.edu/api/proxy/<your-server-ip without the angled brackets>/api/deviceevents",
-  "publisher_events": [“amplitude:delta:ignite”]
+    "publisher_id": "<your device id without the angled brackets>",
+    "subscriber_id": "http://gencyber2017.unomaha.edu/api/proxy/<your-server-ip without the angled brackets>/api/deviceevents",
+  "publisher_events": ["amplitude:delta:ignite"]
 }
 ```
 
@@ -516,10 +516,10 @@ ipconfig --all
 * If the request works, you should see your request echoed back to you
 
 #### Stray observations
-* We are using http://gencyber2017.unomaha.edu/api/proxy so the requests from littlebits can make it to your servers in this room.
+* We are using http://gencyber2017.unomaha.edu/api/proxy so the requests from Littlebits can make it to your servers in this room.
 * UNO, like other universities and companies, uses a `defense in depth` strategy that includes `perimeter network firewalls`. This is an example of `layering`. In this case, we are filtering external requests through a proxy to check their conformity. If they are clean, they are forwarded through our network firewall to your individual servers.
 * The `publisher_events` field allows you to subscribe to several different types of events. You can find a full list here: http://developers.littlebitscloud.cc/#create-subscription
-* Please do not denial of service the proxy portal - your ip might get automatically banned if you do.
+* Please do not denial of service the proxy portal - your IP might get automatically banned if you do.
 
 ### Step 10: Profit!
 Pretty neat. Observe your handy work.
