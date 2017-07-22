@@ -16,10 +16,10 @@
 
 * __Resource Encapsulation__: A resource can be hardware such as memory, disk drives, or a display screen. It can also be system objects such as semaphores, a linked list, or shared memory. Processes (or programs) need resources to run. Resources have to be separated and used in the way they were intended. Virtual machines encapsulate an operating system and all of the processes and applications it contains.
 
-* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping software as simple and as focused as possible, the reliability and security is greatly increased.
+* __Simplicity__: Simplicity allows a person to better understand hardware and software. Without the clutter of unnecessarily complicated code and interfaces, the software will be more understandable by people that will update the code when requirements change. It will be easier to understand by the testers and they will be able to spot problems sooner. By keeping the software as simple and as focused as possible, the reliability and security are greatly increased.
 
 ### Introduction
-In this module you will probe the server you created before to see how insecure API endpoints can be.
+In this module, you will probe the server you created before to see how insecure API endpoints can be.
 
 ### Goals
 By the end of this tutorial, you will be able to:
@@ -51,9 +51,9 @@ You should complete the following lessones before proceeding with this one.
 
 
 ### Step 1: Where we left off
-When we left off, you had created an `endpoint` to make the button work to send a message to your `cloudbit`. We had to store our API key on the server to make this work. Our endpoint accepted a POST request to turn on the device. We also integrated our server with `Littlebits API` to `subscribe` to events that occured on the cloudbit.
+When we left off, you had created an `endpoint` to make the button work to send a message to your `cloudbit`. We had to store our API key on the server to make this work. Our endpoint accepted a POST request to turn on the device. We also integrated our server with `Littlebits API` to `subscribe` to events that occurred on the cloudbit.
 
-In this lesson we will take a look at the security implications of this service integration to see how our server isn't well protected against attacks.
+In this lesson, we will take a look at the security implications of this service integration to see how our server isn't well protected against attacks.
 
 ### Step 2: Key Penetration Testing Concepts
 `Penetration testing` is a special kind of `software testing` that evaluates the `attack surface` of an application for potential `software weaknesses` that if left unaddressed can lead to exploitable `vulnerabilities`. At the end of a penetration test, testers have more information about their product and more `assurance` that it will operate correctly in the real world. This section overviews the basics of testing.
@@ -121,16 +121,16 @@ Often `use cases` and `user stories` are used to define what a system should be 
 1. As a **cloudbit owner**, I want to **control my lights from my phone**, so that _I don't have to get off the couch to turn them on or off_.
 1. As a **cloudbit owner**, I want to **view previous device events**, so that _I know when my device was used_.
 
-Once you know what the app _should_ do, you can define `mis-use cases` or `mis-user stories` that describe how bad actors might abuse or impair the use cases and user stories. These `mis-use` scenarios guide the kind of penetration testing you might do.
+Once you know what the app _should_ do, you can define `misuse cases` or `misuser stories` that describe how bad actors might abuse or impair the use cases and user stories. These `misuse` scenarios guide the kind of penetration testing you might do.
 
-Anytime your app is on the internet you end up having a basic set of `mis-use cases` that revolve around the exploitation of web resources for nefarious purposes.
+Anytime your app is on the internet you end up having a basic set of `misuse cases` that revolve around the exploitation of web resources for nefarious purposes.
 
-A short list of mis-use cases includes:
+A short list of misuse cases includes:
 * Data theft
 * User data exfiltration
 * Hostile server takeover
 
-These goals, which can be written like `user stories` often involve some form of `web-based-attack`. We are going to look at our server, created in the previous [lesson](../building-a-server/README.md) to see where it may have `weakenesses` that leave it vulnerable to attack.
+These goals, which can be written like `user stories` often involve some form of `web-based-attack`. We are going to look at our server, created in the previous [lesson](../building-a-server/README.md) to see where it may have `weaknesses` that leave it vulnerable to attack.
 
 In general, you can follow this flow chart for thinking about penetration testing (and testing in general):
 
@@ -146,23 +146,23 @@ I like to think of tests graphically:
 
 ![penetration testing](./img/testing-surface.png)
 
-* In this example, most of the tests that have been conducted are located on part of the app that (as it turns out) doesn't have many vulnerabilities. These tests identify one `weakness` (upper right) that leads to a `vulnerability`, but miss a highly vulnerable area of the app (lower left).
+* In this example, most of the tests that have been conducted are located on part of the app that (as it turns out) doesn't have many vulnerabilities. These tests identify one `weakness` (upper right) that leads to a `vulnerability` but miss a highly vulnerable area of the app (lower left).
 * Maybe this vulnerable area is a `component` that is outdated or not well designed.
 
 Unfortunately, the surface is not the only place where vulnerabilities can occur.
 
 ![penetration testing](./img/internal-vulnerabilities.png)
 
-* `Attack vectors` (i.e. pathways that exploit `weaknesses` to produce `vulnerabilities`) can sometimes use identified vulnerabilities to get access into other areas in your app. Those internal components might be less `hardened` against attack.
+* `Attack vectors` (i.e. pathways that exploit `weaknesses` to produce `vulnerabilities`) can sometimes use identified vulnerabilities to get access to other areas in your app. Those internal components might be less `hardened` against attack.
 * Takeaway: It is important to test **all** of your components and surfaces.
 
 ### Step 4: Getting started testing in POSTMAN
-We've created this pretty cool API and nice client-side interface to use it. However, as you will see, our API is, by default, pretty insecure! In the next sections we will see just how bad it is by using some penetration tests to identify and highlight problems.
+We've created this pretty cool API and nice client-side interface to use it. However, as you will see, our API is, by default, pretty insecure! In the next sections, we will see just how bad it is by using some penetration tests to identify and highlight problems.
 
 * We will look at them one at a time. First lets start our server. Change into your `nebraska-gencyber-dev-env` folder.
 * type `docker-compose up` to run the server
 
-> Note: This assumes your work is completed from the previous lesson. If you want to run this module stand-alone. Update your code using the following commands (from the `nebraska-gencyber-dev-env` folder). Also make sure that you have stored your API key in django.
+> Note: This assumes your work is completed from the previous lesson. If you want to run this module stand-alone. Update your code using the following commands (from the `nebraska-gencyber-dev-env` folder). Also, make sure that you have stored your API key in Django.
 ```bash
 git checkout tags/step10-server
 cd backend/
@@ -176,7 +176,7 @@ cd ..
 * What do you see?
 
 ### Step 5: Exploring Authentication and permissions
-The first issue on our server, is that it doesn't enforce `authentication`. This violates the __least privilege__ first principle, because anonymous users should only be able to login, not see or interact with data.
+The first issue on our server is that it doesn't enforce `authentication`. This violates the __least privilege__ first principle because anonymous users should only be able to login, not see or interact with data.
 
 * Lets go back to our browser and go to http://localhost.
 * If you are logged in, click `logout`
@@ -220,7 +220,7 @@ Our web server exposes several endpoints for end-user consumption, look at the f
 
 For our purposes, we will assume that the open source, highly reviewed, and security tested code from the `Django Admin` Package and the `Django REST Framework` library have been sufficiently assessed.
 
-> NOTE: In practice you want to be careful about making too many assumptions about the security of third party libraries.
+> NOTE: In practice, you want to be careful about making too many assumptions about the security of third party libraries.
 
 That means we need to assess the security of each of the other endpoints.
 
@@ -263,9 +263,9 @@ This configuration setting joins the operating system's `BASE_DIR` (or base dire
 
 > In practice you would need to do a full assessment of the client. For now, we will assume it is 'safe' from the point of view of the server.
 
-Overall, our server should assume that clients can be compromised and, therefor, focus on securing any `backend` functionality. This follows a `defense in depth` approach.
+Overall, our server should assume that clients can be compromised and, therefore, focus on securing any `backend` functionality. This follows a `defense in depth` approach.
 
-What cybersecurity principle might that be?
+What Cybersecurity First Principle might that be?
 
 ### Step 7: Explore the `ActivateCloudbit` endpoint
 Next up is the `ActivateCloudbit` class. We created this controller in the [previous lesson](../building-a-server/README.md). Since this endpoint includes a `POST` request handler, we should carefully review and assess it.
@@ -285,7 +285,7 @@ Does it `type check` the data?
 Is our method an example of a `parameterized request`?
 
 #### Third Question
-Sometimes you want to restrict access to data based on who is making the request (and sometimes why they are making it). This is the principle of __least privilege__ - that is only give access to people that need it when they need it. When looking at specific data `objects` a question to ask in the risk assessment process is whether or not `object-level permissions` are used to check access.
+Sometimes you want to restrict access to data based on who is making the request (and sometimes why they are making it). This is the principle of __least privilege__ - that is, only give access to people that need it when they need it. When looking at specific data `objects` a question to ask in the risk assessment process is whether or not `object-level permissions` are used to check access.
 
 In our case, the question is 'does our method restrict who can make the `POST` request?' Assuming authentication was put in place, who has access?
 
@@ -306,8 +306,8 @@ Headers:
 Body:
 ```json
 {
-	"eventtype": "test",
-	"timestamp": 1500681745
+    "eventtype": "test",
+    "timestamp": 1500681745
 }
 ```
 * If you send the request when your `cloudbit` is disconnected you will get:
@@ -328,7 +328,7 @@ eventtype = request.data.get('eventtype')
 timestamp = int(request.data.get('timestamp'))
 ```
 
-We also see that overall, the method uses a the `DeviceEvent` `model` schema to create a new event.
+We also see that overall, the method uses the `DeviceEvent` `model` schema to create a new event.
 
 ```python
 newEvent = DeviceEvent(
@@ -360,20 +360,20 @@ The only fields of concern here are `eventtype` and `timestamp`. We need to ensu
 
 Let's test our fields.
 
-* send a request with string data in the `timestamp` field
+* Send a request with string data in the `timestamp` field
 
 ![request](./img/activate-request3.png)
 
-What happened? Oops we caused the server to generate a 500 error. This happened because it tried to turn an arbitrary string into an int i.e. `timestamp = int(request.data.get('timestamp'))`. It is good that it didn't accept it, but it is bad that it crashed!
+What happened? Oops, we caused the server to generate a 500 error. This happened because it tried to turn an arbitrary string into an int i.e. `timestamp = int(request.data.get('timestamp'))`. It is good that it didn't accept it, but it is bad that it crashed!
 
 * lets change the `timestamp` back and try to send a `cross-site scripting attack` using the event field.
 ![request](./img/activate-accepts-arbitrary-input.png)
 ![request](./img/activate-accepts-arbitrary-input2.png)
 
 * It worked! We can send any string text to our app.
-* The good news is that `Django` automatically `escapes` the string before storing it on the database.
+* The good news is that `Django` automatically `escapes` the string before storing it in the database.
 * The other good news is that our client also `escaped` the string before inserting it into the page.
-* The bad news is that if a client rendered that string as `HTML` bad stuff would happened
+* The bad news is that if a client rendered that string as `HTML` bad stuff would happen.
 
 ## <Insert example of that here. >
 
@@ -383,20 +383,20 @@ In this case, our method doesn't use authentication, so it **doesn't** use `obje
 We will come back to this in the next lesson.
 
 ### Step 8: Perform a similar analysis on the other endpoints
-Look at the other urls our app makes use of. Ask yourself similar questions and back them up with some tests. Keep track of the results you find as you go along.
+Look at the other URLs our app makes use of. Ask yourself similar questions and back them up with some tests. Keep track of the results you find as you go along.
 
 ### Step 9: Exploring Error Handling Behavior
 Earlier, in Step 7 we saw that sending a string in the `timestamp` field generated the following error message:
 ![request](./img/activate-request3.png)
 
-The problem here, is not just that the field is mishandled, but that the error gives **FULL DETAILS ABOUT THE SERVER CONFIG**. As you can imagine listing out all the server details is bad practice.
+The problem here is not just that the field is mishandled, but that the error gives **FULL DETAILS ABOUT THE SERVER CONFIG**. As you can imagine listing out all the server details is bad practice.
 
 Accidentally revealing server information is a big problem. While this info is really helpful during development, it can expose the server if users see it in production. You can turn off debug information by setting a `DEBUG = False` in the `/django_backend/settings.py` file.
 
 We will return to this in the next lesson.
 
 ### Step 10: Risk Assessment - Summarizing your test results
-For now, lets summarize the `test results` that we have collected to identify what our risks look like. Usually risks are collected and then ranked according to `severity` (or `impact`) and `likelihood` (i.e. how probable an attack is to occur). In organizations or systems with many risks, preventing all of them isn't always feasible. `Risk prioritization` can help you decide which threats to focus on first and which vulnerabilities need to be mitigated most.
+For now, lets summarize the `test results` that we have collected to identify what our risks look like. Usually, risks are collected and then ranked according to `severity` (or `impact`) and `likelihood` (i.e. how probable an attack is to occur). In organizations or systems with many risks, preventing all of them isn't always feasible. `Risk prioritization` can help you decide which threats to focus on first and which vulnerabilities need to be mitigated most.
 
 ![request](./img/risk-priority-table.jpg)
 
