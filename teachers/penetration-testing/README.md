@@ -164,7 +164,6 @@ We've created this pretty cool API and nice client-side interface to use it. How
 
 > Note: This assumes your work is completed from the previous lesson. If you want to run this module stand-alone. Update your code using the following commands (from the `nebraska-gencyber-dev-env` folder). Also make sure that you have stored your API key in django.
 ```bash
-git checkout tags/step10-server
 cd backend/
 git checkout tags/step10-server
 cd ..
