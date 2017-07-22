@@ -197,19 +197,205 @@ Lets confirm this from `POSTMAN`:
 * Notice that we have no headers in the request and we are not sending username/password or any kind of key as part of the request. It just works!
 * This means that we can get all of the data on the server without even logging in!
 
-### Step 6: Exploring the DeviceEvent endpoint
+### Step 6: Examine the attack surface of our app
+Our web server exposes several endpoints for end-user consumption, look at the files `django_backend/urls.py` and `/api/urls.py` in our `nebraska-gencyber-dev-env` folder. From these we see that the urls accepted by our server are:
 
-### Step 7: Explore the ActivateCloudbit endpoint
+* `/admin/<approved admin urls>` -> Django admin package
+* `/api-auth/<approved rest_framework urls>` -> Rest api-auth package
+* `/api/session` -> controllers.Session (Class)
+* `/api/register` -> controllers.Register (Class)
+* `/api/deviceevents` -> controllers.DeviceEvents (Class)
+* `/api/activatecloudbit` -> controllers.ActivateCloudbit (Class)
+* `/*` -> controllers.home (Single Method that serves up our frontend client)
 
-### Step 8: Exploring Error Handling Behavior
+For our purposes, we will assume that the open source, highly reviewed, and security tested code from the `Django Admin` Package and the `Django REST Framework` library have been sufficiently assessed.
 
-### Step 9: Crafting a cross-site scripting request
+> NOTE: In practice you want to be careful about making too many assumptions about the security of third party libraries.
+
+That means we need to assess the security of each of the other endpoints.
+
+### Step 7: Exploring the `home` method
+Starting from the bottom up, the first method of interest is the home method in `controllers.py`.
+
+This method simply returns an `index.html` file.
+
+```python
+def home(request):
+   """
+   Send requests to / to the ember.js clientside app
+   """
+   return render_to_response('index.html',
+               {}, RequestContext(request))
+```
+
+Where does `index.html` come from? We can answer that question by looking in your `django_backend/settings.py` file:
+
+You will see:
+
+```python
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, "static/ember/")],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+This configuration setting joins the operating system's `BASE_DIR` (or base directory) to the `static/ember/` directory. This means, it looks for `/<path-where-django-exists>/static/ember/` for us that is `/nebraska-gencyber-dev-env/backend/static/ember/`. If we look in that folder we will see the index.html file that loads in the javascript and other files associated with the client you have been looking at all of this time when you visit https://localhost
+
+> In practice you would need to do a full assessment of the client. For now, we will assume it is 'safe' from the point of view of the server.
+
+Overall, our server should assume that clients can be comprimised and instead secure any `backend` functionality. This follows a `defense in depth` approach.
+
+What cybersecurity principle might that be?
+
+### Step 7: Explore the `ActivateCloudbit` endpoint
+Next up is the `ActivateCloudbit` class. We created this controller in the [previous lesson](../building-a-server/README.md). Since this endpoint includes a `POST` request handler, we should carefully review and assess it.
+
+#### First Question
+The first question is does it `require authentication`? Authentication should be used anytime you want to restrict access to data as part of an effort of __information hiding__.
+
+Should `ActivateCloudbit` require authentication?
+
+Keep track of your answers.
+
+#### Second Question
+Since it accepts data as part of the `POST` request, the second question is related to how it checks the data submitted in the request. It is **important to check any data** submitted to a server to ensure that it conforms to accepted `types`. This is called `type checking` and is referred to in the web world as `parameterization` or `parameterized requests`.
+
+What data does our method accept?
+Does it `type check` the data?
+Is our method an example of a `parameterized request`?
+
+#### Third Question
+Sometimes you want to restrict access to data based on who is making the request (and sometimes why they are making it). This is the principle of __least privilege__ - that is only give access to people that need it when they need it. When looking at specific data `objects` a question to ask in the risk assessment process is whether or not `object-level permissions` are used to check access.
+
+In our case, the question is does our method restrict who can make the `POST` request. Assuming authentication was put in place, who has access?
+
+#### Answering Question 1 (Authentication)
+Lets evaluate authentication. This one is easy. Looking at the code we see the line: `permission_classes = (AllowAny,)` in the ActivateCloudbit class. This, as the name implies, literally allows anyone to access this method. We can confirm this in `POSTMAN`.
+
+* Open `POSTMAN`
+* Issue the following request:
+
+Headers:
+```json
+{
+  "Content-Type": "application/json"
+}
+```
+![request](./img/activate-headers.png)
+
+Body:
+```json
+{
+	"eventtype": "test",
+	"timestamp": 1500681745
+}
+```
+* If you send the request when your `cloudbit` is disconnected you will get:
+
+![request](./img/activate-request1.png)
+
+* If you connect it, you should get:
+
+![request](./img/activate-request2.png)
+
+In either case, we were able to execute the method without logging in. So clearly, **authentication is not required here**. It should be - since our cloudbit could otherwise be turned on by anyone.
+
+#### Answering Question 2 (Parameterization)
+The next question was whether or not the request is `parameterized`. Looking at our `post` method we see that it only accepts two input fields from the requestor. Everything else is collected elsewhere:
+
+```python
+eventtype = request.data.get('eventtype')
+timestamp = int(request.data.get('timestamp'))
+```
+
+We also see that overall, the method uses a the `DeviceEvent` `model` schema to create a new event.
+
+```python
+newEvent = DeviceEvent(
+    device=device,
+    eventtype=eventtype,
+    power=-1,
+    timestamp=datetime.datetime.fromtimestamp(timestamp/1000, pytz.utc),
+    userid=userid,
+    requestor=requestor
+)
+```
+
+The DeviceEvent method is parameterized by definition - i.e. each of the fields are typed in the definition of the model:
+
+```python
+class DeviceEvent(models.Model):
+    device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name='events')
+    eventtype = models.CharField(max_length=1000, blank=False)
+    power = models.IntegerField()
+    timestamp = models.DateTimeField()
+    userid = models.CharField(max_length=1000, blank=True)
+    requestor = models.GenericIPAddressField(blank=False)
+
+    def __str__(self):
+        return str(self.eventtype) + str(self.device)
+```
+
+The only fields of concern here are `eventtype` and `timestamp`. We need to ensure that these fields are `character` (string) and `integer` fields respectively. Since **accepting arbitrary string data is bad**, it is also a good idea to not allow any raw special characters or symbols that can be used for nefarious purposes (like the keyword `javascript` or parentheses and slashes). For these characters, you want to either remove them or `escape` them.
+
+Let's test our fields.
+
+* send a request with string data in the `timestamp` field
+
+![request](./img/activate-request3.png)
+
+What happened? Oops we caused the server to generate a 500 error. This happened because it tried to turn a string into an int i.e. `timestamp = int(request.data.get('timestamp'))`. It is good that it didn't accept it, but it is bad that it crashed!
+
+* lets change the `timestamp` back and try to send a `cross-site scripting attack` using the event field.
+![request](./img/activate-accepts-arbitrary-input.png)
+![request](./img/activate-accepts-arbitrary-input2.png)
+
+* It worked! We can send any string text to our app.
+* The good news is that `Django` automatically `escapes` the string before storing it on the database.
+* The other good news is that our client also `escaped` the string before inserting it into the page.
+* The bad news is that if a client rendered that string as `HTML` bad stuff would happened
+
+## <Insert example of that here. >
+
+#### Answering Question 3 (Object Level Permissions)
+In this case, our method doesn't use authentication, so it doesn't use object-level permissions by default. If we did add authentication and wanted to check for object-level permissions. We would need to check that the code checks not just if the user is authenticated but also if they have permissions on that object to do what they are asking to do.
+
+We will come back to this in the next lesson.
+
+### Step 8: Perform a similar analysis on the other endpoints
+Look at the other urls our app makes use of. Ask yourself similar questions and back them up with some tests. Keep track of the results you find as you go along.
+
+### Step 9: Exploring Error Handling Behavior
+Earlier, in Step 7 we saw that sending a string in the `timestamp` field generated the following error message:
+![request](./img/activate-request3.png)
+
+The problem here, is not just that the field is mishandled, but that the error gives **FULL DETAILS ABOUT THE SERVER CONFIG**. As you can imagine listing out all the server details is bad practice.
+
+Accidentally revealing server information is a big problem. While this info is really helpful during development, it can expose the server if users see it in production. You can turn off debug information by setting a `DEBUG = False` in the `/django_backend/settings.py` file.
+
+We will return to this in the next lesson.
 
 ### Step 10: Risk Assessment - Summarizing your test results
+For now, lets summarize the `test results` that we have collected to identify what our risks look like. Usually risks are collected and then ranked according to `severity` (or `impact`) and `likelihood`. In organizations or systems with many risks, preventing all of them isn't always feasible. `Risk prioritization` can help you decide which threats to focus on first and which vulnerabilities need to be mitigated most.
+
+![request](./img/risk-priority-table.jpg)
+
+Based on the risks you've identified, score them and rank them based what you the `likelihood` and `impact` of exploitation might be. While our list is small (and we can mitigate all of the problems) - this tool is useful when you have limited time, money, and other resources.
 
 ### Checkpoint
 Lets review what we've learned.
 
+<insert quiz here>
 
 ### Additional Resources
 For more information, investigate the following.
