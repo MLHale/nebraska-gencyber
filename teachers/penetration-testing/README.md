@@ -161,6 +161,15 @@ We've created this pretty cool API and nice client-side interface to use it. How
 
 * We will look at them one at a time. First lets start our server. Change into your `nebraska-gencyber-dev-env` folder.
 * type `docker-compose up` to run the server
+
+> Note: This assumes your work is completed from the previous lesson. If you want to run this module stand-alone. Update your code using the following commands (from the `nebraska-gencyber-dev-env` folder). Also make sure that you have stored your API key in django.
+```bash
+git checkout tags/step10-server
+cd backend/
+git checkout tags/step10-server
+cd ..
+```
+
 * Now open `POSTMAN` and send a simple `GET` request to your local server at `https://localhost`.
 * What do you get?
 * Now try sending a `GET` request to `https://localhost/api/deviceevents`
