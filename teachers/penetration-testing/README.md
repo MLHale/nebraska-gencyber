@@ -278,7 +278,7 @@ Is our method an example of a `parameterized request`?
 #### Third Question
 Sometimes you want to restrict access to data based on who is making the request (and sometimes why they are making it). This is the principle of __least privilege__ - that is only give access to people that need it when they need it. When looking at specific data `objects` a question to ask in the risk assessment process is whether or not `object-level permissions` are used to check access.
 
-In our case, the question is does our method restrict who can make the `POST` request. Assuming authentication was put in place, who has access?
+In our case, the question is 'does our method restrict who can make the `POST` request?' Assuming authentication was put in place, who has access?
 
 #### Answering Question 1 (Authentication)
 Lets evaluate authentication. This one is easy. Looking at the code we see the line: `permission_classes = (AllowAny,)` in the ActivateCloudbit class. This, as the name implies, literally allows anyone to access this method. We can confirm this in `POSTMAN`.
@@ -355,7 +355,7 @@ Let's test our fields.
 
 ![request](./img/activate-request3.png)
 
-What happened? Oops we caused the server to generate a 500 error. This happened because it tried to turn a string into an int i.e. `timestamp = int(request.data.get('timestamp'))`. It is good that it didn't accept it, but it is bad that it crashed!
+What happened? Oops we caused the server to generate a 500 error. This happened because it tried to turn an arbitrary string into an int i.e. `timestamp = int(request.data.get('timestamp'))`. It is good that it didn't accept it, but it is bad that it crashed!
 
 * lets change the `timestamp` back and try to send a `cross-site scripting attack` using the event field.
 ![request](./img/activate-accepts-arbitrary-input.png)
@@ -369,7 +369,7 @@ What happened? Oops we caused the server to generate a 500 error. This happened 
 ## <Insert example of that here. >
 
 #### Answering Question 3 (Object Level Permissions)
-In this case, our method doesn't use authentication, so it doesn't use object-level permissions by default. If we did add authentication and wanted to check for object-level permissions. We would need to check that the code checks not just if the user is authenticated but also if they have permissions on that object to do what they are asking to do.
+In this case, our method doesn't use authentication, so it **doesn't** use `object-level permissions` by default. If we did add authentication and wanted to check for object-level permissions. We would need to check that the code checks not just if the user is authenticated but also if they have permissions on that object to do what they are asking to do.
 
 We will come back to this in the next lesson.
 
@@ -387,11 +387,11 @@ Accidentally revealing server information is a big problem. While this info is r
 We will return to this in the next lesson.
 
 ### Step 10: Risk Assessment - Summarizing your test results
-For now, lets summarize the `test results` that we have collected to identify what our risks look like. Usually risks are collected and then ranked according to `severity` (or `impact`) and `likelihood`. In organizations or systems with many risks, preventing all of them isn't always feasible. `Risk prioritization` can help you decide which threats to focus on first and which vulnerabilities need to be mitigated most.
+For now, lets summarize the `test results` that we have collected to identify what our risks look like. Usually risks are collected and then ranked according to `severity` (or `impact`) and `likelihood` (i.e. how probable an attack is to occur). In organizations or systems with many risks, preventing all of them isn't always feasible. `Risk prioritization` can help you decide which threats to focus on first and which vulnerabilities need to be mitigated most.
 
 ![request](./img/risk-priority-table.jpg)
 
-Based on the risks you've identified, score them and rank them based what you the `likelihood` and `impact` of exploitation might be. While our list is small (and we can mitigate all of the problems) - this tool is useful when you have limited time, money, and other resources.
+Based on the risks you've identified, score them and rank them based what you think the `likelihood` and `impact` of exploitation might be. While our list is small (and we can mitigate all of the problems) - this tool is useful when you have limited time, money, and other resources.
 
 ### Checkpoint
 Lets review what we've learned.
