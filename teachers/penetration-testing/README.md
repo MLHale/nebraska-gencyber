@@ -48,6 +48,33 @@ You should complete the following lessones before proceeding with this one.
 
 
 ### Table of Contents
+<!-- TOC START min:1 max:3 link:true update:true -->
+- [Penetration Testing](#penetration-testing)
+    - [Cybersecurity First Principles in this lesson](#cybersecurity-first-principles-in-this-lesson)
+    - [Introduction](#introduction)
+    - [Goals](#goals)
+    - [Materials Required](#materials-required)
+    - [Prerequisite lessons](#prerequisite-lessons)
+    - [Table of Contents](#table-of-contents)
+    - [Step 1: Where we left off](#step-1-where-we-left-off)
+    - [Step 2: Key Penetration Testing Concepts](#step-2-key-penetration-testing-concepts)
+    - [Step 3: Penetration testing process](#step-3-penetration-testing-process)
+    - [Step 4: Getting started testing in POSTMAN](#step-4-getting-started-testing-in-postman)
+    - [Step 5: Exploring Authentication and permissions](#step-5-exploring-authentication-and-permissions)
+    - [Step 6: Examine the attack surface of our app](#step-6-examine-the-attack-surface-of-our-app)
+    - [Step 7: Exploring the `home` method](#step-7-exploring-the-home-method)
+    - [Step 7: Explore the `ActivateCloudbit` endpoint](#step-7-explore-the-activatecloudbit-endpoint)
+  - [<Insert example of that here. >](#insert-example-of-that-here-)
+    - [Step 8: Perform a similar analysis on the other endpoints](#step-8-perform-a-similar-analysis-on-the-other-endpoints)
+    - [Step 9: Exploring Error Handling Behavior](#step-9-exploring-error-handling-behavior)
+    - [Step 10: Risk Assessment - Summarizing your test results](#step-10-risk-assessment---summarizing-your-test-results)
+    - [Checkpoint](#checkpoint)
+    - [Additional Resources](#additional-resources)
+    - [Acknowledgements](#acknowledgements)
+    - [License](#license)
+
+<!-- TOC END -->
+
 
 
 ### Step 1: Where we left off
