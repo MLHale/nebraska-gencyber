@@ -1,14 +1,78 @@
-# Nebraska GenCyber
-This repo includes all open source content for the Nebraska GenCyber camp. The 2017 camp theme is IoT Security.
+# Nebraska GenCyber @ [The University of Nebraska at Omaha](http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php) and [Bellevue University](http://www.bellevue.edu/degrees/center-for-cybersecurity-education/cce)
+This repo includes all open source content for the Nebraska GenCyber camp. Files in this repository are intended to provide step-by-step self paced tutorials to teachers seeking to learn about cybersecurity first principles as part of the UNO Gencyber camp. The strategy is to *learn by doing*. The 2017 camp theme is `IoT Security`.
 
-## 2017 Camp
-This year's theme involves building and tinkering with IoT devices. Students AND teachers will get to make IoT apps, break them to learn about the security vulnerabilities, and then tweak them to make them safer and more secure.
+<img src="https://www.unomaha.edu/university-communications/downloadables/UNO-lockup-color%20for%20white%20backgrd.png" width=150/>
+<img src="http://www.bellevue.edu/lp/images/footer-lp-logo.png" width=150/>
 
-### Students
-Students will get to talk to real security professionals, investigate cybersecurity careers, and learn skills that real practioners use. Several demos and hands-on activities will feature wireless drones and IoT apps that collect sensor data and upload it online. There will also be a large capture the flag competition for students and teachers on the last day of camp.
+# Camp Study Guides
+The guides are organized by camp days and are available at the linked urls:
 
-### Teachers
-Teacher participants will not only experience the fun, hands-on, IoT and cybersecurity activities that students will do, but will also get a chance to make IoT and cybersecurity curricula of their own. We will have professional expert teachers on hand to help you translate what you learn at camp into your own classrooms.
+## Camp Schedule
+### Week One
+[Teachers Week 1](./schedule/uno-camp-schedule-teachers-week1.png)
+
+### Week Two
+[Students Week 2](./schedule/uno-camp-schedule-students-week2.png)
+[Teachers Week 2](./schedule/uno-camp-schedule-teachers-week2.png)
+
+## Week One Events
+Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone](./teachers/README.md)
+
+## Week Two Events
+### Day 1: Title here
+### Day 2: Title here
+### Day 3: Title here
+1. <link 1 here>
+1. <link 2 here>
+
+### Day 4: Title here
+1. <link 1 here>
+1. <link 2 here>
+
+### Day 5: Capture the Flag Contest
+* [Jeopardy style contest among student-teacher teams](http://ctf.gencyber2017.unomaha.edu)
+* [Facebook ctf setup](./facebookctf/fbctf.md)
+
+
+## Evaluation Forms
+* [Student Evaluation Form](https://docs.google.com/forms/d/e/1FAIpQLSfaTgdb9j8x86PVtDRYB0XSJZHDF0M2g8-R5QD-_aJmKs-lLw/viewform)
+* [Teacher Peer Evaluation Form](https://docs.google.com/forms/d/e/1FAIpQLSeApna8ZsyeOtrWHEmlr_epKYarDq4EaxYnIPoyV3HDDVOTeA/viewform)
+* [Teacher Module Evaluation Form](https://docs.google.com/forms/d/e/1FAIpQLSfGxM5p10WfOeANDcxylNF240cVEeFew8HbCsAjss5IJawVyQ/viewform)
+* [Exit Survey (Teachers)](https://www.surveymonkey.com/r/AIMInstitute_T1)
+* [Exit Survey(Students)](https://www.surveymonkey.com/r/AIMInstitute_S1)
+
+
+## Contacts
+
+#### Nebraska GenCyber Program Director and Primary Point of Contact
+[Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)   
+Assistant Professor of Cybersecurity  
+University of Nebraska at Omaha    
+[mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)
+
+#### Bellevue Point of Contact
+[Dr. Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)   
+Assistant Professor & Program Director BSCYBR and MSCYBR
+Bellevue University
+[drausch@bellevue.edu](mailto:drausch@bellevue.edu)
+
+#### Co-Investigator / Instructors
+[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)    
+Associate Professor of Cybersecurity  
+University of Nebraska at Omaha  
+
+[Dr. Briana B. Morrison](http://www.brianamorrison.net)
+Assistant Professor of Computer Science (Education)
+University of Nebraska at Omaha  
+
+#### Instructors
+<insert Bellevue staff here>
+
+#### Administrative Support
+[Amy Kelley](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/amy-kelley.php)
+Executive Associate
+University of Nebraska at Omaha  
+[amykelley@unomaha.edu](mailto:amykelley@unomaha.edu)
 
 # License  
 [Nebraska GenCyber](https://github.com/MLHale/nebraska-gencyber) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
