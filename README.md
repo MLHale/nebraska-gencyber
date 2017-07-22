@@ -45,31 +45,37 @@ Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone]
 ## Contacts
 
 #### Nebraska GenCyber Program Director and Primary Point of Contact
+<img src="./img/matt.jpg" width=100/>
 [Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)   
 Assistant Professor of Cybersecurity  
 University of Nebraska at Omaha    
 [mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)
 
 #### Bellevue Point of Contact
+<img src="./img/doug.jpg" width=100/>
 [Dr. Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)   
-Assistant Professor & Program Director BSCYBR and MSCYBR
-Bellevue University
+Assistant Professor & Program Director BSCYBR and MSCYBR  
+Bellevue University  
 [drausch@bellevue.edu](mailto:drausch@bellevue.edu)
 
 #### Co-Investigator / Instructors
+<img src="./img/robin.png" width=100/>
 [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)    
 Associate Professor of Cybersecurity  
 University of Nebraska at Omaha  
 
-[Dr. Briana B. Morrison](http://www.brianamorrison.net)
-Assistant Professor of Computer Science (Education)
+<img src="./img/briana.jpg" width=100/>
+[Dr. Briana B. Morrison](http://www.brianamorrison.net)  
+Assistant Professor of Computer Science (Education)  
 University of Nebraska at Omaha  
 
 #### Instructors
-<insert Bellevue staff here>
+insert Bellevue staff here
 
 #### Administrative Support
+<img src="./img/amy.jpg" width=100/>
 [Amy Kelley](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/amy-kelley.php)
+
 Executive Associate
 University of Nebraska at Omaha  
 [amykelley@unomaha.edu](mailto:amykelley@unomaha.edu)
