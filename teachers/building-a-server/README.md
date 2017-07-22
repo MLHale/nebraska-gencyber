@@ -84,13 +84,15 @@ For reference, this is the overall design we are looking at. On the left side, y
 ### Step 2: No, you won't be starting from scratch
 The process of creating a new application server from the ground up takes some time and attention. Instead of having you start from the ground up, we are providing you with some **starter** skeleton code. This code does the basics of accepting requests and storing data that comes in. Instead of building it, we will look at and examine how it operates before modifying it to make it more secure.
 
+First, `fork` our repo by visiting the https://github.com/MLHale/nebraska-gencyber-dev-env and clicking 'fork'. This will copy the code from our repository into your github account - so you can track your changes as you go.
+
 Let's get started by changing into the Desktop directory and then using `git` to clone the skeleton code repository and get it in onto our local machine.
 
 Open a new ```Powershell``` instance:
 
 ```bash
 cd Desktop
-git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
+git clone --recursive https://github.com/<your-github-id without the brackets>/nebraska-gencyber-dev-env.git
 
 ```
 
@@ -457,6 +459,20 @@ This is because we haven't added our `API Key` to our server, so the field `api_
 ![error with key](./img/add-api-key.png)
 
 Then enter your username (probably `admin`) in the `owner` field. In the `key` field add in your `Littlebits` API key used in the previous lesson (without the word `Bearer`). If you forgot it or don't have it handy, you can retrieve it here by visiting http://control.littlebitscloud.cc/ and clicking on `settings`. When added, save the key.
+
+Since you made some changes to your code repository, lets track the changes with `git`:
+
+in a terminal change directory in the the `/nebraska-gencyber-dev-env` folder and execute the following:
+
+```bash
+git status
+git add -A
+git status
+git commit -m "added activatecloudbit code"
+git push
+```
+
+You just pushed your local changes to `remote` on `github`!
 
 #### Stray observations
 * Our new endpoint is a `module` that exemplifies the `modularization` cybersecurity first principle. It doesn't rely on the other modules (endpoints).
