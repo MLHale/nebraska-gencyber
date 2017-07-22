@@ -41,9 +41,9 @@ For this lesson, you will need:
 You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot-little-bits-intro/README.md) and [Hands on IoT: Build an IFTTT IoT app w/ Little Bits](../hands-on-iot-little-bits-ifttt-app/README.md) lessons before attempting this lesson.
 
 ### Table of Contents
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
+<!-- TOC START min:1 max:3 link:true update:true -->
 - [RESTFul APIs and Little bits](#restful-apis-and-little-bits)
+<<<<<<< HEAD
         - [Cybersecurity First Principles in this lesson](#cybersecurity-first-principles-in-this-lesson)
         - [Introduction](#introduction)
         - [Materials Required](#materials-required)
@@ -60,6 +60,29 @@ You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot-little
     - [Large NOTE TO SELF: Need to figure out a way around the VPN issue that the servers will be behind if we want to do this - maybe proxy the request through the Gencyber server =)) Mike Grove will love me for that.](#large-note-to-self-need-to-figure-out-a-way-around-the-vpn-issue-that-the-servers-will-be-behind-if-we-want-to-do-this-maybe-proxy-the-request-through-the-gencyber-server-mike-grove-will-love-me-for-that)
 
 <!-- /TOC -->
+=======
+    - [Cybersecurity First Principles in this lesson](#cybersecurity-first-principles-in-this-lesson)
+    - [Introduction](#introduction)
+    - [Goals](#goals)
+    - [Materials Required](#materials-required)
+    - [Prerequisite lessons](#prerequisite-lessons)
+    - [Table of Contents](#table-of-contents)
+    - [Step 1: Hands-on Demo](#step-1-hands-on-demo)
+    - [Step 2: Ok, lets take a look at a real API](#step-2-ok-lets-take-a-look-at-a-real-api)
+    - [Step 3: Getting our API Key](#step-3-getting-our-api-key)
+    - [Step 4: Making your first REST request](#step-4-making-your-first-rest-request)
+    - [Step 5: GET device info](#step-5-get-device-info)
+    - [Step 6: First POST request to turn the device on](#step-6-first-post-request-to-turn-the-device-on)
+    - [Checkpoint](#checkpoint)
+    - [Step 7: Adding a subscriber to handle incoming events.](#step-7-adding-a-subscriber-to-handle-incoming-events)
+    - [Additional Resources](#additional-resources)
+    - [Acknowledgements](#acknowledgements)
+    - [License](#license)
+
+<!-- TOC END -->
+
+
+>>>>>>> 5ea96342e92fc5a10be9f8f8d2cea0e9433d0c5d
 
 ### Step 1: Hands-on Demo
 Before we get started, lets talk about what an API is.
@@ -67,7 +90,7 @@ Before we get started, lets talk about what an API is.
 ### Step 2: Ok, lets take a look at a real API
 In the previous [lesson](../hands-on-iot-little-bits-ifttt-app/README.md), we wired our `cloudbit` up to the web and explored how we could send it signals using [IFTTT](www.ifttt.com). We saw that if our cloud bit detected an input signal (a `request`), we could have `IFTTT` do something (send a `response`). These concepts, i.e. _request_ and _response_, are central to the concept of `RESTful APIs`. REST, or REpresentational State Transfer, APIs, or Application Programming Interfaces, are tools that developers use to provide __abstraction__ and __resource encapsulation__ to people who want to interact with their data.
 
-APIs allow you to get and save data back to the application, without needing to tightly integrate with that application. This improves __simplicity__ and helps your code to be more __modular__. APIs include `endpoints`, such as /api/events, that allow you to access certain specific data (e.g. events in this example). API endpoints help provide __minimization__ since users can only interact with the application through those interfaces provided by the developer.
+APIs allow you to get and save data back to the application, without needing to tightly integrate with that application. This improves __simplicity__ and helps your code to be more __modular__. APIs include `endpoints`, such as `/api/events`, that allow you to access certain specific data (e.g. events in this example). API endpoints help provide __minimization__ since users can only interact with the application through those interfaces provided by the developer.
 
 ...Enough talk! Lets look at an API!
 
@@ -93,7 +116,7 @@ Now that we have our API Key, lets use it to make a request.
 
 POSTMAN is a REST client, that allows end users to make requests to test their APIs. Lets use it to test the cloudbit API. Launch POSTMAN by typing ```chrome://apps``` into the Chrome address bar, hit enter, and then click the POSTMAN icon.
 
-![Loading Postman](img/postman1.png)
+![Loading Postman](./img/postman1.png)
 
 In POSTMAN, lets build a new GET request targetted at the URL https://api-http.littlebitscloud.cc/v2/devices
 
@@ -109,7 +132,7 @@ You can add the header as a key value pair, where the key is ```Authorization```
 
 If all goes well you should see something like:
 
-![GET request](img/postman2.png)
+![GET request](./img/postman2.png)
 
 * The `response` you got back, when you sent the GET request contains the name and meta information for each of the `cloudbits` currently connected to your account. In the screenshot above, the JSON data returned for me was:
 
@@ -141,14 +164,14 @@ https://api-http.littlebitscloud.cc/v2/devices/<your-device-id>
 
 You should get the same device info back, but notice that it is now not in square brackets - this means it is a singleton instead of a list.
 
-![GET request](img/postman3.png).
+![GET request](./img/postman3.png).
 
 ### Step 6: First POST request to turn the device on
 Now that we have the basics of GET requests to access device info, lets try issuing a POST request to actually make our device do something.
 
 * Make sure you arrange your Littlebits as shown in the following picture:
 
-![Littlebits Setup](img/littlebits-setup.png)
+![Littlebits Setup](./img/configuration.jpg)
 
 * make a POST request using POSTMAN to set the voltage output on the cloudbit for a few seconds
 
@@ -190,7 +213,6 @@ You should get back:
 
 and you should see your led light up. You just used REST!
 
-![Littlebits Working!](img/littlebits-working.png)
 
 ### Checkpoint
 Lets review what we've learned.
@@ -199,7 +221,7 @@ https://www.qzzr.com/c/quiz/429280/8f69a8f7-0a69-4efa-9c3e-2aa38944ed1d
 
 ### Step 7: Adding a subscriber to handle incoming events.
 Lets add a subscriber to catch input events going to the cloudbit:
-* make a POST request to: https://api-http.littlebitscloud.cc/v2/subscriptions
+* Make a POST request to https://api-http.littlebitscloud.cc/v2/subscriptions
 * In our case we want to make a server listen for the cloudbit, so lets use a URI endpoint as the subscriber
 
 same headers as before
