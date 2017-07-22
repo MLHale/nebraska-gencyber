@@ -1,16 +1,15 @@
 # Firewalls
 
-Firewalls are often the first line of defense for an enterprise or home network. In this unit, we will understand the fundamentals of firewalls, write firewall rules that configure its behavior and then test if the firewall performs as expected.
+Firewalls are often a first line of defense for an enterprise or home network. In this unit we will understand the fundamentals of firewalls, write firewall rules that configure its behavior and then test if the firewall performs as expected.
 
 ### Cybersecurity First Principles
-* __Minimization__: Minimization refers to having the least functionality necessary in a program or device. The goal of minimization is to simplify and decrease the number of ways that software can be exploited. This can include **turning off ports that are not needed**, reducing the amount of code running on a machine, and/or turning off unneeded features in an application. This lesson focuses specifically on turning off ports that aren't in use.
+* __Minimization__: Minimization refers to having the least functionality necessary in a program or device. The goal of minimization is to simplify and decrease the number of ways that software can be exploited. This can include **turning off ports that are not needed**, reducing the amount of code running on a machine, and/or turning off unneeded features in an application. This lesson focuses specifically on turning off ports and limiting network connections that aren't required for correct operation.
 
 ### Table of Contents  
 [Overview](#overview)  
 [Firewalls as a Collection of Valves](#firewalls-as-a-collection-of-valves)  
 [Firewall Rules](#firewall-rules)  
-[](#)  
-[](#)
+[Windows Firewall](#windows-firewall)   
 [Additional Readings](#additional-readings)  
 [Teacher Developed Modules](#teacher-developed-modules)  
 [Acknowledgements](#special-thanks)  
@@ -20,27 +19,27 @@ Firewalls are often the first line of defense for an enterprise or home network.
 
 The name firewall is inspired from its physical manifestation in construction which refers to walls that are designed to stop a fire from spreading.
 
-![Firewall in a substation](https://upload.wikimedia.org/wikipedia/commons/3/3c/Firewall_Electrical_Substation.jpg)
+> ![Firewall in a substation](https://upload.wikimedia.org/wikipedia/commons/3/3c/Firewall_Electrical_Substation.jpg)
 
 While these firewalls are "cool", we are interested in a different kind of firewall. Namely, the ones that protect internal networks from external networks. These kinds of firewalls allow us to control the flow of information between networks. Firewalls, __minimize__ the number of ways that internal networks and computers on them can be exploited. They also encourage __least functionality__ by turning off ports that are not needed. Firewalls can also drop network traffic that does not conform to expected patterns (such as malicious requests to an application server).
 
-![network firewalls](./img/networkfirewall.png)
+> ![network firewalls](./img/networkfirewall.png)
 
-All popular operating systems now come with a firewall installed. For Windows Server and Desktop installations, we will focus on the built-in ```Windows Firewall with Advanced Security``` module. This module can be configured with a graphical user interface or the command line interface using `netsh` or Powershell `NetSecurity` modules. These options provide a lot of flexibility and control over the configuration of the firewall.
+Firewalls aren't just for networks. Each computer in a network can have its own personal firewall. All popular operating systems now come with a firewall installed. For Windows Server and Desktop installations we will focus on the built-in ```Windows Firewall with Advanced Security``` application. This application can be configured with a graphical user interface or the command line interface using `netsh` or Powershell `NetSecurity` modules. These options provide a lot of flexibility and control over the configuration of the firewall for personal and enterprise use.
 
-![Windows firewall](img/windowsfirewall.png)
+> ![Windows firewall](./img/windowsfirewall.png)
 
-In order for two machines to communicate (such as a client talking to a server), there are many different __layers__ that are involved. Each of these layers is progressively lower level as you move downward. In general, there are 7 layers:
+In order for two machines to communicate (such as a client talking to a server), there are many different __layers__ that are involved. Each of these layers is progressively lower level as you move downward. In general there are 7 layers:
 
-- Application - The highest level layer where application data is handled (HTTP/FTP/DHCP/SSH/SSL, etc)
-- Presentation - often the same as the application level, sometimes acts as a translator between application and session
+- Application - The highest level layer where application data is handled (http/ftp/DHCP/SSH/SSL, etc)
+- Presentation - often the same as the application level, sometimes acts as a translate between application and session
 - Session - The layer that is used to form sessions between applications (often issues remote procedure calls (RPCs))
 - Transport - One of the two layers that are foundational to the modern internet (TCP / UDP), this layer serves to transport packets from one host to another.
 - Network - The second of the foundation layers for the modern internet (IP, IPv4, IPv6, IPSec, etc). This layer serves to transport packets between routers (often referred to as __packet forwarding__).
 - Data Link - The biggest example of the data link layer is ethernet. It provides a protocol for exchanging data over a local network.
 - and Physical - This layer is nothing but raw bits that underly the higher level interpretation of those bits at higher levels.
 
-![network layers](https://javirodz.files.wordpress.com/2013/07/21acd-osi.gif)
+> ![network layers](https://javirodz.files.wordpress.com/2013/07/21acd-osi.gif)
 
 ### Question
 
@@ -51,15 +50,15 @@ At what [network layer] (https://support.microsoft.com/en-us/kb/103884) does it 
 - [ ] Network layer and above  
 
 Discussion:  
-The headers on ethernet frames at the Data link layer and below are not useful for routing across networks. Firewalls rules are authored using routing information starting at the Network (also called the IP layer in the TCP/IP implementation) layer and above, all the way to the application layer. As a result, IP layer firewalls are the simplest and most widely used.
+The headers on ethernet frames at the Data link layer and below are not useful for routing across networks. Packet filtering Firewalls rules are authored using routing information starting at the Network (also called the IP layer in the TCP/IP implemenation) layer and above, all the way to the application layer. As a result IP layer firewalls are the simplest and most widely used.
 
 [Top](#table-of-contents)
 
 ### Firewall as a Collection of Valves
 
-A Firewall can be understood as a collection of valves  
+A packet filtering Firewall can be understood as a collection of valves  
 
-* Each valve/port corresponds to single service at the application level (e.g. HTTP, SSH, HTTPS, SMTP)
+* Each valve/port corresponds to single service at the application level (e.g. http, ssh, https, smtp)
 * Each valve can  
   - Permit traffic in one or both directions  
   - Deny traffic  
@@ -68,251 +67,223 @@ A Firewall can be understood as a collection of valves
 
 Here are three basic scenarios to keep in mind.  
 
-First lets consider **Ports 1 and 4**. These ports are open. Which means they permit packets from internal and external sources. So in the case of the TCP protocol, which forms explicit connections or circuits before transmitting data via a handshake mechanism, such connections can be externally or internally initiated.
+First lets consider, **Ports 1 and 4**. These ports are open. Which means they permit packets from internal and external sources. So in the case of the TCP protocol, which forms explicit connections or circuits before transmitting data via a handshake mechanism, such connections can be externally or internally initiated.
 
 In the case of **Port 2**, it allows unrestricted flow of information if the connection is initiated internally. However, it blocks all external requests to initiate an information flow. That is, it permits packets from external sources only if they correspond to a “connection” initiated by an internal source. The firewall will not permit connection requests from external sources. This restriction is useful when an internal web client initiates a web browsing request, then the firewall will allow the corresponding incoming response from an external webserver to pass through the firewall. Any connection initiated externally will not be allowed.
 
-Finally, **Port 3** is closed. Which means that it denies all traffic. A closed port may just drop the packets or send back an RST or "Reset" packet. From a security and resource consumption standpoint, it is always better to just drop the packet. Upon denial of access, no additional or useful information should be communicated back.
+Finally, **Port 3** is closed. Which means that it denies all traffic. A closed port may just drop the packets or send back a RST or "Reset" packet. From a security and resource consumption standpoint, it is always better to just drop the packet. Upon denial of access, no additional or useful information should be communicated back.
 
 [Top](#table-of-contents)
 
 ## Firewall Rules
 
-Firewalls are configured using simple `if then` rules. In a packet filtering firewall, a rule says: `if source, destination, protocol, and service match a pattern THEN take this action`. Since there are many rules involved, the order of the rules matters. **A LOT!**
+Firewalls are configured using simple `if then` rules. In a packet filtering firewall, a rule says: `if source IP, destination IP, protocol, and local ports and remote ports match a pattern THEN take this action`. Since there are many rules involved, the order of the rules matters. **A LOT!**
 
 Rules are evaluated in order, starting with the first one at the top until a first match is discovered. If your top rule is very generic, i.e. matches almost every packet, then **none of the later specific rules will ever be evaluated**. So it best to start with rules that are the most restrictive (i.e rules that focus on to specific services and have a very small chance of interfering with other rules). After ordering by restrictiveness it is then best to order rules according to how well they match the majority of your network traffic. This minimizes the number of checks required to find a matching rule.
 
 Always start firewall configuration with a _whitelisting_ philosophy, where you “Deny by default” and then allow only specific information flows. This means, start the firewall configuration by dropping all packets. Then add rules to allow specific traffic patterns as required by application needs.
 
-Lets look at an example.
+Lets look at an example for exposing a web service over http.
 
-| Rule#  | Direction     | Source        | Destination   | Service   | Action   |
-| ------ |:-------------:|:-------------:| :------------:|:---------:|:--------:|
-| 1      | inbound       | any           | web server    | http      | accept   |
-| 2      | outbound      | localnet      |   any         | any       | accept   |
-| 3      | any           | any           |   any         | any       | reject   |
+| Rule#  | Direction     | Source        | Destination   | Local Port   | Remote Port   | Action   |
+| ------ |:-------------:|:-------------:| :------------:|:------------:|:-------------:|:--------:|
+| 1      | inbound       | any           | web server    | http (80)    | any           | ```accept```   |
+| 2      | outbound      | web server    |   any         | http (80)    | any           | ```accept```   |
+| 3      | any           | any           |   any         | any          | any           | ```reject```   |
 
-**Rule 1** permits externally initiated requests (Direction: inbound) to a webserver behind the firewall. So the source is “any” since we cannot anticipate a specific IP address at the time of writing the rule. The destination is the IP address of the webserver and the service specifies the port number where the service is typically hosted. That would be port 80 for a web server. If these three match an incoming packet then the action is “ACCEPT”
+**Rule 1** permits externally initiated requests (Direction: inbound) to a webserver behind the firewall. So the source is ```any```, since we cannot anticipate a specific IP address at the time of writing the rule. The destination is the IP address of the webserver and the Local Port specifies the port number where the service is typically hosted. That would be port ```80``` for a web server. The request may orginate from any Remote Port. If these conditions match an incoming packet then the action is ```accept```(allow packet to come in).
 
-**Rule 2** permits internally initiated requests (Direction: outbound) out to the Internet. So the source is any IP address in the local network, which we specify as a range of IP addresses but stated here as "localnet". The destination and the service cannot be anticipated at the time of writing the rule so both are specified as “any”. If a packet matches these conditions then the action is "ACCEPT".
+**Rule 2** permits internal requests (Direction: outbound) out to the Internet. So the source is any IP address of the ```web server``` and the Destination is  ```any```. The Local Port is ```80``` (originating port) and Remote Port is ```any```. If a packet matches these conditions then the action is ```accept``` (allow packet to go out).
 
-**Rule 3** is to deny all other traffic that does not match the previous rules. So all three match conditions are specified as “any” and the action is "REJECT".
+**Rule 3** denies all traffic (in ```any``` direction). So all match conditions are specified as ```any``` and the action is ```reject```. This is ```Default Deny``` behavior.
 
 ### Question
 
-What would happen if we re-ordered these rules? Specifically, if Rule 3 was exchanged with Rule 1.
+What would happen if we re-ordered these rules? Specifically if Rule 3 was exchanged with Rule 1.
 
 Discussion:
-* Rule 3 is often implemented as a "Default Policy", instead of an explicit rule in the table. This policy applies ONLY if a packet matches NONE of the rules specified for the firewall. More on this shortly.
-
-* Inbound and outbound rules are typically maintained in separate lists.
+* Inbound and outbound rules are typically maintained in separate lists. We will see this shortly. Rule 3 is typically implemented as a ```Default Policy``` in Inbound and Outbound rule lists.
 
 [Top](#table-of-contents)
 
-## Working with Windows Firewall
+## Windows Firewall
 
-As mentioned before Windows has a built-in firewall. By default, all rules apply to both IPv4 and IPv6 traffic.
+As mentioned before, Windows has a built-in firewall. Depending on the profile (type) of Network your computer is connected to, the firewall can be configured to have a different behavior. Your home network should be assigned the ```Private``` profile, while coffee-shop and airport networks are best assigned to the ```Public``` profile. Enterprise computers are typically part of a ```Domain``` in a enterprise network. For this option, the ```Domain``` profile is used. When you bring up the firewall, you will see these profiles listed. You will also see the default policy for inbound and outbound network connections associated with each profile.
+
+> ![Windows firewall](./img/network-profiles.png)
+
+### Observations:  
+
+* The firewall is ON
+* Inbound connections are being blocked by default. Allowed connections have to be whitelisted.
+* Outbound connections are being allowed by default!!!    
+Which means that unless you block a connection, it is allowed. This is not a secure setting. Once malware is installed on your machine (quite plausible with phishing), it can easily call out to a remote server and exfiltrate data. This poor [design choice](https://docs.microsoft.com/en-us/windows/access-protection/windows-firewall/create-an-outbound-port-rule) is perhaps motivated by a trade-off between usability and security.
+
+The defaults for Outbound connections go against the fundamental security principle of ```Default Deny``` and ```Whitelisting``` allowed connections. Let's go ahead and make it right.
+
+> Be ready for many internet connected programs to stop working after this change!
+
+Click on Firewall Properties to view the defaults for all profiles
+
+> ![Windows firewall](./img/firewall-defaults.png)
 
 
-```bash
-sudo iptables -nL
-```
-You should see something like this:
+Let's change the default behavior for Outbound connections to ```Block```.
 
-![iptables screenshot](./img/iptables.png)
+> ![Windows firewall](./img/block-outbound.png)
 
+Repeat the same for Private and Public profiles (tabs). Then hit ```Apply``` to save these settings.
 
+By default, all rules apply to all network interfaces for both IPv4 and IPv6 protocols. The network interfaces protected by Windows Firewall can be changed clicking on the ```Customize``` button next to ```Protected network connections```
 
-Based on a whitelisting philosophy, let's begin by denying all traffic by default.
+> ![Windows firewall](./img/network-connections.png)
 
-```bash
-sudo iptables -P INPUT DROP
-```
-This command uses the `-P` switch to set the default policy for the INPUT chain to DROP. This means drop all incoming packets to your computer. Let's see what the INPUT chain looks like now.
+We see that all network interfaces are selected. Observe that DockerNAT is also covered.  
+Hit ```OK``` to exit.  
+Hit ```OK``` again to exit the Properties dialog box.  
 
-```bash
-sudo iptables -nL INPUT
-```
-You should see something like this.
+Now the firewall status page should look like this:
 
-![iptables screenshot](./img/inputdrop.png)
+> ![Windows firewall](./img/default-deny.png)
 
-Notice `(policy DROP)`. You should NOT be able to access your server now from your client web-app. Go ahead and try it!
-
-A firewall that does not allow any traffic, while secure, is not very user-friendly or useful. So let's add some rules to the INPUT chain to allow incoming packets on the default web port, i.e. port 80.
-
-```bash
-sudo iptables -I INPUT 1 -p tcp --dport 80 -j ACCEPT
-```
-
-This `iptables` command follows a general structure: `iptables <option> <chain> <matching criteria> <target>`   
-Let's examine each element in this structure in detail.
-
----
-`<option> <chain>`  
-Immediately following the iptables command the **option** component allows us to specify the position in which the rule will be inserted into a **chain**. For example `–A INPUT` appends the rule in the INPUT chain. `–I OUTPUT 3` inserts the rule at a specified position in the OUTPUT chain. The rule numbers start at position 1.
-
-So this option `-I INPUT 1` says: Insert this Rule at position 1 in the INPUT chain.
-
-> A few more useful options: `–D` to delete a rule in a specified position in the chain. `–F` is for flushing the chain, which deletes all rules in a chain.
-
----
-`<matching criteria>`  
-Next, comes the **match criteria** component. This component specifies the conditions that will be used to match specific types of incoming network packets.
-
-So this matching criteria  `-p tcp --dport 80` says: Match all packets with the TCP protocol with a destination port 80. Again, port 80 on the server is your default webserver port. We did not specify any source or destination IP addresses so it will match all IP addresses. For incoming packets, the "destination" is the server where you are authoring the iptables rules, and the "source" is the client computer. For outgoing packets, the "source" is the server and the "destination" is the client computer.
-
----
-`<target>`  
-
-Finally the **target** component specifies what to do if the matching criteria are met. This component is specified with a `-j` switch. It signifies a "jump" to the target chain that follows after it. So if an incoming packet passes the matching criteria, then the next rule is specified by the value of the target chain, which can be the name of a user-defined chain or one of the special values that terminate the rule processing. The special terminating values are ACCEPT, DROP, or RETURN.
-
-ACCEPT allows the packet in. So this target `-j ACCEPT` says: Jump to ACCEPT this packet and terminate the rule processing.
-
-DROP and REJECT, both deny the packet and stop rule processing. But, DROP is safer than REJECT. When REJECT is used, an error packet is sent in response to the matched packet. It is best to avoid giving additional information when access is denied for any reason.
-
-A non-terminating target chain is the LOG chain. The LOG chain helps to document any anomalies that have been detected in the kernel log. Log prefixes are specified using the following syntax:
-`--log-prefix prefix`. The prefix can be about 29 characters long.
-
----
-
-Let's examine the INPUT chain now.
+Let's test with docker. Open a Powershell terminal:
 
 ```bash
-sudo iptables -nL INPUT
+# Try to pull this docker image
+# If you already have a local copy
+# this command will attempt to update it
+docker pull gists/lighttpd
 ```
-![iptables screenshot](./img/inputwebrule.png)
+> ![Windows firewall](./img/outbound-fail.png)
 
-This output looks very similar to the example table that we discussed earlier. Here source and destination IP addresses of `0.0.0.0\0` is equivalent to "any". So the rule is equivalent to saying, match all TCP packets from **any** source to **any** destination with a destination port 80.
+The pull fails. Why?
 
-If you did it right, your webserver should be accessible again. Go ahead and confirm.
+> The request can not pass through the firewall (outgoing direction) to reach docker servers
 
-What about other ports? You would also need port 443 for HTTPS to be open. To do this we need to add another rule. This time let's append it to the INPUT chain using the `-A` option.
+Docker for Windows uses ```vpnkit``` module to provide virtual networking. So we need to allow this program through our firewall in the Outbound direction.
+We want to be very specific to the Program, Ports and Protocol in our Rule (Cybersecurity First principle: Minimization).
+
+Let's start to author a new Outbound rule. Select ```Custom``` rule to provide the most flexibility:
+
+> ![Windows firewall](./img/outbound-rule.png)
+
+Next we locate the program that we want to allow through the firewall in the outbound direction.
+
+> ![Windows firewall](./img/outbound-program.png)
+
+Click ```Next```. That brings us to ```Protocols and Ports```.   
+We want docker to be able to contact docker hub webservers (```Remote```) to access HTTP (Port ```80```) and HTTPS (Port ```443```) services using the ```TCP``` protocol.    
+So adjust the settings as shown:
+
+> ![Windows firewall](./img/outbound-ports.png)
+
+Click ```Next```. We will not limit the connection to specific IP addresses, so we will leave ```Scope``` as is.   
+Click ```Next``` again.
+
+Now for ```Action```, select ```Allow the connection``` since we are whitelisting this application.
+
+> ![Windows firewall](./img/outbound-action.png)
+
+Next, for ```Profile``` select all profiles so that the rule applies in all network types.  
+Finally, provide the rule a Name and Description as shown below:
+
+> ![Windows firewall](./img/outbound-name.png)
+
+Click ```Finish```. The rule is now active and should be listed in the Outbound rules listing.
+
+Now use simillar steps as above to add a rule for the same program (vpnkit), but allowing protocol ```UDP``` for remote port ```53```. This allows DNS requests to go through. DNS helps with domain name discovery.
+
+Once the UDP rule is added, we are ready to try the `pull` command again.
 
 ```bash
-sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+# Try to pull this docker image
+docker pull gists/lighttpd
 ```
 
-Notice that with `-A` you do not have to specify the rule number. The rule just gets added to the bottom of the INPUT chain. Let's look at the INPUT chain now.
+It should work this time. Call the instructor to troubleshoot if the command fails.
 
-```bash
-sudo iptables -nL INPUT
-```
-![iptables screenshot](./img/inputhttpsrule.png)
+> ![Windows firewall](./img/outbound-allowed.png)
 
-The secure web portion of your server should also be now available to client apps. Go ahead and confirm.
+## Exercise
 
-If your website defaults to https then you may consider making the port 443 rule the first rule. This will avoid unnecessary evaluation of the port 80 rule for most network packets.
+Write two new outbound rules to enable Google Chrome to connect to websites. To carry out this task you will need the following information:
 
-Are these rules enough? Yes. But, just these rules can be very restrictive and may hamper debugging. For example, try running the following command on your server to update its software repositories.
+> 1. Program: `%ProgramFiles%\Google\Chrome\Application\chrome.exe`
+> 2. Protocol: TCP
+> 3. Remote Ports: 80, 443
 
-```bash
-sudo apt-get update
-```
-This command will most likely timeout due to firewall restrictions. The error messages are not likely to be useful either. So let's add a few additional firewall rules will make server administration and updates much easier.
+and
 
-First, you want the server to be able to communicate with itself. This is often called sending traffic to "loopback" interface. Also, a special network adapter is dedicated to the loopback interface. You may check its name by using the `ifconfig` command. This command shows all the network adapters and associated network addresses. Below we see that the name for the loopback adapter is `lo`.
+> 1. Program: `%ProgramFiles%\Google\Chrome\Application\chrome.exe`
+> 2. Protocol: UDP
+> 3. Remote Port: 53
 
-![ifconfig](./img/ifconfig.png)
+### Inbound Connection Filtering
 
-To author a permissive firewall rule on the INPUT chain we use the `-i lo` matching criteria for the input loopback interface, with the target ACCEPT.
+The default policy for Inbound connections is ```Block```. So at installation time, programs insert very broad ranging rules to avoid later connection issues. Docker does the same. Locate inbound rules named ```vpnkit```. You should see two of them.
 
-```bash
-sudo iptables -A INPUT -i lo -j ACCEPT
-```
-Next, we want to be able to "ping" the server from any other machine to determine reachability. "Pings" are based on the ICMP protocol and the specific type of message is `echo-request`. Hence the matching criteria become `-p icmp --icmp-type echo-request`.
+> ![Windows firewall](./img/inbound-vpnkit.png)
 
-```bash
-sudo iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
-```
-Finally, we want to allow all "incoming" packets that are in response to an internal server request. Such response network packets are said to be in an `ESTABLISHED` or `RELATED` state. Such a firewall rule requires tracking the state of various network connections. Hence, we invoke the `conntrack` module using the `-m` switch. The entire matching criteria are specified as `-m conntrack --ctstate ESTABLISHED,RELATED`. The `--ctstate` switch is an abbreviation for "connection state".
+Examine the properties of both. Properties for the TCP rule are shown below.
 
-```bash
-sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-```
-These rules should make your server much more convenient to operate. Try running the update command now.
+> ![Windows firewall](./img/inbound-properties.png)
 
-```bash
-sudo apt-get update
-```
-It should succeed now.
+Here is a summary of properties from both rules:
 
-There many other advanced firewall rules that can be authored. But these set of rules should be sufficient to demonstrate the inner workings of a Firewall. We have also managed to significantly reduce the exposed ports of the server to those that are absolutely necessary for our application to work. Nothing more. Any IPv4 network traffic that does not match our rules will be processed by the default policy. In our case, the default policy is DROP.
+> 1. Program: `%ProgramFiles%\Docker\Docker\resources\vpnkit.exe`
+> 2. Protocol: ```TCP```
+> 3. Local Port: ```any```
+> 4. Remote Ports: ```any```
 
-For more details on `iptables`, consult these web resources:
+and
 
-[Ubuntu iptables Wiki](https://help.ubuntu.com/community/IptablesHowTo)  
-[CentOS iptables Wiki](https://wiki.centos.org/HowTos/Network/IPTables)
+> 1. Program: `%ProgramFiles%\Docker\Docker\resources\vpnkit.exe`
+> 2. Protocol: ```UDP```
+> 3. Local Port: ```any```
+> 4. Remote Port: ```any```
 
-Discussion:
-Now step back and ponder this question: Have I taken care of all network openings into the server?
+If you only wanted to host a webserver container or a DNS server container, this rule allows unecessary exposure to all other ports. By applying the minimization principle we can reduce the attack surface. What we need is the following configuration, if all we want to do is expose web services and perhaps allow incoming DNS requests:
 
-Let's check something. `ss` is a great Linux network utility. Among other things, it shows a summary of network statistics.
+> 1. Program: `%ProgramFiles%\Docker\Docker\resources\vpnkit.exe`
+> 2. Protocol: ```TCP```
+> 3. Local Port: ```80, 443```
+> 4. Remote Ports: ```any```
 
-```bash
-ss -s
-```
+and (2nd rule is optional for the cloudbit container app, rule may be just disabled)
 
-Notice anything in the output?
+> 1. Program: `%ProgramFiles%\Docker\Docker\resources\vpnkit.exe`
+> 2. Protocol: ```UDP```
+> 3. Local Port: ```53```
+> 4. Remote Port: ```any```
 
-![iptables screenshot](./img/ssoutput.png)
+Here is the change illustrated for the TCP rule.
+> ![Windows firewall](./img/inbound-updated.png)
 
-How about now?
+This change minimizes the attack surface and enforces least privilege.
 
-![iptables screenshot](./img/ssoutput2.png)
+Now check if your Cloudbit application still works after making these changes.
 
-Turns out we controlled the IPv4 network interface, but completely forgot about **IPv6**. This happens a lot in real systems too. In particular, while port 22 for ssh access may be blocked in IPv4, but it is often left accessible using an IPv6 address. Check if that is the case with your server.
+Check other programs in the Inbound rules list that you think might be allowing more exposure (Protocol and Ports) than necessary for operation.
 
-Run the following command to check the state of IPv6 interface on our server. Notice the `6` in the `ip6tables` command.
+## Test your blockage, err ... knowledge!
 
-```bash
-sudo ip6tables -nL
-```
-![iptables screenshot](./img/ip6tablesoutput.png)
+[Firewall Quiz](https://www.qzzr.com/c/quiz/435576/firewalls)
 
-The IPv6 network interface is WIDE OPEN!!! So if an SSH service was running, it would be easily accessible using the IPv6 address.
-
-Let's fix this by setting the default policy on all IPv6 chains to DROP.
-
-```bash
-sudo ip6tables -P INPUT DROP
-sudo ip6tables -P OUTPUT DROP
-sudo ip6tables -P FORWARD DROP
-```
-
-Check if the settings were correctly applied.
-
-```bash
-sudo ip6tables -nL
-```
-
-[Top](#table-of-contents)
-
-### Making Firewall Settings Persistent
-
-Unless you commit your iptables rules to a specific location, they will be reset upon machine restart. Now we don't want that to happen, so let's save the rules and make them persistent across machine reboots. The following commands will work on Ubuntu OS.
-
-```bash
-sudo apt-get install iptables-persistent
-iptables-save > rules.v4
-sudo cp rules.v4 /etc/iptables/rules.v4
-ip6tables-save > rules.v6
-sudo cp rules.v6 /etc/iptables/rules.v6
-```
 That's it for Firewalls in this Unit. Happy Surfing.
 
-> Firewalls are an essential component of "Defense-in-Depth" strategy. It can certainly slow down an attacker. However, firewalls cannot keep a determined adversary out. There are many ways in which firewalls can be abused and easily bypassed. Such attacks need to be constantly monitored using Intrusion Detection Systems (IDS) and Network Monitoring solutions. The final line of defense is applications built using secure coding practices and proper encryption implementations.  
+> Firewalls are an essential component of "Defense-in-Depth" strategy. It can certainly slowdown an attacker. However, firewalls cannot keep a determined adversary out. There are many ways in which firewalls can be abused and easily bypassed. Such attacks need to be constantly monitored using Intrusion Detection Systems (IDS) and Network Monitoring solutions. The final line of defense is applications built using secure coding practices and proper encryption implementations.  
 
 [Top](#table-of-contents)
 
 ## Additional Readings
 
-* Observe the output of the following command: `sudo iptables -v -L`
-* Listing rules in plain format: `sudo iptables -S`
-* 25 Most Used iptables commands, [The Geek Stuff](http://www.thegeekstuff.com/2011/06/iptables-rules-examples/)
-* [Microsoft The OSI Model's Seven Layers Defined and Functions Explained] (https://support.microsoft.com/en-us/kb/103884)  
-* [Ubuntu iptables Wiki](https://help.ubuntu.com/community/IptablesHowTo)  
-* [CentOS iptables Wiki](https://wiki.centos.org/HowTos/Network/IPTables)
+* [Order of Windows Firewall Rule Evaluation](https://technet.microsoft.com/en-us/library/cc755191%28v=ws.10%29.aspx)
+* [Microsoft Windows Firewall in Enterprise Environment Resources](https://docs.microsoft.com/en-us/windows/access-protection/windows-firewall/windows-firewall-with-advanced-security-design-guide)
+* [Microsoft The OSI Model's Seven Layers Defined and Functions Explained](https://support.microsoft.com/en-us/kb/103884)  
+* Linux firewalls
+  * [Ubuntu iptables Wiki](https://help.ubuntu.com/community/IptablesHowTo)  
+  * [CentOS iptables Wiki](https://wiki.centos.org/HowTos/Network/IPTables)
+  * 25 Most Used iptables commands, [The Geek Stuff](http://www.thegeekstuff.com/2011/06/iptables-rules-examples/)
 
 [Top](#table-of-contents)
 
@@ -324,7 +295,7 @@ That's it for Firewalls in this Unit. Happy Surfing.
 
 ## Special Thanks
 
-* A special thanks to Matt Hale, Aaron Vigal and Cade Wollcot for reviews of this module and thoughtful discussions.
+* A special thanks to Matt Hale for reviews of this module and thoughtful discussions.
 
 [Top](#table-of-contents)
 

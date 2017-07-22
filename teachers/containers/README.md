@@ -49,7 +49,7 @@ Process Isolation keeps separate functions from accessing the same memory.
 - Network containers together
 
 ## Materials required
-- [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
+- [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## Prerequisite lessons
 - [Github Tutorial](../github/index.md)
@@ -73,13 +73,13 @@ Let’s start with a container based on [Alpine Linux](https://alpinelinux.org)
 
 First, we need to download a container blueprint called an ```Image```
 
-- Open the Command Line Interface (CLI) i.e.   
-  Terminal app for Linux/macOS or `Docker Quickstart` on Windows
+- Open a Windows Powershell instance:
 
 ```bash
 # Download alpine container image from Docker Hub
 docker pull alpine
 ```
+You should see some download activity.
 
 ## Container images
 
@@ -103,13 +103,13 @@ Let's create and start a container from the alpine image
 ```bash
 # See list of docker commands
 docker
-# `run` command creates and start a new container
+# `run` executes a command in a new container (creates it too)
 # -it provides an interactive tty shell into the container
 # --name provides a name for your new container
 # `alpine:latest` is the image name and its tag
 docker run -it --name myAlpine alpine:latest
 ```
-if the previous command was successful, the container is created and you are returned an interactive shell into the container.
+if the previous command was successful, the container is created and you are returned an interactive shell into the container. The shell looks like this: ```/ #```
 
 ## Explore the container
 
@@ -145,15 +145,15 @@ exit # Stop the shell to exit container
 Volumes have to be initialized at container creation time
 - The `-v` option mounts a volume
 
-In a new **host** shell (open another Docker Quickstart terminal):
+In a new ```Powershell```:
 ```bash
 # Create a new host directory called app
 mkdir app
 # Host /app folder mapped to container /webapp folder
 # `\` allows you to continue a long command on a new line
-docker run -it --name myAlpineWithVol \
--v /c/Users/student/app:/webapp alpine:latest
+docker run -it --name myAlpineWithVol -v /c/Users/student/app:/webapp alpine:latest
 ```
+You may get a prompt to share the C: drive with Docker. Accept that and enter the your account password. Once access is granted, a container shell will be returned.
 
 ## Volume configuration
 
@@ -168,34 +168,34 @@ This allows exceptions to the `Process Isolation`  principle
 
 ## Test the mounted volume
 
-In the **container** shell:
-```bash
-# Change directory to the `/webapp` directory in the container
-cd /webapp
-# Create a new file with a simple message
-echo "#NebraskaGencyberRocks" > test.txt
-```
-
-In a new **host** shell (open another Docker Quickstart terminal):
+In a new ```Powershell```:
 ```bash
 # Change directory to the `/app` directory on the host
-cd Documents/app
-# List contents of the test.txt file
-cat test.txt
-# Overwrite the file and add exclamation marks
-echo "#NebraskaGencyber" > test.txt
+cd app
+# Create a new file and add some text
+set-content test.txt "Nebraska Gencyber Rocks"
 ```
 
-Back in the **container** shell:
+Back in the ```container``` shell:
 ```bash
 # List contents of the test.txt file
 cat test.txt
-# You should be able to see the new exclamation marks
+# You should be able to see the file contents
 ```
 
 > Observation: Container and host are able to share files.
 
-# Totally cool… 🤓
+It is always good stop containers when not in use to free up system resources.
+In a new ```Powershell```:
+
+```bash
+# List all running containers
+docker ps
+# Stop a running container
+docker stop myAlpineWithVol
+```
+
+### Totally cool… 🤓
 
 ## Exposing Container Services
 
@@ -206,7 +206,7 @@ We need to expose container ports to the network to access these services remote
 Let’s create a container that runs an HTTP server in two commands!
 First, download an image for Lighttpd from Docker Hub
 
-In a new **host** shell (open another Docker Quickstart terminal):
+In a new ```Powershell```:
 ```bash
 # download a container for lighttpd, a lightweight HTTP server
 docker pull gists/lighttpd
@@ -222,45 +222,41 @@ We do this by mapping the container’s port to a port of the host
 Port mappings have to be initialized at container creation time
 - The `-p` option maps a host port to the container port
 
-In a `host` shell:
+In ```Powershell```:
 
 ```bash
-# -d option runs the container in daemon mode (background)
+# -d option runs the container in detached mode (background)
 # -p 8888:80 maps host port 8888 to container port 80
-docker run -d --name lighttpd \
-           -p 8888:80 \
-           -v /c/Users/student/app:/var/www \
-           gists/lighttpd
+# -v maps the host app directory to the web directory in the container
+docker run -d --name lighttpd -p 8888:80 -v /c/Users/student/app:/var/www gists/lighttpd
 # Check the mapped port in container listing
 docker ps -a
 
-# Check the IP address of our container
-docker-machine ip
 ```
-Note the IP address reported above to access the container network.
 
 ## Test the mapped port
 
-In a **host** shell (open another Docker Quickstart terminal):
+Since we have a volume mapped, let's author a simple HTML index file and drop it in the web root of the container. We should be able to browse to this page if the port mapping works as expected.
+
+In a new ```Powershell```:
 
 ```bash
 # Change directory to the `/app` directory on the host
-cd Documents/app
+cd app
 # Add a simple HTML file exclamation marks
-echo "<html>My first Container App</html>" > index.html
+set-content index.html "<html>My first Container App</html>"
 ```
-if 192.168.99.100 was the IP returned by docker-machine then   
-browse to http://192.168.99.100:8888 or change it accordingly.
+Now browse to http://localhost:8888
 
 ## Testing continued…
 
-Return to the `host` shell
+Return to ```Powershell```:
+
 ```bash
 # Update the HTML file
-echo "<html><h1>Cool</h1></html>" > index.html
+set-content index.html "<html><h1>Cool</h1></html>"
 ```
-if 192.168.99.100 was the IP returned by docker-machine then   
-browse to http://192.168.99.100:8888 or change it accordingly.
+Now browse to http://localhost:8888
 
 ## Reflect on what just happened 🤔
 
@@ -268,7 +264,22 @@ browse to http://192.168.99.100:8888 or change it accordingly.
 - Separation of persistent code from the application runtime
 - Host file updates are instantly reflected in the container application
 
-# 😎 Cool!
+### 😎 Cool!
+
+## Cleanup
+Let's stop the container service and delete the container before we move on. 
+```bash
+# Stop a running container named lighttpd
+docker stop lighttpd
+
+# Delete container named lighttpd
+docker rm lighttpd
+
+# List all containers (running or stopped)
+docker ps -a
+
+```
+
 [Top](#table-of-contents)
 
 # Setting up a dev environment
@@ -307,27 +318,25 @@ RUN pip install psycopg2
 Let us clone a repository that includes the above DockerFile.  
 The DockerFile is typically in the top level project directory
 
-Open a `host` terminal (Docker Quickstart):
+In a new ```Powershell```:
 ```bash
-# Switch to the webapp directory
-cd app
 # Clone the dev repository
 git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
 ```
 
 ### Step 2: Examine the included DockerFile
 
-In the previous `host` terminal:
+In ```Powershell```:
 ```bash
 # Switch to the cloned repo directory
 cd nebraska-gencyber-dev-env
 # Examine the DockerFile
-cat Dockerfile
+get-content Dockerfile
 ```
 
 ### Step 3: Build the image
 
-In the previous `host` terminal:
+In ```Powershell```:
 ```bash
 # Use the `build` command and supply a DockerFile
 # `-t` option provides a name and tag for the image
@@ -340,7 +349,7 @@ docker images
 ## Cleanup
 
 Here is how to delete the image we just created.  
-In the previous `host` terminal:
+In ```Powershell```:
 ```bash
 # Use the `rmi` command and supply an image name
 docker rmi django:dev
@@ -349,7 +358,7 @@ docker images
 ```
 > If the command is successful,  `django` is removed from your local image listing
 
-**Tip**: To delete a container, use the command `docker rm <container-ID>`
+> Tip: To delete a container, use the command ```docker rm container-name```
 
 ## Automating Multi-Container Application Build
 
@@ -405,17 +414,18 @@ volumes:
 ## Building with Docker-Compose
 
 The `docker-compose` tool can build containers with a single command.  
-In a `host` terminal:
+
+In a new ```Powershell```:
 ```bash
 # Switch to project directory
-cd Documents/app/nebraska-gencyber-dev-env
+cd nebraska-gencyber-dev-env
 # build images
 docker-compose build
 # List local images
 docker images
 ```
 
-> If the build is successful, `nebraskagencyberdevenv_django` and `postgres` appear in your local image listing.
+> If the build is successful, `nebraskagencyberdevenv_django` appears in your local image listing.
 Services are built once and then tagged, by default as `projectname_service`
 
 # Easy Peasy 😏
@@ -425,13 +435,13 @@ Services are built once and then tagged, by default as `projectname_service`
 Before running the built containers, often additional configuration steps are needed.  
 The steps below are specific to our setup and will vary with applications
 
-In the previous `host` terminal:
+In the previous ```Powershell```:
 ```bash
 # run option executes a one-time command against a service
 docker-compose run django bash
 ```
 
-In the returned `container` shell:
+In the returned ```container``` shell:
 ```bash
 # Perform Django configurations
 python manage.py makemigrations
@@ -440,7 +450,7 @@ python manage.py createsuperuser --username admin --email admin
 exit
 ```
 
-Back in the `host` terminal:
+Back in the previous ```Powershell```:
 ```bash
 # One simple command to start the entire application
 docker-compose up
@@ -454,12 +464,12 @@ Navigate to http://localhost:8000/ to examine the running app.
 
 While pressing CRTL+C in the terminal once will shutdown the containers, here is a better way.
 
-In another `host` terminal:
+In a new ```Powershell```
 ```bash
 # Examine running containers
 docker ps
 # Gracefully shutdown the containers
-cd Documents/app/nebraska-gencyber-dev-env
+cd nebraska-gencyber-dev-env
 docker-compose stop
 ```
 > `docker-compose down` command will shutdown and delete the containers. So be careful when using the down command.
