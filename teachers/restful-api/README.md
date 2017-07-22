@@ -43,24 +43,6 @@ You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot-little
 ### Table of Contents
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [RESTFul APIs and Little bits](#restful-apis-and-little-bits)
-<<<<<<< HEAD
-        - [Cybersecurity First Principles in this lesson](#cybersecurity-first-principles-in-this-lesson)
-        - [Introduction](#introduction)
-        - [Materials Required](#materials-required)
-        - [Prerequisite lessons](#prerequisite-lessons)
-        - [Table of Contents](#table-of-contents)
-        - [Step 1: Hands-on Demo](#step-1-hands-on-demo)
-        - [Step 2: Ok, lets take a look at a real API](#step-2-ok-lets-take-a-look-at-a-real-api)
-        - [Step 3: Getting our API Key](#step-3-getting-our-api-key)
-        - [Step 4: Making your first REST request](#step-4-making-your-first-rest-request)
-        - [Additional Resources](#additional-resources)
-        - [Acknowledgements](#acknowledgements)
-        - [License](#license)
-- [Connecting to cloudbit api from a rest client notes](#connecting-to-cloudbit-api-from-a-rest-client-notes)
-    - [Large NOTE TO SELF: Need to figure out a way around the VPN issue that the servers will be behind if we want to do this - maybe proxy the request through the Gencyber server =)) Mike Grove will love me for that.](#large-note-to-self-need-to-figure-out-a-way-around-the-vpn-issue-that-the-servers-will-be-behind-if-we-want-to-do-this-maybe-proxy-the-request-through-the-gencyber-server-mike-grove-will-love-me-for-that)
-
-<!-- /TOC -->
-=======
     - [Cybersecurity First Principles in this lesson](#cybersecurity-first-principles-in-this-lesson)
     - [Introduction](#introduction)
     - [Goals](#goals)
@@ -80,9 +62,6 @@ You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot-little
     - [License](#license)
 
 <!-- TOC END -->
-
-
->>>>>>> 5ea96342e92fc5a10be9f8f8d2cea0e9433d0c5d
 
 ### Step 1: Hands-on Demo
 Before we get started, lets talk about what an API is.
