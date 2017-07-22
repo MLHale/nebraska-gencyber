@@ -1,18 +1,18 @@
 # Nebraska GenCyber @ [The University of Nebraska at Omaha](http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php) and [Bellevue University](http://www.bellevue.edu/degrees/center-for-cybersecurity-education/cce)
 This repo includes all open source content for the Nebraska GenCyber camp. Files in this repository are intended to provide step-by-step self paced tutorials to teachers seeking to learn about cybersecurity first principles as part of the UNO Gencyber camp. The strategy is to *learn by doing*. The 2017 camp theme is `IoT Security`.
 
-<img src="./img/uno-logo.png" width=250/><img src="./img/bellevue-logo.png" width=250/>
+<img src="./img/uno-logo.png" width=250/><img src="./img/bellevue-logo.png" width=270/>
 
 # Camp Study Guides
 The guides are organized by camp days and are available at the linked urls:
 
 ## Camp Schedule
 ### Week One
-[Teachers Week 1](./img/uno-camp-schedule-teachers-week1.png)  
+![Teachers Week 1](./img/uno-camp-schedule-teachers-week1.png)  
 
 ### Week Two
-[Students Week 2](./img/uno-camp-schedule-students-week2.png)  
-[Teachers Week 2](./img/uno-camp-schedule-teachers-week2.png)
+![Students Week 2](./img/uno-camp-schedule-students-week2.png)  
+![Teachers Week 2](./img/uno-camp-schedule-teachers-week2.png)
 
 ## Week One Events
 Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone](./teachers/README.md)
@@ -21,12 +21,12 @@ Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone]
 ### Day 1: Title here
 ### Day 2: Title here
 ### Day 3: Title here
-1. <link 1 here>
-1. <link 2 here>
+1. link 1 here
+1. link 2 here
 
 ### Day 4: Title here
-1. <link 1 here>
-1. <link 2 here>
+1. link 1 here
+1. link 2 here
 
 ### Day 5: Capture the Flag Contest
 * [Jeopardy style contest among student-teacher teams](http://ctf.gencyber2017.unomaha.edu)
