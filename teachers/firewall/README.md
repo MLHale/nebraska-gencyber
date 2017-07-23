@@ -85,11 +85,11 @@ Finally, **Port 3** is closed. Which means that it denies all traffic. A closed 
 
 Firewalls are configured using simple `if then` rules. In a packet filtering firewall, a rule says: `IF source IP, destination IP, protocol, and local ports and remote ports match a pattern THEN take this action`. Since there are many rules involved, the order of the rules matters. **A LOT!**
 
-Rules are evaluated **in order**, starting with the first one at the top until a first match is discovered. If your top rule is very generic, i.e. matches almost every packet, then **none of the later specific rules will ever be evaluated**. So it is best to start with rules that are the `most restrictive` (i.e rules that focus on to specific services and have a very small chance of interfering with other rules). After ordering by restrictiveness it is then best to order rules according to `how well they match the majority of your network traffic`. This minimizes the number of checks required to find a matching rule.
+Rules are evaluated **in order**, starting with the first one at the top until a first match is discovered. If your top rule is very generic, i.e. matches almost every packet, then **none of the later specific rules will ever be evaluated**. So it is best to start with rules that are the `most restrictive` (i.e rules that focus on to specific services and have a very small chance of interfering with other rules). After ordering by restrictiveness it is then best to order rules according to `how well they match the majority of your network traffic`. This minimizes the number of checks required to find a matching rule. If `block` and `allow` rules do not match, the default policy of the firewall is applied.
 
-Always start firewall configuration with a `whitelisting` philosophy, where you **Deny by default** and then allow only specific information flows. This means, start the firewall configuration by dropping all packets. Then add rules to allow specific traffic patterns as required by application needs.
+Always start firewall configuration with a `whitelisting` philosophy, where you **Deny by default** and allow only specific information flows. This means, start the firewall configuration by dropping all packets by default. Then add rules to `allow` specific traffic patterns (incoming, outbound, or forwarding) as required by application needs.
 
-Lets look at an example for exposing a web service over HTTP.
+Let's look at an example for exposing a web service over HTTP.
 
 | Rule#  | Direction     | Source        | Destination   | Local Port   | Remote Port   | Action   |
 | ------ |:-------------:|:-------------:| :------------:|:------------:|:-------------:|:--------:|
@@ -108,7 +108,7 @@ Lets look at an example for exposing a web service over HTTP.
 What would happen if we re-ordered these rules? Specifically, if Rule 3 was exchanged with Rule 1.
 
 Discussion:
-* Inbound and outbound rules are typically maintained in separate lists. We will see this shortly. Rule 3 is typically implemented as a ```Default Policy``` in Inbound and Outbound rule lists.
+* Inbound and outbound rules are typically maintained in separate lists. We will see this shortly. Rule 3 is typically implemented as a ```Default Policy``` in Inbound and Outbound rule lists. It applies if none of the specified rules match.
 
 [Top](#table-of-contents)
 
