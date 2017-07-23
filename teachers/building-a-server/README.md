@@ -166,6 +166,22 @@ python manage.py createsuperuser --username admin --email admin
 exit
 ```
 
+Now, in `Atom`, open the `/nebraska-gencyber-dev-env/backend/django_backend/settings.py` file.
+
+find the line marked:
+```
+ALLOWED_HOSTS = ['137.48.185.230', 'localhost']
+```
+Replace '137.48.185.230' with your `ip address`.
+
+* to get your server ip, you need to open a `Powershell` and type:
+```bash
+ipconfig --all
+```
+* find your ipv4 address on the ip record for the ethernet card attached to your machine
+* alternatively, you can go to http://google.com and search for 'my ip address'
+
+
 ### Step 4: Run the server
 With the database initialized, you should be able to easily run the app. All you need to do is:
 
