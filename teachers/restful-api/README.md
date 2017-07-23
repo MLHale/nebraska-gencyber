@@ -321,6 +321,8 @@ But where is our server? We don't have one yet. We will talk about deploying a s
 ### Additional Resources
 For more information, investigate the following.
 
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview - Overview of basic HTTP operations
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages - Overview of request and response messages in HTTP
 * [http://developers.littlebitscloud.cc/](http://developers.littlebitscloud.cc/) - API reference for the Littlebits web service.
 
 ### Acknowledgements
