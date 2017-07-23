@@ -45,7 +45,7 @@ You should complete the following lessons before attempting this lesson.
 
 ### Table of Contents
 <!-- TOC START min:1 max:3 link:true update:true -->
-- [RESTFul APIs and Little bits](#restful-apis-and-little-bits)
+- [Building a Server](#building-a-server)
     - [Cybersecurity First Principles in this lesson](#cybersecurity-first-principles-in-this-lesson)
     - [Introduction](#introduction)
     - [Goals](#goals)
@@ -58,17 +58,16 @@ You should complete the following lessons before attempting this lesson.
     - [Step 4: Run the server](#step-4-run-the-server)
     - [Step 5: Explore the server](#step-5-explore-the-server)
     - [Step 6: Press the button](#step-6-press-the-button)
-    - [Step 7: Make a new REST endpoint to make the client button work with the backend](#step-7-make-a-new-rest-endpoint-to-make-the-client-button-work-with-the-backend)
-    - [Step 8: Hook your server up to the Littlebits API](#step-8-hook-your-server-up-to-the-littlebits-api)
-    - [Step 9: Profit!](#step-9-profit)
-    - [Step 10: Get events from Littlebits](#step-10-get-events-from-littlebits)
+    - [Step 7: Chrome Dev Tools - Your new best friend](#step-7-chrome-dev-tools---your-new-best-friend)
+    - [Step 8: Make a new REST endpoint to make the client button work with the backend](#step-8-make-a-new-rest-endpoint-to-make-the-client-button-work-with-the-backend)
+    - [Step 9: Get events from Littlebits](#step-9-get-events-from-littlebits)
+    - [Step 10: Profit!](#step-10-profit)
     - [Checkpoint](#checkpoint-1)
     - [Additional Resources](#additional-resources)
     - [Acknowledgements](#acknowledgements)
     - [License](#license)
 
 <!-- TOC END -->
-
 
 ### Step 1: Review - Where are we so far?
 Before we get started, lets talk about what we've done so far. First, we looked at `Littlebits` and saw that we could plug and play the parts together to create new inventions. We wired these up and hooked them to `IFTTT` to let the web control our `cloudbit`. Then, in the `REST` lesson, we looked behind-the-scenes to see how `web services` like IFTTT and Littlebits actually work. We played around with `POSTMAN` and interacted with the Littlebits `API`.
@@ -84,21 +83,63 @@ For reference, this is the overall design we are looking at. On the left side, y
 ### Step 2: No, you won't be starting from scratch
 The process of creating a new application server from the ground up takes some time and attention. Instead of having you start from the ground up, we are providing you with some **starter** skeleton code. This code does the basics of accepting requests and storing data that comes in. Instead of building it, we will look at and examine how it operates before modifying it to make it more secure.
 
-First, `fork` our repo by visiting the https://github.com/MLHale/nebraska-gencyber-dev-env and clicking 'fork'. This will copy the code from our repository into your GitHub account - so you can track your changes as you go.
+* First, `fork` our repo by visiting the https://github.com/MLHale/nebraska-gencyber-dev-env and clicking 'fork'. This will copy the code from our repository into your GitHub account - so you can track your changes as you go.
+* Since this project includes a `submodule` you need to fork it as well. Visit https://github.com/MLHale/littlebits-rest-api and click `fork`.
+* Let's get started locally on your machine by changing into the Desktop directory and then using `git` to clone the skeleton code repository and get it in onto our local machine.
 
-Let's get started by changing into the Desktop directory and then using `git` to clone the skeleton code repository and get it in onto our local machine.
-
-Open a new ```Powershell``` instance:
+Open a new `Powershell terminal instance:
 
 ```bash
 cd Desktop
-git clone --recursive https://github.com/<your-github-id without the brackets>/nebraska-gencyber-dev-env.git
-
+git clone https://github.com/<your-github-id without the brackets>/nebraska-gencyber-dev-env
+cd nebraska-gencyber-dev-env/
 ```
 
-Now change directories into the code folder and then use `docker` to build the `image` that our container will use:
+Add the folder to your `Atom` workspace.
+
+Open the `.gitmodules` file. Edit the `backend` submodule to point to your forked copy, instead of the base repo.
+
+```
+[submodule "backend"]
+	path = backend
+	url = https://github.com/MLHale/littlebits-rest-api
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/MLHale/littlebits-rest-api-frontend
+```
+
+becomes
+
+```
+[submodule "backend"]
+	path = backend
+	url = https://github.com/<your-github-id without the angled brackets>/littlebits-rest-api
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/MLHale/littlebits-rest-api-frontend
+```
+
+This command tells git to use the new url as the path for the submodule. To pull down the code run the following (in the terminal):
+
 ```bash
-cd nebraska-gencyber-dev-env
+git submodule sync
+git submodule update --init --recursive --remote
+cd backend/
+git checkout tags/server-lesson-start
+git checkout -b my-server-work
+git push --set-upstream origin my-server-work
+cd ..
+git add -A
+git commit -m "updated to forked submodule repository"
+git push
+```
+
+This should checkout the code for the start of this lesson and create a new branch called `my-server-work`. It also updates the `nebraska-gencyber-dev-env` repository you forked to include the correct pointer to the new forked submodule. You should also see your file tree in `Atom` update. Any new updates you make you can always run the commands `git add`, `git commit`, and `git push` to save your changes in the branch to your remote repo.
+
+For now, we have our code ready.
+Now use `docker` to build the `image` that our container will use:
+
+```bash
 docker-compose build
 ```
 
