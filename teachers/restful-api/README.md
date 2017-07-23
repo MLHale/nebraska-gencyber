@@ -63,11 +63,114 @@ You should complete the [Hands on IoT: Little Bits Intro](../hands-on-iot-little
 
 <!-- TOC END -->
 
-### Step 1: Hands-on Demo
-Before we get started, lets talk about what an API is.
+### Step 1: Background
+Before we get started, lets talk about what an `API` is.
+
+> This background text and its associated images are modified for this setting by Matt Hale. Modifications are licensed under creative commons share-alike. The original material it is based upon was created by the Mozilla foundation and its contributors. Credit: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview#
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages
+
+**HTTP** is a `protocol` which allows the fetching of resources, such as HTML documents. It is the foundation of any data exchange on the Web and a client-server protocol, which means requests are initiated by the recipient, usually the Web browser. A complete document is reconstructed from the different sub-documents fetched, for instance text, layout description, images, videos, scripts, and more.
+
+![A Web document is the composition of different resources](https://mdn.mozillademos.org/files/13677/Fetching_a_page.png)
+
+Clients and servers communicate by exchanging individual messages (as opposed to a stream of data). The messages sent by the client, usually a Web browser, are called `requests` and the messages sent by the server as an answer are called `responses`.
+
+![HTTP as an application layer protocol, on top of TCP (transport layer) and IP (network layer) and below the presentation layer.](https://mdn.mozillademos.org/files/13673/HTTP%20&%20layers.png)Designed in the early 1990s, HTTP is an extensible protocol which has evolved over time. It is an application layer protocol that is sent over `TCP`, or over a `TLS`-encrypted TCP connection, though any reliable transport protocol could theoretically be used. Due to its extensibility, it is used to not only fetch hypertext documents, but also images and videos or to post content to servers, like with HTML form results. HTTP can also be used to fetch parts of documents to update Web pages on demand.
+
+#### HTTP Messages
+
+HTTP messages are composed of textual information encoded in ASCII, and span over multiple lines. In HTTP/1.1, and earlier versions of the protocol, these messages were openly sent across the connection. In HTTP/2, the once human-readable message is now divided up into HTTP frames, providing optimization and performance improvements.
+
+Web developers, or webmasters, rarely craft these textual HTTP messages themselves: software, a Web browser, proxy, or Web server, perform this action. They provide HTTP messages through config files (for proxies or servers), APIs (for browsers), or other interfaces.
+
+![From a user-, script-, or server- generated event, an HTTP/1.x msg is generated, and if HTTP/2 is in use, it is binary framed into an HTTP/2 stream, then sent.](https://mdn.mozillademos.org/files/13825/HTTPMsg2.png)
+
+
+The HTTP/2 binary framing mechanism has been designed to not require any alteration of the APIs or config files applied: it is broadly transparent to the user.
+
+HTTP requests, and responses, share similar structure and are composed of:
+
+1.  A `start-line` describing the requests to be implemented, or its status of whether successful or a failure. This start-line is always a single line.
+2.  An optional set of `HTTP headers` specifying the request, or describing the body included in the message.
+3.  A blank line indicating all meta-information for the request have been sent.
+4.  An optional `body` containing data associated with the request (like content of an HTML form), or the document associated with a response. The presence of the body and its size is specified by the start-line and HTTP headers.
+
+The start-line and HTTP headers of the HTTP message are collectively known as the `head` of the requests, whereas its payload is known as the `body`.
+
+![Requests and responses share a common structure in HTTP](https://mdn.mozillademos.org/files/13827/HTTPMsgStructure2.png)
+
+#### HTTP Requests
+
+##### Start line
+
+`HTTP requests` are messages sent by the client to initiate an action on the server. Their `start-line` contain three elements:
+
+1.  An **HTTP Method**, a verb (like `GET`, `PUT`, `POST`, or `DELETE`) or a noun (like `HEAD` or `OPTIONS`), that describes the action to be performed. For example, `GET` indicates that a resource should be fetched or `POST` means that data is pushed to the server (creating or modifying a resource, or generating a temporary document to send back). `PUT` modifies an existing resource, while `DELETE` removes one.
+2.  The **request target**, usually a `URL`, or the absolute path of the protocol, port, and domain are usually characterized by the request context. The format of this request target varies between different HTTP methods. It can be
+    *   An absolute path, ultimately followed by a `'?'` and query string. This is the most common form, known as the _origin form_, and is used with `GET`, `POST`, `HEAD`, and `OPTIONS` methods.  
+        `POST / HTTP 1.1  
+        GET /background.png HTTP/1.0  
+        HEAD /test.html?query=alibaba HTTP/1.1  
+        OPTIONS /anypage.html HTTP/1.0`
+    *   A complete URL, known as the _absolute form_, is mostly used with `GET` when connected to a proxy.  
+        `GET http://developer.mozilla.org/en-US/docs/Web/HTTP/Messages HTTP/1.1`
+    *   The authority component of a URL, consisting of the domain name and optionally the port (prefixed by a `':'`), is called the _authority form_. It is only used with `CONNECT` when setting up an HTTP tunnel.  
+        `CONNECT developer.mozilla.org:80 HTTP/1.1`
+    *   The _asterisk form_, a simple asterisk (`'*'`) is used with `OPTIONS`, representing the server as a whole.  
+        `OPTIONS * HTTP/1.1`
+3.  The **HTTP version** which defines the structure of the remaining message, acting as an indicator of the expected version to use for the response.
+
+#### Headers
+
+`HTTP headers` from a request follow the same basic structure of an HTTP header: a case-insensitive string followed by a colon (`':'`) and a value whose structure depends upon the header. The whole header, including the value, consist of one single line, which can be quite long.
+
+There are numerous request headers available. They can be divided in several groups:
+
+*   **General headers**, like `Via`,  apply to the message as a whole.
+*   **Request headers**, like `User-Agent`, `Accept-Type`, modify the request by specifying it further (like `Accept-Language`), by giving context (like `Referer`), or by conditionally restricting it (like `If-None`).
+*   **Entity headers**, like `Content-Length` which apply to the body of the request. Obviously there is no such header transmitted if there is no body in the request.
+
+![Example of headers in an HTTP request](https://mdn.mozillademos.org/files/13821/HTTP_Request_Headers2.png)
+
+#### Body
+
+The final part of the request is its body. Not all requests have one: requests fetching resources, like `GET`, `HEAD`, DELETE, or OPTIONS, usually don't need one. Some requests send data to the server in order to update it: as often the case with `POST` requests (containing HTML form data).
+
+Bodies can be broadly divided into two categories:
+
+*   **Single-resource bodies**, consisting of one single file, defined by the two headers: `Content-Type` and `Content-Length`.
+*   **[Multiple-resource bodies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#multipartform-data)**, consisting of a `multipart body`, each containing a different bit of information. This is typically associated with `HTML Forms`.
+
+#### HTTP Responses
+
+##### Status line
+
+The start line of an HTTP response, called the `status line`, contains the following information:
+
+1.  The `protocol version`, usually `HTTP/1.1`.
+2.  A `status code`, indicating success or failure of the request. Common status codes are `200` (ok), `404` (Not found), or `500` (Server error)
+3.  A `status text`. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.
+
+A typical status line looks like: `HTTP/1.1 404 Not Found.`
+
+#### Headers
+
+`HTTP headers` for responses follow the same structure as any other header: a case-insensitive string followed by a colon (`':'`) and a value whose structure depends upon the type of the header. The whole header, including its value, presents as a single line.
+
+![Example of headers in an HTTP response](https://mdn.mozillademos.org/files/13823/HTTP_Response_Headers2.png)
+
+#### Body
+
+The last part of a response is the `body`. Not all responses have one: responses with a status code, like `201` or `204`, usually don't.
+
+Bodies can be broadly divided into three categories:
+
+*   **Single-resource bodies**, consisting of a single file of known length, defined by the two headers: `Content-Type` and `Content-Length`.
+*   **Single-resource bodies**, consisting of a single file of unknown length, encoded by chunks with `Transfer-Encoding` set to `chunked`.
+*   **[Multiple-resource bodies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#multipartform-data)**, consisting of a multipart body, each containing a different section of information. These are relatively rare.
 
 ### Step 2: Ok, lets take a look at a real API
-In the previous [lesson](../hands-on-iot-little-bits-ifttt-app/README.md), we wired our `cloudbit` up to the web and explored how we could send it signals using [IFTTT](www.ifttt.com). We saw that if our cloud bit detected an input signal (a `request`), we could have `IFTTT` do something (send a `response`). These concepts, i.e. _request_ and _response_, are central to the concept of `RESTful APIs`. REST, or REpresentational State Transfer, APIs, or Application Programming Interfaces, are tools that developers use to provide __abstraction__ and __resource encapsulation__ to people who want to interact with their data.
+Phew, enough background. In the previous [lesson](../hands-on-iot-little-bits-ifttt-app/README.md), we wired our `cloudbit` up to the web and explored how we could send it signals using [IFTTT](www.ifttt.com). We saw that if our cloud bit detected an input signal (a `request`), we could have `IFTTT` do something (send a `response`). These concepts, i.e. _request_ and _response_, are central to the concept of `RESTful APIs`. REST, or REpresentational State Transfer, APIs, or Application Programming Interfaces, are tools that developers use to provide __abstraction__ and __resource encapsulation__ to people who want to interact with their data.
 
 APIs allow you to get and save data back to the application, without needing to tightly integrate with that application. This improves __simplicity__ and helps your code to be more __modular__. APIs include `endpoints`, such as `/api/events`, that allow you to access certain specific data (e.g. events in this example). API endpoints help provide __minimization__ since users can only interact with the application through those interfaces provided by the developer.
 
