@@ -81,6 +81,21 @@ Executive Associate
 University of Nebraska at Omaha  
 [amykelley@unomaha.edu](mailto:amykelley@unomaha.edu)
 
+## How to Contribute?
+
+First fork this repo on Github.com while logged into your account. Then clone the forked repo on your computer.
+
+Now you will need two capabilities: 1) Keep your fork (downstream) synced with this repo (upstream) and 2) Make upstream pull requests for changes made in the forked repo. Both these can be accomplished by following these steps:  
+
+1. [Fork a Repo](https://help.github.com/articles/fork-a-repo/)  
+1. [Syncing a Fork](https://help.github.com/articles/syncing-a-fork/)  
+1. Push changes to your remote fork: `git push origin master`  
+1. [Create a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)  
+
+More advanced collaboration features can be found here: https://help.github.com/categories/collaborating-on-projects-using-issues-and-pull-requests/
+
+In general, if you are making it a pull request you agree to abide by this CLA: https://cla.github.com
+
 # License  
 [Nebraska GenCyber](https://github.com/MLHale/nebraska-gencyber) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
