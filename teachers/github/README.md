@@ -240,11 +240,9 @@ To `push` local commits in the current branch to a remote repository (`origin` i
  git push origin master
 ```
 
-> To rename a branch in the remote repository, you'd use the same git push command, but you would add one more argument: the name of the new branch. For example:
-```bash
-git push  <REMOTENAME> <LOCALBRANCHNAME>:<REMOTEBRANCHNAME>
-```
-This pushes the LOCALBRANCHNAME to your REMOTENAME, but it is renamed to REMOTEBRANCHNAME.
+> To rename a branch in the remote repository, you'd use the same git push command, but you would add one more argument: the name of the new branch. For example:  
+> `git push  <REMOTENAME> <LOCALBRANCHNAME>:<REMOTEBRANCHNAME>`  
+> This command pushes the LOCALBRANCHNAME to your REMOTENAME, but it is renamed to REMOTEBRANCHNAME.  
 
 Now, issue the `status` command to check your repository status once again:
 ```bash
@@ -280,10 +278,8 @@ git pull
 ```
 
 > `Sidebar`: If a repository has linked sub-modules (e.g. [nebraska-gencyber](https://github.com/MLHale/nebraska-gencyber)), add the following recursion flags to clone and pull changes from the sub-modules as well:  
-```bash
-git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
-git pull --recurse-submodules
-```
+> `git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git`  
+> `git pull --recurse-submodules`
 
 Continuing with the lesson, if we look at our local README.MD file in windows explorer, it should have the updated link.
 >![localpullupdate](./img/openreadme.png)
