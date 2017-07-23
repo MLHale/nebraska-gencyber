@@ -2,16 +2,19 @@
 
 ### Cybersecurity First Principles in this lesson
 
-* __Domain Separation__: Good fences make good neighbors.
-  - It is good to separate source code from runtime environment
-  - Version control for source code prevents accidental or unauthorized changes
+#### Domain Separation
+Good fences make good neighbors.  
+- It is good to separate source code from, build and runtime environment
+- Version control for source code prevents accidental or unauthorized changes
 
-* __Modularization__: The concept of modularity is like building blocks. Each block (or module) can be put in or taken out from a bigger project. Each module has its own separate function that is interchangeable with other modules.
-  - Different code repositories can be maintained for project modules
+#### Modularization
+The concept of modularity is like building blocks. Each block (or module) can be put in or taken out from a bigger project. Each module has its own separate function that is interchangeable with other modules.
+- Different code repositories can be maintained for project modules
 
-* __Least Privilege__: One of the ways to protect information is by limiting what people can see and do with your information and resources. The principle of least privilege says to allow the minimum number of privileges necessary to accomplish the task.
-  - When collaboratively develop code, each collaborator should only have privileges to play their part.   
-  - For example, a code reviewer should only have the ability to read and comment on code, but not edit it.
+#### Least Privilege
+One of the ways to protect information is by limiting what people can see and do with your information and resources. The principle of least privilege says to allow the minimum number of privileges necessary to accomplish the task.
+- When collaboratively developing code, each collaborator should only have privileges to play their part.   
+- For example, a code reviewer should only have the ability to read and comment on code, but not edit it.
 
 ### Introduction: Git and Github
 * [Git](https://git-scm.com/) is a popular software development tool.
@@ -31,8 +34,6 @@ The following tutorials focus on how you can use Git and Github for collaboratio
 
 ### Materials required
 - [git](https://git-scm.com/download/) (Windows Version)
-- ```Optionally:``` You could install Docker Toolbox which also includes Git for Windows
-  - [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 
 ### Prerequisite lessons
 - Lots of curiosity
@@ -62,8 +63,6 @@ The following tutorials focus on how you can use Git and Github for collaboratio
 
 <!-- TOC END -->
 
-
-
 ### Step 1: Create an Account
 First things first, create a free account on Github. https://github.com/join
 You will also need to verify your email address after registration in order to use your new GitHub account.
@@ -74,7 +73,9 @@ You will also need to verify your email address after registration in order to u
 Complete the following Github tutorial:
 https://guides.github.com/activities/hello-world/
 
-At the end of the Hello World Step 2, you will have created a `remote` repository and will have added a `branch`. It is `remote` because all your files are in the Github cloud. As a developer, you might ask, _"how do I use this to create code if it is just online?"_ It is not convenient to write and test code online, especially when many applications require locally install packages to even work. It would be great to use your own `Local` repository. We will do just that in the next step.
+At the end of Step 2, you will have created a `remote` repository and will have added a `branch`. It is `remote` because all your files are in the Github cloud. As a developer, you might ask, _"how do I use this to create code if it is just online?"_ It is not convenient to write and test code online, especially when many applications require locally install packages to even work. It would be great to use your own `Local` repository. We will do just that in the next step.   
+
+Git is a distributed configuration management system. It helps to `avoid` thinking of a traditional central code repository. Instead, with Git we have multiple independent repositories that could be in different states at any given time and synchronized using specific commits.
 
 [Top](#table-of-contents)
 
@@ -89,7 +90,7 @@ To create a `Local` repository there are two basic options.
 Let's start by looking at option #1 and checking that Git is installed.
 
 - Git tools do not come pre-installed with all operating systems.
-- To check if they exist on your operating system, open up a command line interface and type
+- To check if they exist on your operating system, open up a command line interface (`Powershell` for Windows) and type:
 
   ```bash
   git --version
@@ -113,7 +114,7 @@ You will start to see some download messages and upon success, your local reposi
 
 >![clone](./img/gitClone.png)
 
-Now switch to the hello-world directory that has all the files from the repository that you just cloned.
+Now , in Powershell, switch to the hello-world directory that has all the files from the repository that you just cloned.
 
 ```bash
 cd hello-world/
@@ -132,6 +133,11 @@ You should see a README.md and possibly some other files.
 
 If you need to create a new repository you would just navigate to the folder (using the `cd` command) containing the files you wish to version control and then use the init command:
 ```bash
+# Create a new directory
+mkdir test
+# Switch to that directory
+cd test
+# Initialize a new git repository
 git init
 ```
 
@@ -151,9 +157,9 @@ Let's open the hello-world folder in windows explorer and make changes to the `R
 3. Edit README.md to add a message. Like the one below.
 >![readme](./img/editreadme.png)
 
-Once you save the edited README.md, check the status of the local repository using the following command. Make sure you navigate to a folder within your repository in Powershell first.
+Once you save the edited README.md, check the status of the local repository using the following command. Return to Powershell:
 
-```
+```bash
 git status
 ```
 You should see something like this:
@@ -161,9 +167,11 @@ You should see something like this:
 >![gitstatus](./img/editedFileStatus.png)
 
 A few things to notice here about these status messages:  
-1. `On branch master`: You are on the master branch in your local repository.  
-2. `Your branch is up-to-date with 'origin/master'`: Your local repository master branch is in sync with your remote repository master branch on GitHub. The default name for the remote repository is **origin**.  
-3. `Changes not staged for commit`: git follows a two step process to save changes to a repository. First, the user indicates which modified/deleted/new files need to be _staged_ for a save in the repository. Second these staged files are _committed_ to the repository. We will look at commands to do both of these shortly.  
+1. `On branch master`: You are on the master branch in your `local` repository.  
+2. `Your branch is up-to-date with 'origin/master'`: Your local repository master branch is in sync with your remote repository master branch on GitHub. The default name for the remote repository is **origin**. This makes sense as you cloned your local repository from it.  
+3. `Changes not staged for commit`: git follows a two step process to save changes to a repository.
+  1. The user indicates which modified/deleted/new files need to be `staged` for a save in the repository.
+  2. The staged files are `committed` to the repository.
 4. `modified:  README.md`: git knows that the README.md file has been modified  
 
 Now we `stage` our changes for a commit using this command:
@@ -187,7 +195,7 @@ Now before we `commit` these files into our local repository, the git author det
 git config --global user.name "replace this with your name"
 git config --global user.email youremail@example.com
 ```
-You should see something like this:
+You should see something like this (with your name and email):
 >![gitconfig](./img/gitconfig.png)
 
 Check your configuration changes by using the following command:
@@ -224,15 +232,21 @@ To push our local commits to the remote repository (Github in this case), we nee
 
 > **Questions**  
 > - What is the default name of the remote repository?  
-> - What is the name of the main branch in our local repository?
+> - What is the name of the main branch a repository?
 
-To `push` local commits to the remote repository, use the following command:
+To `push` local commits in the current branch to a remote repository (`origin` in our case) and its remote branch (`master` in our case), use the following command:
 
 ```bash
  git push origin master
 ```
 
-Issue the `status` command to check your repository status once again:
+> To rename a branch in the remote repository, you'd use the same git push command, but you would add one more argument: the name of the new branch. For example:
+```bash
+git push  <REMOTENAME> <LOCALBRANCHNAME>:<REMOTEBRANCHNAME>
+```
+This pushes the LOCALBRANCHNAME to your REMOTENAME, but it is renamed to REMOTEBRANCHNAME.
+
+Now, issue the `status` command to check your repository status once again:
 ```bash
 git status
 ```
@@ -241,12 +255,12 @@ Visit your remote repository on `Github.com`. Your changes should appear there. 
 
 > ![updateremote](./img/remoteupdate.png)
 
-As mentioned before in the introduction, git version control is very efficient for text files. It does not store entire files for old versions but only the differences. So it is prudent to make frequent commits and then push these changes to the remote repository - so that you have as many checkpoints as possible should you need to roll back.
+As mentioned before in the introduction, git version control is very efficient for text files. It does not store entire files for old versions but only the differences. So it is prudent to make frequent commits and then push these changes to the remote repository - so that you have as many checkpoints as possible should you need to roll back. To keep the master branch commits clean, it is advisable to do feature development and testing in a feature branch and then merge with master.
 
 [Top](#table-of-contents)
 
 ### Step 5: Pull Remote Changes
-What happens if we make some changes to README.md on `Github.com`? How do we get these changes back into our local repository? We will learn just that in this step.
+What happens if we make some changes to README.md on `Github.com`? Or another collaborator makes changes to it. How do we get these changes back into our local repository? We will learn just that in this step.
 
 So, I realized that I forgot to add a link to UNO's Cybersecurity programs in the README.md file. So I will make these changes and commit those changes on Github.com itself.
 
@@ -259,17 +273,24 @@ So, I realized that I forgot to add a link to UNO's Cybersecurity programs in th
 3. See changes in your README.md file
 >![githubupdated](./img/githubupdated.png)
 
-Now the remote repository is one `commit` ahead of the local repository. To bring the _local_ repository up to speed, we use the following command in a terminal.
+Now the remote repository is one `commit` ahead of the local repository. To bring the _local_ repository up to speed, we use the following command in a terminal. This single command fetches remote changes (`git fetch`) and merges them (`git merge`) into your local repository.
 
 ```bash
 git pull
 ```
-Now if we look at our local README.MD file, it should have the updated link.
+
+> `Sidebar`: If a repository has linked sub-modules (e.g. [nebraska-gencyber](https://github.com/MLHale/nebraska-gencyber)), add the following recursion flags to clone and pull changes from the sub-modules as well:  
+```bash
+git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
+git pull --recurse-submodules
+```
+
+Continuing with the lesson, if we look at our local README.MD file in windows explorer, it should have the updated link.
 >![localpullupdate](./img/openreadme.png)
 
 At this point, you know enough to keep both the local and remote repositories synchronized.    
 
-As long as you always `pull` before making changes and keep pushing any new changes - you will avoid most merge conflicts that can occur.  
+As long as you always `pull` before making changes and keep `pushing` any new changes - you will avoid most merge conflicts that can occur.  
 
 If you are interested in learning more about complex team interaction scenarios - you may want to explore a concept called `branching` that avoids most `merge conflicts`; for more information about merge conflicts see: [https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/).
 
@@ -294,19 +315,19 @@ Click the `Fork` button.
 
 After forking, you will have your own copy of your peer's repository to work on. Using [Step 3](#step-3) you can `clone` this repository to your local computer. Make changes to files and `push` it back to this forked remote repository.   
 
-You may also choose to make direct changes to it on `Github` itself. Let's do this in the next step.
+Forking a repository is a good way to suggest new features to the original repository that you do not own, using a `pull` request. Let's do this in the next step.
 
 [Top](#table-of-contents)
 
 ### Step 7: Make a Pull Request
-In this step, we make changes to the fork of your peers' repository on `Github.com` and create a `pull request`.
+In this step, make changes to the fork of your peers' repository on `Github.com` and create a `pull request`.
 
 Let's assume that a `gencyber` (insert your ID here) user forks `robinagandhi/hello-world` repository (this will be your peer's repository).
 
 The forked repository for the `gencyber` user will look like this:
 >![forkedrepo](./img/forkedrepo.png)
 
-The `gencyber` user now makes changes to the README.md file in this forked repository. She is also the owner of this forked repository.
+The `gencyber` user now makes changes to the README.md file in this forked repository. She is also the owner of this new `forked` repository.
 >![forkupdate](./img/forkupdate.png)
 
 Now to suggest these changes to the `robinagandhi` user; the `gencyber` user needs to create a `pull request`. So the `gencyber` user switches over to the `Pull Request` tab on the forked repository and clicks the **new pull request** button. It will look something like this:
@@ -327,7 +348,7 @@ Here is a confirmation message after a successful `merge`:
 The updated content is now reflected in the peer's repository. It will be something like this:
 >![finalupdate](./img/forkupdatefinal.png)
 
-Now return the favor to your peer. Help them `fork` your hello-world repository and make a `pull request` to you.
+Now return the favor to your peer. Help them `fork` your hello-world repository and make a `pull request` back to you.
 
 And that is one way you can collaborate using `Github`.
 
@@ -355,6 +376,9 @@ Developers often design Github repositories, to be self-contained _modules_. The
 Finally, Github repositories separate source code from other resources. This separation allows long term archival and maintenance of a codebase, separate from its dependencies. __Domain Separation__ enables the management of source code versions that target different products and operating environments.
 
 [Top](#table-of-contents)
+
+## Git, err...Get your engines ready!
+* [Quiz](https://www.qzzr.com/c/quiz/436223/github-101)
 
 ## Additional Resources
 
