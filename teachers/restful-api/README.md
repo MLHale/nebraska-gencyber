@@ -1,7 +1,6 @@
 # RESTFul APIs and Little bits
 
 ### Cybersecurity First Principles in this lesson
- (delete this line and all bullets that do not apply )
 
 * __Abstraction__: An abstraction is a representation of an object or concept. It could be something such as a door, a speedometer, or a data structure in computer science. Abstraction decouples the design from the implementation. The gauges in an automobile are an abstraction of the performance of a car. A map is an abstraction of the earth.
 
