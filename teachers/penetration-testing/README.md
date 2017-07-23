@@ -189,12 +189,7 @@ We've created this pretty cool API and nice client-side interface to use it. How
 * We will look at them one at a time. First lets start our server. Change into your `nebraska-gencyber-dev-env` folder.
 * type `docker-compose up` to run the server
 
-> Note: This assumes your work is completed from the previous lesson. If you want to run this module stand-alone. Update your code using the following commands (from the `nebraska-gencyber-dev-env` folder). Also, make sure that you have stored your API key in Django.
-```bash
-cd backend/
-git checkout tags/step10-server
-cd ..
-```
+> Note: This assumes your work is completed from the previous lesson. If you want to run this module stand-alone. Ensure you have the correct code and operational environment. For stand-alone setup, see [stand-alone setup](#stand-alone-lesson-setup) below.
 
 * Now open `POSTMAN` and send a simple `GET` request to your local server at `https://localhost`.
 * What do you get?
@@ -438,6 +433,43 @@ For more information, investigate the following.
 
 * [http://developers.littlebitscloud.cc/](http://developers.littlebitscloud.cc/) - API reference for the Littlebits web service.
 * [Bruegge and Dutoit, _Object-oriented Software Engineering: Using UML, Patterns, and Java_, Prentice Hall, 2010](http://dl.acm.org/citation.cfm?id=1795808)
+
+#### Stand Alone Lesson Setup
+If you want to run this lesson without running [Building a server](../building-a-server/README.md) you can run the following commands.
+
+Open a `Powershell` terminal and change directory to your `Desktop`:
+```bash
+git clone https://github.com/MLHale/nebraska-gencyber-dev-env --recursive
+cd nebraska-gencyber-dev-env
+cd backend/
+git checkout tags/step10-server
+cd ..
+docker-compose build
+docker-compose run django bash
+python manage.py flush
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser --username admin --email admin
+exit
+docker-compose up
+```
+
+Now, in `Atom`, open the `/nebraska-gencyber-dev-env/backend/django_backend/settings.py` file.
+
+find the line marked:
+```
+ALLOWED_HOSTS = ['137.48.185.230', 'localhost']
+```
+Replace '137.48.185.230' with your `ip address`.
+
+* to get your server ip, you need to open a `Powershell` and type:
+```bash
+ipconfig --all
+```
+* find your ipv4 address on the ip record for the ethernet card attached to your machine
+* alternatively, you can go to http://google.com and search for 'my ip address'
+
+Also be sure to login to http://localhost/admin/ and add your API key by clicking `Api keys` and then `Add Api Key`. If you forgot it or don't have your key handy, you can retrieve it by visiting http://control.littlebitscloud.cc/ and clicking on `settings`. Set `owner` to `admin` and then click save to store it.
 
 ### Acknowledgements
 Special thanks to [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/), Andrew Li, and April Guerin for reviewing and editing this module.
