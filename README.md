@@ -11,7 +11,10 @@ The guides are organized by camp days and are available at the linked urls:
 ![Teachers Week 1](./img/uno-camp-schedule-teachers-week1.png)  
 
 ### Week Two
+#### Students
 ![Students Week 2](./img/uno-camp-schedule-students-week2.png)  
+
+#### Teachers
 ![Teachers Week 2](./img/uno-camp-schedule-teachers-week2.png)
 
 ## Week One Events
@@ -44,26 +47,26 @@ Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone]
 ## Contacts
 
 #### Nebraska GenCyber Program Director (Primary Point of Contact)
-<img src="./img/matt.jpg" width=100/>  
+![matt](./img/matt.jpg)  
 [Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)    
 Assistant Professor of Cybersecurity  
 University of Nebraska at Omaha    
 [mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)
 
 #### Bellevue Point of Contact
-<img src="./img/doug.jpg" width=100/>  
+![doug](./img/doug.jpg)  
 [Dr. Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)   
 Assistant Professor & Program Director BSCYBR and MSCYBR  
 Bellevue University  
 [drausch@bellevue.edu](mailto:drausch@bellevue.edu)
 
 #### Co-Investigator / Instructors
-<img src="./img/robin.png" width=100/>  
+![robin](./img/robin.png)  
 [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)    
 Associate Professor of Cybersecurity  
 University of Nebraska at Omaha  
 
-<img src="./img/briana.jpg" width=100/>  
+![briana](./img/briana.png)  
 [Dr. Briana B. Morrison](http://www.brianamorrison.net)  
 Assistant Professor of Computer Science (Education)  
 University of Nebraska at Omaha  
@@ -72,7 +75,7 @@ University of Nebraska at Omaha
 insert Bellevue staff here
 
 #### Administrative Support
-<img src="./img/amy.jpg" width=100/>  
+![amy](./img/amy.jpg)  
 [Amy Kelley](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/amy-kelley.php)  
 Executive Associate
 University of Nebraska at Omaha  
