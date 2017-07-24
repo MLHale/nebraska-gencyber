@@ -390,7 +390,7 @@ What happened? Oops, we caused the server to generate a 500 error. This happened
 
 * lets change the `timestamp` back and try to send a `cross-site scripting attack` using the event field.
 
-![request](./img/activate-accepts-arbitrary-input.png)
+![request](./img/activate-accepts-arbitrary-input1.png)
 ![request](./img/activate-accepts-arbitrary-input2.png)
 
 * It worked! We can send any string text to our app.
@@ -432,7 +432,7 @@ To show you how bad storing arbitrary string text can be, the skeleton code incl
 
 If you visit, https://localhost/css_example/ you can see this `Stored XSS` attack in action.
 
-![request](./img/activate-accepts-arbitrary-input3.png) 
+![request](./img/activate-accepts-arbitrary-input3.png)
 
 #### Answering Question 3 (Object Level Permissions)
 In this case, our method doesn't use authentication, so it **doesn't** use `object-level permissions` by default. If we did add authentication and wanted to check for object-level permissions. We would need to check that the code checks not just if the user is authenticated but also if they have permissions on that object to do what they are asking to do.
