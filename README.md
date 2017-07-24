@@ -3,8 +3,11 @@ This repo includes all open source content for the Nebraska GenCyber camp. Files
 
 <img src="./img/uno-logo.png" width=250/><img src="./img/bellevue-logo.png" width=270/>
 
-# Camp Study Guides
-The guides are organized by camp days and are available at the linked urls:
+## Slack channel and social media
+Want to get a hold of camp staff or fellow campers? Use [our official Slack Channel](https://join.slack.com/t/nebraskagencyber/shared_invite/MjE3NzAyMDczOTkxLTE1MDA4NzMxODYtNjI0ODBiYTU2MA). You can sign up for free.
+
+### Twitter
+Social media is welcome at camp - use the hashtag `#nebraskagencyber`
 
 ## Camp Schedule
 ### Week One
@@ -16,6 +19,9 @@ The guides are organized by camp days and are available at the linked urls:
 
 #### Teachers
 ![Teachers Week 2](./img/uno-camp-schedule-teachers-week2.png)
+
+# Camp Content
+The guides are organized by camp days and are available at the linked urls:
 
 ## Week One Events
 Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone](./teachers/README.md)
