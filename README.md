@@ -78,9 +78,9 @@ Assistant Professor of Computer Science (Education)
 University of Nebraska at Omaha  
 
 #### Instructors
-Gary Sparks
-Guillermo Rosas
-Courtney Saffold
+Gary Sparks  
+Guillermo Rosas    
+Courtney Saffold  
 
 #### Administrative Support
 ![amy](./img/amy.jpg)  
