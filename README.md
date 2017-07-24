@@ -78,7 +78,9 @@ Assistant Professor of Computer Science (Education)
 University of Nebraska at Omaha  
 
 #### Instructors
-insert Bellevue staff here
+Gary Sparks
+Rosas Guillermo
+Courtney Saffold
 
 #### Administrative Support
 ![amy](./img/amy.jpg)  
