@@ -79,7 +79,7 @@ University of Nebraska at Omaha
 
 #### Instructors
 Gary Sparks
-Rosas Guillermo
+Guillermo Rosas
 Courtney Saffold
 
 #### Administrative Support
