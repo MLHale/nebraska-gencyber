@@ -21,15 +21,16 @@ The guides are organized by camp days and are available at the linked urls:
 Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone](./teachers/README.md)
 
 ## Week Two Events
-### Day 1: Title here
-### Day 2: Title here
-### Day 3: Title here
-1. link 1 here
-1. link 2 here
+### Day 1: TBA
+### Day 2: TBA
+### Day 3: TBA
+1. Project Presentations
+1. Phishing Lesson
 
 ### Day 4: Title here
-1. link 1 here
-1. link 2 here
+1. Littlebits Intro and IFTTT
+1. REST APIs
+1. Penetration Testing
 
 ### Day 5: Capture the Flag Contest
 * [Jeopardy style contest among student-teacher teams](http://ctf.gencyber2017.unomaha.edu)
@@ -37,11 +38,10 @@ Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone]
 
 
 ## Evaluation Forms
-* [Student Evaluation Form](https://docs.google.com/forms/d/e/1FAIpQLSfaTgdb9j8x86PVtDRYB0XSJZHDF0M2g8-R5QD-_aJmKs-lLw/viewform)
-* [Teacher Peer Evaluation Form](https://docs.google.com/forms/d/e/1FAIpQLSeApna8ZsyeOtrWHEmlr_epKYarDq4EaxYnIPoyV3HDDVOTeA/viewform)
-* [Teacher Module Evaluation Form](https://docs.google.com/forms/d/e/1FAIpQLSfGxM5p10WfOeANDcxylNF240cVEeFew8HbCsAjss5IJawVyQ/viewform)
-* [Exit Survey (Teachers)](https://www.surveymonkey.com/r/AIMInstitute_T1)
-* [Exit Survey(Students)](https://www.surveymonkey.com/r/AIMInstitute_S1)
+* [Student Module Evaluation Form](https://unomaha.az1.qualtrics.com/jfe/form/SV_d6fG6S6YsTIdMTb)
+* [Teacher Module Evaluation Form](https://unomaha.az1.qualtrics.com/jfe/form/SV_8q4cebgz9jXh301)
+* [Exit Survey (Teachers)](https://www.surveymonkey.com/r/NebraskaOmaha_C1_T1_July24_Aug4)
+* [Exit Survey (Students)](https://www.surveymonkey.com/r/NebraskaOmaha_C1_S1_July24_Aug4)
 
 
 ## Contacts
