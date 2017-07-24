@@ -61,7 +61,7 @@ University of Nebraska at Omaha
 
 #### Bellevue Point of Contact
 ![doug](./img/doug.jpg)  
-[Dr. Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)   
+[Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)   
 Assistant Professor & Program Director BSCYBR and MSCYBR  
 Bellevue University  
 [drausch@bellevue.edu](mailto:drausch@bellevue.edu)
