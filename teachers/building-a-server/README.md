@@ -291,6 +291,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/', include(api_urls)),
+    url(r'^css-example/', controllers.css_example),
     url(r'^', views.home),
 ]
 ```
@@ -383,7 +384,7 @@ class DeviceEvents(APIView):
 ### Step 6: Press the button
 Ok, so you now have a loose familiarity with the skeleton `backend` code that was provided to you. Lets build upon it.
 
-Earlier, you saw a green button that said **turn cloudbit on** when you visited `localhost`. Time to push it!
+When you login, you should see a green button that says **turn cloudbit on** when visiting `localhost`. Time to push it!
 
 
 * connect the `power module` to the pink `button` input module

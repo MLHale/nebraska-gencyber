@@ -237,6 +237,7 @@ Our web server exposes several endpoints for end-user consumption, look at the f
 * `/api/register` -> controllers.Register (Class)
 * `/api/deviceevents` -> controllers.DeviceEvents (Class)
 * `/api/activatecloudbit` -> controllers.ActivateCloudbit (Class)
+* `css-example/` -> controllers.css_example (method that demonstrates cross-site scripting),
 * `/*` -> controllers.home (Single Method that serves up our frontend client)
 
 For our purposes, we will assume that the open source, highly reviewed, and security tested code from the `Django Admin` Package and the `Django REST Framework` library have been sufficiently assessed.
@@ -255,7 +256,7 @@ def home(request):
    """
    Send requests to / to the ember.js clientside app
    """
-   return render_to_response('index.html',
+   return render_to_response('ember/index.html',
                {}, RequestContext(request))
 ```
 
@@ -388,6 +389,7 @@ Let's test our fields.
 What happened? Oops, we caused the server to generate a 500 error. This happened because it tried to turn an arbitrary string into an int i.e. `timestamp = int(request.data.get('timestamp'))`. It is good that it didn't accept it, but it is bad that it crashed!
 
 * lets change the `timestamp` back and try to send a `cross-site scripting attack` using the event field.
+
 ![request](./img/activate-accepts-arbitrary-input.png)
 ![request](./img/activate-accepts-arbitrary-input2.png)
 
@@ -396,7 +398,41 @@ What happened? Oops, we caused the server to generate a 500 error. This happened
 * The other good news is that our client also `escaped` the string before inserting it into the page.
 * The bad news is that if a client rendered that string as `HTML` bad stuff would happen.
 
-## <Insert example of that here. >
+To show you how bad storing arbitrary string text can be, the skeleton code includes an endpoint we have ignored up to this point called `css_example`. This stands for _cross-site scripting example_. The code for the example is loaded in a stand-alone index.html file in the `nebraska-gencyber-dev-env/backend/static/dumb-test-app` folder. Specifically, this **dumb** client includes the following (fairly typical) javascript method that is often used for loading data.
+
+```html
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+      $.get('../api/deviceevents').then(function(events){
+        console.log(events)
+        events.forEach(function(event){
+          $('#this-is-bad').append("<br>");
+          $('#this-is-bad').append('<p>Event id:' + event.pk + ' eventtype data below:' +'</p>');
+          $('#this-is-bad').append(event.fields.eventtype)
+          $('#this-is-bad').append("---------------------------------------------------<br>");
+
+        });
+      });
+
+    </script>
+  </head>
+  <body>
+    <div id='this-is-bad'>
+      <h5>This field loads in whatever data is available. This is bad. Every event loaded will be appended as a new div below this line.</h5>
+      <p>------------------------------------------------------------------------------------------------------------</p>
+    </div>
+  </body>
+```
+
+* In this html file we see that it includes `jquery` and then uses the `$.get` ajax method to make a `GET Request` to the server api, get the deviceevent data, and then use the `append` method to load it into the page.
+* While this type of data loading is **quite typical** in many web applications it is **highly vulnerable** to a type of `cross-site scripting (XSS)` attack called `stored cross-site scripting`.
+* In our case, our server `API endpoint` did not filter the string text, so it allows for XSS text to be stored as a string. When the client loads the data from the server, it `renders it as HTML` causing the XSS attack to succeed and a popup to be generated.
+
+If you visit, https://localhost/css_example/ you can see this `Stored XSS` attack in action.
+
+![request](./img/activate-accepts-arbitrary-input3.png) 
 
 #### Answering Question 3 (Object Level Permissions)
 In this case, our method doesn't use authentication, so it **doesn't** use `object-level permissions` by default. If we did add authentication and wanted to check for object-level permissions. We would need to check that the code checks not just if the user is authenticated but also if they have permissions on that object to do what they are asking to do.
