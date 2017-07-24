@@ -227,7 +227,6 @@ Try some different designs yourself.
 [Quiz](https://www.qzzr.com/c/quiz/430545/all-about-littlebits-introduction)
 
 <div class="quizz-container" data-width="100%" data-iframe-title="QUIZ: All About Littlebits - Introduction" data-height="auto" data-quiz="430545"></div>
-<script src="//dcc4iyjchzom0.cloudfront.net/widget/loader.js" async></script>
 
 ### Additional Resources
 For more information, investigate the following:
