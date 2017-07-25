@@ -5,7 +5,9 @@
 - Stackable onto on a ship, train, plane or truck. ⛴️ 🚇 ✈️ 🚚
 - Compatible worldwide.
 
-Application containers follow a similar philosophy.
+![containers](https://cdn.pixabay.com/photo/2016/05/02/16/34/container-gantry-crane-1367601_960_720.jpg)
+
+Application `containers` follow a similar philosophy.
 
 ## Application containers
 - Standard unit of an application’s runtime.
@@ -79,7 +81,7 @@ First, we need to download a container blueprint called an ```Image```
 # Download alpine container image from Docker Hub
 docker pull alpine
 ```
-You should see some download activity.
+You should see some download activity. What just happened?
 
 ## Container images
 
@@ -127,6 +129,16 @@ exit # Stop the shell to exit container
 - Host directories and files are inaccessible
 - The container can connect to websites and receive responses
 - You were running as `root` in the container!
+
+## Cleanup
+- Let's see the containers that we created. This command shows both running and stopped containers.
+```bash
+docker ps -a
+```
+- Using the name of a container we can delete containers that are stopped.
+```bash
+docker rm <container-ID or name>
+```
 
 # This is so cool… 😎
 
@@ -267,7 +279,7 @@ Now browse to http://localhost:8888
 ### 😎 Cool!
 
 ## Cleanup
-Let's stop the container service and delete the container before we move on. 
+Let's stop the container service and delete the container before we move on.
 ```bash
 # Stop a running container named lighttpd
 docker stop lighttpd

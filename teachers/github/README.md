@@ -38,6 +38,15 @@ The following tutorials focus on how you can use Git and Github for collaboratio
 
 ### Prerequisite lessons
 - Lots of curiosity
+- [Linux Commands](https://www.cheatography.com/davechild/cheat-sheets/linux-command-line/pdf/). These directory operations will be very useful:
+```bash
+# Directory Operations
+pwd # Show current directory
+mkdir dir # Make directory dir
+cd dir # Change directory to dir
+cd .. # Move up a directory
+ls  # list files and directories in current directory
+```
 
 ### Table of Contents    
 <!-- TOC START min:1 max:3 link:true update:true -->
