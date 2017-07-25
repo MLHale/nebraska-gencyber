@@ -189,7 +189,7 @@ Lets make a second applet to do the same thing, but via `SMS`.
 
 ![trigger](img/sms-trigger.png)
 
-* Test it out by sending `415-692-6283` a text with the tag `#nebraskagencyber` in the body.
+* Test it out by sending a text message to the number on the screen with the tag `#nebraskagencyber` in the body.
 * Give it a minute to process
 
 ### Step 7: Twitter watcher
