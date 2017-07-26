@@ -173,6 +173,7 @@ sudo apt-get upgrade
 ```
 
 * Hit enter to answer yes to the question do you want to continue
+* If during the install you are presented any informational notes in the terminal window pressing 'q' will bypass them and continue with the upgrade  
 
 The upgrade options to apt-get tell the operating system to compare the current software against the new catalog you just downloaded with the update command.  Any software that has a newer version is now downloaded and installed
 
