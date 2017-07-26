@@ -105,7 +105,7 @@ sudo npm i -g npm@2.x
 * Update Node-Red - this operation may take several minutes
 
 ```bash
-update-nodes-and-nodered
+update-nodejs-and-nodered
 ```
 
 * Install nodes for the IFTTT service and Raspberry Pi camera
