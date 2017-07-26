@@ -137,7 +137,7 @@ You have a couple options for mounting your camera for use:
 
 With a brand new Raspberry Pi, although the operating system comes pre-loaded you will need to install it.
 
-* Select your porper language and keyboard at the bottom of the screen 
+* Select your proper language and keyboard at the bottom of the screen 
 * Use your mouse to select the Raspian option in the dialog box, click the __Install button__, and confirm - then wait
 * Click OK on the dialog box that pops up telling you the OS has installed successfully and your Pi should reboot
 * Before continuing make sure you have network connectivity following your local procedures for wifi or wired internet
