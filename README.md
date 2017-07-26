@@ -10,23 +10,18 @@ Want to get a hold of camp staff or fellow campers? Use [our official Slack Chan
 Social media is welcome at camp - use the hashtag `#nebraskagencyber`
 
 ## Camp Schedule
-### Week One
+### Week One Events
+Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone](./teachers/README.md)
+
 ![Teachers Week 1](./img/uno-camp-schedule-teachers-week1.png)  
 
-### Week Two
+## Week Two Events
 #### Students
 ![Students Week 2](./img/uno-camp-schedule-students-week2.png)  
 
 #### Teachers
 ![Teachers Week 2](./img/uno-camp-schedule-teachers-week2.png)
 
-# Camp Content
-The guides are organized by camp days and are available at the linked urls:
-
-## Week One Events
-Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone](./teachers/README.md)
-
-## Week Two Events
 ### Day 1: TBA
 ### Day 2: TBA
 ### Day 3: TBA
@@ -71,11 +66,13 @@ Bellevue University
 [Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)    
 Associate Professor of Cybersecurity  
 University of Nebraska at Omaha  
+[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)
 
 ![briana](./img/briana.png)  
 [Dr. Briana B. Morrison](http://www.brianamorrison.net)  
 Assistant Professor of Computer Science (Education)  
 University of Nebraska at Omaha  
+[bbmorrison@unomaha.edu](mailto:bbmorrison@unomaha.edu)
 
 #### Instructors
 Gary Sparks  
