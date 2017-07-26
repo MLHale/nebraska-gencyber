@@ -108,7 +108,7 @@ sudo npm i -g npm@2.x
 update-nodejs-and-nodered
 ```
 
-* Install nodes for the IFTTT service and Raspberry Pi camera.  Note: If you receive an error that the .node-red directory does not exist go under the rasperry menu (first on the left), select programming, and node-red.  This will create the directory.  After that you can continue with the below instructions   
+* Install nodes for the IFTTT service and Raspberry Pi camera.  Note: If you receive an error that the .node-red directory does not exist go under the rasperry menu (first on the left), select programming, and node-red.  This will create the directory.  Then enter the command ```node-red-stop``` from a terminal window.  This will shutdown the program so you can continue with installs.  After that you can continue with the below instructions   
 
 ```bash
 cd ~/.node-red
