@@ -135,6 +135,13 @@ You have a couple options for mounting your camera for use:
 * Plug the small end of the power cable into the Raspberry Pi
 *    Plug the other end of the power cable into a power strip or wall socket
 
+With a brand new Raspberry Pi, although the operating system comes pre-loaded you will need to install it.
+
+* Select your proper language and keyboard at the bottom of the screen 
+* Use your mouse to select the Raspian option in the dialog box, click the __Install button__, and confirm - then wait
+* Click OK on the dialog box that pops up telling you the OS has installed successfully and your Pi should reboot
+* Before continuing make sure you have network connectivity following your local procedures for wifi or wired internet
+
 ### Step 10: Configuring the camera and updating the Raspberry Pi software
 Now we need to tell the Raspberry Pi that you have installed a camera.  
 
@@ -166,6 +173,7 @@ sudo apt-get upgrade
 ```
 
 * Hit enter to answer yes to the question do you want to continue
+* If during the install you are presented any informational notes in the terminal window pressing 'q' will bypass them and continue with the upgrade  
 
 The upgrade options to apt-get tell the operating system to compare the current software against the new catalog you just downloaded with the update command.  Any software that has a newer version is now downloaded and installed
 

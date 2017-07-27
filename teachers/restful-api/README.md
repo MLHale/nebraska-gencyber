@@ -271,7 +271,7 @@ Content-type: application/json
 
 ![POST request](img/postman4.png)
 
-Now set the body to tell cloudbit to turn the LED on at 100% brightness and to stay on for 5 seconds.
+Now click on the Body tab (next to the Headers tab). Select the Raw input option and type the JSON shown below to tell cloudbit to turn the LED on at 100% brightness and to stay on for 5 seconds.
 
 Body:
 ```
