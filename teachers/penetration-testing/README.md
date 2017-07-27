@@ -393,6 +393,13 @@ What happened? Oops, we caused the server to generate a 500 error. This happened
 ![request](./img/activate-accepts-arbitrary-input1.png)
 ![request](./img/activate-accepts-arbitrary-input2.png)
 
+```json
+{
+       "eventtype": "<script type='text/javascript'>alert('Cookie'+document.cookie)</script>",
+       "timestamp": 1500681745
+}
+```
+
 * It worked! We can send any string text to our app.
 * The good news is that `Django` automatically `escapes` the string before storing it in the database.
 * The other good news is that our client also `escaped` the string before inserting it into the page.
