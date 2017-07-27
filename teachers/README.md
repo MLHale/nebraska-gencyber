@@ -25,7 +25,6 @@ The available teacher modules include:
 * [Containers](./containers/README.md)
 * [Building your own server](./building-a-server/README.md)
 * [Penetrating Testing](./penetration-testing/README.md)
-* [Hardening: Application Level](./server-hardening/README.md)
 * [Hardening: OS Level](./firewall/README.md)
 * [Phishing](./phishing/README.md)
 * [Teaching Best Practice Workshop Outcomes](./workshops/README.md)
