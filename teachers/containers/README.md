@@ -411,7 +411,7 @@ services:
       - ./backend:/var/www/backend
     # Expose ports
     ports:
-     - "8000:8000"
+     - "80:8000"
     # Link Django to Postgres
     depends_on:
      - db
@@ -468,7 +468,7 @@ Back in the previous ```Powershell```:
 docker-compose up
 ```
 
-Navigate to http://localhost:8000/ to examine the running app.
+Navigate to http://localhost to examine the running app.
 
 # Super cool 🤓
 
@@ -485,6 +485,65 @@ cd nebraska-gencyber-dev-env
 docker-compose stop
 ```
 > `docker-compose down` command will shutdown and delete the containers. So be careful when using the down command.
+
+## Saving and Loading container images for offline development
+
+Blocked access to docker hub or any repositories in school lab networks may limit the ability to build containers images. In such scenarios, container images can be exported in a compressed file format and later imported.
+
+On a un-restricted internet connected computer first build or download the container images required. Then export the container images to a tar file. For example, to save the nebraskagencyberdevenv_django and postgres images we created above, open a new `Powershell`:
+
+```bash
+# Change directory to the Desktop
+cd Destkop
+
+# Save a docker image to a tar archive
+docker save --output ngde_django.tar nebraskagencyberdevenv_django postgres
+```
+
+The `ngde_django.tar` archive will be available in the current working directory (Desktop). You may now transfer the archive to a portable drive or make it available for download in a accessible location.
+
+Now in a restricted network access computer, the container images from the tar file can be imported as follows.
+
+In a `Powershell`:
+
+```bash
+# Save a docker image to a tar archive
+docker load --input ngde_django.tar
+
+# List available images
+docker images
+```
+`nebraskagencyberdevenv_django` and `postgres` images should appear in your list of available images now. To spin up the containers we would continue the configuration steps we performed above from starting here:
+
+In a new ```Powershell```:
+```bash
+# Clone the code repo or transfer from a portable drive if internet is not available
+git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
+
+# Change directory to get into the repo
+cd nebraska-gencyber-dev-env
+
+# run option executes a one-time command against a service
+docker-compose run django bash
+```
+
+In the returned ```container``` shell:
+```bash
+# Perform Django configurations
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser --username admin --email admin
+exit
+```
+
+Continuing  in the previous ```Powershell```:
+```bash
+# One simple command to start the entire application
+docker-compose up
+```
+
+Navigate to http://localhost to examine the running app.
+
 
 [Top](#table-of-contents)
 
