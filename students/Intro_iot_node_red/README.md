@@ -275,6 +275,7 @@ Use Kahoot to assess comprehension
 For more information, investigate the following:
 
 * [Node Red website](https://nodered.org/)
+* [Raspberry Pi IoT kit](http://kookye.com)
 
 ### Acknowledgements
 
