@@ -166,7 +166,18 @@ python manage.py createsuperuser --username admin --email admin
 exit
 ```
 
-Now, in `Atom`, open the `/nebraska-gencyber-dev-env/backend/django_backend/settings.py` file.
+* Now open `Atom` on your desktop,
+* go to the File -> "Add Project Folder..."
+
+![Add folder](./img/add-folder.png)
+> note that your interface may look slightly different on windows.
+
+* Find your `nebraska-gencyber-dev-env` folder (it should be located at `C:/Users/student/Desktop/`)
+* Upon opening it you should see:
+
+![File Tree](./img/file-tree1.png)
+
+Now, in `Atom`, open the `/nebraska-gencyber-dev-env/backend/django_backend/settings.py` file by navigating to it in the file tree (on the left) and clicking it.
 
 find the line marked:
 ```
@@ -191,7 +202,7 @@ docker-compose up
 
 This server, diagrammatically looks like:
 
-![Django Architecture](./img/django-architecture-diagram.png)
+![Django Architecture](./img/django-architecture.png)
 
 The docker command executes the container using the `docker-compose.yml` file located in your `/nebraska-gencyber-dev-env/` folder.
 * Leave this terminal running
@@ -209,18 +220,9 @@ This is a `web client` (also called a `frontend`) that we've built for demo purp
 ### Step 5: Explore the server
 Since our focus is the `backend` - lets take a look at our server environment. First. Lets explore the file tree.
 
-* Open `Atom` on your desktop,
-* go to the File -> "Add Project Folder..."
 
-![Add folder](./img/add-folder.png)
-> note that your interface may look slightly different on windows.
 
-* Find your `nebraska-gencyber-dev-env` folder (it should be located at `C:/Users/student/Desktop/`)
-* Upon opening it you should see:
-
-![File Tree](./img/file-tree1.png)
-
-* click `backend` to explore the actual files our server is using
+* click `backend` in the file tree to explore the actual files our server is using
 * Click `api` and `django_backend` to expand out the folders and see what we have.
 * This code is built using a `Model View Controller` framework called `Django`.
   * `Models` (in `models.py`) are `abstraction` mechanisms that help you represent your data without worrying about the nitty gritty of database technologies.

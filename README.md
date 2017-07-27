@@ -10,25 +10,25 @@ Want to get a hold of camp staff or fellow campers? Use [our official Slack Chan
 Social media is welcome at camp - use the hashtag `#nebraskagencyber`
 
 ## Camp Schedule
-### Week One Events
+### Week One
 Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone](./teachers/README.md)
 
 ![Teachers Week 1](./img/uno-camp-schedule-teachers-week1.png)  
 
-## Week Two Events
+### Week Two
 #### Students
 ![Students Week 2](./img/uno-camp-schedule-students-week2.png)  
 
 #### Teachers
 ![Teachers Week 2](./img/uno-camp-schedule-teachers-week2.png)
 
-### Day 1: TBA
-### Day 2: TBA
-### Day 3: TBA
+## Shared Sessions
+### Day 3: Student Presentations, Node Red, and Phishing (At Bellevue)
 1. Project Presentations
+1. Node Red
 1. Phishing Lesson
 
-### Day 4: Title here
+### Day 4: Littlebits and REST (At UNO)
 1. Littlebits Intro and IFTTT
 1. REST APIs
 1. Penetration Testing
