@@ -513,7 +513,7 @@ docker load --input ngde_django.tar
 # List available images
 docker images
 ```
-`nebraskagencyberdevenv_django` and `postgres` images should appear in your list of available images now. To spin up the containers we would continue the configuration steps we performed above from starting here:
+`nebraskagencyberdevenv_django` and `postgres` images should appear in your list of available images now. To spin up the containers we would continue the configuration steps we performed above, starting here:
 
 In a new ```Powershell```:
 ```bash
