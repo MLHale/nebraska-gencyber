@@ -534,7 +534,7 @@ In a `Powershell`:
 cd ~/Desktop
 
 # Decompress the archives
-expand-archive -path '.\nebraska-gencyber-dev-env.zip' -destinationpath '.\nebraska-gencyber-dev-env'
+expand-archive -path '.\nebraska-gencyber-dev-env.zip' -destinationpath '.'
 
 # Load the docker images from the tar archive
 docker load --input ngde_django.tar
@@ -559,6 +559,8 @@ django:
     image: nebraskagencyberdevenv_django
 
 ```
+
+This change instructs docker to use the existing image, rather than build using internet resources.
 
 Continue in ```Powershell```:
 ```bash
