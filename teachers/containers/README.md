@@ -521,7 +521,7 @@ docker save --output ngde_django.tar nebraskagencyberdevenv_django postgres
 
 The `ngde_django.tar` archive will be available in the current working directory (Desktop). You may now transfer the archive to a portable drive or make it available for download in a accessible location.
 
-## Loading Files
+### Loading Files
 
 Now in a restricted network access computer, the repository files from zip archives and container images from the tar file can be imported as follows.
 
@@ -530,7 +530,6 @@ Copy the `nebraska-gencyber-dev-env.zip` and `ngde_django.tar` files to Desktop.
 In a `Powershell`:
 
 ```bash
-
 # switch to Desktop
 cd ~/Desktop
 
