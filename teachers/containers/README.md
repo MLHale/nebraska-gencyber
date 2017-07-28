@@ -619,7 +619,9 @@ ipconfig --all
 
 #### Adding the API key
 
-Open your browser and go to http://localhost/admin/api/apikey/. Click 'add api key'.
+Open your browser and go to http://localhost/admin/api/apikey/. Enter the username and password for Django administrator if prompted. This is what you setup just a few instructions before. 
+
+- Click 'add api key'.
 
 ![error with key](../building-a-server/img/api-key.png)
 
