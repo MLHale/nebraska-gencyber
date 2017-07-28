@@ -84,7 +84,9 @@ By properly applying the Cybersecurity First Principles we can reduce the risk t
 
 ### A Simple IoT Example
 ### Step 1: Install and update needed programs
-The first thing we need to do is install and update a few needed programs.  Respond yes to any prompts you receive during the following operations.
+The first thing we need to do is install and update a few needed programs. As much as we would like to have all the programs we would ever need loaded on a system not only does allowable memory not allow this it's not a good idea from a cybersecuirty perspective.  The First Principle of __minimization__ tells us that by reducing the amount of places where vulnerabilities could exist we make our system more secure.  We call this reducing our _attack surface_.  Having programs loaded you are not using makes you needlessly open to attacks to those programs.  
+
+During the below installs respond yes to any prompts you receive during the following operations.
 
 * Install the Firefox Browser - Node-Red works best with Firefox.  Remember we need to use the command `sudo` to preface the install command due to the Raspberry Pi implementing the Cybersecurity First Principle of __Least Privilege__
 
