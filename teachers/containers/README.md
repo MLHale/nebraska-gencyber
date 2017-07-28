@@ -332,8 +332,21 @@ The DockerFile is typically in the top level project directory
 
 In a new ```Powershell```:
 ```bash
+# Switch to Desktop
+cd ~/Desktop
+
 # Clone the dev repository
-git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
+git clone https://github.com/mlhale/nebraska-gencyber-dev-env
+
+# Switch to the cloned repository
+cd nebraska-gencyber-dev-env/
+
+
+git submodule sync
+git submodule update --init --recursive --remote
+cd backend/
+git checkout tags/step-10-server
+
 ```
 
 ### Step 2: Examine the included DockerFile
@@ -341,7 +354,7 @@ git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
 In ```Powershell```:
 ```bash
 # Switch to the cloned repo directory
-cd nebraska-gencyber-dev-env
+cd ~/Desktop/nebraska-gencyber-dev-env
 # Examine the DockerFile
 get-content Dockerfile
 ```
