@@ -176,7 +176,7 @@ You now have all the basics you need to program some complex drone operations.  
 
 ### Postal Challenge  
 
-![drone_challenge](img/drone_challenge)
+![drone_challenge](img/drone_challenge.jpg)
 
 ### Additional Resources
 For more information, investigate the following.
