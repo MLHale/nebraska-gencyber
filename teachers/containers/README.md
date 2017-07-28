@@ -575,6 +575,7 @@ In the returned ```container``` shell:
 # Perform Django configurations
 python manage.py makemigrations
 python manage.py migrate
+python manage.py flush
 python manage.py createsuperuser --username admin --email admin
 exit
 ```
