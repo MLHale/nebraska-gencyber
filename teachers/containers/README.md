@@ -503,13 +503,11 @@ docker-compose stop
 
 Blocked access to docker hub or any Github repositories in school lab networks may limit the ability to build containers images. In such scenarios, git repositories and container images can be exported in a compressed file format and later imported.
 
-### Downloading git repositories
+### Saving Files
 
 For our development server, on a un-restricted internet connected computer first download the following repository zip files and transfer to a USB drive (or store at an accessible location). 
 
-* Main Repo: https://github.com/MLHale/nebraska-gencyber-dev-env/archive/master.zip
-* Backend Module: https://github.com/MLHale/littlebits-rest-api/archive/75de0306001c6b0a375bf7d6680397e8d7637830.zip
-* Frontend Module: https://github.com/MLHale/littlebits-rest-api-frontend/archive/b72866c5c0d04ef7188a704c128c4e02d3ad21ef.zip
+* Main Repo: https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
 
 Next, build the docker container images required. Then export the container images to a tar file. For example, to save the `nebraskagencyberdevenv_django` and `postgres` images we created above, open a new `Powershell`:
 
@@ -523,12 +521,11 @@ docker save --output ngde_django.tar nebraskagencyberdevenv_django postgres
 
 The `ngde_django.tar` archive will be available in the current working directory (Desktop). You may now transfer the archive to a portable drive or make it available for download in a accessible location.
 
+## Loading Files
+
 Now in a restricted network access computer, the repository files from zip archives and container images from the tar file can be imported as follows.
 
-Copy all the zip and tar files to Desktop.
-
-### Download the zip file
-https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
+Copy the `nebraska-gencyber-dev-env.zip` and `ngde_django.tar` files to Desktop.
 
 In a `Powershell`:
 
@@ -538,9 +535,7 @@ In a `Powershell`:
 cd ~/Desktop
 
 # Decompress the archives
-expand-archive -path '.\master.zip' -destinationpath '.\nebraska-gencyber-dev-env'
-expand-archive -path '.\75de0306001c6b0a375bf7d6680397e8d7637830.zip' -destinationpath '.\nebraska-gencyber-dev-env\backend'
-expand-archive -path '.\b72866c5c0d04ef7188a704c128c4e02d3ad21ef.zip' -destinationpath '.\nebraska-gencyber-dev-env\frontend'
+expand-archive -path '.\nebraska-gencyber-dev-env.zip' -destinationpath '.\nebraska-gencyber-dev-env'
 
 # Load the docker images from the tar archive
 docker load --input ngde_django.tar
@@ -590,7 +585,7 @@ Continuing  in the previous ```Powershell```:
 docker-compose up
 ```
 
-Navigate to http://localhost to examine the running app.
+Navigate to http://localhost to examine the running app. You will need to refer the [build-a-server](https://github.com/MLHale/nebraska-gencyber/blob/master/teachers/building-a-server/README.md) lesson at this point to add AuthToken (API key) to the server as well as edit Allowed Hosts. 
 
 
 [Top](#table-of-contents)
