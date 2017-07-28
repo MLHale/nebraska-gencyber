@@ -501,13 +501,13 @@ docker-compose stop
 
 ## Saving and Loading container images for offline development
 
-Blocked access to docker hub or any Github repositories in school lab networks may limit the ability to build containers images. In such scenarios, git repositories and container images can be exported in a compressed file format and later imported.
+Blocked access to Docker Hub or any Github repositories in school lab networks may limit the ability to build containers images. In such scenarios, git repositories and container images can be exported in a compressed file format and later imported. You may also carry necessary installation files for [Docker for Windows](https://docs.docker.com/docker-for-windows/install/).
 
 ### Saving Files
 
 For our development server, on a un-restricted internet connected computer first download the following repository zip files and transfer to a USB drive (or store at an accessible location). 
 
-* Main Repo: https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
+- Code Download: https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
 
 Next, build the docker container images required. Then export the container images to a tar file. For example, to save the `nebraskagencyberdevenv_django` and `postgres` images we created above, open a new `Powershell`:
 
@@ -523,9 +523,7 @@ The `ngde_django.tar` archive will be available in the current working directory
 
 ### Loading Files
 
-Now in a restricted network access computer, the repository files from zip archives and container images from the tar file can be imported as follows.
-
-Copy the `nebraska-gencyber-dev-env.zip` and `ngde_django.tar` files to Desktop.
+Now in a restricted network access computer, copy the `nebraska-gencyber-dev-env.zip` and `ngde_django.tar` files to Desktop.
 
 In a `Powershell`:
 
@@ -533,7 +531,7 @@ In a `Powershell`:
 # switch to Desktop
 cd ~/Desktop
 
-# Decompress the archives
+# Decompress the code from archive
 expand-archive -path '.\nebraska-gencyber-dev-env.zip' -destinationpath '.'
 
 # Load the docker images from the tar archive
