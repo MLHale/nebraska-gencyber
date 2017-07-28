@@ -174,6 +174,10 @@ You can also create functions to group several commands and call them where need
 
 You now have all the basics you need to program some complex drone operations.  Good luck and have fun!
 
+### Postal Challenge  
+
+![drone_challenge](img/drone_challenge)
+
 ### Additional Resources
 For more information, investigate the following.
 
