@@ -488,13 +488,21 @@ docker-compose stop
 
 ## Saving and Loading container images for offline development
 
-Blocked access to docker hub or any repositories in school lab networks may limit the ability to build containers images. In such scenarios, container images can be exported in a compressed file format and later imported.
+Blocked access to docker hub or any Github repositories in school lab networks may limit the ability to build containers images. In such scenarios, git repositories and container images can be exported in a compressed file format and later imported.
 
-On a un-restricted internet connected computer first build or download the container images required. Then export the container images to a tar file. For example, to save the nebraskagencyberdevenv_django and postgres images we created above, open a new `Powershell`:
+### Downloading git repositories
+
+For our development server, on a un-restricted internet connected computer first download the following repository zip files and transfer to a USB drive (or store at an accessible location). 
+
+* Main Repo: https://github.com/MLHale/nebraska-gencyber-dev-env/archive/master.zip
+* Backend Module: https://github.com/MLHale/littlebits-rest-api/archive/75de0306001c6b0a375bf7d6680397e8d7637830.zip
+* Frontend Module: https://github.com/MLHale/littlebits-rest-api-frontend/archive/b72866c5c0d04ef7188a704c128c4e02d3ad21ef.zip
+
+Next, build the docker container images required. Then export the container images to a tar file. For example, to save the `nebraskagencyberdevenv_django` and `postgres` images we created above, open a new `Powershell`:
 
 ```bash
 # Change directory to the Desktop
-cd Destkop
+cd ~/Destkop
 
 # Save a docker image to a tar archive
 docker save --output ngde_django.tar nebraskagencyberdevenv_django postgres
@@ -502,12 +510,23 @@ docker save --output ngde_django.tar nebraskagencyberdevenv_django postgres
 
 The `ngde_django.tar` archive will be available in the current working directory (Desktop). You may now transfer the archive to a portable drive or make it available for download in a accessible location.
 
-Now in a restricted network access computer, the container images from the tar file can be imported as follows.
+Now in a restricted network access computer, the repository files from zip archives and container images from the tar file can be imported as follows.
+
+Copy all the zip and tar files to Desktop.
 
 In a `Powershell`:
 
 ```bash
-# Save a docker image to a tar archive
+
+# switch to Desktop
+cd ~/Desktop
+
+# Decompress the archives
+expand-archive -path '.\master.zip' -destinationpath '.\nebraska-gencyber-dev-env'
+expand-archive -path '.\75de0306001c6b0a375bf7d6680397e8d7637830.zip' -destinationpath '.\nebraska-gencyber-dev-env\backend'
+expand-archive -path '.\b72866c5c0d04ef7188a704c128c4e02d3ad21ef.zip' -destinationpath '.\nebraska-gencyber-dev-env\frontend'
+
+# Load the docker images from the tar archive
 docker load --input ngde_django.tar
 
 # List available images
@@ -515,13 +534,26 @@ docker images
 ```
 `nebraskagencyberdevenv_django` and `postgres` images should appear in your list of available images now. To spin up the containers we would continue the configuration steps we performed above, starting here:
 
-In a new ```Powershell```:
-```bash
-# Clone the code repo or transfer from a portable drive if internet is not available
-git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
+In windows explorer navigate to your Desktop. Now open the `nebraska-gencyber-dev-env` folder. Edit the following lines in `docker-compose.yml`:
 
+```
+django:
+    build: .
+
+```
+
+So that they look like this:
+
+```
+django:
+    image: nebraskagencyberdevenv_django
+
+```
+
+Continue in ```Powershell```:
+```bash
 # Change directory to get into the repo
-cd nebraska-gencyber-dev-env
+cd ~/Desktop/nebraska-gencyber-dev-env
 
 # run option executes a one-time command against a service
 docker-compose run django bash
