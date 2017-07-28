@@ -527,6 +527,9 @@ Now in a restricted network access computer, the repository files from zip archi
 
 Copy all the zip and tar files to Desktop.
 
+### Download the zip file
+https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
+
 In a `Powershell`:
 
 ```bash
