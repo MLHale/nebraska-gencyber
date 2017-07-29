@@ -178,6 +178,15 @@ You now have all the basics you need to program some complex drone operations.  
 
 ![drone_challenge](img/drone_challenge.jpg)
 
+### Evaluation
+Use kahoot to ask the following questions.  Discuss any wrong answers to ensure all understant the material.
+
+* When flying drones you should always wear: _safety glasses_.
+* Half of the swift playground screen shows a simultion of the drone.  This is an example of the first principle of: _abstraction_.
+* You don't control all four motors of the drone directly but do it via commands which only allow you to command applicable actions.  this is: _resource encapsulation_.
+* A command to make your drone yaw clockwise is: _turn(direction: TurnDirection.right, angle: 45)_.
+* Your drone currently accepts commands from any user, if we wanted to limit commands based on the user we would use the principle of: _least privilege_.  
+
 ### Additional Resources
 For more information, investigate the following.
 
