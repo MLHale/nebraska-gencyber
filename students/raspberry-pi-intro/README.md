@@ -5,6 +5,8 @@
 
 * __Least Privilege__: One of the ways to protect information is by limiting what people can see and do with your information and resources. The principle of least privilege says to allow the minimum number of privileges necessary to accomplish the task.
 
+* __Minimization__: Minimization refers to having the least functionality necessary in a program or device. The goal of minimization is to simplify and decrease the number of ways that software can be exploited. This can include **turning off ports that are not needed**, reducing the amount of code running on a machine, and/or turning off unneeded features in an application. This lesson focuses specifically on turning off ports that aren't in use.  
+
 * __Modularization__: The concept of modularity is like building blocks. Each block (or module) can be put in or taken out from a bigger project. Each module has its own separate function that is interchangeable with other modules.
 
 ### Introduction
@@ -175,7 +177,7 @@ sudo apt-get upgrade
 * Hit enter to answer yes to the question do you want to continue
 * If during the install you are presented any informational notes in the terminal window pressing 'q' will bypass them and continue with the upgrade  
 
-The upgrade options to apt-get tell the operating system to compare the current software against the new catalog you just downloaded with the update command.  Any software that has a newer version is now downloaded and installed
+The upgrade options to apt-get tell the operating system to compare the current software against the new catalog you just downloaded with the update command.  Any software that has a newer version is now downloaded and installed.  The ability to update software removing vulnerabilities as well as remove software you are not using is an example of the First Principle of __minimization__.  We are minimizing the amount of software an attacker could take advantage of.  
 
 ### Step 11: Shutdown the Raspberry Pi
 Now that the software has been updated we are done with the Raspberry Pi for now and can turn it off.  We could do this through the GUI with the mouse but since we already have a terminal window open, here’s a command to turn off the Raspberry Pi off from the command line:
@@ -189,6 +191,7 @@ Use Kahoot to assess comprehension:
 * A Raspberry Pi uses modularity because: _It uses separate components for many of its functions.  Something like the camera can be installed and removed as needed, being replaced with any other similar camera module_
 * The Linux command `sudo` demonstrates the Cybersecurity First Principle: _Least Privilege_
 * The component of the Raspberry Pi stores the operating system: _SD card_
+* The ability to remove software which is not required demonstrates: _Minimization_  
 
 Discuss to ensure all understand the material.
 
