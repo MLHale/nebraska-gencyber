@@ -268,10 +268,11 @@ Spend some time exploring the Node-Red nodes.  What else could you build?
 
 ### Evaluation
 Use Kahoot to assess comprehension
-* Which Cybersecurity First Principle addresses how nodes can be replaced with other nodes in a flow to modify features? _Modularization_
+* Which Cybersecurity First Principle addresses how nodes can be replaced with other nodes in a flow to modify features? _Modularization_.
 * Which Cybersecurity First Principle addresses how you are unable to directly access the inner workings of a node but must set parameters through dialogs? _Resource Encapsulation_.
 * Each node represents a single action, however, there may be several steps hidden in the background is an example of? _Abstraction_.
 * An IFTTT program is called a what? _Recipe_.
+* When you use the IFTTT node in a flow which element or action represents the use of least privilege? _webhooks key_.  
 
 ### Additional Resources
 For more information, investigate the following:
