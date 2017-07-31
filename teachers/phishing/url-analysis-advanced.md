@@ -33,7 +33,7 @@
 Examine this link:
 http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/obfuscated.html
 
-It is identical to the previous page in form and function but now examine its page source. It has been obfuscated using an external javascript file. Examine that file as well: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/myscr150731.js Spammers use such obfuscation to avoid detection and analysis. Navigate away from such pages or delete emails that have gone to such lengths to conceal their "trickeries".
+It is similar to the page in the [URL Analysis Lesson](./url-analysis.md) in form and function but now examine its page source. It has been obfuscated using an external javascript file. Examine that file as well: http://faculty.ist.unomaha.edu/rgandhi/phishing-demo/myscr150731.js Spammers use such obfuscation to avoid detection and analysis. Navigate away from such pages or delete emails that have gone to such lengths to conceal their "trickeries".
 
 Just viewing the source files for obfuscated pages provides no useful information. But if we put our minds to it, we can defeat the bad guys. Navigate back to the obfuscated page. Then right click on a blank area and select `Inspect` or `Inspect Element`. In the `Elements` tab unravel the HTML code that is computed by the browser to render a human readable page. Now it should look similar to the phishing page from before:
 > ![trickyurls](./img/inspectelement.png)

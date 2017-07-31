@@ -3,7 +3,7 @@
 ## Cybersecurity Commonsense
 [Source: DHS Stop. Think. Connect. [Campaign](https://www.stopthinkconnect.org/tips-advice/general-tips-and-advice)]
 
-* __Protect your $$:__ When banking and shopping, check to be sure the site is security enabled. Look for web addresses with `https://` or `shttp://`, which means the site takes extra measures to help secure your information. `http://` is not secure.
+* __Protect your $$:__ When banking and shopping, check to be sure the site is security enabled. Look for web addresses with `https://`, which means the site takes extra measures to help secure your information. `http://` is not secure.
 
 * __When in doubt, throw it out:__ Links in emails, social media posts and online advertising are often how cybercriminals try to steal your personal information. Even if you know the source, if something looks suspicious, delete it.
 
@@ -32,7 +32,6 @@ Phishing victims often fear ridicule and do not report crimes...
 ## Lesson goals
 - Read URLs
 - Spot common techniques for URL manipulation
-- Awareness of location privacy issues
 
 ## Materials required
 - Internet connected Machine
