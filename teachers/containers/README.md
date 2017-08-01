@@ -332,8 +332,21 @@ The DockerFile is typically in the top level project directory
 
 In a new ```Powershell```:
 ```bash
+# Switch to Desktop
+cd ~/Desktop
+
 # Clone the dev repository
-git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
+git clone https://github.com/mlhale/nebraska-gencyber-dev-env
+
+# Switch to the cloned repository
+cd nebraska-gencyber-dev-env/
+
+
+git submodule sync
+git submodule update --init --recursive --remote
+cd backend/
+git checkout tags/step-10-server
+
 ```
 
 ### Step 2: Examine the included DockerFile
@@ -341,7 +354,7 @@ git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
 In ```Powershell```:
 ```bash
 # Switch to the cloned repo directory
-cd nebraska-gencyber-dev-env
+cd ~/Desktop/nebraska-gencyber-dev-env
 # Examine the DockerFile
 get-content Dockerfile
 ```
@@ -488,13 +501,17 @@ docker-compose stop
 
 ## Saving and Loading container images for offline development
 
-Blocked access to docker hub or any repositories in school lab networks may limit the ability to build containers images. In such scenarios, container images can be exported in a compressed file format and later imported.
+Blocked access to Docker Hub or any Github repositories in school lab networks may limit the ability to build containers images. In such scenarios, git repositories and container images can be exported in a compressed file format and later imported. You may also carry necessary installation files for [Docker for Windows](https://docs.docker.com/docker-for-windows/install/).
 
-On a un-restricted internet connected computer first build or download the container images required. Then export the container images to a tar file. For example, to save the nebraskagencyberdevenv_django and postgres images we created above, open a new `Powershell`:
+### Saving Files
+
+For our development server, on a un-restricted internet connected computer first download the following repository zip files and transfer to a USB drive (or store at an accessible location). 
+
+Next, build the docker container images required. Then export the container images to a tar file. For example, to save the `nebraskagencyberdevenv_django` and `postgres` images we created above, open a new `Powershell`:
 
 ```bash
 # Change directory to the Desktop
-cd Destkop
+cd ~/Destkop
 
 # Save a docker image to a tar archive
 docker save --output ngde_django.tar nebraskagencyberdevenv_django postgres
@@ -502,12 +519,27 @@ docker save --output ngde_django.tar nebraskagencyberdevenv_django postgres
 
 The `ngde_django.tar` archive will be available in the current working directory (Desktop). You may now transfer the archive to a portable drive or make it available for download in a accessible location.
 
-Now in a restricted network access computer, the container images from the tar file can be imported as follows.
+### Loading Files
+
+For convinience, we have the codebase and container archives available in a single download here.
+
+- Code Download: https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
+
+Now in a restricted network access computer, copy the `nebraska-gencyber-dev-env.zip` file to Desktop.
 
 In a `Powershell`:
 
 ```bash
-# Save a docker image to a tar archive
+# switch to Desktop
+cd ~/Desktop
+
+# Decompress the code from archive
+expand-archive -path '.\nebraska-gencyber-dev-env.zip' -destinationpath '.'
+
+# change into the directory
+cd nebraska-gencyber-dev-env
+
+# Load the docker images from the tar archive
 docker load --input ngde_django.tar
 
 # List available images
@@ -515,23 +547,22 @@ docker images
 ```
 `nebraskagencyberdevenv_django` and `postgres` images should appear in your list of available images now. To spin up the containers we would continue the configuration steps we performed above, starting here:
 
-In a new ```Powershell```:
+Continue in ```Powershell```:
 ```bash
-# Clone the code repo or transfer from a portable drive if internet is not available
-git clone --recursive https://github.com/MLHale/nebraska-gencyber-dev-env.git
-
 # Change directory to get into the repo
-cd nebraska-gencyber-dev-env
+cd ~/Desktop/nebraska-gencyber-dev-env
 
 # run option executes a one-time command against a service
 docker-compose run django bash
 ```
+In the shell that opens in the container, we need to tell our `Django` server to setup the database and create a new user account for us. The first two lines below setup the database by creating a `database Schema` that our SQL server can use to store data. The third line creates a new superuser account. Specify a password for admin. In development, you can use something simple (e.g. admin1234) for simplicity. In practice, you would want to use a much more secure password - since the server could be accessed from the wider internet.
 
 In the returned ```container``` shell:
 ```bash
 # Perform Django configurations
 python manage.py makemigrations
 python manage.py migrate
+python manage.py flush
 python manage.py createsuperuser --username admin --email admin
 exit
 ```
@@ -542,7 +573,94 @@ Continuing  in the previous ```Powershell```:
 docker-compose up
 ```
 
-Navigate to http://localhost to examine the running app.
+Navigate to http://localhost to examine the running app. 
+
+### Configuration Steps
+
+#### Allowed Hosts Setting
+
+* Now open `Atom` on your desktop,
+* go to the File -> "Add Project Folder..."
+
+![Add folder](../building-a-server/img/add-folder.png)
+> note that your interface may look slightly different on windows.
+
+* Find your `nebraska-gencyber-dev-env` folder (it should be located at `C:/Users/student/Desktop/`)
+* Upon opening it you should see:
+
+![File Tree](../building-a-server/img/file-tree1.png)
+
+Now, in `Atom`, open the `/nebraska-gencyber-dev-env/backend/django_backend/settings.py` file by navigating to it in the file tree (on the left) and clicking it.
+
+find the line marked:
+```
+ALLOWED_HOSTS = ['137.48.185.230', 'localhost']
+```
+Replace '137.48.185.230' with your `ip address`.
+
+* to get your server ip, you need to open a `Powershell` and type:
+```bash
+ipconfig --all
+```
+* find your ipv4 address on the ip record for the ethernet card attached to your machine
+* alternatively, you can go to http://google.com and search for 'my ip address'
+
+#### Adding the API key
+
+Open your browser and go to http://localhost/admin/api/apikey/. Enter the username and password for Django administrator if prompted. This is what you setup just a few instructions before. 
+
+- Click 'add api key'.
+
+![error with key](../building-a-server/img/api-key.png)
+
+Then enter your username (probably `admin`) in the `owner` field. In the `key` field add in your `Littlebits` API key used in the previous lesson (without the word `Bearer`). If you forgot it or don't have it handy, you can retrieve it here by visiting http://control.littlebitscloud.cc/ and clicking on `settings`. When added, save the key.
+
+#### Get events from Littlebits
+The next step is to not only `send` events to Littlebits, but also to `subscribe` to and `receive` events that are output from the `cloudbit.` To do that, we need to use `POSTMAN` to add a subscriber. This was the last step where we left off in the [REST API](../restful-api/README.md) tutorial. Now we are ready!
+
+Lets add a subscriber to catch input events going to the cloudbit:
+* make a POST request, using `POSTMAN` to https://api-http.littlebitscloud.cc/v2/subscriptions
+* In our case we want to make a server listen for the `cloudbit`, so lets use a URI endpoint as the subscriber
+* Make sure you use the same headers that you used in the `REST` tutorial. If you don't remember it should be:
+
+`headers`:
+```json
+{
+    "Authorization": "Bearer <your api key here without the angled brackets>",
+    "Content-type": "application/json"
+}
+```
+
+This time, in the body, we are going to use:
+
+`body`:
+```json
+{
+    "publisher_id": "<your device id without the angled brackets>",
+    "subscriber_id": "http://gencyber2017.unomaha.edu/api/proxy/<your-server-ip without the angled brackets>/api/deviceevents",
+    "publisher_events": ["amplitude:delta:ignite"]
+}
+```
+
+* to get your server ip, you need to open a `Powershell` and type:
+```bash
+ipconfig --all
+```
+* find your ipv4 address on the ethernet card attached to your machine
+* alternatively, you can go to http://google.com and search for 'my ip address'
+* put the ip in the body of the request above and send the message to the `Littlebits API`
+* If the request works, you should see your request echoed back to you
+
+#### Profit!
+Pretty neat. Observe your handy work.
+
+* connect the `power module` to the pink `button` input module
+* connect the `button` module to the `cloudbit` module
+* connect the `cloudbit` module to the `LED` module
+
+Now, press the button on `button` module. Watch as your server get the events from the `Littlebits API`, logs them locally (creating a database record), stores them for later, and then loads them into the client app for you to see.
+
+> Note: the client is designed to check for updates every 3 seconds.
 
 
 [Top](#table-of-contents)
