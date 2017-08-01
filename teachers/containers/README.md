@@ -507,8 +507,6 @@ Blocked access to Docker Hub or any Github repositories in school lab networks m
 
 For our development server, on a un-restricted internet connected computer first download the following repository zip files and transfer to a USB drive (or store at an accessible location). 
 
-- Code Download: https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
-
 Next, build the docker container images required. Then export the container images to a tar file. For example, to save the `nebraskagencyberdevenv_django` and `postgres` images we created above, open a new `Powershell`:
 
 ```bash
@@ -523,7 +521,11 @@ The `ngde_django.tar` archive will be available in the current working directory
 
 ### Loading Files
 
-Now in a restricted network access computer, copy the `nebraska-gencyber-dev-env.zip` and `ngde_django.tar` files to Desktop.
+For convinience, we have the codebase and container archives available in a single download here.
+
+- Code Download: https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
+
+Now in a restricted network access computer, copy the `nebraska-gencyber-dev-env.zip` file to Desktop.
 
 In a `Powershell`:
 
@@ -534,6 +536,9 @@ cd ~/Desktop
 # Decompress the code from archive
 expand-archive -path '.\nebraska-gencyber-dev-env.zip' -destinationpath '.'
 
+# change into the directory
+cd nebraska-gencyber-dev-env
+
 # Load the docker images from the tar archive
 docker load --input ngde_django.tar
 
@@ -541,24 +546,6 @@ docker load --input ngde_django.tar
 docker images
 ```
 `nebraskagencyberdevenv_django` and `postgres` images should appear in your list of available images now. To spin up the containers we would continue the configuration steps we performed above, starting here:
-
-In windows explorer navigate to your Desktop. Now open the `nebraska-gencyber-dev-env` folder. Edit the following lines in `docker-compose.yml`:
-
-```
-django:
-    build: .
-
-```
-
-So that they look like this:
-
-```
-django:
-    image: nebraskagencyberdevenv_django
-
-```
-
-This change instructs docker to use the existing image, rather than build using internet resources.
 
 Continue in ```Powershell```:
 ```bash
