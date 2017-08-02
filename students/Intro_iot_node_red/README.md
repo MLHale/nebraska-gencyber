@@ -267,7 +267,7 @@ Discuss with the class how these features could be used in an IoT device.  Maybe
 Spend some time exploring the Node-Red nodes.  What else could you build?
 
 ### Evaluation
-Use Kahoot to assess comprehension
+Use [Kahoot](https://play.kahoot.it/#/k/79c3cc26-1bf2-4da4-a576-a31b1d83e737) to assess comprehension
 * Which Cybersecurity First Principle addresses how nodes can be replaced with other nodes in a flow to modify features? _Modularization_.
 * Which Cybersecurity First Principle addresses how you are unable to directly access the inner workings of a node but must set parameters through dialogs? _Resource Encapsulation_.
 * Each node represents a single action, however, there may be several steps hidden in the background is an example of? _Abstraction_.
