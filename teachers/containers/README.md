@@ -525,7 +525,7 @@ For convinience, we have the codebase and container archives available in a sing
 
 - Code Download: https://www.dropbox.com/s/oq297sj4snvrr0a/nebraska-gencyber-dev-env.zip?dl=0
 
-Now in a restricted network access computer, copy the `nebraska-gencyber-dev-env.zip` file to Desktop.
+- Copy the `nebraska-gencyber-dev-env.zip` file to Desktop
 
 In a `Powershell`:
 
@@ -535,9 +535,6 @@ cd ~/Desktop
 
 # Decompress the code from archive
 expand-archive -path '.\nebraska-gencyber-dev-env.zip' -destinationpath '.'
-
-# change into the directory
-cd nebraska-gencyber-dev-env
 
 # Load the docker images from the tar archive
 docker load --input ngde_django.tar
