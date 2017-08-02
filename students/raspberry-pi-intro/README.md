@@ -187,7 +187,7 @@ shutdown now
 ```
 
 ### Evaluation
-Use Kahoot to assess comprehension:
+Use [Kahoot](https://play.kahoot.it/#/k/8a4db51b-d705-42b9-a9bb-928c2a82976f) to assess comprehension:
 * A Raspberry Pi uses modularity because: _It uses separate components for many of its functions.  Something like the camera can be installed and removed as needed, being replaced with any other similar camera module_
 * The Linux command `sudo` demonstrates the Cybersecurity First Principle: _Least Privilege_
 * The component of the Raspberry Pi stores the operating system: _SD card_
