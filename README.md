@@ -25,8 +25,8 @@ Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone]
 ## Shared Sessions
 ### Day 3: Student Presentations, Node Red, and Phishing (At Bellevue)
 1. Project Presentations
-1. Node Red
-1. Phishing Lesson
+1. [Node Red](./students/intro_iot_node_red/README.md)
+1. [Avoiding Phishing: URL Analysis](./teachers/phishing/url-analysis.md)
 
 ### Day 4: Littlebits and REST (At UNO)
 1. Littlebits Intro and IFTTT
