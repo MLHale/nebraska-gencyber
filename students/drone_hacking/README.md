@@ -179,7 +179,7 @@ You now have all the basics you need to program some complex drone operations.  
 ![drone_challenge](img/drone_challenge.jpg)
 
 ### Evaluation
-Use kahoot to ask the following questions.  Discuss any wrong answers to ensure all understant the material.
+Use [kahoot](https://play.kahoot.it/#/k/ec0bb393-7852-421f-8456-455a7ba78618) to ask the following questions.  Discuss any wrong answers to ensure all understant the material.
 
 * When flying drones you should always wear: _safety glasses_.
 * Half of the swift playground screen shows a simultion of the drone.  This is an example of the first principle of: _abstraction_.
