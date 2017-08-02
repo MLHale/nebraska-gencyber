@@ -27,7 +27,7 @@ The available teacher modules include:
 * [Penetrating Testing](./penetration-testing/README.md)
 * [Hardening: OS Level](./firewall/README.md)
 * [Phishing](./phishing/README.md)
-* [Teaching Best Practice Workshop Outcomes](https://github.com/MLHale/nebraska-gencyber-instructor-materials)
+* [Teaching Lesson Development Outcomes](https://github.com/MLHale/nebraska-gencyber-instructor-materials)
 
 ## Other Resources
 TBA
