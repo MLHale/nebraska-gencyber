@@ -31,7 +31,7 @@ Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone]
 ### Day 4: Littlebits and REST (At UNO)
 1. [Littlebits Intro and IFTTT](./combined/slides-littlebits.pdf)
 1. [REST APIs](./combined/rest-api-teachers.pdf)
-1. Penetration Testing
+1. [Penetration Testing](./combined/penetration-testing/README.md)
 
 ### Day 5: Capture the Flag Contest
 * [Jeopardy style contest among student-teacher teams](http://ctf.gencyber2017.unomaha.edu)
