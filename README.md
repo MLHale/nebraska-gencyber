@@ -29,8 +29,8 @@ Teachers, for a full list of lessons in Week one, check out the [Teacher's Zone]
 1. [Avoiding Phishing: URL Analysis](./teachers/phishing/url-analysis.md)
 
 ### Day 4: Littlebits and REST (At UNO)
-1. Littlebits Intro and IFTTT
-1. REST APIs
+1. [Littlebits Intro and IFTTT](./combined/slides-littlebits.pdf)
+1. [REST APIs](./combined/rest-api-teachers.pdf)
 1. Penetration Testing
 
 ### Day 5: Capture the Flag Contest
