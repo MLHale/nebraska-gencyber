@@ -29,21 +29,10 @@ The available teacher modules include:
 * [Phishing](./phishing/README.md)
 * [Teaching Lesson Development Outcomes](https://github.com/MLHale/nebraska-gencyber-instructor-materials)
 
-## Other Resources
-TBA
+## Lesson Plans
+[https://github.com/MLHale/nebraska-gencyber-instructor-materials/tree/master/lessons/teachers](https://github.com/MLHale/nebraska-gencyber-instructor-materials/tree/master/lessons/teachers)
 
-## 2017 Highlights
-TBA
-
-### Teacher Developed lessons
-TBA
-
-### Camp Contents
-Link to final commit version goes here
-
-### CTF Winners
-
-## 2016 Highlights
+## 2016
 
 ### Camp content
 Last year's entire camp can be found here:
