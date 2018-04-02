@@ -3,15 +3,8 @@
 <!-- TOC START min:1 max:3 link:true update:true -->
 - [Teacher zone](#teacher-zone)
   - [The Modules](#the-modules)
-  - [Other Resources](#other-resources)
-  - [2017 Highlights](#2017-highlights)
-    - [Teacher Developed lessons](#teacher-developed-lessons)
-    - [Camp Contents](#camp-contents)
-    - [CTF Winners](#ctf-winners)
-  - [2016 Highlights](#2016-highlights)
-    - [Teacher Developed Lessons](#teacher-developed-lessons-1)
-    - [Camp content](#camp-content)
-    - [CTF Winners](#ctf-winners-1)
+  - [Lesson Plans](#lesson-plans)
+  - [2016 Content](#2016)
   - [License](#license)
 
 <!-- TOC END -->
