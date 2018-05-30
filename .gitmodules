@@ -1,3 +1,16 @@
+# @Author: Matthew Hale <matthale>
+# @Date:   2018-05-30T01:02:33-05:00
+# @Email:  mlhale@unomaha.edu
+# @Filename: .gitmodules
+# @Last modified by:   matthale
+# @Last modified time: 2018-05-30T01:03:28-05:00
+# @Copyright: Copyright (C) 2018 Matthew L. Hale
+
+
+
 [submodule "nebraska-gencyber-instructor-materials"]
-	path = nebraska-gencyber-instructor-materials
+	path = 2017-archive/nebraska-gencyber-instructor-materials
 	url = https://github.com/MLHale/nebraska-gencyber-instructor-materials
+[submodule "modules"]
+	path = modules
+	url = https://github.com/mlhale/nebraska-gencyber-modules
