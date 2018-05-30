@@ -79,7 +79,8 @@ Gabi Wethor
 PhD Student, Cybersecurity  
 University of Nebraska at Omaha  
 
-![Kristeen Shabram](./img/kristeen.jpg)  
+![Kristeen Shabram](./img/kristeen.jpg) 
+Kristeen Shabram
 Teacher and CSTA K-8 Representative  
 Westside Middle School  
 Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)  
