@@ -3,6 +3,9 @@ This repo includes all open source content for the Nebraska GenCyber camp. Files
 
 <img src="./img/uno-logo.png" width=250/> <img src="./img/bellevue-logo.png" width=270/>
 
+## The NGC modules 
+You can find all of our modules at [modules.nebraskagencyber.com](http://modules.nebraskagencyber.com)
+
 ## Social Media
 ### Slack
 Want to get a hold of camp staff or fellow campers? Use [our official Slack Channel](https://join.slack.com/t/nebraskagencyber/shared_invite/MjE3NzAyMDczOTkxLTE1MDA4NzMxODYtNjI0ODBiYTU2MA). You can sign up for free.
