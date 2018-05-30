@@ -35,54 +35,58 @@ TBA
 ## Contacts
 
 #### Nebraska GenCyber Program Director (Primary Point of Contact)
-![matt](./img/matt.jpg)
-[Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)
-Assistant Professor of Cybersecurity
-University of Nebraska at Omaha
-[mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)
-Twitter - [@mlhale](https://twitter.com/mlhale_)
+![matt](./img/matt.jpg)  
+[Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)  
+Assistant Professor of Cybersecurity  
+University of Nebraska at Omaha . 
+[mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)  
+Twitter - [@mlhale](https://twitter.com/mlhale_)  
 
 #### Bellevue Point of Contact
-![doug](./img/doug.jpg)
-[Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)
-Assistant Professor & Program Director BSCYBR and MSCYBR
-Bellevue University
-[drausch@bellevue.edu](mailto:drausch@bellevue.edu)
-Twitter - [@DouglasMRausch](https://twitter.com/DouglasMRausch)
+![doug](./img/doug.jpg)  
+[Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)  
+Assistant Professor & Program Director BSCYBR and MSCYBR  
+Bellevue University  
+[drausch@bellevue.edu](mailto:drausch@bellevue.edu)  
+Twitter - [@DouglasMRausch](https://twitter.com/DouglasMRausch)  
 
 #### Co-Investigator / Instructors
-![robin](./img/robin.png)
-[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)
-Associate Professor of Cybersecurity
-University of Nebraska at Omaha
-[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)
-Twitter - [@robinagandhi](https://twitter.com/robinagandhi)
+![robin](./img/robin.png)  
+[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)  
+Associate Professor of Cybersecurity  
+University of Nebraska at Omaha  
+[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)  
+Twitter - [@robinagandhi](https://twitter.com/robinagandhi)  
 
-![briana](./img/briana.png)
-[Dr. Briana B. Morrison](http://www.brianamorrison.net)
-Assistant Professor of Computer Science (Education)
-University of Nebraska at Omaha
-[bbmorrison@unomaha.edu](mailto:bbmorrison@unomaha.edu)
+![briana](./img/briana.png)  
+[Dr. Briana B. Morrison](http://www.brianamorrison.net)  
+Assistant Professor of Computer Science (Education)  
+University of Nebraska at Omaha  
+[bbmorrison@unomaha.edu](mailto:bbmorrison@unomaha.edu)  
 
 #### Instructors
+![chris](./img/chris.jpg)  
+[Chris Daniels](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/chris-daniels.php)  
+Instructor, Cybersecurity  
+University of Nebraska at Omaha  
+[cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)  
 
-![chris](./img/chris.jpg)
-[Chris Daniels](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/chris-daniels.php)
-Instructor, Cybersecurity
-University of Nebraska at Omaha
-[cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)
+![Gabi Wethor](./img/gabi.jpg)  
+Gabi Wethor
+PhD Student, Cybersecurity  
+University of Nebraska at Omaha  
 
-![Gabi Wethor](./img/gabi.jpg)
-PhD Student, Cybersecurity
-University of Nebraska at Omaha
-
+![Kristeen Shabram](./img/kristeen.png)
+Teacher and CSTA K-8 Representative  
+Westside Middle School
+Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)  
 
 #### Administrative Support
-![amy](./img/bio-icon.png)
-[Christie Smith](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/christie-smith.php)
-Academic Program Coordinator
-University of Nebraska at Omaha
-[christiesmith@unomaha.edu](mailto:christiesmith@unomaha.edu)
+![Christie](./img/bio-icon.png)  
+[Christie Smith](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/christie-smith.php)  
+Academic Program Coordinator  
+University of Nebraska at Omaha  
+[christiesmith@unomaha.edu](mailto:christiesmith@unomaha.edu)  
 
 ## How to Contribute?
 
