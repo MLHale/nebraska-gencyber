@@ -45,7 +45,7 @@ University of Nebraska at Omaha .
 [mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)  
 Twitter - [@mlhale](https://twitter.com/mlhale_)  
 
-#### Bellevue Point of Contact
+#### Co-Investigator, Lead Instructor (Bellevue Point of Contact)
 ![doug](./img/doug.jpg)  
 [Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)  
 Assistant Professor & Program Director BSCYBR and MSCYBR  
