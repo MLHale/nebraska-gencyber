@@ -3,8 +3,8 @@ This repo includes all open source content for the Nebraska GenCyber camp. Files
 
 <img src="https://github.com/MLHale/nebraska-gencyber/raw/master/img/uno-logo.png" width=250/> <img src="https://github.com/MLHale/nebraska-gencyber/raw/master/img/bellevue-logo.png" width=270/>
 
-## The NGC modules 
-You can find all of our modules at [modules.nebraskagencyber.com](http://modules.nebraskagencyber.com)
+## The NGC modules
+You can find all of our modules at [modules.nebraskagencyber.com](http://nebraskagencyber.com/modules/2018/)
 
 ## Social Media
 ### Slack
@@ -27,77 +27,77 @@ https://www.instagram.com/nebraska.gencyber/
 ## Contacts
 
 #### Nebraska GenCyber Program Director (Primary Point of Contact)
-![matt](https://github.com/MLHale/nebraska-gencyber/raw/master/img/matt.jpg)  
-[Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)  
-Assistant Professor of Cybersecurity  
-University of Nebraska at Omaha   
-[mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)  
-Twitter - [@mlhale](https://twitter.com/mlhale_)  
+![matt](https://github.com/MLHale/nebraska-gencyber/raw/master/img/matt.jpg)
+[Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)
+Assistant Professor of Cybersecurity
+University of Nebraska at Omaha
+[mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)
+Twitter - [@mlhale](https://twitter.com/mlhale_)
 
 #### Co-Investigator, Lead Instructor (Bellevue Point of Contact)
-![doug](https://github.com/MLHale/nebraska-gencyber/raw/master/img/doug.jpg)  
-[Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)  
-Assistant Professor & Program Director BSCYBR and MSCYBR  
-Bellevue University  
-[drausch@bellevue.edu](mailto:drausch@bellevue.edu)  
-Twitter - [@DouglasMRausch](https://twitter.com/DouglasMRausch)  
+![doug](https://github.com/MLHale/nebraska-gencyber/raw/master/img/doug.jpg)
+[Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)
+Assistant Professor & Program Director BSCYBR and MSCYBR
+Bellevue University
+[drausch@bellevue.edu](mailto:drausch@bellevue.edu)
+Twitter - [@DouglasMRausch](https://twitter.com/DouglasMRausch)
 
 #### Co-Investigator / Instructors
-![robin](https://github.com/MLHale/nebraska-gencyber/raw/master/img/robin.png)  
-[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)  
-Associate Professor of Cybersecurity  
-University of Nebraska at Omaha  
-[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)  
-Twitter - [@robinagandhi](https://twitter.com/robinagandhi)  
+![robin](https://github.com/MLHale/nebraska-gencyber/raw/master/img/robin.png)
+[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)
+Associate Professor of Cybersecurity
+University of Nebraska at Omaha
+[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)
+Twitter - [@robinagandhi](https://twitter.com/robinagandhi)
 
-![briana](https://github.com/MLHale/nebraska-gencyber/raw/master/img/briana.png)  
-[Dr. Briana B. Morrison](http://www.brianamorrison.net)  
-Assistant Professor of Computer Science (Education)  
-University of Nebraska at Omaha  
-[bbmorrison@unomaha.edu](mailto:bbmorrison@unomaha.edu)  
+![briana](https://github.com/MLHale/nebraska-gencyber/raw/master/img/briana.png)
+[Dr. Briana B. Morrison](http://www.brianamorrison.net)
+Assistant Professor of Computer Science (Education)
+University of Nebraska at Omaha
+[bbmorrison@unomaha.edu](mailto:bbmorrison@unomaha.edu)
 
 #### Instructors
-![chris](https://github.com/MLHale/nebraska-gencyber/raw/master/img/chris.jpg)  
-[Chris Daniels](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/chris-daniels.php)  
-Instructor, Cybersecurity  
-University of Nebraska at Omaha  
-[cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)  
+![chris](https://github.com/MLHale/nebraska-gencyber/raw/master/img/chris.jpg)
+[Chris Daniels](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/chris-daniels.php)
+Instructor, Cybersecurity
+University of Nebraska at Omaha
+[cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)
 
-![Chelsea](https://github.com/MLHale/nebraska-gencyber/raw/master/img/wilson.jpg)   
-Chelsea Hoglund   
-Technology Integration Specialist  
-Bellevue Public Schools  
-[chelsea.hoglund@bpsne.net](mailto:chelsea.hoglund@bpsne.net)  
+![Chelsea](https://github.com/MLHale/nebraska-gencyber/raw/master/img/wilson.jpg)
+Chelsea Hoglund
+Technology Integration Specialist
+Bellevue Public Schools
+[chelsea.hoglund@bpsne.net](mailto:chelsea.hoglund@bpsne.net)
 
-![Guillermo Rosas](https://github.com/MLHale/nebraska-gencyber/raw/master/img/rosas.jpg)  
-Guillermo Rosas  
-Information Technology Instructor  
-Metropolitan Community College  
-[grosas@mccneb.edu](mailto:grosas@mccneb.edu)  
+![Guillermo Rosas](https://github.com/MLHale/nebraska-gencyber/raw/master/img/rosas.jpg)
+Guillermo Rosas
+Information Technology Instructor
+Metropolitan Community College
+[grosas@mccneb.edu](mailto:grosas@mccneb.edu)
 
-![Kristeen Shabram](https://github.com/MLHale/nebraska-gencyber/raw/master/img/kristeen.jpg)  
-Kristeen Shabram  
-Teacher and CSTA K-8 Representative  
-Westside Middle School  
-Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)  
+![Kristeen Shabram](https://github.com/MLHale/nebraska-gencyber/raw/master/img/kristeen.jpg)
+Kristeen Shabram
+Teacher and CSTA K-8 Representative
+Westside Middle School
+Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)
 
-![Gary Sparks](https://github.com/MLHale/nebraska-gencyber/raw/master/img/sparks.jpg)  
-Gary Sparks  
-Information Technology Instructor  
-Metropolitan Community College  
-[gsparks@mccneb.edu](mailto:gsparks@mccneb.edu)  
+![Gary Sparks](https://github.com/MLHale/nebraska-gencyber/raw/master/img/sparks.jpg)
+Gary Sparks
+Information Technology Instructor
+Metropolitan Community College
+[gsparks@mccneb.edu](mailto:gsparks@mccneb.edu)
 
-![Gabi Wethor](https://github.com/MLHale/nebraska-gencyber/raw/master/img/gabi.jpg)  
-Gabi Wethor  
-PhD Student, Cybersecurity  
-University of Nebraska at Omaha  
+![Gabi Wethor](https://github.com/MLHale/nebraska-gencyber/raw/master/img/gabi.jpg)
+Gabi Wethor
+PhD Student, Cybersecurity
+University of Nebraska at Omaha
 
 #### Administrative Support
-![Christie](https://github.com/MLHale/nebraska-gencyber/raw/master/img/bio-icon.png)  
-[Christie Smith](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/christie-smith.php)  
-Academic Program Coordinator  
-University of Nebraska at Omaha  
-[christiesmith@unomaha.edu](mailto:christiesmith@unomaha.edu)  
+![Christie](https://github.com/MLHale/nebraska-gencyber/raw/master/img/bio-icon.png)
+[Christie Smith](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/christie-smith.php)
+Academic Program Coordinator
+University of Nebraska at Omaha
+[christiesmith@unomaha.edu](mailto:christiesmith@unomaha.edu)
 
 ## How to Contribute?
 
