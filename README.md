@@ -69,7 +69,6 @@ Technology Integration Specialist
 Bellevue Public Schools  
 [chelsea.hoglund@bpsne.net](mailto:chelsea.hoglund@bpsne.net)  
 
-
 ![Guillermo Rosas](./img/rosas.jpg)  
 Guillermo Rosas  
 Information Technology Instructor  
