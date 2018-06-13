@@ -3,7 +3,7 @@ This repo includes all open source content for the Nebraska GenCyber camp. Files
 
 <img src="https://github.com/MLHale/nebraska-gencyber/raw/master/img/uno-logo.png" width=250/> <img src="https://github.com/MLHale/nebraska-gencyber/raw/master/img/bellevue-logo.png" width=270/>
 
-## The NGC modules
+## The NGC modules 
 You can find all of our modules at [modules.nebraskagencyber.com](http://nebraskagencyber.com/modules/2018/)
 
 ## Social Media
@@ -16,28 +16,25 @@ Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twit
 ## Instagram
 [https://www.instagram.com/nebraska.gencyber/](https://www.instagram.com/nebraska.gencyber/)
 
-
 ## Information Packet
 ### Schedule
-[Week One](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/week1-schedule.pdf)
-[Week Two](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/week2-schedule.pdf)
+[Week One](../assets/week1-schedule.pdf)  
+[Week Two](../assets/week2-schedule.pdf)
 
 ### UNO Campus Map and Parking Info
-[Scott Campus Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf)
-[Parking Kiosk Info](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/kiosk-steps.pdf)
+[Scott Campus Map](../assets/scott-campus-map.pdf)  
+[Parking Kiosk Info](../assets/kiosk-steps.pdf)
 
-The Visitor Access Code GENCY06 may be used at a Kiosk near the middle staircases on levels 1-4.
-
-This Visitor Access Code is effective 06/18/18 to 06/29/18.
-
+The Visitor Access Code GENCY06 may be used at a Kiosk near the middle staircases on levels 1-4.  
+This Visitor Access Code is effective 06/18/18 to 06/29/18.  
 This Access Code is valid for authorized visitors only.
 
 ### Bellevue Campus Map
-[Bellevue Riley Technology Center Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/map-bellevue.png)
+[Bellevue Riley Technology Center Map](../assets/map-bellevue.png)
 
 ### Release Forms
-[UNO](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/uno-release.pdf)
-[Bellevue](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/bellevue-release.pdf)
+[UNO](../assets/uno-release.pdf)  
+[Bellevue](../assets/bellevue-release.pdf)
 
 <!-- ## Evaluation Forms
 * [Student Module Evaluation Form](https://unomaha.az1.qualtrics.com/jfe/form/SV_d6fG6S6YsTIdMTb)
@@ -49,77 +46,77 @@ This Access Code is valid for authorized visitors only.
 ## Contacts
 
 #### Nebraska GenCyber Program Director (Primary Point of Contact)
-![matt](https://github.com/MLHale/nebraska-gencyber/raw/master/img/matt.jpg)
-[Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)
-Assistant Professor of Cybersecurity
-University of Nebraska at Omaha
-[mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)
-Twitter - [@mlhale](https://twitter.com/mlhale_)
+![matt](https://github.com/MLHale/nebraska-gencyber/raw/master/img/matt.jpg)  
+[Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)  
+Assistant Professor of Cybersecurity  
+University of Nebraska at Omaha   
+[mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)  
+Twitter - [@mlhale](https://twitter.com/mlhale_)  
 
 #### Co-Investigator, Lead Instructor (Bellevue Point of Contact)
-![doug](https://github.com/MLHale/nebraska-gencyber/raw/master/img/doug.jpg)
-[Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)
-Assistant Professor & Program Director BSCYBR and MSCYBR
-Bellevue University
-[drausch@bellevue.edu](mailto:drausch@bellevue.edu)
-Twitter - [@DouglasMRausch](https://twitter.com/DouglasMRausch)
+![doug](https://github.com/MLHale/nebraska-gencyber/raw/master/img/doug.jpg)  
+[Douglas Rausch](http://www.bellevue.edu/about/leadership/faculty/rausch-douglas)  
+Assistant Professor & Program Director BSCYBR and MSCYBR  
+Bellevue University  
+[drausch@bellevue.edu](mailto:drausch@bellevue.edu)  
+Twitter - [@DouglasMRausch](https://twitter.com/DouglasMRausch)  
 
 #### Co-Investigator / Instructors
-![robin](https://github.com/MLHale/nebraska-gencyber/raw/master/img/robin.png)
-[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)
-Associate Professor of Cybersecurity
-University of Nebraska at Omaha
-[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)
-Twitter - [@robinagandhi](https://twitter.com/robinagandhi)
+![robin](https://github.com/MLHale/nebraska-gencyber/raw/master/img/robin.png)  
+[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)  
+Associate Professor of Cybersecurity  
+University of Nebraska at Omaha  
+[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)  
+Twitter - [@robinagandhi](https://twitter.com/robinagandhi)  
 
-![briana](https://github.com/MLHale/nebraska-gencyber/raw/master/img/briana.png)
-[Dr. Briana B. Morrison](http://www.brianamorrison.net)
-Assistant Professor of Computer Science (Education)
-University of Nebraska at Omaha
-[bbmorrison@unomaha.edu](mailto:bbmorrison@unomaha.edu)
+![briana](https://github.com/MLHale/nebraska-gencyber/raw/master/img/briana.png)  
+[Dr. Briana B. Morrison](http://www.brianamorrison.net)  
+Assistant Professor of Computer Science (Education)  
+University of Nebraska at Omaha  
+[bbmorrison@unomaha.edu](mailto:bbmorrison@unomaha.edu)  
 
 #### Instructors
-![chris](https://github.com/MLHale/nebraska-gencyber/raw/master/img/chris.jpg)
-[Chris Daniels](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/chris-daniels.php)
-Instructor, Cybersecurity
-University of Nebraska at Omaha
-[cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)
+![chris](https://github.com/MLHale/nebraska-gencyber/raw/master/img/chris.jpg)  
+[Chris Daniels](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/chris-daniels.php)  
+Instructor, Cybersecurity  
+University of Nebraska at Omaha  
+[cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)  
 
-![Chelsea](https://github.com/MLHale/nebraska-gencyber/raw/master/img/wilson.jpg)
-Chelsea Hoglund
-Technology Integration Specialist
-Bellevue Public Schools
-[chelsea.hoglund@bpsne.net](mailto:chelsea.hoglund@bpsne.net)
+![Chelsea](https://github.com/MLHale/nebraska-gencyber/raw/master/img/wilson.jpg)   
+Chelsea Hoglund   
+Technology Integration Specialist  
+Bellevue Public Schools  
+[chelsea.hoglund@bpsne.net](mailto:chelsea.hoglund@bpsne.net)  
 
-![Guillermo Rosas](https://github.com/MLHale/nebraska-gencyber/raw/master/img/rosas.jpg)
-Guillermo Rosas
-Information Technology Instructor
-Metropolitan Community College
-[grosas@mccneb.edu](mailto:grosas@mccneb.edu)
+![Guillermo Rosas](https://github.com/MLHale/nebraska-gencyber/raw/master/img/rosas.jpg)  
+Guillermo Rosas  
+Information Technology Instructor  
+Metropolitan Community College  
+[grosas@mccneb.edu](mailto:grosas@mccneb.edu)  
 
-![Kristeen Shabram](https://github.com/MLHale/nebraska-gencyber/raw/master/img/kristeen.jpg)
-Kristeen Shabram
-Teacher and CSTA K-8 Representative
-Westside Middle School
-Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)
+![Kristeen Shabram](https://github.com/MLHale/nebraska-gencyber/raw/master/img/kristeen.jpg)  
+Kristeen Shabram  
+Teacher and CSTA K-8 Representative  
+Westside Middle School  
+Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)  
 
-![Gary Sparks](https://github.com/MLHale/nebraska-gencyber/raw/master/img/sparks.jpg)
-Gary Sparks
-Information Technology Instructor
-Metropolitan Community College
-[gsparks@mccneb.edu](mailto:gsparks@mccneb.edu)
+![Gary Sparks](https://github.com/MLHale/nebraska-gencyber/raw/master/img/sparks.jpg)  
+Gary Sparks  
+Information Technology Instructor  
+Metropolitan Community College  
+[gsparks@mccneb.edu](mailto:gsparks@mccneb.edu)  
 
-![Gabi Wethor](https://github.com/MLHale/nebraska-gencyber/raw/master/img/gabi.jpg)
-Gabi Wethor
-PhD Student, Cybersecurity
-University of Nebraska at Omaha
+![Gabi Wethor](https://github.com/MLHale/nebraska-gencyber/raw/master/img/gabi.jpg)  
+Gabi Wethor  
+PhD Student, Cybersecurity  
+University of Nebraska at Omaha  
 
 #### Administrative Support
-![Christie](https://github.com/MLHale/nebraska-gencyber/raw/master/img/bio-icon.png)
-[Christie Smith](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/christie-smith.php)
-Academic Program Coordinator
-University of Nebraska at Omaha
-[christiesmith@unomaha.edu](mailto:christiesmith@unomaha.edu)
+![Christie](https://github.com/MLHale/nebraska-gencyber/raw/master/img/bio-icon.png)  
+[Christie Smith](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/christie-smith.php)  
+Academic Program Coordinator  
+University of Nebraska at Omaha  
+[christiesmith@unomaha.edu](mailto:christiesmith@unomaha.edu)  
 
 ## How to Contribute?
 
