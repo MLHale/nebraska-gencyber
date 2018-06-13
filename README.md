@@ -14,25 +14,14 @@ Want to get a hold of camp staff or fellow campers? Use [our official Slack Chan
 Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twitter.com/mlhale_), [@robinagandhi](https://twitter.com/robinagandhi), and [@DouglasMRausch](https://twitter.com/DouglasMRausch).
 
 ## Instagram
-TBA
-
-## Camp Schedule
-### Week One
-TBA
-
-### Week Two
-#### Students
-TBA
-
-#### Teachers
-TBA
+https://www.instagram.com/nebraska.gencyber/
 
 
-## Evaluation Forms
+<!-- ## Evaluation Forms
 * [Student Module Evaluation Form](https://unomaha.az1.qualtrics.com/jfe/form/SV_d6fG6S6YsTIdMTb)
 * [Teacher Module Evaluation Form](https://unomaha.az1.qualtrics.com/jfe/form/SV_8q4cebgz9jXh301)
 * [Exit Survey (Teachers)](https://www.surveymonkey.com/r/NebraskaOmaha_C1_T1_July24_Aug4)
-* [Exit Survey (Students)](https://www.surveymonkey.com/r/NebraskaOmaha_C1_S1_July24_Aug4)
+* [Exit Survey (Students)](https://www.surveymonkey.com/r/NebraskaOmaha_C1_S1_July24_Aug4) -->
 
 
 ## Contacts
@@ -41,7 +30,7 @@ TBA
 ![matt](./img/matt.jpg)  
 [Dr. Matt Hale](http://faculty.ist.unomaha.edu/mlhale/)  
 Assistant Professor of Cybersecurity  
-University of Nebraska at Omaha . 
+University of Nebraska at Omaha   
 [mlhale@unomaha.edu](mailto:mlhale@unomaha.edu)  
 Twitter - [@mlhale](https://twitter.com/mlhale_)  
 
@@ -74,16 +63,34 @@ Instructor, Cybersecurity
 University of Nebraska at Omaha  
 [cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)  
 
-![Gabi Wethor](./img/gabi.jpg)  
-Gabi Wethor
-PhD Student, Cybersecurity  
-University of Nebraska at Omaha  
+![Chelsea](./img/wilson.jpg)   
+Chelsea Hoglund   
+Technology Integration Specialist  
+Bellevue Public Schools  
+[chelsea.hoglund@bpsne.net](mailto:chelsea.hoglund@bpsne.net)  
 
-![Kristeen Shabram](./img/kristeen.jpg)   
-Kristeen Shabram
+![Guillermo Rosas](./img/rosas.jpg)  
+Guillermo Rosas  
+Information Technology Instructor  
+Metropolitan Community College  
+[grosas@mccneb.edu](mailto:grosas@mccneb.edu)  
+
+![Kristeen Shabram](./img/kristeen.jpg)  
+Kristeen Shabram  
 Teacher and CSTA K-8 Representative  
 Westside Middle School  
 Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)  
+
+![Gary Sparks](./img/sparks.jpg)  
+Gary Sparks  
+Information Technology Instructor  
+Metropolitan Community College  
+[gsparks@mccneb.edu](mailto:gsparks@mccneb.edu)  
+
+![Gabi Wethor](./img/gabi.jpg)  
+Gabi Wethor  
+PhD Student, Cybersecurity  
+University of Nebraska at Omaha  
 
 #### Administrative Support
 ![Christie](./img/bio-icon.png)  
