@@ -63,17 +63,17 @@ Instructor, Cybersecurity
 University of Nebraska at Omaha  
 [cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)  
 
-![Chelsea](./img/wilson.jpg)  
-Chelsea Hoglund  
-Technology Integration Specialist
-Bellevue Public Schools 
+![Chelsea](./img/wilson.jpg)   
+Chelsea Hoglund   
+Technology Integration Specialist  
+Bellevue Public Schools  
 [chelsea.hoglund@bpsne.net](mailto:chelsea.hoglund@bpsne.net)  
 
 
-![Guillermo Rosas](./img/rosas.jpg) 
+![Guillermo Rosas](./img/rosas.jpg)  
 Guillermo Rosas  
-Information Technology Instructor
-Metropolitan Community College 
+Information Technology Instructor  
+Metropolitan Community College  
 [grosas@mccneb.edu](mailto:grosas@mccneb.edu)  
 
 ![Kristeen Shabram](./img/kristeen.jpg)  
@@ -82,14 +82,14 @@ Teacher and CSTA K-8 Representative
 Westside Middle School  
 Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)  
 
-![Guillermo Rosas](./img/sparks.jpg) 
-Gary Sparks
-Information Technology Instructor
-Metropolitan Community College 
+![Gary Sparks](./img/sparks.jpg)  
+Gary Sparks  
+Information Technology Instructor  
+Metropolitan Community College  
 [gsparks@mccneb.edu](mailto:gsparks@mccneb.edu)  
 
 ![Gabi Wethor](./img/gabi.jpg)  
-Gabi Wethor
+Gabi Wethor  
 PhD Student, Cybersecurity  
 University of Nebraska at Omaha  
 
