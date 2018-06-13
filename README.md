@@ -18,23 +18,23 @@ Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twit
 
 ## Information Packet
 ### Schedule
-[Week One](../assets/week1-schedule.pdf)  
-[Week Two](../assets/week2-schedule.pdf)
+[Week One](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/week1-schedule.pdf)  
+[Week Two](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/week2-schedule.pdf)
 
 ### UNO Campus Map and Parking Info
-[Scott Campus Map](../assets/scott-campus-map.pdf)  
-[Parking Kiosk Info](../assets/kiosk-steps.pdf)
+[Scott Campus Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf)  
+[Parking Kiosk Info](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/kiosk-steps.pdf)
 
 The Visitor Access Code GENCY06 may be used at a Kiosk near the middle staircases on levels 1-4.  
 This Visitor Access Code is effective 06/18/18 to 06/29/18.  
 This Access Code is valid for authorized visitors only.
 
 ### Bellevue Campus Map
-[Bellevue Riley Technology Center Map](../assets/map-bellevue.png)
+[Bellevue Riley Technology Center Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/map-bellevue.png)
 
 ### Release Forms
-[UNO](../assets/uno-release.pdf)  
-[Bellevue](../assets/bellevue-release.pdf)
+[UNO](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/uno-release.pdf)  
+[Bellevue](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/bellevue-release.pdf)
 
 <!-- ## Evaluation Forms
 * [Student Module Evaluation Form](https://unomaha.az1.qualtrics.com/jfe/form/SV_d6fG6S6YsTIdMTb)
