@@ -14,25 +14,14 @@ Want to get a hold of camp staff or fellow campers? Use [our official Slack Chan
 Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twitter.com/mlhale_), [@robinagandhi](https://twitter.com/robinagandhi), and [@DouglasMRausch](https://twitter.com/DouglasMRausch).
 
 ## Instagram
-TBA
-
-## Camp Schedule
-### Week One
-TBA
-
-### Week Two
-#### Students
-TBA
-
-#### Teachers
-TBA
+https://www.instagram.com/nebraska.gencyber/
 
 
-## Evaluation Forms
+<!-- ## Evaluation Forms
 * [Student Module Evaluation Form](https://unomaha.az1.qualtrics.com/jfe/form/SV_d6fG6S6YsTIdMTb)
 * [Teacher Module Evaluation Form](https://unomaha.az1.qualtrics.com/jfe/form/SV_8q4cebgz9jXh301)
 * [Exit Survey (Teachers)](https://www.surveymonkey.com/r/NebraskaOmaha_C1_T1_July24_Aug4)
-* [Exit Survey (Students)](https://www.surveymonkey.com/r/NebraskaOmaha_C1_S1_July24_Aug4)
+* [Exit Survey (Students)](https://www.surveymonkey.com/r/NebraskaOmaha_C1_S1_July24_Aug4) -->
 
 
 ## Contacts
