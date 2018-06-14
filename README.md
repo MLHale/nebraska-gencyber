@@ -8,7 +8,7 @@ You can find all of our modules at [modules.nebraskagencyber.com](http://nebrask
 
 ## Social Media
 ### Slack
-Want to get a hold of camp staff or fellow campers? Use [our official Slack Channel](https://join.slack.com/t/nebraskagencyber/shared_invite/MjE3NzAyMDczOTkxLTE1MDA4NzMxODYtNjI0ODBiYTU2MA). You can sign up for free.
+Want to get a hold of camp staff or fellow campers? Use [our official Slack Channel](https://join.slack.com/t/nebraskagencyber/shared_invite/enQtMzgxODI3Njk5MzQ2LTAyZTk4NWIwMWZmNmM1NmVlZTI5ZmRkNTgzMjJlM2Y0Y2Y5ZDNmOWIwZmQ0NzIyMDI3NTRiYTZmNTFkZWFhZDA). You can sign up for free.
 
 ### Twitter
 Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twitter.com/mlhale_), [@robinagandhi](https://twitter.com/robinagandhi), and [@DouglasMRausch](https://twitter.com/DouglasMRausch).
