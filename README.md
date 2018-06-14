@@ -82,7 +82,7 @@ Instructor, Cybersecurity
 University of Nebraska at Omaha  
 [cdaniels@unomaha.edu](mailto:cdaniels@unomaha.edu)  
 
-![Chelsea](https://github.com/MLHale/nebraska-gencyber/raw/master/img/wilson.jpg)   
+![Chelsea](https://github.com/MLHale/nebraska-gencyber/raw/master/img/bps.jpg)   
 Chelsea Hoglund   
 Technology Integration Specialist  
 Bellevue Public Schools  
@@ -117,6 +117,10 @@ University of Nebraska at Omaha
 Academic Program Coordinator  
 University of Nebraska at Omaha  
 [christiesmith@unomaha.edu](mailto:christiesmith@unomaha.edu)  
+
+Jessica Wilson  
+Administrative Assistant  
+Bellevue University  
 
 ## How to Contribute?
 
