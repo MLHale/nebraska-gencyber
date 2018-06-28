@@ -3,6 +3,13 @@ This repo includes all open source content for the Nebraska GenCyber camp. Files
 
 <img src="https://github.com/MLHale/nebraska-gencyber/raw/master/img/uno-logo.png" width=250/> <img src="https://github.com/MLHale/nebraska-gencyber/raw/master/img/bellevue-logo.png" width=270/>
 
+## Camp Surveys
+[Student End of Camp Survey](https://www.research.net/r/UniversityofNebraskaOmaha_June18_June29_Student)  
+[Student Module Survey](
+
+[Teacher End of Camp Survey](https://www.research.net/r/UniversityofNebraskaOmaha_June18_June29_Teacher)
+[Teacher Module Survey](https://goo.gl/EFwXkF)
+
 ## The NGC modules 
 You can find all of our modules at [modules.nebraskagencyber.com](http://nebraskagencyber.com/modules/2018/)
 
