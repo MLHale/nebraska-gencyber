@@ -5,7 +5,7 @@ This repo includes all open source content for the Nebraska GenCyber camp. Files
 
 ## Camp Surveys
 [Student End of Camp Survey](https://www.research.net/r/UniversityofNebraskaOmaha_June18_June29_Student)  
-[Student Module Survey](bit.ly/NGCstudent2018)
+[Student Module Survey](https://bit.ly/NGCstudent2018)
 
 [Teacher End of Camp Survey](https://www.research.net/r/UniversityofNebraskaOmaha_June18_June29_Teacher)
 [Teacher Module Survey](https://goo.gl/EFwXkF)
