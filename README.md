@@ -1,4 +1,4 @@
-# Nebraska GenCyber @ [The University of Nebraska at Omaha](http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php) and [Bellevue University](http://www.bellevue.edu/degrees/center-for-cybersecurity-education/cce)
+# Nebraska GenCyber 
 This repo includes all open source content for the Nebraska GenCyber camp. Files in this repository are intended to provide step-by-step self paced tutorials to teachers and students seeking to learn about cybersecurity first principles as part of the UNO Gencyber camp. The strategy is to *learn by doing*. 
 
 # License
