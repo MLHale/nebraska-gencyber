@@ -1,27 +1,28 @@
 # Nebraska GenCyber @ [The University of Nebraska at Omaha](http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php)
-This repo includes all open source content for the Nebraska GenCyber camp. Files in this repository are intended to provide step-by-step self paced tutorials to students seeking to learn about cybersecurity first principles as part of the UNO Gencyber camp. The strategy is to *learn by doing*. The 2019 camp theme is `Rube Goldber Machines`.
+This repo includes all open source content for the Nebraska GenCyber camp. Files in this repository are intended to provide step-by-step self paced tutorials to students seeking to learn about cybersecurity first principles as part of the UNO Gencyber camp. The strategy is to *learn by doing*. The 2019 camp theme is `Rube Goldberg Machines`.
 
 <img src="https://github.com/MLHale/nebraska-gencyber/raw/master/img/uno-logo.png" width=250/> 
 
-## Camp Surveys
+<!-- ## Camp Surveys
 TBA
 
 ## The NGC modules 
-You can find all of our modules at [modules.nebraskagencyber.com](http://nebraskagencyber.com/modules/2019/)
+You can find all of our modules at [modules.nebraskagencyber.com](http://nebraskagencyber.com/modules/2019/) -->
 
 ## Social Media
-### Slack
-Want to get a hold of camp staff or fellow campers? Use [our official Slack Channel](https://join.slack.com/t/nebraskagencyber/shared_invite/enQtMzgxODI3Njk5MzQ2LTAyZTk4NWIwMWZmNmM1NmVlZTI5ZmRkNTgzMjJlM2Y0Y2Y5ZDNmOWIwZmQ0NzIyMDI3NTRiYTZmNTFkZWFhZDA). You can sign up for free.
+<!-- ### Slack
+Want to get a hold of camp staff or fellow campers? Use [our official Slack Channel](https://join.slack.com/t/nebraskagencyber/shared_invite/enQtMzgxODI3Njk5MzQ2LTAyZTk4NWIwMWZmNmM1NmVlZTI5ZmRkNTgzMjJlM2Y0Y2Y5ZDNmOWIwZmQ0NzIyMDI3NTRiYTZmNTFkZWFhZDA). You can sign up for free. -->
 
 ### Twitter
 Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twitter.com/mlhale_), [@robinagandhi](https://twitter.com/robinagandhi),  [@KristeenShabram](https://twitter.com/KristeenShabram), and [@lynnspady](https://twitter.com/lynnspady)
 
-## Instagram
+### Instagram
 [https://www.instagram.com/nebraska.gencyber/](https://www.instagram.com/nebraska.gencyber/)
 
 ## Information Packet
 ### Schedule
-[Week One](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.pdf)  
+![schedule image](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.png)  
+[Link to schedule PDF](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.pdf)  
 
 ### UNO Campus Map and Parking Info
 [Scott Campus Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf)  
