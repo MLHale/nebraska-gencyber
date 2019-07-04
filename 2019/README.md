@@ -25,7 +25,7 @@ Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twit
 The [UNO Scott Campus](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf) is the primary location where camp will take place. In particular activities will occur in the Peter Kiewit (PKI) building. A map of the [classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/pki-floorplan.png) can be found below. Drop-off and Pick-up points will be in the PKI atrium on UNO's Scott Campus (where the Chihuly sculpture hangs in the building labeled A on the attached map). Drop-off and Pick-up times are shown in the schedule. 
 
 [Scott Campus Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf)  
-[Classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/pki-floorplan.png)
+[Classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/pki-floorplan.png)  
 The Visitor Access Code for PKI – IS&T Guests is 59462, it can be used at a Kiosk near the middle staircases on levels 1-4.   
 This Access Code is valid for authorized visitors only.
 
