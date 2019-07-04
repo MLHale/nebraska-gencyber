@@ -1,8 +1,6 @@
 # Nebraska GenCyber @ [The University of Nebraska at Omaha](http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php)
 This repo includes all open source content for the Nebraska GenCyber camp. Files in this repository are intended to provide step-by-step self paced tutorials to students seeking to learn about cybersecurity first principles as part of the UNO Gencyber camp. The strategy is to *learn by doing*. The 2019 camp theme is `Rube Goldberg Machines`.
 
-<img src="https://github.com/MLHale/nebraska-gencyber/raw/master/img/uno-logo.png" width=250/> 
-
 <!-- ## Camp Surveys
 TBA
 
@@ -21,7 +19,7 @@ Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twit
 
 ## Information Packet
 ### Schedule
-![schedule image](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.png){:height="50%" width="50%"}    
+![schedule image](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.png)    
 [Link to schedule PDF](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.pdf)  
 
 ### UNO Campus Map and Parking Info
