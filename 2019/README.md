@@ -70,7 +70,7 @@ University of Nebraska at Omaha
 #### Instructor
 ![Lynn Spady](https://github.com/MLHale/nebraska-gencyber/raw/master/img/lynn.jpg)  
 Lynn Spady  
-Excellence in Youth Teacher Leader
+Excellence in Youth Teacher Leader  
 Westside Community Schools  
 Twitter - [@lynnspady](https://twitter.com/lynnspady)
 
