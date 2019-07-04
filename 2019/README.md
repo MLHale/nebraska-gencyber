@@ -19,8 +19,7 @@ Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twit
 
 ## Information Packet
 ### Schedule
-![schedule image](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.png)    
-> [Link to schedule PDF](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.pdf)  
+[Link to schedule PDF](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.pdf)  
 
 ### UNO Campus Map and Parking Info
 [Scott Campus Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf)  
