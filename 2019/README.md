@@ -1,5 +1,7 @@
 # Nebraska GenCyber @ [The University of Nebraska at Omaha](http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php)
-This repo includes all open source content for the Nebraska GenCyber camp. Files in this repository are intended to provide step-by-step self paced tutorials to students seeking to learn about cybersecurity first principles as part of the UNO Gencyber camp. The strategy is to *learn by doing*. The 2019 camp theme is `Rube Goldberg Machines`.
+We are excited to have you attend this year's Nebraska GenCyber Camp! Here on our website you will find information regarding this year's camp. In particular, our 2019 camp schedule is available at [https://www.nebraskagencyber.com/schedule/2019](https://www.nebraskagencyber.com/schedule/2019). It contains a list of camp modules / activities and a list of lunch and learn guest speakers that we will have at camp to provide career perspectives from female computing / cybersecurity leaders in industry and academia. 
+
+As the schedule shows, all campers will be provided with breakfast and lunch during camp. At the end of the week, Campers will also get to take some of the technology they've worked with at camp home with them - so they can continue exploring STEM and Cybersecurity at home after camp.
 
 <!-- ## Camp Surveys
 TBA
@@ -18,18 +20,21 @@ Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twit
 [https://www.instagram.com/nebraska.gencyber/](https://www.instagram.com/nebraska.gencyber/)
 
 ## Information Packet
-### Schedule
-[Link to schedule PDF](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/schedule.pdf)  
 
-### UNO Campus Map and Parking Info
+### Location and Parking Info
+The [UNO Scott Campus](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf) is the primary location where camp will take place. In particular activities will occur in the Peter Kiewit (PKI) building. A map of the [classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/pki-floorplan.png) can be found below. Drop-off and Pick-up points will be in the PKI atrium on UNO's Scott Campus (where the Chihuly sculpture hangs in the building labeled A on the attached map). Drop-off and Pick-up times are shown in the schedule. 
+
 [Scott Campus Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf)  
-
+[Classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/pki-floorplan.png)
 The Visitor Access Code for PKI – IS&T Guests is 59462, it can be used at a Kiosk near the middle staircases on levels 1-4.   
 This Access Code is valid for authorized visitors only.
 
 
-### Release Forms
-[UNO](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/uno-release.pdf)  
+### Release Forms and Permission Slips
+For our 2019 camp, we have worked with the FBI Omaha Field office to setup a tour of their facility and an introduction to their female leaders and team in Omaha. The field trip is entirely optional. If you would like your child to attend, please fill out the field trip permission form and have your child return it to us on the first day of camp. As a note, the FBI location in Omaha does require US Citizenship. If your child is not a US Citizen or you do not wish for them to attend, we have alternate activities for them to take part in. More details about the field trip are in the permission form.
+
+[UNO Photo Release](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/uno-release.pdf)  
+[Field Trip Permission Slip](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/permission-slip.pdf)
 
 ## Contacts
 
