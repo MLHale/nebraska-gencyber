@@ -55,7 +55,7 @@ University of Nebraska at Omaha
 Twitter - [@robinagandhi](https://twitter.com/robinagandhi)  
 
 #### Co-Investigator / Instructors
-![briana](https://github.com/MLHale/nebraska-gencyber/raw/master/img/briana.png)  
+![brian](https://github.com/MLHale/nebraska-gencyber/raw/master/img/brian.png)  
 [Dr. Brian Dorn](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/brian-dorn.php)  
 Associate Professor of Computer Science (Education)  
 University of Nebraska at Omaha  
@@ -66,6 +66,10 @@ Kristeen Shabram
 Teacher and CSTA K-8 Representative  
 Westside Middle School  
 Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)  
+
+![Sara Braga](https://github.com/MLHale/nebraska-gencyber/raw/master/img/sara.png)  
+Sara Braga
+UNO Cybersecurity Undergraduate Student Worker
 
 ![briana](https://github.com/MLHale/nebraska-gencyber/raw/master/img/briana.png)  
 [Dr. Briana B. Morrison](http://www.brianamorrison.net)  
