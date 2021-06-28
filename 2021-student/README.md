@@ -1,5 +1,5 @@
-# Nebraska GenCyber Teacher Camp @ [The University of Nebraska at Omaha](http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php)
-We are excited to have you attend this year's Nebraska GenCyber Camp! Here on our website you will find information regarding this year's camp. In particular, our 2021 camp schedule is available at [https://www.nebraskagencyber.com/schedule/2021](https://www.nebraskagencyber.com/schedule/2021). It contains a list of camp modules and activities for the week
+# Nebraska GenCyber Student Camp @ [The University of Nebraska at Omaha](http://www.unomaha.edu/college-of-information-science-and-technology/academics/information-assurance.php)
+We are excited to have you attend this year's Nebraska GenCyber Camp! Here on our website you will find information regarding this year's camp. In particular, our 2021 camp schedule is available at [https://www.nebraskagencyber.com/schedule/2021-student](https://www.nebraskagencyber.com/schedule/2021-student). It contains a list of camp modules and activities for the week.
 
 As the schedule shows, all campers will be provided with breakfast and lunch during camp. At the end of the week, Campers will also get to take some of the technology they've worked with at camp home with them - so they can continue exploring STEM and Cybersecurity at home after camp.
 
