@@ -22,7 +22,7 @@ Tweet to hashtag `#nebraskagencyber`. Camp twitterers are [@mlhale](https://twit
 ## Information Packet
 
 ### Location and Parking Info
-The [UNO Scott Campus](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf) is the primary location where camp will take place. In particular activities will occur in the Peter Kiewit (PKI) building. A map of the [classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2021/pki-floorplan.png) can be found below. 
+The [UNO Scott Campus](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/ist-visitory-parking.png) is the primary location where camp will take place. In particular activities will occur in the Peter Kiewit (PKI) building. A map of the [classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2021/pki-floorplan.png) can be found below. 
 
 [Scott Campus Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf)  
 [Classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/pki-floorplan.png)  
@@ -47,29 +47,33 @@ University of Nebraska at Omaha
 Twitter - [@mlhale](https://twitter.com/mlhale_)  
 
 #### Lead Instructor
-![robin](https://github.com/MLHale/nebraska-gencyber/raw/master/img/robin.png)  
-[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)  
-Associate Professor of Cybersecurity  
-University of Nebraska at Omaha  
-[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)  
-Twitter - [@robinagandhi](https://twitter.com/robinagandhi)  
-
-#### Co-Investigator / Instructors
-![brian](https://github.com/MLHale/nebraska-gencyber/raw/master/img/brian.png)  
-[Dr. Brian Dorn](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/brian-dorn.php)  
-Associate Professor of Computer Science (Education)  
-University of Nebraska at Omaha  
-[bdorn@unomaha.edu](mailto:bdorn@unomaha.edu)  
-
 ![Kristeen Shabram](https://github.com/MLHale/nebraska-gencyber/raw/master/img/kristeen.jpg)  
 Kristeen Shabram  
 Teacher and CSTA K-8 Representative  
 Westside Middle School  
 Twitter - [@KristeenShabram](https://twitter.com/KristeenShabram)  
 
-![Sara Braga](https://github.com/MLHale/nebraska-gencyber/raw/master/img/sara.png)  
+#### Co-Investigator / Instructors
+![robin](https://github.com/MLHale/nebraska-gencyber/raw/master/img/robin.png)  
+[Dr. Robin Gandhi](http://faculty.ist.unomaha.edu/rgandhi/)  
+Associate Professor of Cybersecurity  
+University of Nebraska at Omaha  
+[rgandhi@unomaha.edu](mailto:rgandhi@unomaha.edu)  
+Twitter - [@robinagandhi](https://twitter.com/robinagandhi) 
+
+![brian](https://github.com/MLHale/nebraska-gencyber/raw/master/img/brian.png)  
+[Dr. Brian Dorn](https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/brian-dorn.php)  
+Associate Professor of Computer Science (Education)  
+University of Nebraska at Omaha  
+[bdorn@unomaha.edu](mailto:bdorn@unomaha.edu)  
+
+![Sara Braga](https://github.com/MLHale/nebraska-gencyber/raw/master/img/sara.jpg)  
 Sara Braga
 UNO Cybersecurity Undergraduate Student Worker
+
+![Victoria](https://github.com/MLHale/nebraska-gencyber/raw/master/img/victoria.jpg)
+Victoria Chin 
+UNL Computer Science Undergraduate Student Intern
 
 ![briana](https://github.com/MLHale/nebraska-gencyber/raw/master/img/briana.png)  
 [Dr. Briana B. Morrison](http://www.brianamorrison.net)  
