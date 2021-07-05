@@ -26,7 +26,7 @@ The [UNO Scott Campus](https://github.com/MLHale/nebraska-gencyber/raw/master/as
 
 [Scott Campus Map](https://github.com/MLHale/nebraska-gencyber/raw/master/assets/scott-campus-map.pdf)  
 [Classroom layout](https://github.com/MLHale/nebraska-gencyber/raw/master/2019/pki-floorplan.png)  
-The Visitor Access Code for the PKI parking garage is is **ISTGT021**, it can be used at a Kiosk near the middle staircases on levels 1-4.   
+The Visitor Access Code for the PKI parking garage is is **ISTGS021**, it can be used at a Kiosk near the middle staircases on levels 1-4.   
 This Access Code is valid for authorized visitors only.
 
 
